@@ -27,3 +27,18 @@ Currently the backend is set up using Strapi and MongoDB as the database-provide
 2. Go into the folder `backend` and run the command `yarn develop`.
 3. Go to `http://localhost:1337/admin` and follow the steps to create a user.
 4. Once inside, you can now manipulate the data entries found under **Collection types** on the right-hand side menu.
+
+## Running the frontend ⏩
+
+```sh
+# Navigate to frontend folder
+cd frontend
+
+# Install dependencies
+yarn
+
+# Run frontend in development mode
+yarn dev
+```
+
+Open up your browser and go to `localhost:3000`. Your frontend should now be running!
