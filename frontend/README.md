@@ -19,7 +19,7 @@ Open up your browser and go to `localhost:3000`. Your frontend should now be run
 
 If you've never heard of URQL, you can read more about it [here](https://formidable.com/open-source/urql/docs/).
 
-This application uses URQL with GraphQL to fetch data from our [Strapi backend](./backend).
+This application uses URQL with GraphQL to fetch data from our [Strapi backend](../backend).
 
 The URQL client is defined in [`frontend/utils/createUrqlClient.ts`](./frontend/utils/createUrqlClient.ts). In short, it points to the URL and port where we fetch data from using GraphQL. The client also supports optional server side rendering, which benefits a webpage with quite dynamic content. Read more about server side rendering [here](https://www.freecodecamp.org/news/what-exactly-is-client-side-rendering-and-hows-it-different-from-server-side-rendering-bd5c786b340d/).
 
