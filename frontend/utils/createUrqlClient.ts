@@ -10,6 +10,7 @@ import { LOCAL_GRAPHQL_URL } from "../constants"
 const createUrqlClient = (ssrExchange: any) => ({
     url: LOCAL_GRAPHQL_URL,
     fetchOptions: {
+        // Including credentials requires us to handle potential CORS errors.
         credentials: "include" as const,
     },
     exchanges: [

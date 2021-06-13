@@ -9,7 +9,7 @@ const Wrapper: React.FC<WrapperProps> = ({
   className,
   children,
 }: WrapperProps) => {
-  const style = className !== null ? className : "";
+  const style = className !== undefined ? className : "";
 
   return (
     <div
