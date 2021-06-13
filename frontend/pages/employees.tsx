@@ -1,6 +1,8 @@
 import Wrapper from "components/Wrapper";
 import { useEmployeesQuery } from "generated/graphql";
+import { withUrqlClient } from "next-urql";
 import React from "react";
+import createUrqlClient from "../utils/createUrqlClient";
 
 interface EmployeesProps {}
 
@@ -32,4 +34,5 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
   );
 };
 
-export default Employees;
+// This page should be server side rendered, as the content is dynamic.
+export default withUrqlClient(createUrqlClient, { ssr: true })(Employees);

@@ -21,55 +21,6 @@
     tslib "^1.10.0"
     zen-observable "^0.8.14"
 
-"@apollo/react-common@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@apollo/react-common/-/react-common-3.1.4.tgz#ec13c985be23ea8e799c9ea18e696eccc97be345"
-  integrity sha512-X5Kyro73bthWSCBJUC5XYQqMnG0dLWuDZmVkzog9dynovhfiVCV4kPSdgSIkqnb++cwCzOVuQ4rDKVwo2XRzQA==
-  dependencies:
-    ts-invariant "^0.4.4"
-    tslib "^1.10.0"
-
-"@apollo/react-components@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@apollo/react-components/-/react-components-3.1.5.tgz#040d2f35ce4947747efe16f76d59dcbd797ffdaf"
-  integrity sha512-c82VyUuE9VBnJB7bnX+3dmwpIPMhyjMwyoSLyQWPHxz8jK4ak30XszJtqFf4eC4hwvvLYa+Ou6X73Q8V8e2/jg==
-  dependencies:
-    "@apollo/react-common" "^3.1.4"
-    "@apollo/react-hooks" "^3.1.5"
-    prop-types "^15.7.2"
-    ts-invariant "^0.4.4"
-    tslib "^1.10.0"
-
-"@apollo/react-hoc@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@apollo/react-hoc/-/react-hoc-3.1.5.tgz#6552d2fb4aafc59fdc8f4e353358b98b89cfab6f"
-  integrity sha512-jlZ2pvEnRevLa54H563BU0/xrYSgWQ72GksarxUzCHQW85nmn9wQln0kLBX7Ua7SBt9WgiuYQXQVechaaCulfQ==
-  dependencies:
-    "@apollo/react-common" "^3.1.4"
-    "@apollo/react-components" "^3.1.5"
-    hoist-non-react-statics "^3.3.0"
-    ts-invariant "^0.4.4"
-    tslib "^1.10.0"
-
-"@apollo/react-hooks@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@apollo/react-hooks/-/react-hooks-3.1.5.tgz#7e710be52461255ae7fc0b3b9c2ece64299c10e6"
-  integrity sha512-y0CJ393DLxIIkksRup4nt+vSjxalbZBXnnXxYbviq/woj+zKa431zy0yT4LqyRKpFy9ahMIwxBnBwfwIoupqLQ==
-  dependencies:
-    "@apollo/react-common" "^3.1.4"
-    "@wry/equality" "^0.1.9"
-    ts-invariant "^0.4.4"
-    tslib "^1.10.0"
-
-"@apollo/react-ssr@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@apollo/react-ssr/-/react-ssr-3.1.5.tgz#53703cd493afcde567acc6d5512cab03dafce6de"
-  integrity sha512-wuLPkKlctNn3u8EU8rlECyktpOUCeekFfb0KhIKknpGY6Lza2Qu0bThx7D9MIbVEzhKadNNrzLcpk0Y8/5UuWg==
-  dependencies:
-    "@apollo/react-common" "^3.1.4"
-    "@apollo/react-hooks" "^3.1.5"
-    tslib "^1.10.0"
-
 "@ardatan/aggregate-error@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@ardatan/aggregate-error/-/aggregate-error-0.0.6.tgz#fe6924771ea40fc98dc7a7045c2e872dc8527609"
@@ -664,17 +615,6 @@
     auto-bind "~4.0.0"
     tslib "~2.2.0"
 
-"@graphql-codegen/typescript-react-apollo@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-react-apollo/-/typescript-react-apollo-2.2.5.tgz#e561d77c3c1cfe32e42ab34c08d517bffc5e9f30"
-  integrity sha512-W9YI6qg6TwjD5CD+rQBmbZjwkA88MKc/9i31xvH2xGgdwzY1ybaTL10zMwsm5Ac+dOU6aCGHZVZzHd4wMrO1nw==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^1.18.7"
-    "@graphql-codegen/visitor-plugin-common" "1.21.0"
-    auto-bind "~4.0.0"
-    change-case-all "1.0.14"
-    tslib "~2.2.0"
-
 "@graphql-codegen/typescript-urql@^2.0.7":
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-urql/-/typescript-urql-2.0.7.tgz#1faa45f580132f59606d990c4bd81c1325504d86"
@@ -1141,7 +1081,7 @@
   dependencies:
     tslib "^2.1.0"
 
-"@wry/equality@^0.1.2", "@wry/equality@^0.1.9":
+"@wry/equality@^0.1.2":
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.1.11.tgz#35cb156e4a96695aa81a9ecc4d03787bc17f1790"
   integrity sha512-mwEVBDUVODlsQQ5dfuLUS5/Tf7jqUKyhKYHmVi4fPB6bDMOfWvUPJmKgS1Z7Za/sOI3vzWt4+O7yCiL/70MogA==
@@ -2828,7 +2768,7 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
+hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -3677,6 +3617,13 @@ native-url@0.3.4:
   dependencies:
     querystring "^0.2.0"
 
+next-urql@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/next-urql/-/next-urql-3.1.0.tgz#9c354cfd54cdf886988a2cb1ea0fd89f48ee7555"
+  integrity sha512-darSfxLqtC6mIsWxtTGvD9HdY1ABZwfB28AORPUhPFn1QNE8zaVQUtWydPa9ekgE7HC5ydTSkl4pDniUS2G8uw==
+  dependencies:
+    react-ssr-prepass "^1.4.0"
+
 next@10.2.3:
   version "10.2.3"
   resolved "https://registry.yarnpkg.com/next/-/next-10.2.3.tgz#5aa058a63626338cea91c198fda8f2715c058394"
@@ -4325,17 +4272,6 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-apollo@^3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-3.1.5.tgz#36692d393c47e7ccc37f0a885c7cc5a8b4961c91"
-  integrity sha512-xOxMqxORps+WHrUYbjVHPliviomefOpu5Sh35oO3osuOyPTxvrljdfTLGCggMhcXBsDljtS5Oy4g+ijWg3D4JQ==
-  dependencies:
-    "@apollo/react-common" "^3.1.4"
-    "@apollo/react-components" "^3.1.5"
-    "@apollo/react-hoc" "^3.1.5"
-    "@apollo/react-hooks" "^3.1.5"
-    "@apollo/react-ssr" "^3.1.5"
-
 react-dom@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -4354,6 +4290,11 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+
+react-ssr-prepass@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.4.0.tgz#33a3db19414f0f8f9f3f781c88f760ae366b4f51"
+  integrity sha512-0SzdmiQUtHvhxCabHg9BI/pkJfijGkQ0jQL6fC4YFy7idaDOuaiQLsajIkkNxffFXtJFHIWFITlve2WB88e0Jw==
 
 react@17.0.2:
   version "17.0.2"
@@ -5031,7 +4972,7 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-ts-invariant@^0.4.0, ts-invariant@^0.4.4:
+ts-invariant@^0.4.0:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
   integrity sha512-uEtWkFM/sdZvRNNDL3Ehu4WVpwaulhwQszV8mrtcdeE8nN00BV9mAmQ88RkrBhFgl9gMgvjJLAQcZbnPXI9mlA==

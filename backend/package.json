@@ -2,7 +2,7 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "SystemSoft AS - Strapi Backend",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
@@ -23,7 +23,7 @@
     "strapi-utils": "3.4.6"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Magnus Rødseth and Julian Grande"
   },
   "strapi": {
     "uuid": "5ea12f9a-8f53-4a22-bdab-32c37b050ad1"

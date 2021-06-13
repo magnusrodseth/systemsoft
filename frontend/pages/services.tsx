@@ -1,5 +1,7 @@
 import Wrapper from "../components/Wrapper";
 import React from "react";
+import { withUrqlClient } from "next-urql";
+import createUrqlClient from "utils/createUrqlClient";
 
 interface ServicesProps {}
 
@@ -13,4 +15,4 @@ const Services: React.FC<ServicesProps> = ({}) => {
   );
 };
 
-export default Services;
+export default withUrqlClient(createUrqlClient, { ssr: true })(Services);

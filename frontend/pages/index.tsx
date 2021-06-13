@@ -1,5 +1,7 @@
 import Wrapper from "components/Wrapper";
+import { withUrqlClient } from "next-urql";
 import React from "react";
+import createUrqlClient from "utils/createUrqlClient";
 
 const Index = () => {
   return (
@@ -11,4 +13,6 @@ const Index = () => {
   );
 };
 
-export default Index;
+// Using Urql, we can optionally server-side render specific pages.
+// Index page should not be necessary to SSR, as the content will be quite static.
+export default withUrqlClient(createUrqlClient, { ssr: false })(Index);
