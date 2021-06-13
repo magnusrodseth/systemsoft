@@ -1,0 +1,11 @@
+query Employees {
+  employees {
+    id
+    createdAt
+    updatedAt
+    slug
+    name
+    title
+    email
+  }
+}
