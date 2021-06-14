@@ -1740,6 +1740,19 @@ export type EmployeesQuery = (
   )>>> }
 );
 
+export type GetClientReferencesQueryVariables = Exact<{
+  clientSlug: Scalars['String'];
+}>;
+
+
+export type GetClientReferencesQuery = (
+  { __typename?: 'Query' }
+  & { references?: Maybe<Array<Maybe<(
+    { __typename?: 'References' }
+    & DefaultReferenceFragment
+  )>>> }
+);
+
 export type ReferencesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1866,6 +1879,17 @@ export const EmployeesDocument = gql`
 
 export function useEmployeesQuery(options: Omit<Urql.UseQueryArgs<EmployeesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<EmployeesQuery>({ query: EmployeesDocument, ...options });
+};
+export const GetClientReferencesDocument = gql`
+    query GetClientReferences($clientSlug: String!) {
+  references(where: {client: {slug: $clientSlug}}) {
+    ...DefaultReference
+  }
+}
+    ${DefaultReferenceFragmentDoc}`;
+
+export function useGetClientReferencesQuery(options: Omit<Urql.UseQueryArgs<GetClientReferencesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetClientReferencesQuery>({ query: GetClientReferencesDocument, ...options });
 };
 export const ReferencesDocument = gql`
     query References {
