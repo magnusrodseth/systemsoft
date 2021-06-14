@@ -7,8 +7,8 @@ import Link from "next/link";
 const navigation = [
   { name: "Clients", href: "/clients" },
   { name: "Employees", href: "/employees" },
-  { name: "Contact", href: "/contact" },
   { name: "References", href: "/references" },
+  { name: "Contact", href: "/contact" },
 ];
 
 interface NavbarProps {}
