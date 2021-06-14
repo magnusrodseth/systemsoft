@@ -1694,6 +1694,19 @@ export type DefaultServiceFragment = (
   )>>> }
 );
 
+export type ClientQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type ClientQuery = (
+  { __typename?: 'Query' }
+  & { clients?: Maybe<Array<Maybe<(
+    { __typename?: 'Clients' }
+    & Pick<Clients, 'id' | 'slug' | 'name' | 'description'>
+  )>>> }
+);
+
 export type ClientsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1810,6 +1823,20 @@ export const DefaultServiceFragmentDoc = gql`
   }
 }
     `;
+export const ClientDocument = gql`
+    query Client($slug: String!) {
+  clients(where: {slug: $slug}) {
+    id
+    slug
+    name
+    description
+  }
+}
+    `;
+
+export function useClientQuery(options: Omit<Urql.UseQueryArgs<ClientQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ClientQuery>({ query: ClientDocument, ...options });
+};
 export const ClientsDocument = gql`
     query Clients {
   clients {

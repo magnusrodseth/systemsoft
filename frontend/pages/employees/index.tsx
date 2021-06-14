@@ -5,7 +5,7 @@ import Wrapper from "components/Wrapper";
 import { useEmployeesQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
-import createUrqlClient from "../utils/createUrqlClient";
+import createUrqlClient from "../../utils/createUrqlClient";
 
 interface EmployeesProps {}
 
