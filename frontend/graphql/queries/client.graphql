@@ -1,8 +1,5 @@
 query Client($slug: String!) {
   clients(where: { slug: $slug }) {
-    id
-    slug
-    name
-    description
+    ...DefaultClient
   }
 }

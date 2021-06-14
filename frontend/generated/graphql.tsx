@@ -1703,7 +1703,7 @@ export type ClientQuery = (
   { __typename?: 'Query' }
   & { clients?: Maybe<Array<Maybe<(
     { __typename?: 'Clients' }
-    & Pick<Clients, 'id' | 'slug' | 'name' | 'description'>
+    & DefaultClientFragment
   )>>> }
 );
 
@@ -1826,13 +1826,10 @@ export const DefaultServiceFragmentDoc = gql`
 export const ClientDocument = gql`
     query Client($slug: String!) {
   clients(where: {slug: $slug}) {
-    id
-    slug
-    name
-    description
+    ...DefaultClient
   }
 }
-    `;
+    ${DefaultClientFragmentDoc}`;
 
 export function useClientQuery(options: Omit<Urql.UseQueryArgs<ClientQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<ClientQuery>({ query: ClientDocument, ...options });
