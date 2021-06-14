@@ -2,28 +2,28 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "SystemSoft AS - Strapi Backend",
   "scripts": {
-    "develop": "strapi develop",
+    "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.4.6",
-    "strapi-admin": "3.4.6",
-    "strapi-connector-mongoose": "3.4.6",
-    "strapi-plugin-content-manager": "3.4.6",
-    "strapi-plugin-content-type-builder": "3.4.6",
-    "strapi-plugin-email": "3.4.6",
-    "strapi-plugin-graphql": "3.4.6",
-    "strapi-plugin-upload": "3.4.6",
-    "strapi-plugin-users-permissions": "3.4.6",
-    "strapi-utils": "3.4.6"
+    "strapi": "3.6.3",
+    "strapi-admin": "3.6.3",
+    "strapi-connector-mongoose": "3.6.3",
+    "strapi-plugin-content-manager": "3.6.3",
+    "strapi-plugin-content-type-builder": "3.6.3",
+    "strapi-plugin-email": "3.6.3",
+    "strapi-plugin-graphql": "3.6.3",
+    "strapi-plugin-upload": "3.6.3",
+    "strapi-plugin-users-permissions": "3.6.3",
+    "strapi-utils": "3.6.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Magnus Rødseth and Julian Grande"
   },
   "strapi": {
     "uuid": "5ea12f9a-8f53-4a22-bdab-32c37b050ad1"

@@ -1,5 +1,7 @@
 import Wrapper from "components/Wrapper";
+import { withUrqlClient } from "next-urql";
 import React from "react";
+import createUrqlClient from "utils/createUrqlClient";
 
 interface ContactProps {}
 
@@ -13,4 +15,5 @@ const Contact: React.FC<ContactProps> = ({}) => {
   );
 };
 
-export default Contact;
+// This page does not need to be server side rendered, as the content is quite static.
+export default withUrqlClient(createUrqlClient, { ssr: false })(Contact);
