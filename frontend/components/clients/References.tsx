@@ -21,6 +21,9 @@ const References: React.FC<ReferencesProps> = ({
 
   const { data, fetching, error } = result;
 
+  console.log(fetching, error);
+
+
   const references = data?.references as IReferences[];
 
   if (fetching) return <>Loading...</>;

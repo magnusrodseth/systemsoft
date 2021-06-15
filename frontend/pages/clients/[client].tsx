@@ -12,6 +12,9 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   const { data, fetching, error } = result;
 
+  console.log(fetching, error);
+
+
   const clients = data?.clients as IClients[];
 
   if (fetching) return <>Loading...</>;
