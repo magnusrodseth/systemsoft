@@ -21,6 +21,10 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
     setCurrentIndex(nextIndex);
   };
 
+  const handleCounter = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   useEffect(() => {
     setCurrentClient(clients[currentIndex]);
   });
@@ -63,6 +67,26 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
             >
               Read more
             </button>
+
+            {/* Counter */}
+            <div className="flex flex-row space-x-6">
+              {clients.map((client, index) => (
+                <div
+                  className={classNames(
+                    "rounded-full h-5 w-5 bg-opacity-0 border-2",
+                    "hover:cursor-pointer",
+                    `${
+                      index == currentIndex
+                        ? "border-gray-800"
+                        : "border-gray-400"
+                    }`
+                  )}
+                  onClick={() => {
+                    handleCounter(index);
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : (
