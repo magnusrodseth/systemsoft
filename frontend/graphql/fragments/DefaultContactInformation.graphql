@@ -1,6 +1,7 @@
 fragment DefaultContactInformation on ContactInformation {
   id
   email
+  linkedin
   phoneNumber
   address
   zipCode

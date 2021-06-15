@@ -1,15 +1,37 @@
+import Carousel from "components/clients/Carousel";
+import ClientArticle from "components/clients/ClientArticle";
 import Wrapper from "components/Wrapper";
+import { useClientsQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
+import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
+import { Clients as IClients } from "../../generated/graphql";
 
 interface ClientsProps {}
 
-const Clients: React.FC<ClientsProps> = ({}) => {
+const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
+  const [result, _] = useClientsQuery();
+
+  const { data, fetching, error } = result;
+
+  console.log(fetching, error);
+
+
+  const clients = data?.clients as IClients[];
+
   return (
-    <div className="grid gap-6 grid-cols-3">
-      <Wrapper className="col-start-2 bg-blue-200">
-        <h1 className="text-center text-2xl">Clients</h1>
+    <div className="flex justify-center">
+      <Wrapper className={classNames("bg-blue-200 w-screen h-96")}>
+        <Carousel clients={clients} />
+
+        <div
+          className={classNames("flex flex-col justify-center items-center")}
+        >
+          {clients.map((client) => (
+            <ClientArticle client={client} />
+          ))}
+        </div>
       </Wrapper>
     </div>
   );
