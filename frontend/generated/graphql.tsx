@@ -149,6 +149,7 @@ export type ContactInformation = {
   zipCode?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -159,6 +160,7 @@ export type ContactInformationInput = {
   zipCode?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1507,6 +1509,7 @@ export type EditContactInformationInput = {
   zipCode?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1667,7 +1670,7 @@ export type DefaultClientFragment = (
 
 export type DefaultContactInformationFragment = (
   { __typename?: 'ContactInformation' }
-  & Pick<ContactInformation, 'id' | 'email' | 'phoneNumber' | 'address' | 'zipCode' | 'city' | 'country'>
+  & Pick<ContactInformation, 'id' | 'email' | 'linkedin' | 'phoneNumber' | 'address' | 'zipCode' | 'city' | 'country'>
 );
 
 export type DefaultEmployeeFragment = (
@@ -1778,6 +1781,7 @@ export const DefaultContactInformationFragmentDoc = gql`
     fragment DefaultContactInformation on ContactInformation {
   id
   email
+  linkedin
   phoneNumber
   address
   zipCode
