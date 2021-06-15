@@ -1,4 +1,5 @@
 import Carousel from "components/clients/Carousel";
+import ClientArticle from "components/clients/ClientArticle";
 import Wrapper from "components/Wrapper";
 import { useClientsQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
@@ -20,6 +21,14 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
     <div className="flex justify-center">
       <Wrapper className={classNames("bg-blue-200 w-screen h-96")}>
         <Carousel clients={clients} />
+
+        <div
+          className={classNames("flex flex-col justify-center items-center")}
+        >
+          {clients.map((client) => (
+            <ClientArticle client={client} />
+          ))}
+        </div>
       </Wrapper>
     </div>
   );
