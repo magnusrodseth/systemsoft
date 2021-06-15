@@ -1,6 +1,6 @@
 import Employee from "components/Employee";
 import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
-import { withUrqlClient, WithUrqlProps } from "next-urql";
+import { withUrqlClient } from "next-urql";
 import React from "react";
 import createUrqlClient from "../../utils/createUrqlClient";
 
