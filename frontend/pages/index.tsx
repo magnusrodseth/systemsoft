@@ -35,10 +35,10 @@ const Index = () => {
             <button
               className={classNames(
                 "bg-blue-500 hover:bg-blue-600 transition transform ease-in-out duration-500",
-                "tracking-wide font-mono text-white py-2 px-4 rounded"
+                "tracking-wide font-mono text-white py-2 px-4 rounded uppercase"
               )}
             >
-              CALL TO ACTION
+              Call to action
             </button>
           </div>
         </Wrapper>
