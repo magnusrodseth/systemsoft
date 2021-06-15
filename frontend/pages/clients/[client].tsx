@@ -26,7 +26,6 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
     return <></>;
   }
 
-  const clients = data?.clients as Clients[];
   const client = clients[0];
 
   return (
