@@ -21,7 +21,7 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
 
   return (
     <div className="flex justify-center flex-col">
-      <Wrapper className={classNames("bg-blue-200 w-screen h-96")}>
+      <Wrapper className={classNames("bg-blue-200 w-screen h-96 m-0")}>
         <Carousel clients={clients} />
       </Wrapper>
       <div className={classNames("flex flex-col justify-center items-center")}>
