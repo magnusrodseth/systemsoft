@@ -22,6 +22,13 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   return (
     <>
+      <div className="text-center p-5">
+        <h2 className="text-blue-600 font-bold uppercase text-1xl">
+          Introducing
+        </h2>
+        <h1 className="text-5xl font-bold text-gray-800">Our Employees</h1>
+      </div>
+      <div className="bg-blue-600 h-1 w-10 ml-auto mr-auto mb-6"></div>
       {employees.map((employee) => (
         <Employee employee={employee} odd={++count % 2 == 0} />
       ))}
