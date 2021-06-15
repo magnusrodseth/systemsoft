@@ -15,23 +15,18 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   const clients = data?.clients as IClients[];
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-col">
       <Wrapper className={classNames("bg-blue-200 w-screen h-96")}>
         <Carousel clients={clients} />
-
-        <div
-          className={classNames("flex flex-col justify-center items-center")}
-        >
-          {clients.map((client) => (
-            <ClientArticle client={client} />
-          ))}
-        </div>
       </Wrapper>
+      <div className={classNames("flex flex-col justify-center items-center")}>
+        {clients.map((client) => (
+          <ClientArticle client={client} />
+        ))}
+      </div>
     </div>
   );
 };

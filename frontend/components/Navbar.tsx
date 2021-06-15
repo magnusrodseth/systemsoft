@@ -17,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <Disclosure
       as="nav"
-      className="bg-gray-100 shadow-lg font-mono text-center fixed top-0 w-screen"
+      className="bg-gray-100 shadow-lg font-mono text-center fixed top-0 w-screen z-50"
     >
       {({ open }) => (
         <>
