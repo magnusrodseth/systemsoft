@@ -23,9 +23,9 @@ const Footer: React.FC<WithUrqlProps> = () => {
       info;
 
     return (
-      <footer className="grid">
-        <div className="mt-1 bg-[#050552] grid sm:grid-cols-2 gap-6 text-white text-center py-10">
-          <Wrapper className="p-0">
+      <footer>
+        <div className="bg-[#050552] grid sm:grid-cols-2 gap-6 text-white text-center py-10">
+          <div className="p-0 m-5">
             <img
               className={classNames(
                 "block m-auto h-8 w-auto",
@@ -41,8 +41,8 @@ const Footer: React.FC<WithUrqlProps> = () => {
               <p>{`${zipCode} ${city}`}</p>
               <p>{country}</p>
             </div>
-          </Wrapper>
-          <Wrapper>
+          </div>
+          <div className="p-0 m-6">
             <h1 className="text-2xl">Contact</h1>
             <div className="grid gap-2 mt-5">
               <p
@@ -88,7 +88,7 @@ const Footer: React.FC<WithUrqlProps> = () => {
                 </Link>
               </p>
             </div>
-          </Wrapper>
+          </div>
         </div>
       </footer>
     );

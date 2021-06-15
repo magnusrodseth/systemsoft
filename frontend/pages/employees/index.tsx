@@ -1,7 +1,6 @@
-import Fetching from "components/Fetching";
-import Wrapper from "components/Wrapper";
+import Employee from "components/Employee";
 import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
-import { withUrqlClient } from "next-urql";
+import { withUrqlClient, WithUrqlProps } from "next-urql";
 import React from "react";
 import createUrqlClient from "../../utils/createUrqlClient";
 
@@ -14,26 +13,19 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
+  if (fetching) return <>Loading...</>;
+  if (error) return <>Error...</>;
+
   const employees = data?.employees as IEmployees[];
 
-  return (
-    <div className="grid gap-6 grid-cols-3">
-      {error ? (
-        <Wrapper className="col-start-2 bg-red-300">shid</Wrapper>
-      ) : null}
+  let count = 0;
 
-      <Wrapper className="col-start-2 bg-yellow-200">
-        {fetching ? (
-          <Fetching />
-        ) : (
-          <div>
-            {employees.map((employee) => (
-              <p>{employee.email}</p>
-            ))}
-          </div>
-        )}
-      </Wrapper>
-    </div>
+  return (
+    <>
+      {employees.map((employee) => (
+        <Employee employee={employee} odd={++count % 2 == 0} />
+      ))}
+    </>
   );
 };
 
