@@ -19,9 +19,9 @@ const References: React.FC<ReferencesProps> = ({
 
   return (
     <div>
-      {data?.references?.map((reference) => {
+      {data?.references?.map((reference, key) => {
         return (
-          <div>
+          <div key={key}>
             <h1>{reference?.title}</h1>
             <p>{reference?.description}</p>
           </div>
