@@ -177,11 +177,7 @@ const Contact: React.FC<ContactProps> = ({}) => {
                       cy="12"
                       r="10"
                       stroke="currentColor"
-<<<<<<< HEAD
                       strokeWidth="4"
-=======
-                      stroke-width="4"
->>>>>>> 5851fb25a3cf8234423edf63ffcf47a2bb63c00b
                     ></circle>
                     <path
                       className="opacity-75"
