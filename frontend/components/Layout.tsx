@@ -5,13 +5,14 @@ import Navbar from "./Navbar";
 
 interface LayoutProps {
   children: any;
+  title: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children, title }: LayoutProps) => {
   return (
     <div>
       <Head>
-        <title>SystemSoft AS</title>
+        <title>{title} - SystemSoft AS</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/favicon.png" />
