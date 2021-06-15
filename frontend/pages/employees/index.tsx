@@ -1,6 +1,4 @@
-import Alert from "components/Alert";
 import Fetching from "components/Fetching";
-import ErrorIcon from "components/icons/ErrorIcon";
 import Wrapper from "components/Wrapper";
 import { useEmployeesQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
@@ -19,12 +17,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
   return (
     <div className="grid gap-6 grid-cols-3">
       {error ? (
-        <Wrapper className="col-start-2 bg-red-300">
-          <Alert
-            message="An error occurred when trying to load to page!"
-            icon={<ErrorIcon />}
-          />
-        </Wrapper>
+        <Wrapper className="col-start-2 bg-red-300">shid</Wrapper>
       ) : null}
 
       <Wrapper className="col-start-2 bg-yellow-200">
