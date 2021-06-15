@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Note: This is not actually a syntax error.
-// It is just VS Code not being able to recognize Next JS 11 features
+// It is just TypeScript not being able to recognize Next JS 11 features
 import favicon from "../public/favicon.png";
 
 const navigation = [

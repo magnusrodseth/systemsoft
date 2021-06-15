@@ -5,7 +5,7 @@ import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
 
 // Note: This is not actually a syntax error.
-// It is just VS Code not being able to recognize Next JS 11 features
+// It is just TypeScript not being able to recognize Next JS 11 features
 import businessIdea from "../../public/illustrations/business-idea.png";
 
 interface ClientArticleProps {

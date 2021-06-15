@@ -8,7 +8,7 @@ import classNames from "utils/classNames";
 import Image from "next/image";
 
 // Note: This is not actually a syntax error.
-// It is just VS Code not being able to recognize Next JS 11 features
+// It is just TypeScript not being able to recognize Next JS 11 features
 import agreement from "../../public/illustrations/agreement.png";
 
 interface ServicesProps {}
