@@ -1,6 +1,6 @@
 import React from "react";
 import { GetServerSideProps } from "next";
-import { useClientQuery } from "generated/graphql";
+import { useClientQuery, Clients as IClients } from "generated/graphql";
 import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
 import { useRouter } from "next/dist/client/router";
@@ -12,10 +12,12 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   const { data, fetching, error } = result;
 
+  const clients = data?.clients as IClients[];
+
   if (fetching) return <>Loading...</>;
   if (error) return <>Error...</>;
 
-  if (data?.clients?.length == 0) {
+  if (clients.length == 0) {
     router.push("/clients");
     return <></>;
   }
@@ -23,9 +25,9 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
   return (
     <div>
       <div>
-        {data?.clients?.map((client) => (
-          <div key={client?.id}>
-            <h1>{client?.name}</h1>
+        {clients.map((client) => (
+          <div key={client.id}>
+            <h1>{client.name}</h1>
           </div>
         ))}
       </div>

@@ -37,6 +37,9 @@
     "country": {
       "type": "string",
       "unique": true
+    },
+    "linkedin": {
+      "type": "string"
     }
   }
 }

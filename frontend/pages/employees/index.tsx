@@ -1,6 +1,6 @@
 import Fetching from "components/Fetching";
 import Wrapper from "components/Wrapper";
-import { useEmployeesQuery } from "generated/graphql";
+import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
 import createUrqlClient from "../../utils/createUrqlClient";
@@ -14,6 +14,8 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
+  const employees = data?.employees as IEmployees[];
+
   return (
     <div className="grid gap-6 grid-cols-3">
       {error ? (
@@ -25,8 +27,8 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
           <Fetching />
         ) : (
           <div>
-            {data?.employees?.map((employee) => (
-              <p>{employee?.email}</p>
+            {employees.map((employee) => (
+              <p>{employee.email}</p>
             ))}
           </div>
         )}

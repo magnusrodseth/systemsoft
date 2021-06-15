@@ -3,7 +3,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   mode: "jit",
   theme: {
-    extend: {},
+    extend: {
+      minHeight: (theme) => ({
+        container: "calc(100vh - 84px)",
+      }),
+    },
   },
   variants: {
     extend: {},
