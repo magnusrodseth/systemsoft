@@ -1,7 +1,12 @@
 import Wrapper from "components/Wrapper";
+import Image from "next/image";
 import React from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
+
+// Note: This is not actually a syntax error.
+// It is just VS Code not being able to recognize Next JS 11 features
+import businessIdea from "../../public/illustrations/business-idea.png";
 
 interface ClientArticleProps {
   client: IClients;
@@ -19,14 +24,12 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
       )}
     >
       <Wrapper className="bg-gray-100">
-        <img
-          src={
-            client.logo?.url
-              ? client.logo?.url
-              : "/illustrations/business-idea.png"
-          }
+        <Image
+          src={client.logo?.url ? client.logo?.url : businessIdea}
           alt={`${client.name} Logo`}
           className={classNames("w-20")}
+          width="auto"
+          height="auto"
         />
       </Wrapper>
 

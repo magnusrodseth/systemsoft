@@ -3,6 +3,10 @@ import { withUrqlClient } from "next-urql";
 import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
+import Image from "next/image";
+
+// Note: This is not actually a syntax error. It is just VS Code not being able to recognize Next JS 11 features
+import businessDeal from "../public/illustrations/business-deal.png";
 
 const Index = () => {
   return (
@@ -45,8 +49,9 @@ const Index = () => {
 
         {/* Right 1/3 of grid */}
         <Wrapper className="flex justify-center items-center bg-gray-600">
-          <img
-            src="/illustrations/business-deal.png"
+          <Image
+            placeholder="blur"
+            src={businessDeal}
             alt="Business deal illustration"
           />
         </Wrapper>

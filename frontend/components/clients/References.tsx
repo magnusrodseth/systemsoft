@@ -23,7 +23,6 @@ const References: React.FC<ReferencesProps> = ({
 
   console.log(fetching, error);
 
-
   const references = data?.references as IReferences[];
 
   if (fetching) return <>Loading...</>;
@@ -34,7 +33,10 @@ const References: React.FC<ReferencesProps> = ({
       <div className="w-screen grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 space-6">
         {references.map((reference) => {
           return (
-            <Wrapper className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5">
+            <Wrapper
+              className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5"
+              key={reference.id}
+            >
               <div key={reference.id}>
                 <h1
                   className={classNames(
@@ -44,11 +46,9 @@ const References: React.FC<ReferencesProps> = ({
                   {reference.title}
                 </h1>
 
-                <ReactMarkdown
-                  remarkPlugins={[gfm]}
-                  className="text-left"
-                  children={reference.description}
-                />
+                <ReactMarkdown remarkPlugins={[gfm]} className="text-left">
+                  {reference.description}
+                </ReactMarkdown>
               </div>
             </Wrapper>
           );

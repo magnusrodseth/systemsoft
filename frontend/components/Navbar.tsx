@@ -3,6 +3,11 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "../utils/classNames";
 import Link from "next/link";
+import Image from "next/image";
+
+// Note: This is not actually a syntax error.
+// It is just VS Code not being able to recognize Next JS 11 features
+import favicon from "../public/favicon.png";
 
 const navigation = [
   { name: "Clients", href: "/clients" },
@@ -43,27 +48,15 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                 <div className="flex-shrink-0 flex items-center">
                   <Link href="/">
                     <a>
-                      <img
+                      <Image
                         className={classNames(
                           "block lg:hidden h-8 w-auto",
                           "transition duration-500 ease-in-out transform",
                           "hover:-translate-y-1 hover:scale-101"
                         )}
-                        src="/favicon.png"
-                        alt="SystemSoft AS Logo"
-                      />
-                    </a>
-                  </Link>
-
-                  <Link href="/">
-                    <a>
-                      <img
-                        className={classNames(
-                          "hidden lg:block h-8 w-auto",
-                          "transition duration-500 ease-in-out transform",
-                          "hover:-translate-y-1 hover:scale-101"
-                        )}
-                        src="/favicon.png"
+                        src={favicon}
+                        width="35px"
+                        height="35px"
                         alt="SystemSoft AS Logo"
                       />
                     </a>

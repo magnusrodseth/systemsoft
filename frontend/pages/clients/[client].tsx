@@ -38,7 +38,7 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
         </h1>
 
         <p className="font-mono text-md text-center">
-          Take a look at how we've helped {client.name}.
+          Take a look at how we have helped {client.name}.
         </p>
       </div>
       <References clientSlug={name} />

@@ -9,6 +9,11 @@ import { PhoneIcon, MailIcon } from "@heroicons/react/outline";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import Link from "next/link";
 import classNames from "utils/classNames";
+import Image from "next/image";
+
+// Note: This is not actually a syntax error.
+// It is just VS Code not being able to recognize Next JS 11 features
+import favicon from "../public/favicon.png";
 
 const Footer: React.FC<WithUrqlProps> = () => {
   const [result, _] = useContactInformationQuery();
@@ -25,14 +30,16 @@ const Footer: React.FC<WithUrqlProps> = () => {
       <footer>
         <div className="bg-[#050552] grid sm:grid-cols-2 gap-6 text-white text-center py-10">
           <div className="p-0 m-5">
-            <img
+            <Image
               className={classNames(
                 "block m-auto h-8 w-auto",
                 "transition duration-500 ease-in-out transform",
                 "hover:-translate-y-1 hover:scale-101"
               )}
-              src="/favicon.png"
+              src={favicon}
               alt="SystemSoft AS Logo"
+              width="35px"
+              height="35px"
             />
             <div className="grid gap-1 mt-2">
               <p className="font-bold text-base">Postal and office address</p>

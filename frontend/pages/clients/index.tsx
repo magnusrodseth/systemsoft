@@ -28,7 +28,9 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
           className={classNames("flex flex-col justify-center items-center")}
         >
           {clients.map((client) => (
-            <ClientArticle client={client} />
+            <div key={client.id}>
+              <ClientArticle client={client} />
+            </div>
           ))}
         </div>
       </Wrapper>

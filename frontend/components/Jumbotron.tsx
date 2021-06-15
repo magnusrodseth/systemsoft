@@ -1,19 +1,13 @@
 import { Popover } from "@headlessui/react";
+import Image from "next/image";
 import React from "react";
 import classNames from "utils/classNames";
 
 interface JumbotronProps {
   title: string;
-  backgroundImage?: string;
 }
 
-const Jumbotron: React.FC<JumbotronProps> = ({
-  title,
-  backgroundImage,
-}: JumbotronProps) => {
-  const src = backgroundImage
-    ? backgroundImage
-    : "/illustrations/code-review.png";
+const Jumbotron: React.FC<JumbotronProps> = ({ title }: JumbotronProps) => {
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -54,20 +48,12 @@ const Jumbotron: React.FC<JumbotronProps> = ({
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        {backgroundImage ? (
-          <img
-            className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src={src}
-            alt={title}
-          />
-        ) : (
-          <div
-            className={classNames(
-              "h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full",
-              "bg-gradient-to-r from-blue-600 to-purple-900"
-            )}
-          />
-        )}
+        <div
+          className={classNames(
+            "h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full",
+            "bg-gradient-to-r from-blue-600 to-purple-900"
+          )}
+        />
       </div>
     </div>
   );
