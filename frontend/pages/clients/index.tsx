@@ -15,6 +15,8 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
 
   const { data, fetching, error } = result;
 
+  console.log(fetching, error);
+
   const clients = data?.clients as IClients[];
 
   return (
