@@ -4,6 +4,7 @@ import { useClientQuery } from "generated/graphql";
 import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
 import { useRouter } from "next/dist/client/router";
+import References from "components/clients/References";
 
 const Client: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useClientQuery({ variables: { slug: name } });
@@ -21,9 +22,15 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   return (
     <div>
-      {data?.clients?.map((client, key) => (
-        <h2 key={key}>{client?.name}</h2>
-      ))}
+      <div>
+        {data?.clients?.map((client) => (
+          <div key={client?.id}>
+            <h1>{client?.name}</h1>
+          </div>
+        ))}
+      </div>
+
+      <References clientSlug={name} />
     </div>
   );
 };
