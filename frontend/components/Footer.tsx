@@ -5,7 +5,6 @@ import {
 import { withUrqlClient, WithUrqlProps } from "next-urql";
 import React from "react";
 import createUrqlClient from "utils/createUrqlClient";
-import Wrapper from "./Wrapper";
 import { PhoneIcon, MailIcon } from "@heroicons/react/outline";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import Link from "next/link";
