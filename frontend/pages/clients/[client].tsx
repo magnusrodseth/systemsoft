@@ -2,13 +2,9 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import { useClientQuery } from "generated/graphql";
 import createUrqlClient from "utils/createUrqlClient";
-import { withUrqlClient } from "next-urql";
+import { withUrqlClient, WithUrqlProps } from "next-urql";
 
-interface ClientProps {
-  name: string;
-}
-
-const Client: React.FC<ClientProps> = ({ name }: ClientProps) => {
+const Client: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useClientQuery({ variables: { slug: name } });
 
   const { data, fetching, error } = result;
