@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "references",
+  "collectionName": "services",
   "info": {
-    "name": "References",
+    "name": "Services",
     "description": ""
   },
   "options": {
@@ -14,9 +14,9 @@
     "slug": {
       "type": "uid",
       "required": true,
-      "targetField": "title"
+      "targetField": "name"
     },
-    "title": {
+    "name": {
       "type": "string",
       "required": true
     },
@@ -24,14 +24,13 @@
       "type": "richtext",
       "required": true
     },
-    "client": {
-      "model": "clients"
-    },
-    "images": {
+    "image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images"
+        "files",
+        "images",
+        "videos"
       ],
       "plugin": "upload",
       "required": false

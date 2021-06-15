@@ -1,0 +1,9 @@
+fragment DefaultContactInformation on ContactInformation {
+  id
+  email
+  phoneNumber
+  address
+  zipCode
+  city
+  country
+}

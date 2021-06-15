@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_informations",
+  "info": {
+    "name": "ContactInformation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "address": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "zipCode": {
+      "type": "string",
+      "unique": true
+    },
+    "city": {
+      "type": "string",
+      "unique": true
+    },
+    "country": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
