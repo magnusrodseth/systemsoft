@@ -137,6 +137,33 @@ export type ClientsGroupBy = {
   published_at?: Maybe<Array<Maybe<ClientsConnectionPublished_At>>>;
 };
 
+export type ContactInformation = {
+  __typename?: 'ContactInformation';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  email: Scalars['String'];
+  phoneNumber: Scalars['String'];
+  address?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
+export type ContactInformationInput = {
+  email: Scalars['String'];
+  phoneNumber: Scalars['String'];
+  address?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 
 
 export type EmployeeInput = {
@@ -274,19 +301,24 @@ export type InputId = {
 
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
   createClient?: Maybe<CreateClientPayload>;
   updateClient?: Maybe<UpdateClientPayload>;
   deleteClient?: Maybe<DeleteClientPayload>;
+  updateContactInformation?: Maybe<UpdateContactInformationPayload>;
+  deleteContactInformation?: Maybe<DeleteContactInformationPayload>;
   createEmployee?: Maybe<CreateEmployeePayload>;
   updateEmployee?: Maybe<UpdateEmployeePayload>;
   deleteEmployee?: Maybe<DeleteEmployeePayload>;
   createReference?: Maybe<CreateReferencePayload>;
   updateReference?: Maybe<UpdateReferencePayload>;
   deleteReference?: Maybe<DeleteReferencePayload>;
+  createService?: Maybe<CreateServicePayload>;
+  updateService?: Maybe<UpdateServicePayload>;
+  deleteService?: Maybe<DeleteServicePayload>;
   /** Delete one file */
   deleteFile?: Maybe<DeleteFilePayload>;
   /** Create a new role */
@@ -327,6 +359,11 @@ export type MutationDeleteClientArgs = {
 };
 
 
+export type MutationUpdateContactInformationArgs = {
+  input?: Maybe<UpdateContactInformationInput>;
+};
+
+
 export type MutationCreateEmployeeArgs = {
   input?: Maybe<CreateEmployeeInput>;
 };
@@ -354,6 +391,21 @@ export type MutationUpdateReferenceArgs = {
 
 export type MutationDeleteReferenceArgs = {
   input?: Maybe<DeleteReferenceInput>;
+};
+
+
+export type MutationCreateServiceArgs = {
+  input?: Maybe<CreateServiceInput>;
+};
+
+
+export type MutationUpdateServiceArgs = {
+  input?: Maybe<UpdateServiceInput>;
+};
+
+
+export type MutationDeleteServiceArgs = {
+  input?: Maybe<DeleteServiceInput>;
 };
 
 
@@ -453,12 +505,16 @@ export type Query = {
   client?: Maybe<Clients>;
   clients?: Maybe<Array<Maybe<Clients>>>;
   clientsConnection?: Maybe<ClientsConnection>;
+  contactInformation?: Maybe<ContactInformation>;
   employee?: Maybe<Employees>;
   employees?: Maybe<Array<Maybe<Employees>>>;
   employeesConnection?: Maybe<EmployeesConnection>;
   reference?: Maybe<References>;
   references?: Maybe<Array<Maybe<References>>>;
   referencesConnection?: Maybe<ReferencesConnection>;
+  service?: Maybe<Services>;
+  services?: Maybe<Array<Maybe<Services>>>;
+  servicesConnection?: Maybe<ServicesConnection>;
   files?: Maybe<Array<Maybe<UploadFile>>>;
   filesConnection?: Maybe<UploadFileConnection>;
   role?: Maybe<UsersPermissionsRole>;
@@ -492,6 +548,11 @@ export type QueryClientsConnectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
   where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QueryContactInformationArgs = {
+  publicationState?: Maybe<PublicationState>;
 };
 
 
@@ -534,6 +595,29 @@ export type QueryReferencesArgs = {
 
 
 export type QueryReferencesConnectionArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QueryServiceArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryServicesArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryServicesConnectionArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -724,6 +808,110 @@ export type RoleInput = {
   users?: Maybe<Array<Maybe<Scalars['ID']>>>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type ServiceInput = {
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  image?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type Services = {
+  __typename?: 'Services';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  published_at?: Maybe<Scalars['DateTime']>;
+  image?: Maybe<Array<Maybe<UploadFile>>>;
+};
+
+
+export type ServicesImageArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+export type ServicesAggregator = {
+  __typename?: 'ServicesAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type ServicesConnection = {
+  __typename?: 'ServicesConnection';
+  values?: Maybe<Array<Maybe<Services>>>;
+  groupBy?: Maybe<ServicesGroupBy>;
+  aggregate?: Maybe<ServicesAggregator>;
+};
+
+export type ServicesConnectionCreatedAt = {
+  __typename?: 'ServicesConnectionCreatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionDescription = {
+  __typename?: 'ServicesConnectionDescription';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionId = {
+  __typename?: 'ServicesConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionName = {
+  __typename?: 'ServicesConnectionName';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionPublished_At = {
+  __typename?: 'ServicesConnectionPublished_at';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionSlug = {
+  __typename?: 'ServicesConnectionSlug';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnectionUpdatedAt = {
+  __typename?: 'ServicesConnectionUpdatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesConnection_Id = {
+  __typename?: 'ServicesConnection_id';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ServicesConnection>;
+};
+
+export type ServicesGroupBy = {
+  __typename?: 'ServicesGroupBy';
+  id?: Maybe<Array<Maybe<ServicesConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ServicesConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ServicesConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ServicesConnectionUpdatedAt>>>;
+  slug?: Maybe<Array<Maybe<ServicesConnectionSlug>>>;
+  name?: Maybe<Array<Maybe<ServicesConnectionName>>>;
+  description?: Maybe<Array<Maybe<ServicesConnectionDescription>>>;
+  published_at?: Maybe<Array<Maybe<ServicesConnectionPublished_At>>>;
 };
 
 
@@ -1217,6 +1405,15 @@ export type CreateRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type CreateServiceInput = {
+  data?: Maybe<ServiceInput>;
+};
+
+export type CreateServicePayload = {
+  __typename?: 'createServicePayload';
+  service?: Maybe<Services>;
+};
+
 export type CreateUserInput = {
   data?: Maybe<UserInput>;
 };
@@ -1233,6 +1430,11 @@ export type DeleteClientInput = {
 export type DeleteClientPayload = {
   __typename?: 'deleteClientPayload';
   client?: Maybe<Clients>;
+};
+
+export type DeleteContactInformationPayload = {
+  __typename?: 'deleteContactInformationPayload';
+  contactInformation?: Maybe<ContactInformation>;
 };
 
 export type DeleteEmployeeInput = {
@@ -1271,6 +1473,15 @@ export type DeleteRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type DeleteServiceInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteServicePayload = {
+  __typename?: 'deleteServicePayload';
+  service?: Maybe<Services>;
+};
+
 export type DeleteUserInput = {
   where?: Maybe<InputId>;
 };
@@ -1285,6 +1496,18 @@ export type EditClientInput = {
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   logo?: Maybe<Scalars['ID']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type EditContactInformationInput = {
+  email?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  address?: Maybe<Scalars['String']>;
+  zipCode?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1341,6 +1564,16 @@ export type EditRoleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditServiceInput = {
+  slug?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditUserInput = {
   username?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
@@ -1363,6 +1596,15 @@ export type UpdateClientInput = {
 export type UpdateClientPayload = {
   __typename?: 'updateClientPayload';
   client?: Maybe<Clients>;
+};
+
+export type UpdateContactInformationInput = {
+  data?: Maybe<EditContactInformationInput>;
+};
+
+export type UpdateContactInformationPayload = {
+  __typename?: 'updateContactInformationPayload';
+  contactInformation?: Maybe<ContactInformation>;
 };
 
 export type UpdateEmployeeInput = {
@@ -1395,6 +1637,16 @@ export type UpdateRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type UpdateServiceInput = {
+  where?: Maybe<InputId>;
+  data?: Maybe<EditServiceInput>;
+};
+
+export type UpdateServicePayload = {
+  __typename?: 'updateServicePayload';
+  service?: Maybe<Services>;
+};
+
 export type UpdateUserInput = {
   where?: Maybe<InputId>;
   data?: Maybe<EditUserInput>;
@@ -1405,6 +1657,78 @@ export type UpdateUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
+export type DefaultClientFragment = (
+  { __typename?: 'Clients' }
+  & Pick<Clients, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & { logo?: Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )> }
+);
+
+export type DefaultContactInformationFragment = (
+  { __typename?: 'ContactInformation' }
+  & Pick<ContactInformation, 'id' | 'email' | 'phoneNumber' | 'address' | 'zipCode' | 'city' | 'country'>
+);
+
+export type DefaultEmployeeFragment = (
+  { __typename?: 'Employees' }
+  & Pick<Employees, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'title' | 'email'>
+);
+
+export type DefaultReferenceFragment = (
+  { __typename?: 'References' }
+  & Pick<References, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'title' | 'description'>
+  & { client?: Maybe<(
+    { __typename?: 'Clients' }
+    & DefaultClientFragment
+  )> }
+);
+
+export type DefaultServiceFragment = (
+  { __typename?: 'Services' }
+  & Pick<Services, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & { image?: Maybe<Array<Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )>>> }
+);
+
+export type ClientQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type ClientQuery = (
+  { __typename?: 'Query' }
+  & { clients?: Maybe<Array<Maybe<(
+    { __typename?: 'Clients' }
+    & DefaultClientFragment
+  )>>> }
+);
+
+export type ClientsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ClientsQuery = (
+  { __typename?: 'Query' }
+  & { clients?: Maybe<Array<Maybe<(
+    { __typename?: 'Clients' }
+    & DefaultClientFragment
+  )>>> }
+);
+
+export type ContactInformationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ContactInformationQuery = (
+  { __typename?: 'Query' }
+  & { contactInformation?: Maybe<(
+    { __typename?: 'ContactInformation' }
+    & DefaultContactInformationFragment
+  )> }
+);
+
 export type EmployeesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1412,25 +1736,180 @@ export type EmployeesQuery = (
   { __typename?: 'Query' }
   & { employees?: Maybe<Array<Maybe<(
     { __typename?: 'Employees' }
-    & Pick<Employees, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'title' | 'email'>
+    & DefaultEmployeeFragment
   )>>> }
 );
 
+export type GetClientReferencesQueryVariables = Exact<{
+  clientSlug: Scalars['String'];
+}>;
 
-export const EmployeesDocument = gql`
-    query Employees {
-  employees {
-    id
-    createdAt
-    updatedAt
-    slug
-    name
-    title
-    email
+
+export type GetClientReferencesQuery = (
+  { __typename?: 'Query' }
+  & { references?: Maybe<Array<Maybe<(
+    { __typename?: 'References' }
+    & DefaultReferenceFragment
+  )>>> }
+);
+
+export type ReferencesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ReferencesQuery = (
+  { __typename?: 'Query' }
+  & { references?: Maybe<Array<Maybe<(
+    { __typename?: 'References' }
+    & DefaultReferenceFragment
+  )>>> }
+);
+
+export type ServicesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ServicesQuery = (
+  { __typename?: 'Query' }
+  & { services?: Maybe<Array<Maybe<(
+    { __typename?: 'Services' }
+    & DefaultServiceFragment
+  )>>> }
+);
+
+export const DefaultContactInformationFragmentDoc = gql`
+    fragment DefaultContactInformation on ContactInformation {
+  id
+  email
+  phoneNumber
+  address
+  zipCode
+  city
+  country
+}
+    `;
+export const DefaultEmployeeFragmentDoc = gql`
+    fragment DefaultEmployee on Employees {
+  id
+  createdAt
+  updatedAt
+  slug
+  name
+  title
+  email
+}
+    `;
+export const DefaultClientFragmentDoc = gql`
+    fragment DefaultClient on Clients {
+  id
+  createdAt
+  updatedAt
+  slug
+  name
+  description
+  logo {
+    url
   }
 }
     `;
+export const DefaultReferenceFragmentDoc = gql`
+    fragment DefaultReference on References {
+  id
+  createdAt
+  updatedAt
+  slug
+  title
+  description
+  client {
+    ...DefaultClient
+  }
+}
+    ${DefaultClientFragmentDoc}`;
+export const DefaultServiceFragmentDoc = gql`
+    fragment DefaultService on Services {
+  id
+  createdAt
+  updatedAt
+  slug
+  name
+  description
+  image {
+    url
+  }
+}
+    `;
+export const ClientDocument = gql`
+    query Client($slug: String!) {
+  clients(where: {slug: $slug}) {
+    ...DefaultClient
+  }
+}
+    ${DefaultClientFragmentDoc}`;
+
+export function useClientQuery(options: Omit<Urql.UseQueryArgs<ClientQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ClientQuery>({ query: ClientDocument, ...options });
+};
+export const ClientsDocument = gql`
+    query Clients {
+  clients {
+    ...DefaultClient
+  }
+}
+    ${DefaultClientFragmentDoc}`;
+
+export function useClientsQuery(options: Omit<Urql.UseQueryArgs<ClientsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ClientsQuery>({ query: ClientsDocument, ...options });
+};
+export const ContactInformationDocument = gql`
+    query ContactInformation {
+  contactInformation {
+    ...DefaultContactInformation
+  }
+}
+    ${DefaultContactInformationFragmentDoc}`;
+
+export function useContactInformationQuery(options: Omit<Urql.UseQueryArgs<ContactInformationQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ContactInformationQuery>({ query: ContactInformationDocument, ...options });
+};
+export const EmployeesDocument = gql`
+    query Employees {
+  employees {
+    ...DefaultEmployee
+  }
+}
+    ${DefaultEmployeeFragmentDoc}`;
 
 export function useEmployeesQuery(options: Omit<Urql.UseQueryArgs<EmployeesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<EmployeesQuery>({ query: EmployeesDocument, ...options });
+};
+export const GetClientReferencesDocument = gql`
+    query GetClientReferences($clientSlug: String!) {
+  references(where: {client: {slug: $clientSlug}}) {
+    ...DefaultReference
+  }
+}
+    ${DefaultReferenceFragmentDoc}`;
+
+export function useGetClientReferencesQuery(options: Omit<Urql.UseQueryArgs<GetClientReferencesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetClientReferencesQuery>({ query: GetClientReferencesDocument, ...options });
+};
+export const ReferencesDocument = gql`
+    query References {
+  references {
+    ...DefaultReference
+  }
+}
+    ${DefaultReferenceFragmentDoc}`;
+
+export function useReferencesQuery(options: Omit<Urql.UseQueryArgs<ReferencesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ReferencesQuery>({ query: ReferencesDocument, ...options });
+};
+export const ServicesDocument = gql`
+    query Services {
+  services {
+    ...DefaultService
+  }
+}
+    ${DefaultServiceFragmentDoc}`;
+
+export function useServicesQuery(options: Omit<Urql.UseQueryArgs<ServicesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ServicesQuery>({ query: ServicesDocument, ...options });
 };
