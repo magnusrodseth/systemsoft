@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "awards",
   "info": {
-    "name": "Award"
+    "name": "Award",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -23,6 +24,9 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "employee": {
+      "model": "employees"
     }
   }
 }
