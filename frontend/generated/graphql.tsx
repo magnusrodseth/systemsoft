@@ -577,7 +577,7 @@ export type InputId = {
 
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionResume | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Resume | ResumeConnection | ResumeAggregator | ResumeGroupBy | ResumeConnectionId | ResumeConnection_Id | ResumeConnectionCreatedAt | ResumeConnectionUpdatedAt | ResumeConnectionEmployee | ResumeConnectionPersonalInformation | ResumeConnectionPublished_At | CreateResumePayload | UpdateResumePayload | DeleteResumePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentResumeAward | ComponentResumeCertificate | ComponentResumeCourse | ComponentResumeEducationComponent | ComponentResumeHobby | ComponentResumeLanguage | ComponentResumeOrganisation | ComponentResumePersonalInformation | ComponentResumePersonalProject | ComponentResumeProfessionalExperience | ComponentResumePublication | ComponentResumeResumeReference | ComponentResumeSkill;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionResume | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Resume | ResumeConnection | ResumeAggregator | ResumeGroupBy | ResumeConnectionId | ResumeConnection_Id | ResumeConnectionCreatedAt | ResumeConnectionUpdatedAt | ResumeConnectionPersonalInformation | ResumeConnectionName | ResumeConnectionEmployee | ResumeConnectionPublished_At | CreateResumePayload | UpdateResumePayload | DeleteResumePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentResumeAward | ComponentResumeCertificate | ComponentResumeCourse | ComponentResumeEducationComponent | ComponentResumeHobby | ComponentResumeLanguage | ComponentResumeOrganisation | ComponentResumePersonalInformation | ComponentResumePersonalProject | ComponentResumeProfessionalExperience | ComponentResumePublication | ComponentResumeResumeReference | ComponentResumeSkill;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -1126,7 +1126,6 @@ export type Resume = {
   _id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
-  employee?: Maybe<Employees>;
   PersonalInformation?: Maybe<ComponentResumePersonalInformation>;
   Education?: Maybe<Array<Maybe<ComponentResumeEducationComponent>>>;
   ProfessionalExperience?: Maybe<Array<Maybe<ComponentResumeProfessionalExperience>>>;
@@ -1140,6 +1139,8 @@ export type Resume = {
   Organisation?: Maybe<Array<Maybe<ComponentResumeOrganisation>>>;
   Publication?: Maybe<Array<Maybe<ComponentResumePublication>>>;
   ResumeReference?: Maybe<Array<Maybe<ComponentResumeResumeReference>>>;
+  name: Scalars['String'];
+  employee?: Maybe<Employees>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -1174,6 +1175,12 @@ export type ResumeConnectionId = {
   connection?: Maybe<ResumeConnection>;
 };
 
+export type ResumeConnectionName = {
+  __typename?: 'ResumeConnectionName';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
 export type ResumeConnectionPersonalInformation = {
   __typename?: 'ResumeConnectionPersonalInformation';
   key?: Maybe<Scalars['ID']>;
@@ -1204,13 +1211,13 @@ export type ResumeGroupBy = {
   _id?: Maybe<Array<Maybe<ResumeConnection_Id>>>;
   createdAt?: Maybe<Array<Maybe<ResumeConnectionCreatedAt>>>;
   updatedAt?: Maybe<Array<Maybe<ResumeConnectionUpdatedAt>>>;
-  employee?: Maybe<Array<Maybe<ResumeConnectionEmployee>>>;
   PersonalInformation?: Maybe<Array<Maybe<ResumeConnectionPersonalInformation>>>;
+  name?: Maybe<Array<Maybe<ResumeConnectionName>>>;
+  employee?: Maybe<Array<Maybe<ResumeConnectionEmployee>>>;
   published_at?: Maybe<Array<Maybe<ResumeConnectionPublished_At>>>;
 };
 
 export type ResumeInput = {
-  employee?: Maybe<Scalars['ID']>;
   PersonalInformation: ComponentResumePersonalInformationInput;
   Education?: Maybe<Array<Maybe<ComponentResumeEducationComponentInput>>>;
   ProfessionalExperience?: Maybe<Array<ComponentResumeProfessionalExperienceInput>>;
@@ -1224,6 +1231,8 @@ export type ResumeInput = {
   Organisation?: Maybe<Array<Maybe<ComponentResumeOrganisationInput>>>;
   Publication?: Maybe<Array<Maybe<ComponentResumePublicationInput>>>;
   ResumeReference?: Maybe<Array<Maybe<ComponentResumeResumeReferenceInput>>>;
+  name: Scalars['String'];
+  employee?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -2118,7 +2127,6 @@ export type EditReferenceInput = {
 };
 
 export type EditResumeInput = {
-  employee?: Maybe<Scalars['ID']>;
   PersonalInformation?: Maybe<EditComponentResumePersonalInformationInput>;
   Education?: Maybe<Array<Maybe<EditComponentResumeEducationComponentInput>>>;
   ProfessionalExperience?: Maybe<Array<Maybe<EditComponentResumeProfessionalExperienceInput>>>;
@@ -2132,6 +2140,8 @@ export type EditResumeInput = {
   Organisation?: Maybe<Array<Maybe<EditComponentResumeOrganisationInput>>>;
   Publication?: Maybe<Array<Maybe<EditComponentResumePublicationInput>>>;
   ResumeReference?: Maybe<Array<Maybe<EditComponentResumeResumeReferenceInput>>>;
+  name?: Maybe<Scalars['String']>;
+  employee?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
