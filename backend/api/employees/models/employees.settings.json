@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "employees",
+  "collectionName": "employee",
   "info": {
-    "name": "Employees"
+    "name": "Employee",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -24,6 +25,48 @@
     },
     "email": {
       "type": "email"
+    },
+    "educations": {
+      "collection": "education",
+      "via": "employee"
+    },
+    "professional_experiences": {
+      "collection": "professional-experience",
+      "via": "employee"
+    },
+    "skills": {
+      "collection": "skill",
+      "via": "employee"
+    },
+    "personal_detail": {
+      "model": "personal-details"
+    },
+    "languages": {
+      "collection": "language"
+    },
+    "courses": {
+      "collection": "course"
+    },
+    "certificates": {
+      "collection": "certificate"
+    },
+    "personal_projects": {
+      "collection": "personal-project"
+    },
+    "awards": {
+      "collection": "award"
+    },
+    "interests": {
+      "collection": "interest"
+    },
+    "organisations": {
+      "collection": "organisation"
+    },
+    "publications": {
+      "collection": "publication"
+    },
+    "resume_references": {
+      "collection": "resume-reference"
     }
   }
 }

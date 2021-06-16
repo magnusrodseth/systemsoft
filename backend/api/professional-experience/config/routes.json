@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/professional-experiences",
+      "handler": "professional-experience.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/professional-experiences/count",
+      "handler": "professional-experience.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/professional-experiences/:id",
+      "handler": "professional-experience.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/professional-experiences",
+      "handler": "professional-experience.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/professional-experiences/:id",
+      "handler": "professional-experience.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/professional-experiences/:id",
+      "handler": "professional-experience.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "languages",
+  "info": {
+    "name": "Language",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "language": {
+      "type": "string",
+      "required": true
+    },
+    "language_level": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Skillful",
+        "Experienced",
+        "Expert"
+      ],
+      "enumName": "languageLevel"
+    }
+  }
+}

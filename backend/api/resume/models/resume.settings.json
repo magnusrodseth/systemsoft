@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resumes",
+  "info": {
+    "name": "Resume",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "employee": {
+      "model": "employees"
+    }
+  }
+}
