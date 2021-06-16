@@ -137,6 +137,257 @@ export type ClientsGroupBy = {
   published_at?: Maybe<Array<Maybe<ClientsConnectionPublished_At>>>;
 };
 
+export type ComponentResumeAward = {
+  __typename?: 'ComponentResumeAward';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  issuer: Scalars['String'];
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeAwardInput = {
+  name: Scalars['String'];
+  issuer: Scalars['String'];
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeCertificate = {
+  __typename?: 'ComponentResumeCertificate';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeCertificateInput = {
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeCourse = {
+  __typename?: 'ComponentResumeCourse';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  title: Scalars['String'];
+  institution?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeCourseInput = {
+  title: Scalars['String'];
+  institution?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeEducationComponent = {
+  __typename?: 'ComponentResumeEducationComponent';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  start: Scalars['Date'];
+  end?: Maybe<Scalars['Date']>;
+  name: Scalars['String'];
+  school?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeEducationComponentInput = {
+  start: Scalars['Date'];
+  end?: Maybe<Scalars['Date']>;
+  name: Scalars['String'];
+  school?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeHobby = {
+  __typename?: 'ComponentResumeHobby';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeHobbyInput = {
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeLanguage = {
+  __typename?: 'ComponentResumeLanguage';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  language: Scalars['String'];
+  languageLevel?: Maybe<Enum_Componentresumelanguage_Languagelevel>;
+};
+
+export type ComponentResumeLanguageInput = {
+  language: Scalars['String'];
+  languageLevel?: Maybe<Enum_Componentresumelanguage_Languagelevel>;
+};
+
+export type ComponentResumeOrganisation = {
+  __typename?: 'ComponentResumeOrganisation';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  position?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeOrganisationInput = {
+  name: Scalars['String'];
+  position?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumePersonalInformation = {
+  __typename?: 'ComponentResumePersonalInformation';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  fullName: Scalars['String'];
+  email: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
+  fullAddress?: Maybe<Scalars['String']>;
+  dateOfBirth?: Maybe<Scalars['Date']>;
+  githubLink?: Maybe<Scalars['String']>;
+  linkedinLink?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  about: Scalars['String'];
+  profilePicture?: Maybe<Array<Maybe<UploadFile>>>;
+};
+
+
+export type ComponentResumePersonalInformationProfilePictureArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+export type ComponentResumePersonalInformationInput = {
+  fullName: Scalars['String'];
+  profilePicture?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  email: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
+  fullAddress?: Maybe<Scalars['String']>;
+  dateOfBirth?: Maybe<Scalars['Date']>;
+  githubLink?: Maybe<Scalars['String']>;
+  linkedinLink?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  about: Scalars['String'];
+};
+
+export type ComponentResumePersonalProject = {
+  __typename?: 'ComponentResumePersonalProject';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  title: Scalars['String'];
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  image?: Maybe<UploadFile>;
+};
+
+export type ComponentResumePersonalProjectInput = {
+  title: Scalars['String'];
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['ID']>;
+};
+
+export type ComponentResumeProfessionalExperience = {
+  __typename?: 'ComponentResumeProfessionalExperience';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  title: Scalars['String'];
+  employer: Scalars['String'];
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeProfessionalExperienceInput = {
+  title: Scalars['String'];
+  employer: Scalars['String'];
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumePublication = {
+  __typename?: 'ComponentResumePublication';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  publisher?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumePublicationInput = {
+  name: Scalars['String'];
+  publisher?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeResumeReference = {
+  __typename?: 'ComponentResumeResumeReference';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  title: Scalars['String'];
+  organisation?: Maybe<Scalars['String']>;
+  email: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeResumeReferenceInput = {
+  name: Scalars['String'];
+  title: Scalars['String'];
+  organisation?: Maybe<Scalars['String']>;
+  email: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
+};
+
+export type ComponentResumeSkill = {
+  __typename?: 'ComponentResumeSkill';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  skillLevel?: Maybe<Enum_Componentresumeskill_Skilllevel>;
+};
+
+export type ComponentResumeSkillInput = {
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  skillLevel?: Maybe<Enum_Componentresumeskill_Skilllevel>;
+};
+
 export type ContactInformation = {
   __typename?: 'ContactInformation';
   id: Scalars['ID'];
@@ -168,11 +419,26 @@ export type ContactInformationInput = {
 
 
 
+export enum Enum_Componentresumelanguage_Languagelevel {
+  Beginner = 'Beginner',
+  Skillful = 'Skillful',
+  Experienced = 'Experienced',
+  Expert = 'Expert'
+}
+
+export enum Enum_Componentresumeskill_Skilllevel {
+  Beginner = 'Beginner',
+  Skillful = 'Skillful',
+  Experienced = 'Experienced',
+  Expert = 'Expert'
+}
+
 export type EmployeeInput = {
   slug: Scalars['String'];
   name: Scalars['String'];
   title?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
+  resume?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -188,6 +454,7 @@ export type Employees = {
   name: Scalars['String'];
   title?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
+  resume?: Maybe<Resume>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -234,6 +501,12 @@ export type EmployeesConnectionPublished_At = {
   connection?: Maybe<EmployeesConnection>;
 };
 
+export type EmployeesConnectionResume = {
+  __typename?: 'EmployeesConnectionResume';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<EmployeesConnection>;
+};
+
 export type EmployeesConnectionSlug = {
   __typename?: 'EmployeesConnectionSlug';
   key?: Maybe<Scalars['String']>;
@@ -268,6 +541,7 @@ export type EmployeesGroupBy = {
   name?: Maybe<Array<Maybe<EmployeesConnectionName>>>;
   title?: Maybe<Array<Maybe<EmployeesConnectionTitle>>>;
   email?: Maybe<Array<Maybe<EmployeesConnectionEmail>>>;
+  resume?: Maybe<Array<Maybe<EmployeesConnectionResume>>>;
   published_at?: Maybe<Array<Maybe<EmployeesConnectionPublished_At>>>;
 };
 
@@ -303,7 +577,7 @@ export type InputId = {
 
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionResume | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Resume | ResumeConnection | ResumeAggregator | ResumeGroupBy | ResumeConnectionId | ResumeConnection_Id | ResumeConnectionCreatedAt | ResumeConnectionUpdatedAt | ResumeConnectionEmployee | ResumeConnectionPersonalInformation | ResumeConnectionPublished_At | CreateResumePayload | UpdateResumePayload | DeleteResumePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentResumeAward | ComponentResumeCertificate | ComponentResumeCourse | ComponentResumeEducationComponent | ComponentResumeHobby | ComponentResumeLanguage | ComponentResumeOrganisation | ComponentResumePersonalInformation | ComponentResumePersonalProject | ComponentResumeProfessionalExperience | ComponentResumePublication | ComponentResumeResumeReference | ComponentResumeSkill;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -318,6 +592,9 @@ export type Mutation = {
   createReference?: Maybe<CreateReferencePayload>;
   updateReference?: Maybe<UpdateReferencePayload>;
   deleteReference?: Maybe<DeleteReferencePayload>;
+  createResume?: Maybe<CreateResumePayload>;
+  updateResume?: Maybe<UpdateResumePayload>;
+  deleteResume?: Maybe<DeleteResumePayload>;
   createService?: Maybe<CreateServicePayload>;
   updateService?: Maybe<UpdateServicePayload>;
   deleteService?: Maybe<DeleteServicePayload>;
@@ -393,6 +670,21 @@ export type MutationUpdateReferenceArgs = {
 
 export type MutationDeleteReferenceArgs = {
   input?: Maybe<DeleteReferenceInput>;
+};
+
+
+export type MutationCreateResumeArgs = {
+  input?: Maybe<CreateResumeInput>;
+};
+
+
+export type MutationUpdateResumeArgs = {
+  input?: Maybe<UpdateResumeInput>;
+};
+
+
+export type MutationDeleteResumeArgs = {
+  input?: Maybe<DeleteResumeInput>;
 };
 
 
@@ -514,6 +806,9 @@ export type Query = {
   reference?: Maybe<References>;
   references?: Maybe<Array<Maybe<References>>>;
   referencesConnection?: Maybe<ReferencesConnection>;
+  resume?: Maybe<Resume>;
+  resumes?: Maybe<Array<Maybe<Resume>>>;
+  resumesConnection?: Maybe<ResumeConnection>;
   service?: Maybe<Services>;
   services?: Maybe<Array<Maybe<Services>>>;
   servicesConnection?: Maybe<ServicesConnection>;
@@ -597,6 +892,29 @@ export type QueryReferencesArgs = {
 
 
 export type QueryReferencesConnectionArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QueryResumeArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryResumesArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryResumesConnectionArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -800,6 +1118,115 @@ export type ReferencesGroupBy = {
   description?: Maybe<Array<Maybe<ReferencesConnectionDescription>>>;
   client?: Maybe<Array<Maybe<ReferencesConnectionClient>>>;
   published_at?: Maybe<Array<Maybe<ReferencesConnectionPublished_At>>>;
+};
+
+export type Resume = {
+  __typename?: 'Resume';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  employee?: Maybe<Employees>;
+  PersonalInformation?: Maybe<ComponentResumePersonalInformation>;
+  Education?: Maybe<Array<Maybe<ComponentResumeEducationComponent>>>;
+  ProfessionalExperience?: Maybe<Array<Maybe<ComponentResumeProfessionalExperience>>>;
+  Skill?: Maybe<Array<Maybe<ComponentResumeSkill>>>;
+  Language?: Maybe<Array<Maybe<ComponentResumeLanguage>>>;
+  Certificate?: Maybe<Array<Maybe<ComponentResumeCertificate>>>;
+  Hobby?: Maybe<Array<Maybe<ComponentResumeHobby>>>;
+  PersonalProject?: Maybe<Array<Maybe<ComponentResumePersonalProject>>>;
+  Course?: Maybe<Array<Maybe<ComponentResumeCourse>>>;
+  Award?: Maybe<Array<Maybe<ComponentResumeAward>>>;
+  Organisation?: Maybe<Array<Maybe<ComponentResumeOrganisation>>>;
+  Publication?: Maybe<Array<Maybe<ComponentResumePublication>>>;
+  ResumeReference?: Maybe<Array<Maybe<ComponentResumeResumeReference>>>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
+export type ResumeAggregator = {
+  __typename?: 'ResumeAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type ResumeConnection = {
+  __typename?: 'ResumeConnection';
+  values?: Maybe<Array<Maybe<Resume>>>;
+  groupBy?: Maybe<ResumeGroupBy>;
+  aggregate?: Maybe<ResumeAggregator>;
+};
+
+export type ResumeConnectionCreatedAt = {
+  __typename?: 'ResumeConnectionCreatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnectionEmployee = {
+  __typename?: 'ResumeConnectionEmployee';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnectionId = {
+  __typename?: 'ResumeConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnectionPersonalInformation = {
+  __typename?: 'ResumeConnectionPersonalInformation';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnectionPublished_At = {
+  __typename?: 'ResumeConnectionPublished_at';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnectionUpdatedAt = {
+  __typename?: 'ResumeConnectionUpdatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeConnection_Id = {
+  __typename?: 'ResumeConnection_id';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ResumeConnection>;
+};
+
+export type ResumeGroupBy = {
+  __typename?: 'ResumeGroupBy';
+  id?: Maybe<Array<Maybe<ResumeConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ResumeConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ResumeConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ResumeConnectionUpdatedAt>>>;
+  employee?: Maybe<Array<Maybe<ResumeConnectionEmployee>>>;
+  PersonalInformation?: Maybe<Array<Maybe<ResumeConnectionPersonalInformation>>>;
+  published_at?: Maybe<Array<Maybe<ResumeConnectionPublished_At>>>;
+};
+
+export type ResumeInput = {
+  employee?: Maybe<Scalars['ID']>;
+  PersonalInformation: ComponentResumePersonalInformationInput;
+  Education?: Maybe<Array<Maybe<ComponentResumeEducationComponentInput>>>;
+  ProfessionalExperience?: Maybe<Array<ComponentResumeProfessionalExperienceInput>>;
+  Skill?: Maybe<Array<Maybe<ComponentResumeSkillInput>>>;
+  Language?: Maybe<Array<ComponentResumeLanguageInput>>;
+  Certificate?: Maybe<Array<Maybe<ComponentResumeCertificateInput>>>;
+  Hobby?: Maybe<Array<Maybe<ComponentResumeHobbyInput>>>;
+  PersonalProject?: Maybe<Array<Maybe<ComponentResumePersonalProjectInput>>>;
+  Course?: Maybe<Array<Maybe<ComponentResumeCourseInput>>>;
+  Award?: Maybe<Array<Maybe<ComponentResumeAwardInput>>>;
+  Organisation?: Maybe<Array<Maybe<ComponentResumeOrganisationInput>>>;
+  Publication?: Maybe<Array<Maybe<ComponentResumePublicationInput>>>;
+  ResumeReference?: Maybe<Array<Maybe<ComponentResumeResumeReferenceInput>>>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
 };
 
 export type RoleInput = {
@@ -1397,6 +1824,15 @@ export type CreateReferencePayload = {
   reference?: Maybe<References>;
 };
 
+export type CreateResumeInput = {
+  data?: Maybe<ResumeInput>;
+};
+
+export type CreateResumePayload = {
+  __typename?: 'createResumePayload';
+  resume?: Maybe<Resume>;
+};
+
 export type CreateRoleInput = {
   data?: Maybe<RoleInput>;
 };
@@ -1465,6 +1901,15 @@ export type DeleteReferencePayload = {
   reference?: Maybe<References>;
 };
 
+export type DeleteResumeInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteResumePayload = {
+  __typename?: 'deleteResumePayload';
+  resume?: Maybe<Resume>;
+};
+
 export type DeleteRoleInput = {
   where?: Maybe<InputId>;
 };
@@ -1502,6 +1947,121 @@ export type EditClientInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditComponentResumeAwardInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  issuer?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeCertificateInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeCourseInput = {
+  id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  institution?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeEducationComponentInput = {
+  id?: Maybe<Scalars['ID']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  name?: Maybe<Scalars['String']>;
+  school?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeHobbyInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeLanguageInput = {
+  id?: Maybe<Scalars['ID']>;
+  language?: Maybe<Scalars['String']>;
+  languageLevel?: Maybe<Enum_Componentresumelanguage_Languagelevel>;
+};
+
+export type EditComponentResumeOrganisationInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  position?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumePersonalInformationInput = {
+  id?: Maybe<Scalars['ID']>;
+  fullName?: Maybe<Scalars['String']>;
+  profilePicture?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  email?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  fullAddress?: Maybe<Scalars['String']>;
+  dateOfBirth?: Maybe<Scalars['Date']>;
+  githubLink?: Maybe<Scalars['String']>;
+  linkedinLink?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  about?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumePersonalProjectInput = {
+  id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['ID']>;
+};
+
+export type EditComponentResumeProfessionalExperienceInput = {
+  id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  employer?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Date']>;
+  end?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumePublicationInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  publisher?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeResumeReferenceInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  organisation?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+};
+
+export type EditComponentResumeSkillInput = {
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  skillLevel?: Maybe<Enum_Componentresumeskill_Skilllevel>;
+};
+
 export type EditContactInformationInput = {
   email?: Maybe<Scalars['String']>;
   phoneNumber?: Maybe<Scalars['String']>;
@@ -1520,6 +2080,7 @@ export type EditEmployeeInput = {
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
+  resume?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1551,6 +2112,26 @@ export type EditReferenceInput = {
   description?: Maybe<Scalars['String']>;
   client?: Maybe<Scalars['ID']>;
   images?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type EditResumeInput = {
+  employee?: Maybe<Scalars['ID']>;
+  PersonalInformation?: Maybe<EditComponentResumePersonalInformationInput>;
+  Education?: Maybe<Array<Maybe<EditComponentResumeEducationComponentInput>>>;
+  ProfessionalExperience?: Maybe<Array<Maybe<EditComponentResumeProfessionalExperienceInput>>>;
+  Skill?: Maybe<Array<Maybe<EditComponentResumeSkillInput>>>;
+  Language?: Maybe<Array<Maybe<EditComponentResumeLanguageInput>>>;
+  Certificate?: Maybe<Array<Maybe<EditComponentResumeCertificateInput>>>;
+  Hobby?: Maybe<Array<Maybe<EditComponentResumeHobbyInput>>>;
+  PersonalProject?: Maybe<Array<Maybe<EditComponentResumePersonalProjectInput>>>;
+  Course?: Maybe<Array<Maybe<EditComponentResumeCourseInput>>>;
+  Award?: Maybe<Array<Maybe<EditComponentResumeAwardInput>>>;
+  Organisation?: Maybe<Array<Maybe<EditComponentResumeOrganisationInput>>>;
+  Publication?: Maybe<Array<Maybe<EditComponentResumePublicationInput>>>;
+  ResumeReference?: Maybe<Array<Maybe<EditComponentResumeResumeReferenceInput>>>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1629,6 +2210,16 @@ export type UpdateReferencePayload = {
   reference?: Maybe<References>;
 };
 
+export type UpdateResumeInput = {
+  where?: Maybe<InputId>;
+  data?: Maybe<EditResumeInput>;
+};
+
+export type UpdateResumePayload = {
+  __typename?: 'updateResumePayload';
+  resume?: Maybe<Resume>;
+};
+
 export type UpdateRoleInput = {
   where?: Maybe<InputId>;
   data?: Maybe<EditRoleInput>;
@@ -1675,7 +2266,7 @@ export type DefaultContactInformationFragment = (
 
 export type DefaultEmployeeFragment = (
   { __typename?: 'Employees' }
-  & Pick<Employees, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'title' | 'email'>
+  & Pick<Employees, 'id' | 'slug' | 'name' | 'title' | 'email'>
 );
 
 export type DefaultReferenceFragment = (
@@ -1694,6 +2285,79 @@ export type DefaultServiceFragment = (
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
   )> }
+);
+
+export type DefaultAwardFragment = (
+  { __typename?: 'ComponentResumeAward' }
+  & Pick<ComponentResumeAward, 'id' | 'name' | 'issuer' | 'date' | 'description'>
+);
+
+export type DefaultCertificateFragment = (
+  { __typename?: 'ComponentResumeCertificate' }
+  & Pick<ComponentResumeCertificate, 'id' | 'name' | 'description'>
+);
+
+export type DefaultCourseFragment = (
+  { __typename?: 'ComponentResumeCourse' }
+  & Pick<ComponentResumeCourse, 'id' | 'title' | 'institution' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultEducationFragment = (
+  { __typename?: 'ComponentResumeEducationComponent' }
+  & Pick<ComponentResumeEducationComponent, 'id' | 'start' | 'end' | 'name' | 'school' | 'link' | 'description'>
+);
+
+export type DefaultHobbyFragment = (
+  { __typename?: 'ComponentResumeHobby' }
+  & Pick<ComponentResumeHobby, 'id' | 'name' | 'description'>
+);
+
+export type DefaultLanguageFragment = (
+  { __typename?: 'ComponentResumeLanguage' }
+  & Pick<ComponentResumeLanguage, 'id' | 'language' | 'languageLevel'>
+);
+
+export type DefaultOrganisationFragment = (
+  { __typename?: 'ComponentResumeOrganisation' }
+  & Pick<ComponentResumeOrganisation, 'id' | 'name' | 'position' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultPersonalInformationFragment = (
+  { __typename?: 'ComponentResumePersonalInformation' }
+  & Pick<ComponentResumePersonalInformation, 'id' | 'fullName' | 'email' | 'phoneNumber' | 'fullAddress' | 'dateOfBirth' | 'githubLink' | 'linkedinLink' | 'status' | 'about'>
+  & { profilePicture?: Maybe<Array<Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )>>> }
+);
+
+export type DefaultPersonalProjectFragment = (
+  { __typename?: 'ComponentResumePersonalProject' }
+  & Pick<ComponentResumePersonalProject, 'id' | 'title' | 'start' | 'end' | 'description' | 'link'>
+  & { image?: Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )> }
+);
+
+export type DefaultProfessionalExperienceFragment = (
+  { __typename?: 'ComponentResumeProfessionalExperience' }
+  & Pick<ComponentResumeProfessionalExperience, 'id' | 'title' | 'employer' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultPublicationFragment = (
+  { __typename?: 'ComponentResumePublication' }
+  & Pick<ComponentResumePublication, 'id' | 'name' | 'publisher' | 'date' | 'description' | 'link'>
+);
+
+export type DefaultResumeReferenceFragment = (
+  { __typename?: 'ComponentResumeResumeReference' }
+  & Pick<ComponentResumeResumeReference, 'id' | 'name' | 'title' | 'organisation' | 'email' | 'phoneNumber'>
+);
+
+export type DefaultSkillFragment = (
+  { __typename?: 'ComponentResumeSkill' }
+  & Pick<ComponentResumeSkill, 'id' | 'name' | 'description' | 'skillLevel'>
 );
 
 export type ClientQueryVariables = Exact<{
@@ -1755,6 +2419,61 @@ export type GetClientReferencesQuery = (
   )>>> }
 );
 
+export type GetEmployeeResumeQueryVariables = Exact<{
+  employeeSlug: Scalars['String'];
+}>;
+
+
+export type GetEmployeeResumeQuery = (
+  { __typename?: 'Query' }
+  & { resumes?: Maybe<Array<Maybe<(
+    { __typename?: 'Resume' }
+    & { PersonalInformation?: Maybe<(
+      { __typename?: 'ComponentResumePersonalInformation' }
+      & DefaultPersonalInformationFragment
+    )>, employee?: Maybe<(
+      { __typename?: 'Employees' }
+      & DefaultEmployeeFragment
+    )>, Education?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeEducationComponent' }
+      & DefaultEducationFragment
+    )>>>, ProfessionalExperience?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeProfessionalExperience' }
+      & DefaultProfessionalExperienceFragment
+    )>>>, Skill?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeSkill' }
+      & DefaultSkillFragment
+    )>>>, Language?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeLanguage' }
+      & DefaultLanguageFragment
+    )>>>, Certificate?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeCertificate' }
+      & DefaultCertificateFragment
+    )>>>, Hobby?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeHobby' }
+      & DefaultHobbyFragment
+    )>>>, PersonalProject?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumePersonalProject' }
+      & DefaultPersonalProjectFragment
+    )>>>, Course?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeCourse' }
+      & DefaultCourseFragment
+    )>>>, Award?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeAward' }
+      & DefaultAwardFragment
+    )>>>, Organisation?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeOrganisation' }
+      & DefaultOrganisationFragment
+    )>>>, Publication?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumePublication' }
+      & DefaultPublicationFragment
+    )>>>, ResumeReference?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeResumeReference' }
+      & DefaultResumeReferenceFragment
+    )>>> }
+  )>>> }
+);
+
 export type ReferencesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1792,8 +2511,6 @@ export const DefaultContactInformationFragmentDoc = gql`
 export const DefaultEmployeeFragmentDoc = gql`
     fragment DefaultEmployee on Employees {
   id
-  createdAt
-  updatedAt
   slug
   name
   title
@@ -1837,6 +2554,138 @@ export const DefaultServiceFragmentDoc = gql`
   image {
     url
   }
+}
+    `;
+export const DefaultAwardFragmentDoc = gql`
+    fragment DefaultAward on ComponentResumeAward {
+  id
+  name
+  issuer
+  date
+  description
+}
+    `;
+export const DefaultCertificateFragmentDoc = gql`
+    fragment DefaultCertificate on ComponentResumeCertificate {
+  id
+  name
+  description
+}
+    `;
+export const DefaultCourseFragmentDoc = gql`
+    fragment DefaultCourse on ComponentResumeCourse {
+  id
+  title
+  institution
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultEducationFragmentDoc = gql`
+    fragment DefaultEducation on ComponentResumeEducationComponent {
+  id
+  start
+  end
+  name
+  school
+  link
+  description
+}
+    `;
+export const DefaultHobbyFragmentDoc = gql`
+    fragment DefaultHobby on ComponentResumeHobby {
+  id
+  name
+  description
+}
+    `;
+export const DefaultLanguageFragmentDoc = gql`
+    fragment DefaultLanguage on ComponentResumeLanguage {
+  id
+  language
+  languageLevel
+}
+    `;
+export const DefaultOrganisationFragmentDoc = gql`
+    fragment DefaultOrganisation on ComponentResumeOrganisation {
+  id
+  name
+  position
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultPersonalInformationFragmentDoc = gql`
+    fragment DefaultPersonalInformation on ComponentResumePersonalInformation {
+  id
+  fullName
+  email
+  phoneNumber
+  fullAddress
+  dateOfBirth
+  githubLink
+  linkedinLink
+  status
+  about
+  profilePicture {
+    url
+  }
+}
+    `;
+export const DefaultPersonalProjectFragmentDoc = gql`
+    fragment DefaultPersonalProject on ComponentResumePersonalProject {
+  id
+  title
+  start
+  end
+  description
+  link
+  image {
+    url
+  }
+}
+    `;
+export const DefaultProfessionalExperienceFragmentDoc = gql`
+    fragment DefaultProfessionalExperience on ComponentResumeProfessionalExperience {
+  id
+  title
+  employer
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultPublicationFragmentDoc = gql`
+    fragment DefaultPublication on ComponentResumePublication {
+  id
+  name
+  publisher
+  date
+  description
+  link
+}
+    `;
+export const DefaultResumeReferenceFragmentDoc = gql`
+    fragment DefaultResumeReference on ComponentResumeResumeReference {
+  id
+  name
+  title
+  organisation
+  email
+  phoneNumber
+}
+    `;
+export const DefaultSkillFragmentDoc = gql`
+    fragment DefaultSkill on ComponentResumeSkill {
+  id
+  name
+  description
+  skillLevel
 }
     `;
 export const ClientDocument = gql`
@@ -1893,6 +2742,71 @@ export const GetClientReferencesDocument = gql`
 
 export function useGetClientReferencesQuery(options: Omit<Urql.UseQueryArgs<GetClientReferencesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetClientReferencesQuery>({ query: GetClientReferencesDocument, ...options });
+};
+export const GetEmployeeResumeDocument = gql`
+    query GetEmployeeResume($employeeSlug: String!) {
+  resumes(where: {employee: {slug: $employeeSlug}}) {
+    PersonalInformation {
+      ...DefaultPersonalInformation
+    }
+    employee {
+      ...DefaultEmployee
+    }
+    Education {
+      ...DefaultEducation
+    }
+    ProfessionalExperience {
+      ...DefaultProfessionalExperience
+    }
+    Skill {
+      ...DefaultSkill
+    }
+    Language {
+      ...DefaultLanguage
+    }
+    Certificate {
+      ...DefaultCertificate
+    }
+    Hobby {
+      ...DefaultHobby
+    }
+    PersonalProject {
+      ...DefaultPersonalProject
+    }
+    Course {
+      ...DefaultCourse
+    }
+    Award {
+      ...DefaultAward
+    }
+    Organisation {
+      ...DefaultOrganisation
+    }
+    Publication {
+      ...DefaultPublication
+    }
+    ResumeReference {
+      ...DefaultResumeReference
+    }
+  }
+}
+    ${DefaultPersonalInformationFragmentDoc}
+${DefaultEmployeeFragmentDoc}
+${DefaultEducationFragmentDoc}
+${DefaultProfessionalExperienceFragmentDoc}
+${DefaultSkillFragmentDoc}
+${DefaultLanguageFragmentDoc}
+${DefaultCertificateFragmentDoc}
+${DefaultHobbyFragmentDoc}
+${DefaultPersonalProjectFragmentDoc}
+${DefaultCourseFragmentDoc}
+${DefaultAwardFragmentDoc}
+${DefaultOrganisationFragmentDoc}
+${DefaultPublicationFragmentDoc}
+${DefaultResumeReferenceFragmentDoc}`;
+
+export function useGetEmployeeResumeQuery(options: Omit<Urql.UseQueryArgs<GetEmployeeResumeQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetEmployeeResumeQuery>({ query: GetEmployeeResumeDocument, ...options });
 };
 export const ReferencesDocument = gql`
     query References {

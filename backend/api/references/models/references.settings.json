@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "references",
+  "collectionName": "reference",
   "info": {
-    "name": "References",
+    "name": "Reference",
     "description": ""
   },
   "options": {

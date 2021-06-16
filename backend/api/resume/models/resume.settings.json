@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resumes",
+  "info": {
+    "name": "Resume",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "employee": {
+      "model": "employees"
+    },
+    "PersonalInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "resume.personal-information",
+      "required": true
+    },
+    "Education": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.education-component"
+    },
+    "ProfessionalExperience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.professional-experience",
+      "required": true
+    },
+    "Skill": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.skill"
+    },
+    "Language": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.language",
+      "required": true
+    },
+    "Certificate": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.certificate"
+    },
+    "Hobby": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.hobby"
+    },
+    "PersonalProject": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.personal-project"
+    },
+    "Course": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.course"
+    },
+    "Award": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.award"
+    },
+    "Organisation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.organisation"
+    },
+    "Publication": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.publication"
+    },
+    "ResumeReference": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.resume-reference"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

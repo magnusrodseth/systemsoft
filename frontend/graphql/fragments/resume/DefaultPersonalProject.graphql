@@ -1,0 +1,11 @@
+fragment DefaultPersonalProject on ComponentResumePersonalProject {
+  id
+  title
+  start
+  end
+  description
+  link
+  image {
+    url
+  }
+}

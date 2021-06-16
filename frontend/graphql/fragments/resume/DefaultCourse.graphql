@@ -1,0 +1,9 @@
+fragment DefaultCourse on ComponentResumeCourse {
+  id
+  title
+  institution
+  location
+  start
+  end
+  description
+}

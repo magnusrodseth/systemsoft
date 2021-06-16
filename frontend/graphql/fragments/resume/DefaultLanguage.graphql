@@ -1,0 +1,5 @@
+fragment DefaultLanguage on ComponentResumeLanguage {
+  id
+  language
+  languageLevel
+}
