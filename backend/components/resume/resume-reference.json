@@ -1,0 +1,29 @@
+{
+  "collectionName": "resume_reference",
+  "info": {
+    "name": "ResumeReference",
+    "icon": "phone-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "organisation": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string"
+    }
+  }
+}

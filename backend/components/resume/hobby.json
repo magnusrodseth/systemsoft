@@ -1,0 +1,17 @@
+{
+  "collectionName": "hobby",
+  "info": {
+    "name": "Hobby",
+    "icon": "palette"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

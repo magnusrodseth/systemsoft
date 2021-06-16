@@ -1,0 +1,29 @@
+{
+  "collectionName": "course",
+  "info": {
+    "name": "Course",
+    "icon": "chalkboard-teacher"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "institution": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

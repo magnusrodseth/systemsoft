@@ -1,0 +1,52 @@
+{
+  "collectionName": "personal_information",
+  "info": {
+    "name": "PersonalInformation",
+    "icon": "file-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "profilePicture": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "date"
+    },
+    "githubLink": {
+      "type": "string"
+    },
+    "linkedinLink": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "about": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
