@@ -1,0 +1,15 @@
+fragment DefaultPersonalInformation on ComponentResumePersonalInformation {
+  id
+  fullName
+  email
+  phoneNumber
+  fullAddress
+  dateOfBirth
+  githubLink
+  linkedinLink
+  status
+  about
+  profilePicture {
+    url
+  }
+}

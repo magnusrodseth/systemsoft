@@ -1,0 +1,5 @@
+fragment DefaultCertificate on ComponentResumeCertificate {
+  id
+  name
+  description
+}

@@ -1,0 +1,9 @@
+fragment DefaultProfessionalExperience on ComponentResumeProfessionalExperience {
+  id
+  title
+  employer
+  location
+  start
+  end
+  description
+}

@@ -1,0 +1,5 @@
+fragment DefaultHobby on ComponentResumeHobby {
+  id
+  name
+  description
+}

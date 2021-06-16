@@ -2266,7 +2266,7 @@ export type DefaultContactInformationFragment = (
 
 export type DefaultEmployeeFragment = (
   { __typename?: 'Employees' }
-  & Pick<Employees, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'title' | 'email'>
+  & Pick<Employees, 'id' | 'slug' | 'name' | 'title' | 'email'>
 );
 
 export type DefaultReferenceFragment = (
@@ -2285,6 +2285,79 @@ export type DefaultServiceFragment = (
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
   )> }
+);
+
+export type DefaultAwardFragment = (
+  { __typename?: 'ComponentResumeAward' }
+  & Pick<ComponentResumeAward, 'id' | 'name' | 'issuer' | 'date' | 'description'>
+);
+
+export type DefaultCertificateFragment = (
+  { __typename?: 'ComponentResumeCertificate' }
+  & Pick<ComponentResumeCertificate, 'id' | 'name' | 'description'>
+);
+
+export type DefaultCourseFragment = (
+  { __typename?: 'ComponentResumeCourse' }
+  & Pick<ComponentResumeCourse, 'id' | 'title' | 'institution' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultEducationFragment = (
+  { __typename?: 'ComponentResumeEducationComponent' }
+  & Pick<ComponentResumeEducationComponent, 'id' | 'start' | 'end' | 'name' | 'school' | 'link' | 'description'>
+);
+
+export type DefaultHobbyFragment = (
+  { __typename?: 'ComponentResumeHobby' }
+  & Pick<ComponentResumeHobby, 'id' | 'name' | 'description'>
+);
+
+export type DefaultLanguageFragment = (
+  { __typename?: 'ComponentResumeLanguage' }
+  & Pick<ComponentResumeLanguage, 'id' | 'language' | 'languageLevel'>
+);
+
+export type DefaultOrganisationFragment = (
+  { __typename?: 'ComponentResumeOrganisation' }
+  & Pick<ComponentResumeOrganisation, 'id' | 'name' | 'position' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultPersonalInformationFragment = (
+  { __typename?: 'ComponentResumePersonalInformation' }
+  & Pick<ComponentResumePersonalInformation, 'id' | 'fullName' | 'email' | 'phoneNumber' | 'fullAddress' | 'dateOfBirth' | 'githubLink' | 'linkedinLink' | 'status' | 'about'>
+  & { profilePicture?: Maybe<Array<Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )>>> }
+);
+
+export type DefaultPersonalProjectFragment = (
+  { __typename?: 'ComponentResumePersonalProject' }
+  & Pick<ComponentResumePersonalProject, 'id' | 'title' | 'start' | 'end' | 'description' | 'link'>
+  & { image?: Maybe<(
+    { __typename?: 'UploadFile' }
+    & Pick<UploadFile, 'url'>
+  )> }
+);
+
+export type DefaultProfessionalExperienceFragment = (
+  { __typename?: 'ComponentResumeProfessionalExperience' }
+  & Pick<ComponentResumeProfessionalExperience, 'id' | 'title' | 'employer' | 'location' | 'start' | 'end' | 'description'>
+);
+
+export type DefaultPublicationFragment = (
+  { __typename?: 'ComponentResumePublication' }
+  & Pick<ComponentResumePublication, 'id' | 'name' | 'publisher' | 'date' | 'description' | 'link'>
+);
+
+export type DefaultResumeReferenceFragment = (
+  { __typename?: 'ComponentResumeResumeReference' }
+  & Pick<ComponentResumeResumeReference, 'id' | 'name' | 'title' | 'organisation' | 'email' | 'phoneNumber'>
+);
+
+export type DefaultSkillFragment = (
+  { __typename?: 'ComponentResumeSkill' }
+  & Pick<ComponentResumeSkill, 'id' | 'name' | 'description' | 'skillLevel'>
 );
 
 export type ClientQueryVariables = Exact<{
@@ -2346,6 +2419,61 @@ export type GetClientReferencesQuery = (
   )>>> }
 );
 
+export type GetEmployeeResumeQueryVariables = Exact<{
+  employeeSlug: Scalars['String'];
+}>;
+
+
+export type GetEmployeeResumeQuery = (
+  { __typename?: 'Query' }
+  & { resumes?: Maybe<Array<Maybe<(
+    { __typename?: 'Resume' }
+    & { PersonalInformation?: Maybe<(
+      { __typename?: 'ComponentResumePersonalInformation' }
+      & DefaultPersonalInformationFragment
+    )>, employee?: Maybe<(
+      { __typename?: 'Employees' }
+      & DefaultEmployeeFragment
+    )>, Education?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeEducationComponent' }
+      & DefaultEducationFragment
+    )>>>, ProfessionalExperience?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeProfessionalExperience' }
+      & DefaultProfessionalExperienceFragment
+    )>>>, Skill?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeSkill' }
+      & DefaultSkillFragment
+    )>>>, Language?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeLanguage' }
+      & DefaultLanguageFragment
+    )>>>, Certificate?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeCertificate' }
+      & DefaultCertificateFragment
+    )>>>, Hobby?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeHobby' }
+      & DefaultHobbyFragment
+    )>>>, PersonalProject?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumePersonalProject' }
+      & DefaultPersonalProjectFragment
+    )>>>, Course?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeCourse' }
+      & DefaultCourseFragment
+    )>>>, Award?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeAward' }
+      & DefaultAwardFragment
+    )>>>, Organisation?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeOrganisation' }
+      & DefaultOrganisationFragment
+    )>>>, Publication?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumePublication' }
+      & DefaultPublicationFragment
+    )>>>, ResumeReference?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentResumeResumeReference' }
+      & DefaultResumeReferenceFragment
+    )>>> }
+  )>>> }
+);
+
 export type ReferencesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2383,8 +2511,6 @@ export const DefaultContactInformationFragmentDoc = gql`
 export const DefaultEmployeeFragmentDoc = gql`
     fragment DefaultEmployee on Employees {
   id
-  createdAt
-  updatedAt
   slug
   name
   title
@@ -2428,6 +2554,138 @@ export const DefaultServiceFragmentDoc = gql`
   image {
     url
   }
+}
+    `;
+export const DefaultAwardFragmentDoc = gql`
+    fragment DefaultAward on ComponentResumeAward {
+  id
+  name
+  issuer
+  date
+  description
+}
+    `;
+export const DefaultCertificateFragmentDoc = gql`
+    fragment DefaultCertificate on ComponentResumeCertificate {
+  id
+  name
+  description
+}
+    `;
+export const DefaultCourseFragmentDoc = gql`
+    fragment DefaultCourse on ComponentResumeCourse {
+  id
+  title
+  institution
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultEducationFragmentDoc = gql`
+    fragment DefaultEducation on ComponentResumeEducationComponent {
+  id
+  start
+  end
+  name
+  school
+  link
+  description
+}
+    `;
+export const DefaultHobbyFragmentDoc = gql`
+    fragment DefaultHobby on ComponentResumeHobby {
+  id
+  name
+  description
+}
+    `;
+export const DefaultLanguageFragmentDoc = gql`
+    fragment DefaultLanguage on ComponentResumeLanguage {
+  id
+  language
+  languageLevel
+}
+    `;
+export const DefaultOrganisationFragmentDoc = gql`
+    fragment DefaultOrganisation on ComponentResumeOrganisation {
+  id
+  name
+  position
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultPersonalInformationFragmentDoc = gql`
+    fragment DefaultPersonalInformation on ComponentResumePersonalInformation {
+  id
+  fullName
+  email
+  phoneNumber
+  fullAddress
+  dateOfBirth
+  githubLink
+  linkedinLink
+  status
+  about
+  profilePicture {
+    url
+  }
+}
+    `;
+export const DefaultPersonalProjectFragmentDoc = gql`
+    fragment DefaultPersonalProject on ComponentResumePersonalProject {
+  id
+  title
+  start
+  end
+  description
+  link
+  image {
+    url
+  }
+}
+    `;
+export const DefaultProfessionalExperienceFragmentDoc = gql`
+    fragment DefaultProfessionalExperience on ComponentResumeProfessionalExperience {
+  id
+  title
+  employer
+  location
+  start
+  end
+  description
+}
+    `;
+export const DefaultPublicationFragmentDoc = gql`
+    fragment DefaultPublication on ComponentResumePublication {
+  id
+  name
+  publisher
+  date
+  description
+  link
+}
+    `;
+export const DefaultResumeReferenceFragmentDoc = gql`
+    fragment DefaultResumeReference on ComponentResumeResumeReference {
+  id
+  name
+  title
+  organisation
+  email
+  phoneNumber
+}
+    `;
+export const DefaultSkillFragmentDoc = gql`
+    fragment DefaultSkill on ComponentResumeSkill {
+  id
+  name
+  description
+  skillLevel
 }
     `;
 export const ClientDocument = gql`
@@ -2484,6 +2742,71 @@ export const GetClientReferencesDocument = gql`
 
 export function useGetClientReferencesQuery(options: Omit<Urql.UseQueryArgs<GetClientReferencesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetClientReferencesQuery>({ query: GetClientReferencesDocument, ...options });
+};
+export const GetEmployeeResumeDocument = gql`
+    query GetEmployeeResume($employeeSlug: String!) {
+  resumes(where: {employee: {slug: $employeeSlug}}) {
+    PersonalInformation {
+      ...DefaultPersonalInformation
+    }
+    employee {
+      ...DefaultEmployee
+    }
+    Education {
+      ...DefaultEducation
+    }
+    ProfessionalExperience {
+      ...DefaultProfessionalExperience
+    }
+    Skill {
+      ...DefaultSkill
+    }
+    Language {
+      ...DefaultLanguage
+    }
+    Certificate {
+      ...DefaultCertificate
+    }
+    Hobby {
+      ...DefaultHobby
+    }
+    PersonalProject {
+      ...DefaultPersonalProject
+    }
+    Course {
+      ...DefaultCourse
+    }
+    Award {
+      ...DefaultAward
+    }
+    Organisation {
+      ...DefaultOrganisation
+    }
+    Publication {
+      ...DefaultPublication
+    }
+    ResumeReference {
+      ...DefaultResumeReference
+    }
+  }
+}
+    ${DefaultPersonalInformationFragmentDoc}
+${DefaultEmployeeFragmentDoc}
+${DefaultEducationFragmentDoc}
+${DefaultProfessionalExperienceFragmentDoc}
+${DefaultSkillFragmentDoc}
+${DefaultLanguageFragmentDoc}
+${DefaultCertificateFragmentDoc}
+${DefaultHobbyFragmentDoc}
+${DefaultPersonalProjectFragmentDoc}
+${DefaultCourseFragmentDoc}
+${DefaultAwardFragmentDoc}
+${DefaultOrganisationFragmentDoc}
+${DefaultPublicationFragmentDoc}
+${DefaultResumeReferenceFragmentDoc}`;
+
+export function useGetEmployeeResumeQuery(options: Omit<Urql.UseQueryArgs<GetEmployeeResumeQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetEmployeeResumeQuery>({ query: GetEmployeeResumeDocument, ...options });
 };
 export const ReferencesDocument = gql`
     query References {
