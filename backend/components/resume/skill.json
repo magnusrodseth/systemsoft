@@ -1,0 +1,27 @@
+{
+  "collectionName": "skill",
+  "info": {
+    "name": "Skill",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "skillLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Skillful",
+        "Experienced",
+        "Expert"
+      ]
+    }
+  }
+}
