@@ -1,8 +1,9 @@
 {
-  "collectionName": "organisation",
+  "collectionName": "organization",
   "info": {
-    "name": "Organisation",
-    "icon": "handshake"
+    "name": "Organization",
+    "icon": "handshake",
+    "description": ""
   },
   "options": {},
   "attributes": {
