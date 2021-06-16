@@ -1,10 +1,19 @@
 import Wrapper from "components/Wrapper";
+import { useGetEmployeeResumeQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
 
 const Index = () => {
+  const [result, _] = useGetEmployeeResumeQuery({
+    variables: { employeeSlug: "magnus-rodseth" },
+  });
+
+  const { data } = result;
+
+  console.log(data);
+
   return (
     <div className="flex m-3 justify-center items-center rounded-lg h-screen">
       <Wrapper

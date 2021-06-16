@@ -1,0 +1,8 @@
+fragment DefaultPublication on ComponentResumePublication {
+  id
+  name
+  publisher
+  date
+  description
+  link
+}

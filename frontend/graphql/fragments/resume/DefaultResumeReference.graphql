@@ -1,0 +1,8 @@
+fragment DefaultResumeReference on ComponentResumeResumeReference {
+  id
+  name
+  title
+  organisation
+  email
+  phoneNumber
+}
