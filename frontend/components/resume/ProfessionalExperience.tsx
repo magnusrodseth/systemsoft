@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentResumeProfessionalExperience as IProfessionalExperience } from "generated/graphql";
-import { ExternalLinkIcon, LocationMarkerIcon } from "@heroicons/react/outline";
+import { LocationMarkerIcon } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
 
@@ -13,7 +13,7 @@ const ProfessionalExperience: React.FC<ProfessionalExperienceProps> = ({
 }: ProfessionalExperienceProps) => {
   return (
     <div className="w-screen flex justify-center">
-      <Wrapper className={classNames("w-3/4 bg-yellow-200")}>
+      <Wrapper className={classNames("w-3/4 bg-purple-200")}>
         <h1
           className={classNames(
             "font-mono font-bold p-4 text-3xl tracking-wide"
@@ -45,7 +45,7 @@ const ProfessionalExperience: React.FC<ProfessionalExperienceProps> = ({
             </Wrapper>
 
             {/* Information */}
-            <Wrapper className="bg-green-200">
+            <Wrapper className="bg-pink-200">
               <div>
                 <span className="text-xl font-bold tracking-wide">
                   {experience.title}
