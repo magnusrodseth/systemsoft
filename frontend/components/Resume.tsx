@@ -1,12 +1,12 @@
 import React from "react";
-import { Resume } from "generated/graphql";
+import { Resume as IResume } from "generated/graphql";
 import classNames from "utils/classNames";
 
 interface ResumeProps {
-  resume: Resume;
+  resume: IResume;
 }
 
-const ResumeComponent: React.FC<ResumeProps> = ({ resume }) => {
+const Resume: React.FC<ResumeProps> = ({ resume }) => {
   return (
     <div className="mt-24">
       <h1 className={classNames("text-6xl font-mono font-bold text-center")}>
@@ -16,4 +16,4 @@ const ResumeComponent: React.FC<ResumeProps> = ({ resume }) => {
   );
 };
 
-export default ResumeComponent;
+export default Resume;

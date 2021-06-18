@@ -1,5 +1,3 @@
-import Wrapper from "components/Wrapper";
-import { useGetEmployeeResumeQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import Link from "next/link";
 import React from "react";
@@ -7,22 +5,13 @@ import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
 
 const Index = () => {
-  const [result, _] = useGetEmployeeResumeQuery({
-    variables: { employeeSlug: "magnus-rodseth" },
-  });
-
-  const { data } = result;
-
-  console.log(data);
-
   return (
     <div className="flex m-3 justify-center flex-col">
       <h1
         className={classNames(
           "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
           "font-extrabold uppercase text-transparent",
-          "bg-clip-text text-white",
-          "bg-gradient-to-r from-blue-600 to-purple-900 text-center"
+          "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
         )}
       >
         SystemSoft AS
@@ -54,14 +43,16 @@ const Index = () => {
 
         <Link href="/clients">
           <a>
-            <Wrapper
+            <div
               className={classNames(
                 "mt-10 text-blue-600 py-2 px-4 hover:border-transparent rounded",
+                "hover:-translate-y-1 hover:scale-101",
+                "shadow-md hover:shadow-lg",
                 "transition transform duration-500 ease-in-out uppercase"
               )}
             >
               Our clients
-            </Wrapper>
+            </div>
           </a>
         </Link>
       </div>
