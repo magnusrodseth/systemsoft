@@ -6,7 +6,7 @@ import {
   LocationMarkerIcon,
   ExternalLinkIcon,
   PhoneIcon,
-  StatusOnlineIcon,
+  AnnotationIcon,
 } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
@@ -23,9 +23,9 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
       <p className={classNames("font-mono my-8 tracking-wide text-center")}>
         {personalInformation.about}
       </p>
-      <div className="w-screen flex justify-center">
+      <div className="w-screen flex justify-center text-lg">
         {/* Personal Details */}
-        <Wrapper className={classNames("w-3/4 bg-red-200")}>
+        <Wrapper className={classNames("w-3/4 bg-gray-200")}>
           <h1
             className={classNames(
               "font-mono font-bold p-4 text-3xl tracking-wide"
@@ -34,65 +34,66 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
             Personal Information 👋🏼
           </h1>
 
-          <Wrapper className="bg-indigo-200">
-            {/* Date of birth */}
-            {personalInformation.dateOfBirth !== null ? (
-              <li className="flex space-x-4">
-                <CalendarIcon className="block h-6 w-6" />
+          <Wrapper className="bg-white flex space-y-4 flex-row justify-center flex-wrap">
+            {personalInformation.dateOfBirth ? (
+              // Uncertain why, but the first div requires mt-5 to not be
+              // unnettually elevated.
+              <div className="flex mx-4 items-center justify-center mt-5">
+                <CalendarIcon className="block h-6 w-6 mr-2" />
                 <span>{personalInformation.dateOfBirth}</span>
-              </li>
+              </div>
             ) : null}
 
             {/* E-mail */}
-            <li className="flex space-x-4">
-              <MailIcon className="block h-6 w-6" />
+            <div className="flex mx-4 items-center justify-center">
+              <MailIcon className="block h-6 w-6 mr-2" />
               <span>{personalInformation.email}</span>
-            </li>
+            </div>
 
             {/* Full address */}
-            {personalInformation.fullAddress !== null ? (
-              <li className="flex space-x-4">
-                <LocationMarkerIcon className="block h-6 w-6" />
+            {personalInformation.fullAddress ? (
+              <div className="flex mx-4 items-center justify-center">
+                <LocationMarkerIcon className="block h-6 w-6 mr-2" />
                 <span>{personalInformation.fullAddress}</span>
-              </li>
+              </div>
             ) : null}
 
             {/* GitHub */}
-            {personalInformation.githubLink !== null ? (
-              <li className="flex space-x-4">
-                <ExternalLinkIcon className="block h-6 w-6" />
+            {personalInformation.githubLink ? (
+              <div className="flex mx-4 items-center justify-center">
+                <ExternalLinkIcon className="block h-6 w-6 mr-2" />
                 <a href={personalInformation.githubLink} target="_blank">
                   GitHub
                 </a>
-              </li>
+              </div>
             ) : null}
 
             {/* LinkedIn */}
-            {personalInformation.linkedinLink !== null ? (
-              <li className="flex space-x-4">
-                <ExternalLinkIcon className="block h-6 w-6" />
+            {personalInformation.linkedinLink ? (
+              <div className="flex mx-4 items-center justify-center">
+                <ExternalLinkIcon className="block h-6 w-6 mr-2" />
                 <a href={personalInformation.linkedinLink} target="_blank">
                   LinkedIn
                 </a>
-              </li>
+              </div>
             ) : null}
 
             {/* Phone number */}
-            {personalInformation.phoneNumber !== null ? (
-              <li className="flex space-x-4">
-                <PhoneIcon className="block h-6 w-6" />
+            {personalInformation.phoneNumber ? (
+              <div className="flex mx-4 items-center justify-center">
+                <PhoneIcon className="block h-6 w-6 mr-2" />
                 <a href={`tel:${personalInformation.phoneNumber as string}`}>
                   {personalInformation.phoneNumber}
                 </a>
-              </li>
+              </div>
             ) : null}
 
             {/* Status */}
-            {personalInformation.status !== null ? (
-              <li className="flex space-x-4">
-                <StatusOnlineIcon className="block h-6 w-6" />
+            {personalInformation.status ? (
+              <div className="flex mx-4 items-center justify-center">
+                <AnnotationIcon className="block h-6 w-6 mr-2" />
                 <span>{personalInformation.status}</span>
-              </li>
+              </div>
             ) : null}
           </Wrapper>
         </Wrapper>

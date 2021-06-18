@@ -35,7 +35,7 @@ interface ResumeProps {
 
 const Resume: React.FC<ResumeProps> = ({ resume }) => {
   return (
-    <div className="min-height-container flex justify-center flex-col">
+    <div className="min-height-container flex justify-center flex-col space-y-8">
       {resume.PersonalInformation ? (
         <ResumeHeader data={resume.PersonalInformation} />
       ) : null}
