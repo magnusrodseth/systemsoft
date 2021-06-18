@@ -31,7 +31,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
               className={classNames(
                 "rounded-lg shadow-md hover:shadow-lg",
                 "transition duration-500 ease-in-out transform",
-                "hover:-translate-y-1 hover:scale-101"
+                "hover:-translate-y-1 hover:scale-101 p-4"
               )}
             />
           </div>
