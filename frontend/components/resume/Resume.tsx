@@ -12,6 +12,7 @@ import {
   ComponentResumeHobby as IHobby,
   ComponentResumeOrganisation as IOrganization,
   ComponentResumePublication as IPublication,
+  ComponentResumeResumeReference as IReference,
 } from "generated/graphql";
 import PersonalInformation from "./PersonalInformation";
 import ResumeHeader from "./ResumeHeader";
@@ -26,6 +27,7 @@ import Course from "./Course";
 import Hobby from "./Hobby";
 import Organization from "./Organization";
 import Publication from "./Publication";
+import ResumeReference from "./ResumeReference";
 
 interface ResumeProps {
   resume: IResume;
@@ -80,6 +82,10 @@ const Resume: React.FC<ResumeProps> = ({ resume }) => {
 
       {resume.Publication ? (
         <Publication publications={resume.Publication as IPublication[]} />
+      ) : null}
+
+      {resume.ResumeReference ? (
+        <ResumeReference references={resume.ResumeReference as IReference[]} />
       ) : null}
     </div>
   );
