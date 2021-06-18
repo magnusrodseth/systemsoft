@@ -9,6 +9,9 @@ import {
   ComponentResumeCertificate as ICertificate,
   ComponentResumeAward as IAward,
   ComponentResumeCourse as ICourse,
+  ComponentResumeHobby as IHobby,
+  ComponentResumeOrganisation as IOrganization,
+  ComponentResumePublication as IPublication,
 } from "generated/graphql";
 import PersonalInformation from "./PersonalInformation";
 import ResumeHeader from "./ResumeHeader";
@@ -20,6 +23,9 @@ import Language from "./Language";
 import Certificate from "./Certificate";
 import Award from "./Award";
 import Course from "./Course";
+import Hobby from "./Hobby";
+import Organization from "./Organization";
+import Publication from "./Publication";
 
 interface ResumeProps {
   resume: IResume;
@@ -65,6 +71,16 @@ const Resume: React.FC<ResumeProps> = ({ resume }) => {
       {resume.Award ? <Award awards={resume.Award as IAward[]} /> : null}
 
       {resume.Course ? <Course courses={resume.Course as ICourse[]} /> : null}
+
+      {resume.Hobby ? <Hobby hobbies={resume.Hobby as IHobby[]} /> : null}
+
+      {resume.Organisation ? (
+        <Organization organizations={resume.Organisation as IOrganization[]} />
+      ) : null}
+
+      {resume.Publication ? (
+        <Publication publications={resume.Publication as IPublication[]} />
+      ) : null}
     </div>
   );
 };

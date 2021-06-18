@@ -25,7 +25,7 @@ const Course: React.FC<CourseProps> = ({ courses }: CourseProps) => {
             {/* Date */}
 
             {course.start || course.location ? (
-              <Wrapper className="bg-blue-200">
+              <Wrapper className="bg-blue-200 flex flex-col space-y-3">
                 {course.start ? (
                   <div className="flex flex-col">
                     {/* Note that defined dates will always have the fomrat yyyy-mm-dd */}
