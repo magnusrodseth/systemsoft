@@ -44,7 +44,7 @@ const PersonalProject: React.FC<PersonalProjectProps> = ({
             {/* Information */}
             <Wrapper
               className={classNames(
-                "bg-blue-100",
+                "bg-gray-50",
                 project.image?.url
                   ? "grid gap-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1"
                   : "flex flex-col"

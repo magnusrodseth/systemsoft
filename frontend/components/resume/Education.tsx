@@ -38,7 +38,7 @@ const Education: React.FC<EducationProps> = ({ education }: EducationProps) => {
             </div>
 
             {/* Information */}
-            <Wrapper className="bg-blue-100 flex space-y-2 flex-col">
+            <Wrapper className="bg-gray-50 flex space-y-2 flex-col">
               <h1 className="text-xl font-bold tracking-wider">
                 {education.name}
               </h1>

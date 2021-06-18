@@ -45,9 +45,17 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
             ) : null}
 
             {/* E-mail */}
-            <div className="flex mx-4 items-center justify-center">
+            <div
+              className={classNames(
+                "flex mx-4 items-center justify-center",
+                "hover:text-blue-500 hover:scale-101",
+                "transform transition duration-500 ease-in-out"
+              )}
+            >
               <MailIcon className="block h-6 w-6 mr-2" />
-              <span>{personalInformation.email}</span>
+              <a href={`mailto:${personalInformation.email}`}>
+                {personalInformation.email}
+              </a>
             </div>
 
             {/* Full address */}
@@ -60,8 +68,14 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
 
             {/* GitHub */}
             {personalInformation.githubLink ? (
-              <div className="flex mx-4 items-center justify-center">
-                <ExternalLinkIcon className="block h-6 w-6 mr-2" />
+              <div
+                className={classNames(
+                  "flex mx-4 items-center justify-center",
+                  " hover:text-blue-500 hover:scale-101",
+                  "transform transition duration-500 ease-in-out"
+                )}
+              >
+                <ExternalLinkIcon className="block h-6 w-6 -my-0.5 mr-2" />{" "}
                 <a href={personalInformation.githubLink} target="_blank">
                   GitHub
                 </a>
@@ -70,8 +84,14 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
 
             {/* LinkedIn */}
             {personalInformation.linkedinLink ? (
-              <div className="flex mx-4 items-center justify-center">
-                <ExternalLinkIcon className="block h-6 w-6 mr-2" />
+              <div
+                className={classNames(
+                  "flex mx-4 items-center justify-center",
+                  " hover:text-blue-500 hover:scale-101",
+                  "transform transition duration-500 ease-in-out"
+                )}
+              >
+                <ExternalLinkIcon className="block h-6 w-6 -my-0.5 mr-2" />{" "}
                 <a href={personalInformation.linkedinLink} target="_blank">
                   LinkedIn
                 </a>
@@ -80,7 +100,13 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
 
             {/* Phone number */}
             {personalInformation.phoneNumber ? (
-              <div className="flex mx-4 items-center justify-center">
+              <div
+                className={classNames(
+                  "hover:text-blue-500 hover:scale-101",
+                  "transform transition duration-500 ease-in-out",
+                  "flex mx-4 items-center justify-center"
+                )}
+              >
                 <PhoneIcon className="block h-6 w-6 mr-2" />
                 <a href={`tel:${personalInformation.phoneNumber as string}`}>
                   {personalInformation.phoneNumber}

@@ -1,6 +1,10 @@
 import React from "react";
 import { ComponentResumeCourse as ICourse } from "generated/graphql";
-import { LocationMarkerIcon } from "@heroicons/react/outline";
+import {
+  ArrowRightIcon,
+  CalendarIcon,
+  LocationMarkerIcon,
+} from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
 
@@ -11,7 +15,7 @@ interface CourseProps {
 const Course: React.FC<CourseProps> = ({ courses }: CourseProps) => {
   return (
     <div className="w-screen flex justify-center">
-      <Wrapper className={classNames("w-3/4 bg-yellow-200")}>
+      <Wrapper className={classNames("w-3/4 bg-gray-200")}>
         <h1
           className={classNames(
             "font-mono font-bold p-4 text-3xl tracking-wide"
@@ -21,41 +25,41 @@ const Course: React.FC<CourseProps> = ({ courses }: CourseProps) => {
         </h1>
 
         {courses.map((course) => (
-          <Wrapper className="bg-gray-200 flex flex-row space-x-6">
+          <Wrapper className="bg-white flex flex-col">
             {/* Date */}
 
             {course.start || course.location ? (
-              <Wrapper className="bg-blue-200 flex flex-col space-y-3">
+              <div className="flex justify-center items-center font-semibold text-lg">
                 {course.start ? (
-                  <div className="flex flex-col">
+                  <div className="flex justify-center items-center">
+                    <CalendarIcon className="block w-6 h-6 mb-0.5 mr-2" />
                     {/* Note that defined dates will always have the fomrat yyyy-mm-dd */}
-                    <p>From: {course.start.split("-")[0]}</p>
-                    <p>To: {course.end ? course.end.split("-")[0] : "Now"}</p>
+                    <span className="flex flex-row sm:my-4 items-center">
+                      {course.start.split("-")[0]}
+                      <ArrowRightIcon className="block h-4 w-4 mx-2" />
+                      {course.end ? course.end.split("-")[0] : "now"}
+                    </span>
                   </div>
                 ) : null}
-
                 {course.location ? (
-                  <div className="flex flex-row">
-                    <LocationMarkerIcon className="block h-6 w-6" />
+                  <div className="flex flex-row space-2 m-4">
+                    <LocationMarkerIcon className="block h-6 w-6 mr-2" />
                     <p>{course.location}</p>
                   </div>
                 ) : null}
-              </Wrapper>
+              </div>
             ) : null}
 
             {/* Information */}
-            <Wrapper className="bg-green-200">
-              <h1 className="text-xl font-bold tracking-wide">
-                {course.title}
-              </h1>
-
-              {course.institution ? (
-                <div className={classNames("flex flex-row space-x-4")}>
-                  <h2 className="font-semibold tracking-wide">
-                    {course.institution}{" "}
-                  </h2>
-                </div>
-              ) : null}
+            <Wrapper className="bg-gray-50">
+              <div>
+                <span className="text-xl font-bold tracking-wide">
+                  {course.title}
+                </span>
+                <span className="font-semibold tracking-wide">
+                  , issued by {course.institution}
+                </span>
+              </div>
 
               {course.description ? (
                 <div className="mx-10">

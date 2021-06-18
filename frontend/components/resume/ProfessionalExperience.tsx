@@ -49,7 +49,7 @@ const ProfessionalExperience: React.FC<ProfessionalExperienceProps> = ({
             ) : null}
 
             {/* Information */}
-            <Wrapper className="bg-blue-100">
+            <Wrapper className="bg-gray-50">
               <div>
                 <span className="text-xl font-bold tracking-wide">
                   {experience.title}

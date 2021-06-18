@@ -13,7 +13,7 @@ const Publication: React.FC<PublicationProps> = ({
 }: PublicationProps) => {
   return (
     <div className="w-screen flex justify-center">
-      <Wrapper className={classNames("w-3/4 bg-yellow-200")}>
+      <Wrapper className={classNames("w-3/4 bg-gray-200")}>
         <h1
           className={classNames(
             "font-mono font-bold p-4 text-3xl tracking-wide"
@@ -23,18 +23,21 @@ const Publication: React.FC<PublicationProps> = ({
         </h1>
 
         {publications.map((publication) => (
-          <Wrapper className="bg-gray-200 flex flex-row space-x-6">
+          <Wrapper className="bg-white flex flex-col">
             {/* Date */}
             {publication.date ? (
-              <Wrapper className="bg-blue-200 flex flex-row space-x-2 items-center px-2">
-                <CalendarIcon className="block h-6 w-6" />
+              <div className="flex justify-center items-center">
+                {" "}
+                <CalendarIcon className="block h-6 w-6 mb-0.5 mr-2" />
                 {/* Note that defined dates will always have the fomrat yyyy-mm-dd */}
-                <p>{publication.date.split("-")[0]}</p>
-              </Wrapper>
+                <span className="font-semibold text-lg flex flex-row sm:my-4 items-center">
+                  {publication.date.split("-")[0]}
+                </span>{" "}
+              </div>
             ) : null}
 
             {/* Information */}
-            <Wrapper className="bg-green-200">
+            <Wrapper className="bg-gray-50">
               <div>
                 <span className="text-xl font-bold tracking-wide">
                   {publication.name}
