@@ -12,7 +12,7 @@
       "required": true
     },
     "profilePicture": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "files",

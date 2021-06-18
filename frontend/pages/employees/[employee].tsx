@@ -6,8 +6,7 @@ import {
 } from "generated/graphql";
 import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
-import { useRouter } from "next/dist/client/router";
-import Resume from "components/Resume";
+import Resume from "components/resume/Resume";
 import classNames from "utils/classNames";
 
 const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
