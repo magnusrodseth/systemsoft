@@ -7,6 +7,8 @@ import {
   ComponentResumeSkill as ISkill,
   ComponentResumeLanguage as ILanguage,
   ComponentResumeCertificate as ICertificate,
+  ComponentResumeAward as IAward,
+  ComponentResumeCourse as ICourse,
 } from "generated/graphql";
 import PersonalInformation from "./PersonalInformation";
 import ResumeHeader from "./ResumeHeader";
@@ -16,6 +18,8 @@ import PersonalProject from "./PersonalProject";
 import Skill from "./Skill";
 import Language from "./Language";
 import Certificate from "./Certificate";
+import Award from "./Award";
+import Course from "./Course";
 
 interface ResumeProps {
   resume: IResume;
@@ -57,6 +61,10 @@ const Resume: React.FC<ResumeProps> = ({ resume }) => {
       {resume.Certificate ? (
         <Certificate certificates={resume.Certificate as ICertificate[]} />
       ) : null}
+
+      {resume.Award ? <Award awards={resume.Award as IAward[]} /> : null}
+
+      {resume.Course ? <Course courses={resume.Course as ICourse[]} /> : null}
     </div>
   );
 };
