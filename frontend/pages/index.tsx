@@ -33,7 +33,7 @@ const Index = () => {
         >
           <p className="m-2 text-lg">
             A <strong>software engineering</strong> consulting company based in
-            Oslo, Norway.
+            Asker, Norway.
           </p>
 
           <p className="mt-6 text-sm">
