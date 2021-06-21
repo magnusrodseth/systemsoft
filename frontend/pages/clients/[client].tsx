@@ -11,11 +11,7 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
   const router = useRouter();
 
   const { data, fetching, error } = result;
-
-
   
-  
-
   const clients = data?.clients as IClients[];
 
   if (fetching) return <>Loading...</>;

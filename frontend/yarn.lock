@@ -991,7 +991,7 @@
 
 "@types/get-image-colors@^4.0.0":
   version "4.0.0"
-  resolved "https://registry.npmjs.org/@types/get-image-colors/-/get-image-colors-4.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@types/get-image-colors/-/get-image-colors-4.0.0.tgz#57952fbedf0d353a4adfcdf90a7794573ceaf8ec"
   integrity sha512-6F5jJcNnGe1chBTfvKcQo0qq7D/SrFiRqDnvdb3KYTpR4NpiSrYGOP2+VPq2RfIxZslLz8gyOjobqxvpWCRlFA==
   dependencies:
     "@types/chroma-js" "*"
@@ -2694,7 +2694,7 @@ get-caller-file@^2.0.1, get-caller-file@^2.0.5:
 
 get-image-colors@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.npmjs.org/get-image-colors/-/get-image-colors-4.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/get-image-colors/-/get-image-colors-4.0.0.tgz#c8fe161c386b5ae6300d953eac6bccc05a56069d"
   integrity sha512-qQZ5vyqgJkQp1c8ZRwKGL03oDsyBBUKiwr4GbB2T4F+tHpfQrw1PjKMQai7jcjRdC2wIHl2rV+6ZuHKttpyk7A==
   dependencies:
     chroma-js "^2.1.0"
