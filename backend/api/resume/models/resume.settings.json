@@ -11,9 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "employee": {
-      "model": "employees"
-    },
     "PersonalInformation": {
       "type": "component",
       "repeatable": false,
@@ -85,6 +82,10 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "employee": {
+      "model": "employees",
+      "via": "resume"
     }
   }
 }
