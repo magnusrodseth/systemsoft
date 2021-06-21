@@ -70,7 +70,7 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
 
             {/* Counter */}
             <div className="flex flex-row justify-center items-center space-x-6">
-              {clients.map((_, index) => {
+              {clients.map((client, index) => {
                 const borderColor =
                   index == currentIndex ? "border-gray-800" : "border-gray-400";
 
@@ -84,6 +84,7 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
                     onClick={() => {
                       handleCounter(index);
                     }}
+                    key={client.id}
                   />
                 );
               })}
