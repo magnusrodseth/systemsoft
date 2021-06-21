@@ -1,0 +1,9 @@
+fragment DefaultOrganisation on ComponentResumeOrganisation {
+  id
+  name
+  position
+  location
+  start
+  end
+  description
+}

@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title }: LayoutProps) => {
         <Navbar />
       </header>
 
-      <main className="mt-20 min-h-container">{children}</main>
+      <main className="mt-16 min-h-container">{children}</main>
 
       <Footer pageProps="" />
     </div>

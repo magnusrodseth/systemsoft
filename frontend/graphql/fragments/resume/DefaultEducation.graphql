@@ -1,0 +1,9 @@
+fragment DefaultEducation on ComponentResumeEducationComponent {
+  id
+  start
+  end
+  name
+  school
+  link
+  description
+}

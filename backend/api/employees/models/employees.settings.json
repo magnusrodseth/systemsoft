@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "employees",
+  "collectionName": "employee",
   "info": {
-    "name": "Employees"
+    "name": "Employee",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -24,6 +25,10 @@
     },
     "email": {
       "type": "email"
+    },
+    "resume": {
+      "via": "employee",
+      "model": "resume"
     }
   }
 }

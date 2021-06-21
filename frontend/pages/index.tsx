@@ -1,56 +1,61 @@
-import Wrapper from "components/Wrapper";
 import { withUrqlClient } from "next-urql";
+import Link from "next/link";
 import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
 
 const Index = () => {
   return (
-    <div className="flex m-3 justify-center items-center rounded-lg h-screen">
-      <Wrapper
+    <div className="flex m-3 justify-center flex-col">
+      <h1
         className={classNames(
-          "grid gap-6 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1",
-          "bg-gray-200 flex justify-center items-center"
+          "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
+          "font-extrabold uppercase text-transparent",
+          "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
         )}
       >
-        {/* Left 2/3 of grid */}
-        <Wrapper className="bg-blue-200">
-          <div className="flex justify-center items-center flex-col">
-            <div className="">
-              <h1 className="text-3xl text-center font-bold m-1 uppercase">
-                Heading goes here
-              </h1>
-              <h2 className="text-2xl text-center font-semibold m-1 uppercase">
-                Subheading goes here
-              </h2>
-            </div>
+        SystemSoft AS
+      </h1>
+      <div
+        className={classNames(
+          "my-32 flex flex-col w-screen space-y-10 justify-center",
+          "items-center h-container text-center font-mono"
+        )}
+      >
+        <div
+          className={classNames(
+            "bg-gradient-to-r from-blue-400 to-purple-700 text-center opacity-90",
+            "w-4/12 rounded-lg p-6 text-white",
+            "shadow-md hover:shadow-lg",
+            "hover:-translate-y-1 hover:scale-101",
+            "transition transform duration-500 ease-in-out"
+          )}
+        >
+          <p className="m-2 text-lg">
+            A <strong>software engineering</strong> consulting company based in
+            Asker, Norway.
+          </p>
 
-            <p className="font-mono p-2 m-2">
-              Dignissimos tempore eum non adipisci magni. Voluptatem laboriosam
-              quasi. Voluptatem perspiciatis qui. Aut iste incidunt blanditiis
-              quia dolor non voluptate qui. Non quas voluptas eaque veritatis
-              dolore corrupti ea reprehenderit. Et officiis accusantium.
-            </p>
+          <p className="mt-6 text-sm">
+            <i>Engineered for excellence</i>.
+          </p>
+        </div>
 
-            <button
+        <Link href="/clients">
+          <a>
+            <div
               className={classNames(
-                "bg-blue-500 hover:bg-blue-600 transition transform ease-in-out duration-500",
-                "tracking-wide font-mono text-white py-2 px-4 rounded uppercase"
+                "mt-10 text-blue-600 py-2 px-4 hover:border-transparent rounded",
+                "hover:-translate-y-1 hover:scale-101",
+                "shadow-md hover:shadow-lg",
+                "transition transform duration-500 ease-in-out uppercase"
               )}
             >
-              Call to action
-            </button>
-          </div>
-        </Wrapper>
-
-        {/* Right 1/3 of grid */}
-        <Wrapper className="flex justify-center items-center bg-gray-600">
-          <img
-            src="/illustrations/business-deal.png"
-            alt="Business deal illustration"
-          />
-        </Wrapper>
-      </Wrapper>
+              Our clients
+            </div>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
