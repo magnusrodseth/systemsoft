@@ -18,16 +18,14 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         "w-7/12"
       )}
     >
-      <Wrapper className="bg-gray-100">
-        <img
-          src={
-            client.logo?.url
-              ? client.logo?.url
-              : "/illustrations/business-idea.png"
-          }
-          alt={`${client.name} Logo`}
-          className={classNames("w-20")}
-        />
+      <Wrapper className="bg-gray-100 mr-8">
+        {client.logo?.url ? (
+          <img
+            src={`http://localhost:1337${client.logo?.url}`}
+            alt={`${client.name} Logo`}
+            className={classNames("w-20 m-4")}
+          />
+        ) : null}
       </Wrapper>
 
       <div className="flex flex-col justify-center items-center space-y-6">

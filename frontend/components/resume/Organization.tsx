@@ -27,7 +27,7 @@ const Organization: React.FC<OrganizationProps> = ({
         </h1>
 
         {organizations.map((organization) => (
-          <Wrapper className="bg-white flex flex-col">
+          <Wrapper className="bg-white flex flex-col" key={organization.id}>
             {organization.start ? (
               <div className="flex justify-center items-center">
                 {/* No need to display any date field if you don't know start date */}

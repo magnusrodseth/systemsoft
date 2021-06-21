@@ -27,7 +27,7 @@ const PersonalProject: React.FC<PersonalProjectProps> = ({
         </h1>
 
         {projects.map((project) => (
-          <Wrapper className="bg-white flex flex-col">
+          <Wrapper className="bg-white flex flex-col" key={project.id}>
             {/* Date */}
             {project.start ? (
               <div className="flex justify-center items-center">

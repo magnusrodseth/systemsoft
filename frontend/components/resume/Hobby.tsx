@@ -21,7 +21,7 @@ const Hobby: React.FC<HobbyProps> = ({ hobbies }: HobbyProps) => {
 
         <Wrapper className="bg-white grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-1">
           {hobbies.map((hobby) => (
-            <Wrapper className="bg-gray-50">
+            <Wrapper className="bg-gray-50" key={hobby.id}>
               <div className="flex flex-row space-x-4 items-center">
                 <h1 className="text-xl font-bold tracking-wide">
                   {hobby.name}

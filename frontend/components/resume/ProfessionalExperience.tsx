@@ -27,7 +27,10 @@ const ProfessionalExperience: React.FC<ProfessionalExperienceProps> = ({
         </h1>
 
         {experience.map((experience) => (
-          <Wrapper className={classNames("bg-white flex flex-col")}>
+          <Wrapper
+            className={classNames("bg-white flex flex-col")}
+            key={experience.id}
+          >
             {experience.start ? (
               <div className="flex justify-center items-center">
                 {/* No need to display any date field if you don't know start date */}

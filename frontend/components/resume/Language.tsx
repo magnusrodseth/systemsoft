@@ -21,7 +21,7 @@ const Language: React.FC<LanguageProps> = ({ languages }: LanguageProps) => {
 
         <Wrapper className="bg-white grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-1">
           {languages.map((language) => (
-            <Wrapper className="bg-gray-50">
+            <Wrapper className="bg-gray-50" key={language.id}>
               <div className="flex flex-row space-x-4 items-center">
                 <h1 className="text-xl font-bold tracking-wide">
                   {language.language}

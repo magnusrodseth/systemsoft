@@ -25,7 +25,7 @@ const Course: React.FC<CourseProps> = ({ courses }: CourseProps) => {
         </h1>
 
         {courses.map((course) => (
-          <Wrapper className="bg-white flex flex-col">
+          <Wrapper className="bg-white flex flex-col" key={course.id}>
             {/* Date */}
 
             {course.start || course.location ? (

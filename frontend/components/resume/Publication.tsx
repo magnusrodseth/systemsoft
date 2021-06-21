@@ -23,7 +23,7 @@ const Publication: React.FC<PublicationProps> = ({
         </h1>
 
         {publications.map((publication) => (
-          <Wrapper className="bg-white flex flex-col">
+          <Wrapper className="bg-white flex flex-col" key={publication.id}>
             {/* Date */}
             {publication.date ? (
               <div className="flex justify-center items-center">
