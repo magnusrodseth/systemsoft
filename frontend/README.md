@@ -62,8 +62,6 @@ const Employees = ({}) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error)
-
   // Display error message if an error occurred whilst fetching data.
   if (error) {
     return <p>{error.message}</p>;

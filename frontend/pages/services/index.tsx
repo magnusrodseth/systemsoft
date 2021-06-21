@@ -13,8 +13,6 @@ const Services: React.FC<ServicesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   const services = data?.services as IServices[];
 
   return (

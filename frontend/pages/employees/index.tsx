@@ -13,8 +13,6 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   if (fetching) return <>Loading...</>;
   if (error) return <>Error...</>;
 

@@ -12,8 +12,6 @@ const Index = () => {
 
   const { data } = result;
 
-  console.log(data);
-
   return (
     <div className="flex m-3 justify-center items-center rounded-lg h-screen">
       <Wrapper

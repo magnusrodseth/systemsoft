@@ -22,7 +22,7 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         <img
           src={
             client.logo?.url
-              ? client.logo?.url
+              ? `http://localhost:1337${client.logo?.url}`
               : "/illustrations/business-idea.png"
           }
           alt={`${client.name} Logo`}

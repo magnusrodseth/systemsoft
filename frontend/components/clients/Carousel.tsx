@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
+import getColors from "get-image-colors";
 
 interface CarouselProps {
   clients: IClients[];
@@ -9,6 +10,7 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
   const [currentClient, setCurrentClient] = useState<IClients>();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hex, setHex] = useState<string>();
 
   const decrementIndex = () => {
     const nextIndex =
@@ -27,11 +29,36 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
 
   useEffect(() => {
     setCurrentClient(clients[currentIndex]);
-  });
+
+    const getHex = async () => {
+      if (currentClient?.logo?.url) {
+        const colors = await getColors(
+          `http://localhost:1337${currentClient.logo?.url}`
+        ).then((colors) => colors.map((color) => color.hex()));
+
+        console.log(colors);
+
+        const hex = colors[Math.floor(Math.random() * colors.length)];
+
+        setHex(hex);
+      }
+    };
+
+    getHex();
+
+    console.log(hex)
+  }, []);
+
+  
 
   // TODO: Arrow component
   return (
-    <div className="flex flex-row items-center justify-center relative h-full">
+    <div
+      className={classNames(
+        "flex flex-row items-center justify-center relative h-full",
+        hex ? `bg-[${hex}]` : ""
+      )}
+    >
       <div
         className="absolute w-10 h-10 bg-green-200 left-5 hover:cursor-pointer"
         onClick={decrementIndex}
@@ -84,6 +111,7 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
                     onClick={() => {
                       handleCounter(index);
                     }}
+                    key={index}
                   />
                 );
               })}
