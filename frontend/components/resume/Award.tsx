@@ -3,6 +3,7 @@ import { ComponentResumeAward as IAward } from "generated/graphql";
 import { CalendarIcon } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface AwardProps {
   awards: IAward[];
@@ -46,9 +47,7 @@ const Award: React.FC<AwardProps> = ({ awards }: AwardProps) => {
               </div>
 
               {award.description ? (
-                <div className="mx-10">
-                  <p>{award.description}</p>
-                </div>
+                <Markdown className="mx-10">{award.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>
