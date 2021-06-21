@@ -21,8 +21,6 @@ const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
   if (fetching) return <>Loading...</>;
   if (error) return <>Error...</>;
 
-  console.log(resumes);
-
   const gotNoResumes = resumes.length === 0;
   const gotSeveralResumes = resumes.length > 1;
 
@@ -56,4 +54,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: false })(ResumePage);
+export default withUrqlClient(createUrqlClient)(ResumePage);
