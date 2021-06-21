@@ -25,6 +25,10 @@
     },
     "email": {
       "type": "email"
+    },
+    "resume": {
+      "via": "employee",
+      "model": "resume"
     }
   }
 }

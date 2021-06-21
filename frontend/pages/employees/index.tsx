@@ -30,7 +30,11 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
       </div>
       <div className="bg-blue-600 h-1 w-10 ml-auto mr-auto mb-6"></div>
       {employees.map((employee) => (
-        <Employee employee={employee} odd={++count % 2 == 0} />
+        <Employee
+          employee={employee}
+          odd={++count % 2 == 0}
+          key={employee.id}
+        />
       ))}
     </>
   );

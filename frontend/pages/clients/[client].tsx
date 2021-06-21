@@ -54,4 +54,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: false })(Client);
+export default withUrqlClient(createUrqlClient)(Client);
