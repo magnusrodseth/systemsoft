@@ -25,7 +25,10 @@ const Education: React.FC<EducationProps> = ({ education }: EducationProps) => {
         </h1>
 
         {education.map((education) => (
-          <Wrapper className={classNames("bg-white flex flex-col")}>
+          <Wrapper
+            className={classNames("bg-white flex flex-col")}
+            key={education.id}
+          >
             {/* Date */}
             <div className="flex justify-center items-center">
               <CalendarIcon className="block w-6 h-6 mb-0.5 mr-2" />

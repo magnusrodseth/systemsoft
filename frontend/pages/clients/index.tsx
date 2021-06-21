@@ -22,7 +22,7 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
   const clients = data?.clients as IClients[];
 
   return (
-    <div className="flex justify-center flex-col">
+    <div className="flex justify-center flex-col mb-8">
       <Wrapper className={classNames("bg-blue-200 w-screen h-96 m-0")}>
         <Carousel clients={clients} />
       </Wrapper>

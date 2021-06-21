@@ -1,4 +1,5 @@
 import { Popover } from "@headlessui/react";
+import { LOCAL_BACKEND_URL } from "../constants";
 import React from "react";
 import classNames from "utils/classNames";
 
@@ -11,9 +12,6 @@ const Jumbotron: React.FC<JumbotronProps> = ({
   title,
   backgroundImage,
 }: JumbotronProps) => {
-  const src = backgroundImage
-    ? backgroundImage
-    : "/illustrations/code-review.png";
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -56,7 +54,7 @@ const Jumbotron: React.FC<JumbotronProps> = ({
         {backgroundImage ? (
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src={src}
+            src={`${LOCAL_BACKEND_URL}${backgroundImage}`}
             alt={title}
           />
         ) : (

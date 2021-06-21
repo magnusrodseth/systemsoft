@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentResumePersonalInformation as IPersonalInformation } from "generated/graphql";
 import classNames from "utils/classNames";
+import { LOCAL_BACKEND_URL } from "../../constants";
 
 interface ResumeHeaderProps {
   data: IPersonalInformation;
@@ -30,7 +31,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
 
           <div className={classNames("lg:col-start-3", "flex justify-center")}>
             <img
-              src={`http://localhost:1337${data.profilePicture.url}`}
+              src={`${LOCAL_BACKEND_URL}${data.profilePicture.url}`}
               alt="Profile picture"
               className={classNames(
                 "rounded-lg shadow-md hover:shadow-lg",

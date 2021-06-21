@@ -23,7 +23,10 @@ const ResumeReference: React.FC<ResumeReferenceProps> = ({
         </h1>
 
         {references.map((reference) => (
-          <Wrapper className="bg-white flex flex-row space-x-6">
+          <Wrapper
+            className="bg-white flex flex-row space-x-6"
+            key={reference.id}
+          >
             {/* Information */}
             <Wrapper className="bg-gray-50 flex flex-col justify-center items-center space-x-4">
               <div className="flex flex-row items-center space-x-4">

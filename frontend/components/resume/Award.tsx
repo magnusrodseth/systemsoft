@@ -21,7 +21,7 @@ const Award: React.FC<AwardProps> = ({ awards }: AwardProps) => {
         </h1>
 
         {awards.map((award) => (
-          <Wrapper className="bg-white flex flex-col">
+          <Wrapper className="bg-white flex flex-col" key={award.id}>
             {/* Date */}
             {award.date ? (
               <div className="flex justify-center items-center">

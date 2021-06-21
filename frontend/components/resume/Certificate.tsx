@@ -23,7 +23,7 @@ const Certificate: React.FC<CertificateProps> = ({
 
         <Wrapper className="bg-white grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-1">
           {certificates.map((certificate) => (
-            <Wrapper className="bg-gray-50">
+            <Wrapper className="bg-gray-50" key={certificate.id}>
               <div className="flex flex-row space-x-4 items-center">
                 <h1 className="text-xl font-bold tracking-wide">
                   {certificate.name}
