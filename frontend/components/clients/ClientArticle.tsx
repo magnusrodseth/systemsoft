@@ -1,4 +1,5 @@
 import Wrapper from "components/Wrapper";
+import { LOCAL_BACKEND_URL } from "../../constants";
 import React from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
@@ -21,7 +22,7 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
       <Wrapper className="bg-gray-100 mr-8">
         {client.logo?.url ? (
           <img
-            src={`http://localhost:1337${client.logo?.url}`}
+            src={`${LOCAL_BACKEND_URL}${client.logo?.url}`}
             alt={`${client.name} Logo`}
             className={classNames("w-20 m-4")}
           />
