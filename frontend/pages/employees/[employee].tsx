@@ -6,40 +6,42 @@ import {
 } from "generated/graphql";
 import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
-import { useRouter } from "next/dist/client/router";
-import Wrapper from "components/Wrapper";
-import ResumeComponent from "components/ResumeComponent";
+import Resume from "components/resume/Resume";
+import classNames from "utils/classNames";
 
-const Resume: React.FC<WithUrqlProps> = ({ name }) => {
+const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useGetEmployeeResumeQuery({
     variables: { employeeSlug: name },
   });
-  const router = useRouter();
 
   const { data, fetching, error } = result;
-
-  console.log(fetching, error);
 
   const resumes = data?.resumes as IResume[];
 
   if (fetching) return <>Loading...</>;
   if (error) return <>Error...</>;
 
-  console.log(resumes);
-
-  // Clean up input and use const client for the unique client fetched
   const gotNoResumes = resumes.length === 0;
-  const gotSeveralResumes = resumes.length !== 1;
-
-  if (gotNoResumes) {
-    router.push("/employees");
-  }
-
-  if (gotSeveralResumes) return <>Conflicting number of resumes</>;
+  const gotSeveralResumes = resumes.length > 1;
 
   const resume = resumes[0];
 
-  return <ResumeComponent resume={resume} />;
+  return gotNoResumes || gotSeveralResumes ? (
+    <div className={classNames("flex justify-center flex-col")}>
+      <h1 className={classNames("text-6xl font-mono font-bold text-center")}>
+        Oops!
+      </h1>
+
+      <p className={classNames("text-center mt-10")}>
+        {gotNoResumes ? "This employee has not yet made a resume..." : ""}
+        {gotSeveralResumes
+          ? "An employee can only have one active resume..."
+          : ""}
+      </p>
+    </div>
+  ) : (
+    <Resume resume={resume} />
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -52,4 +54,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: false })(Resume);
+export default withUrqlClient(createUrqlClient)(ResumePage);

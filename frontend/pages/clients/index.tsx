@@ -15,7 +15,9 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
+  if (fetching) return <h1>fetching</h1>;
+
+  if (error) return <h1>error</h1>;
 
   const clients = data?.clients as IClients[];
 
@@ -26,7 +28,7 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
       </Wrapper>
       <div className={classNames("flex flex-col justify-center items-center")}>
         {clients.map((client) => (
-          <ClientArticle client={client} />
+          <ClientArticle client={client} key={client.id} />
         ))}
       </div>
     </div>

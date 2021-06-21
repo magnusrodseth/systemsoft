@@ -41,10 +41,9 @@ const Jumbotron: React.FC<JumbotronProps> = ({
             <div className="sm:text-center lg:text-center mb-10">
               <h1
                 className={classNames(
-                  "transition duration-500 ease-in-out transform",
-                  "hover:-translate-y-1 hover:scale-101 uppercase",
-                  "tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl",
-                  "block text-blue-600 xl:inline text-blue-500 hover:text-blue-600 text-center"
+                  "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
+                  "font-extrabold uppercase text-transparent",
+                  "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
                 )}
               >
                 {title}
