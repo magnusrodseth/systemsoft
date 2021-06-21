@@ -17,6 +17,14 @@ const App = ({ Component, pageProps }: AppProps) => {
     return <Component {...pageProps} />;
   }
 
+  if (isHomePage) {
+    return (
+      <Layout title={"Home"}>
+        <Component {...pageProps} />
+      </Layout>
+    );
+  }
+
   if (hasSubPage) {
     const split = router.pathname.split("/");
 
@@ -26,14 +34,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     return (
       <Layout title={capitalize(title)}>
-        <Component {...pageProps} />
-      </Layout>
-    );
-  }
-
-  if (isHomePage) {
-    return (
-      <Layout title={"Home"}>
         <Component {...pageProps} />
       </Layout>
     );

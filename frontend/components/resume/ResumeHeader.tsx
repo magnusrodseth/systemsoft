@@ -10,7 +10,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
   data,
 }: ResumeHeaderProps) => {
   return (
-    <div>
+    <div className="mt-8">
       {data.profilePicture?.url ? (
         <div
           className={classNames(
