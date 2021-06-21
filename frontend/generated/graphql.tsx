@@ -261,6 +261,7 @@ export type ComponentResumePersonalInformation = {
   id: Scalars['ID'];
   _id: Scalars['ID'];
   fullName: Scalars['String'];
+  profilePicture?: Maybe<UploadFile>;
   email: Scalars['String'];
   phoneNumber?: Maybe<Scalars['String']>;
   fullAddress?: Maybe<Scalars['String']>;
@@ -269,20 +270,11 @@ export type ComponentResumePersonalInformation = {
   linkedinLink?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
   about: Scalars['String'];
-  profilePicture?: Maybe<Array<Maybe<UploadFile>>>;
-};
-
-
-export type ComponentResumePersonalInformationProfilePictureArgs = {
-  sort?: Maybe<Scalars['String']>;
-  limit?: Maybe<Scalars['Int']>;
-  start?: Maybe<Scalars['Int']>;
-  where?: Maybe<Scalars['JSON']>;
 };
 
 export type ComponentResumePersonalInformationInput = {
   fullName: Scalars['String'];
-  profilePicture?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  profilePicture?: Maybe<Scalars['ID']>;
   email: Scalars['String'];
   phoneNumber?: Maybe<Scalars['String']>;
   fullAddress?: Maybe<Scalars['String']>;
@@ -2015,7 +2007,7 @@ export type EditComponentResumeOrganisationInput = {
 export type EditComponentResumePersonalInformationInput = {
   id?: Maybe<Scalars['ID']>;
   fullName?: Maybe<Scalars['String']>;
-  profilePicture?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  profilePicture?: Maybe<Scalars['ID']>;
   email?: Maybe<Scalars['String']>;
   phoneNumber?: Maybe<Scalars['String']>;
   fullAddress?: Maybe<Scalars['String']>;
@@ -2335,10 +2327,10 @@ export type DefaultOrganisationFragment = (
 export type DefaultPersonalInformationFragment = (
   { __typename?: 'ComponentResumePersonalInformation' }
   & Pick<ComponentResumePersonalInformation, 'id' | 'fullName' | 'email' | 'phoneNumber' | 'fullAddress' | 'dateOfBirth' | 'githubLink' | 'linkedinLink' | 'status' | 'about'>
-  & { profilePicture?: Maybe<Array<Maybe<(
+  & { profilePicture?: Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
-  )>>> }
+  )> }
 );
 
 export type DefaultPersonalProjectFragment = (
