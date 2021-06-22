@@ -1,0 +1,31 @@
+{
+  "collectionName": "education",
+  "info": {
+    "name": "Education",
+    "icon": "book-open",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "school": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

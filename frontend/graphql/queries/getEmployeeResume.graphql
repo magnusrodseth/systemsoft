@@ -1,0 +1,59 @@
+query GetEmployeeResume($employeeSlug: String!) {
+  resumes(where: { employee: { slug: $employeeSlug } }) {
+    PersonalInformation {
+      ...DefaultPersonalInformation
+    }
+
+    employee {
+      ...DefaultEmployee
+    }
+
+    Education {
+      ...DefaultEducation
+    }
+
+    ProfessionalExperience {
+      ...DefaultProfessionalExperience
+    }
+
+    Skill {
+      ...DefaultSkill
+    }
+
+    Language {
+      ...DefaultLanguage
+    }
+
+    Certificate {
+      ...DefaultCertificate
+    }
+
+    Hobby {
+      ...DefaultHobby
+    }
+
+    PersonalProject {
+      ...DefaultPersonalProject
+    }
+
+    Course {
+      ...DefaultCourse
+    }
+
+    Award {
+      ...DefaultAward
+    }
+
+    Organisation {
+      ...DefaultOrganisation
+    }
+
+    Publication {
+      ...DefaultPublication
+    }
+
+    ResumeReference {
+      ...DefaultResumeReference
+    }
+  }
+}

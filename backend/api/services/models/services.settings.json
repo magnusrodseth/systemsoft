@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "services",
+  "collectionName": "service",
   "info": {
-    "name": "Services",
+    "name": "Service",
     "description": ""
   },
   "options": {

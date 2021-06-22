@@ -1,5 +1,6 @@
 import Wrapper from "components/Wrapper";
 import Image from "next/image";
+import { LOCAL_BACKEND_URL } from "../../constants";
 import React from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
@@ -23,14 +24,14 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         "w-7/12"
       )}
     >
-      <Wrapper className="bg-gray-100">
-        <Image
-          src={client.logo?.url ? client.logo?.url : businessIdea}
-          alt={`${client.name} Logo`}
-          className={classNames("w-20")}
-          width="auto"
-          height="auto"
-        />
+      <Wrapper className="bg-gray-100 mr-8">
+        {client.logo?.url ? (
+          <img
+            src={`${LOCAL_BACKEND_URL}${client.logo?.url}`}
+            alt={`${client.name} Logo`}
+            className={classNames("w-20 m-4")}
+          />
+        ) : null}
       </Wrapper>
 
       <div className="flex flex-col justify-center items-center space-y-6">

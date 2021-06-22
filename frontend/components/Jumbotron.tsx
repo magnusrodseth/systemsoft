@@ -1,4 +1,5 @@
 import { Popover } from "@headlessui/react";
+import { LOCAL_BACKEND_URL } from "../constants";
 import Image from "next/image";
 import React from "react";
 import classNames from "utils/classNames";
@@ -7,7 +8,10 @@ interface JumbotronProps {
   title: string;
 }
 
-const Jumbotron: React.FC<JumbotronProps> = ({ title }: JumbotronProps) => {
+const Jumbotron: React.FC<JumbotronProps> = ({
+  title,
+  backgroundImage,
+}: JumbotronProps) => {
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -35,10 +39,9 @@ const Jumbotron: React.FC<JumbotronProps> = ({ title }: JumbotronProps) => {
             <div className="sm:text-center lg:text-center mb-10">
               <h1
                 className={classNames(
-                  "transition duration-500 ease-in-out transform",
-                  "hover:-translate-y-1 hover:scale-101 uppercase",
-                  "tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl",
-                  "block text-blue-600 xl:inline text-blue-500 hover:text-blue-600 text-center"
+                  "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
+                  "font-extrabold uppercase text-transparent",
+                  "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
                 )}
               >
                 {title}
@@ -48,12 +51,20 @@ const Jumbotron: React.FC<JumbotronProps> = ({ title }: JumbotronProps) => {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div
-          className={classNames(
-            "h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full",
-            "bg-gradient-to-r from-blue-600 to-purple-900"
-          )}
-        />
+        {backgroundImage ? (
+          <img
+            className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+            src={`${LOCAL_BACKEND_URL}${backgroundImage}`}
+            alt={title}
+          />
+        ) : (
+          <div
+            className={classNames(
+              "h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full",
+              "bg-gradient-to-r from-blue-600 to-purple-900"
+            )}
+          />
+        )}
       </div>
     </div>
   );

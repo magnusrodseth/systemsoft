@@ -1,7 +1,5 @@
 fragment DefaultEmployee on Employees {
   id
-  createdAt
-  updatedAt
   slug
   name
   title

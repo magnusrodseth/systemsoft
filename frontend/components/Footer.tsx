@@ -49,7 +49,7 @@ const Footer: React.FC<WithUrqlProps> = () => {
             </div>
           </div>
           <div className="p-0 m-6">
-            <h1 className="text-2xl">Contact</h1>
+            <h1 className="text-2xl font-bold tracking-wide">Contact</h1>
             <div className="grid gap-2 mt-5">
               <p
                 className={classNames(

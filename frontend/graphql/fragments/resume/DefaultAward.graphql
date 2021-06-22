@@ -1,0 +1,7 @@
+fragment DefaultAward on ComponentResumeAward {
+  id
+  name
+  issuer
+  date
+  description
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "award",
+  "info": {
+    "name": "Award",
+    "icon": "trophy"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "issuer": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

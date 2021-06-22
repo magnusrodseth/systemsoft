@@ -14,6 +14,8 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   console.log(fetching, error);
 
+  
+
   const clients = data?.clients as IClients[];
 
   if (fetching) return <>Loading...</>;
@@ -56,4 +58,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: false })(Client);
+export default withUrqlClient(createUrqlClient)(Client);

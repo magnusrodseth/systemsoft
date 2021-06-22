@@ -13,8 +13,6 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   if (fetching) return <>Loading...</>;
   if (error) return <>Error...</>;
 
@@ -32,9 +30,11 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
       </div>
       <div className="bg-blue-600 h-1 w-10 ml-auto mr-auto mb-6"></div>
       {employees.map((employee) => (
-        <div key={employee.id}>
-          <Employee employee={employee} odd={++count % 2 == 0} />
-        </div>
+        <Employee
+          employee={employee}
+          odd={++count % 2 == 0}
+          key={employee.id}
+        />
       ))}
     </>
   );

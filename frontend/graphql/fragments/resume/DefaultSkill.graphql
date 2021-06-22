@@ -1,0 +1,6 @@
+fragment DefaultSkill on ComponentResumeSkill {
+  id
+  name
+  description
+  skillLevel
+}
