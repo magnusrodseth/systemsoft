@@ -27,7 +27,7 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
 
   useEffect(() => {
     setCurrentClient(clients[currentIndex]);
-  });
+  }, [clients, currentIndex]);
 
   // TODO: Arrow component
   return (

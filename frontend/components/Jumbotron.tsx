@@ -1,11 +1,11 @@
 import { Popover } from "@headlessui/react";
 import { LOCAL_BACKEND_URL } from "../constants";
+import Image from "next/image";
 import React from "react";
 import classNames from "utils/classNames";
 
 interface JumbotronProps {
   title: string;
-  backgroundImage?: string;
 }
 
 const Jumbotron: React.FC<JumbotronProps> = ({
