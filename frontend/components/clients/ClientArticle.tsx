@@ -4,6 +4,8 @@ import React from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
 import Link from "next/link";
+import Markdown from "components/Markdown";
+
 
 interface ClientArticleProps {
   client: IClients;
@@ -35,9 +37,11 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
           {client.name}
         </h1>
 
-        <p className={classNames("text-left lg:text-md md:text-sm sm:text-sm")}>
+        <Markdown
+          className={classNames("text-left lg:text-md md:text-sm sm:text-sm")}
+        >
           {client.description}
-        </p>
+        </Markdown>
 
         <Link href={`clients/${client.slug}`}>
           <button

@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface CourseProps {
   courses: ICourse[];
@@ -62,9 +63,7 @@ const Course: React.FC<CourseProps> = ({ courses }: CourseProps) => {
               </div>
 
               {course.description ? (
-                <div className="mx-10">
-                  <p>{course.description}</p>
-                </div>
+                <Markdown className="mx-10">{course.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>

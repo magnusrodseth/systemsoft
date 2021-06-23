@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface PersonalProjectProps {
   projects: IProject[];
@@ -78,10 +79,9 @@ const PersonalProject: React.FC<PersonalProjectProps> = ({
                   />
                 </Wrapper>
               ) : null}
+
               {project.description ? (
-                <div className="mx-10">
-                  <p>{project.description}</p>
-                </div>
+                <Markdown className="mx-10">{project.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>

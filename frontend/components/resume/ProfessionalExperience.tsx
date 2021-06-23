@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface ProfessionalExperienceProps {
   experience: IProfessionalExperience[];
@@ -64,9 +65,7 @@ const ProfessionalExperience: React.FC<ProfessionalExperienceProps> = ({
               </div>
 
               {experience.description ? (
-                <div className="mx-10">
-                  <p>{experience.description}</p>
-                </div>
+                <Markdown className="mx-10">{experience.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>

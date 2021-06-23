@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentResumeHobby as IHobby } from "generated/graphql";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface HobbyProps {
   hobbies: IHobby[];
@@ -29,9 +30,7 @@ const Hobby: React.FC<HobbyProps> = ({ hobbies }: HobbyProps) => {
               </div>
 
               {hobby.description ? (
-                <div className="mx-10">
-                  <p>{hobby.description}</p>
-                </div>
+                <Markdown className="mx-10">{hobby.description}</Markdown>
               ) : null}
             </Wrapper>
           ))}

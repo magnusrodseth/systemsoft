@@ -7,6 +7,7 @@ import {
   CalendarIcon,
 } from "@heroicons/react/outline";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface EducationProps {
   education: IEducation[];
@@ -65,9 +66,7 @@ const Education: React.FC<EducationProps> = ({ education }: EducationProps) => {
               ) : null}
 
               {education.description ? (
-                <div className="mx-10 text-lg">
-                  <p>{education.description}</p>
-                </div>
+                <Markdown>{education.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>
