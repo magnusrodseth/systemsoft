@@ -1,5 +1,6 @@
 import Carousel from "components/clients/Carousel";
 import ClientArticle from "components/clients/ClientArticle";
+import Loading from "components/Loading";
 import Wrapper from "components/Wrapper";
 import { useClientsQuery } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
@@ -15,7 +16,12 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
 
   const { data, fetching, error } = result;
 
-  if (fetching) return <h1>fetching</h1>;
+  if (fetching)
+    return (
+      <h1>
+        <Loading />
+      </h1>
+    );
 
   if (error) return <h1>error</h1>;
 

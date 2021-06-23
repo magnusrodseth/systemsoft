@@ -18,13 +18,13 @@ const Contact: React.FC<ContactProps> = ({}) => {
   const [status, setStatus] = useState<APIResponse>();
 
   return (
-    <div className="grid gap-6 lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 grid-cols-auto">
+    <div className="grid gap-6 lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 grid-cols-auto mt-24">
       <div className="lg:col-span-3 lg:col-start-2 md:col-span-3 md:col-start-2 sm:col-start-2 sm:col-span-2">
         <h1
           className={classNames(
             "lg:text-8xl md:text-2xl sm:text-2xl mt-6 tracking-widest",
             "font-extrabold uppercase text-transparent",
-            "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
+            "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center mb-6"
           )}
         >
           Contact us

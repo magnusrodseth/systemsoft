@@ -1,7 +1,9 @@
 import Employee from "components/Employee";
+import Loading from "components/Loading";
 import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
+import classNames from "utils/classNames";
 import createUrqlClient from "../../utils/createUrqlClient";
 
 interface EmployeesProps {}
@@ -13,7 +15,12 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  if (fetching) return <>Loading...</>;
+  if (fetching)
+    return (
+      <>
+        <Loading />
+      </>
+    );
   if (error) return <>Error...</>;
 
   const employees = data?.employees as IEmployees[];
@@ -22,13 +29,17 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   return (
     <>
-      <div className="text-center p-5">
-        <h2 className="text-blue-600 font-bold uppercase text-1xl">
-          Introducing
-        </h2>
-        <h1 className="text-5xl font-bold text-gray-800">Our Employees</h1>
+      <div className="text-center p-6x">
+        <h1
+          className={classNames(
+            "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
+            "font-extrabold uppercase text-transparent mb-6",
+            "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
+          )}
+        >
+          SystemSoft AS
+        </h1>
       </div>
-      <div className="bg-blue-600 h-1 w-10 ml-auto mr-auto mb-6"></div>
       {employees.map((employee) => (
         <Employee
           employee={employee}

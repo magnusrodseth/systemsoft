@@ -5,6 +5,8 @@ import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
 import { useRouter } from "next/dist/client/router";
 import References from "components/clients/References";
+import Loading from "components/Loading";
+import Link from "next/link";
 
 const Client: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useClientQuery({ variables: { slug: name } });
@@ -12,13 +14,14 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
-  
-
   const clients = data?.clients as IClients[];
 
-  if (fetching) return <>Loading...</>;
+  if (fetching)
+    return (
+      <>
+        <Loading />
+      </>
+    );
   if (error) return <>Error...</>;
 
   // Clean up input and use const client for the unique client fetched
@@ -43,6 +46,7 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
           Take a look at how we've helped {client.name}.
         </p>
       </div>
+
       <References clientSlug={name} />
     </div>
   );

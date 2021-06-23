@@ -7,6 +7,8 @@ import React from "react";
 import classNames from "utils/classNames";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
+import Loading from "components/Loading";
+import Link from "next/link";
 
 interface ReferencesProps {
   clientSlug: string;
@@ -23,10 +25,14 @@ const References: React.FC<ReferencesProps> = ({
 
   console.log(fetching, error);
 
-
   const references = data?.references as IReferences[];
 
-  if (fetching) return <>Loading...</>;
+  if (fetching)
+    return (
+      <>
+        <Loading />
+      </>
+    );
   if (error) return <>Error...</>;
 
   return (
@@ -34,23 +40,29 @@ const References: React.FC<ReferencesProps> = ({
       <div className="w-screen grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 space-6">
         {references.map((reference) => {
           return (
-            <Wrapper className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5">
-              <div key={reference.id}>
-                <h1
-                  className={classNames(
-                    "text-center text-3xl font-semibold m-2"
-                  )}
-                >
-                  {reference.title}
-                </h1>
+            <div key={reference.id}>
+              <Link href={`${clientSlug}/${reference.slug}`}>
+                <a>
+                  <Wrapper className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5">
+                    <div>
+                      <h1
+                        className={classNames(
+                          "text-center text-3xl font-semibold m-2"
+                        )}
+                      >
+                        {reference.title}
+                      </h1>
 
-                <ReactMarkdown
-                  remarkPlugins={[gfm]}
-                  className="text-left"
-                  children={reference.description}
-                />
-              </div>
-            </Wrapper>
+                      <ReactMarkdown
+                        remarkPlugins={[gfm]}
+                        className="text-left"
+                        children={reference.description}
+                      />
+                    </div>
+                  </Wrapper>
+                </a>
+              </Link>
+            </div>
           );
         })}
       </div>
