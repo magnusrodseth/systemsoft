@@ -6,7 +6,6 @@ import { withUrqlClient, WithUrqlProps } from "next-urql";
 import { useRouter } from "next/dist/client/router";
 import References from "components/clients/References";
 import Loading from "components/Loading";
-import Link from "next/link";
 
 const Client: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useClientQuery({ variables: { slug: name } });

@@ -26,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
   // TODO: Arrow component
   return (
     <div
-      className="flex flex-col items-center justify-center relative h-96 bg-cover bg-center relative"
+      className="flex flex-col items-center justify-center relative h-96 bg-cover bg-center"
       style={{
         backgroundImage: `url(${LOCAL_BACKEND_URL}${images[currentIndex]?.url})`,
       }}
