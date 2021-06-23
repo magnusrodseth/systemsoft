@@ -8,6 +8,7 @@ import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "utils/createUrqlClient";
 import { Clients as IClients } from "../../generated/graphql";
+import Error from "components/Error";
 
 interface ClientsProps {}
 
@@ -23,7 +24,7 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
       </h1>
     );
 
-  if (error) return <h1>error</h1>;
+  if (error) return <Error />;
 
   const clients = data?.clients as IClients[];
 

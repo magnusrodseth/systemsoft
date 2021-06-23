@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import Loading from "components/Loading";
 import Link from "next/link";
+import Error from "components/Error";
 
 interface ReferencesProps {
   clientSlug: string;
@@ -33,7 +34,7 @@ const References: React.FC<ReferencesProps> = ({
         <Loading />
       </>
     );
-  if (error) return <>Error...</>;
+  if (error) return <Error />;
 
   return (
     <div className="flex justify-center">

@@ -7,6 +7,7 @@ import { withUrqlClient, WithUrqlProps } from "next-urql";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import createUrqlClient from "utils/createUrqlClient";
+import Error from "components/Error";
 
 const Reference: React.FC<WithUrqlProps> = ({ clientSlug, referenceSlug }) => {
   const router = useRouter();
@@ -27,7 +28,7 @@ const Reference: React.FC<WithUrqlProps> = ({ clientSlug, referenceSlug }) => {
         <Loading />
       </>
     );
-  if (error) return <>Error...</>;
+  if (error) return <Error />;
 
   if (references.length == 0) {
     router.push(`/clients`);

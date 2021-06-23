@@ -5,6 +5,7 @@ import { withUrqlClient } from "next-urql";
 import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "../../utils/createUrqlClient";
+import Error from "components/Error";
 
 interface EmployeesProps {}
 
@@ -21,7 +22,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
         <Loading />
       </>
     );
-  if (error) return <>Error...</>;
+  if (error) return <Error />;
 
   const employees = data?.employees as IEmployees[];
 
