@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentResumeCertificate as ICertificate } from "generated/graphql";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface CertificateProps {
   certificates: ICertificate[];
@@ -31,9 +32,7 @@ const Certificate: React.FC<CertificateProps> = ({
               </div>
 
               {certificate.description ? (
-                <div className="mx-10">
-                  <p>{certificate.description}</p>
-                </div>
+                <Markdown className="mx-10">{certificate.description}</Markdown>
               ) : null}
             </Wrapper>
           ))}

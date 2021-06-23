@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface OrganizationProps {
   organizations: IOrganization[];
@@ -61,9 +62,9 @@ const Organization: React.FC<OrganizationProps> = ({
               </div>
 
               {organization.description ? (
-                <div className="mx-10">
-                  <p>{organization.description}</p>
-                </div>
+                <Markdown className="mx-10">
+                  {organization.description}
+                </Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>

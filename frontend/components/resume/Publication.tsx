@@ -3,6 +3,7 @@ import { ComponentResumePublication as IPublication } from "generated/graphql";
 import { CalendarIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Markdown from "components/Markdown";
 
 interface PublicationProps {
   publications: IPublication[];
@@ -53,9 +54,7 @@ const Publication: React.FC<PublicationProps> = ({
               </div>
 
               {publication.description ? (
-                <div className="mx-10">
-                  <p>{publication.description}</p>
-                </div>
+                <Markdown className="mx-10">{publication.description}</Markdown>
               ) : null}
             </Wrapper>
           </Wrapper>
