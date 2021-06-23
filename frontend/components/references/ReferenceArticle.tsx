@@ -9,7 +9,7 @@ interface ReferenceArticleProps {
 
 const ReferenceArticle: React.FC<ReferenceArticleProps> = ({ reference }) => {
   return (
-    <div className="mt-24">
+    <div className="">
       {reference.images ? (
         <Carousel images={reference.images} titles={["Hei"]} />
       ) : (

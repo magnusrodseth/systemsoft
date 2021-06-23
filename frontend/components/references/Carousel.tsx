@@ -2,6 +2,10 @@ import { LOCAL_BACKEND_URL } from "../../constants";
 import { Maybe, UploadFile } from "generated/graphql";
 import React, { useState } from "react";
 import classNames from "utils/classNames";
+import {
+  ArrowCircleRightIcon,
+  ArrowCircleLeftIcon,
+} from "@heroicons/react/outline";
 
 interface CarouselProps {
   titles?: String[];
@@ -40,21 +44,27 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
           {titles && titles[currentIndex] ? titles[currentIndex] : ""}
         </h1>
       </div>
-      <div
-        className="absolute w-10 h-10 bg-green-200 left-5 hover:cursor-pointer"
+      <ArrowCircleLeftIcon
+        className="absolute w-10 h-10 text-white  left-5 hover:cursor-pointer"
         onClick={decrementIndex}
       />
 
-      <div
+      <ArrowCircleRightIcon
         className={classNames(
-          "absolute w-10 h-10 bg-green-200 right-5",
+          "absolute w-10 h-10 text-white  right-5",
           "hover:cursor-pointer"
         )}
         onClick={incrementIndex}
       />
       {images[currentIndex]?.caption ? (
-        <div className="absolute w-screen h-15 bottom-0 text-center bg-gradient-to-t from-black to-transparent bg-opacity-50">
-          <p className="text-white m-1">
+        <div
+          className={classNames(
+            "absolute w-screen h-20 bottom-0 text-center",
+            "bg-gradient-to-t from-black to-transparent bg-opacity-50",
+            "flex justify-center"
+          )}
+        >
+          <p className="text-white m-1 absolute bottom-1">
             {images[currentIndex]?.caption || ""}
           </p>
         </div>

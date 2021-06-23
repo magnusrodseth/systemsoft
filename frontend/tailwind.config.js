@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       minHeight: (theme) => ({
-        container: "calc(100vh - 80px)",
+        container: "calc(100vh - 64px)",
       }),
       backgroundImage: (theme) => ({
         404: "url('../../public/illustrations/404_lg.png')",

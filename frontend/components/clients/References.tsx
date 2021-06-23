@@ -10,6 +10,7 @@ import gfm from "remark-gfm";
 import Loading from "components/Loading";
 import Link from "next/link";
 import Error from "components/Error";
+import { LOCAL_BACKEND_URL } from "../../constants";
 
 interface ReferencesProps {
   clientSlug: string;
@@ -40,12 +41,21 @@ const References: React.FC<ReferencesProps> = ({
     <div className="flex justify-center">
       <div className="w-screen grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 space-6">
         {references.map((reference) => {
+          const image = reference.images ? reference.images[0]?.url : false;
           return (
             <div key={reference.id}>
               <Link href={`${clientSlug}/${reference.slug}`}>
                 <a>
                   <Wrapper className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5">
                     <div>
+                      {image ? (
+                        <img
+                          className="w-full"
+                          src={`${LOCAL_BACKEND_URL}${image}`}
+                        />
+                      ) : (
+                        ""
+                      )}
                       <h1
                         className={classNames(
                           "text-center text-3xl font-semibold m-2"
