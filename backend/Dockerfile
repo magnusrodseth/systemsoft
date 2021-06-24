@@ -23,8 +23,9 @@ RUN addgroup -g 1001 -S nodejs
 RUN adduser -S strapi -u 1001
 
 
-# Copy Strapi specific folders
+# Copy Strapi specific folders and files
 COPY --from=builder /backend/public ./public
+COPY --from=builder /backend/favicon.ico ./favicon.ico
 COPY --from=builder --chown=strapi:nodejs /backend/.cache ./.cache
 COPY --from=builder --chown=strapi:nodejs /backend/api ./api
 COPY --from=builder --chown=strapi:nodejs /backend/extensions ./extensions

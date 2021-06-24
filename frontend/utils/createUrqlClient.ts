@@ -1,5 +1,4 @@
 import { dedupExchange, fetchExchange } from 'urql';
-import { LOCAL_GRAPHQL_URL } from "../constants"
 
 /**
  * Creates an URQL client with configuration options.
@@ -8,7 +7,7 @@ import { LOCAL_GRAPHQL_URL } from "../constants"
  * @returns the URQL client with configuration options.
  */
 const createUrqlClient = (ssrExchange: any) => ({
-    url: LOCAL_GRAPHQL_URL,
+    url: process.env.NEXT_PUBLIC_API_URL as string,
     fetchOptions: {
         // Including credentials requires us to handle potential CORS errors.
         credentials: "include" as const,
@@ -16,7 +15,8 @@ const createUrqlClient = (ssrExchange: any) => ({
     exchanges: [
         dedupExchange,
         ssrExchange,
-        fetchExchange]
+        fetchExchange
+    ]
 });
 
 export default createUrqlClient;
