@@ -6,6 +6,7 @@ import React from "react";
 import classNames from "utils/classNames";
 import createUrqlClient from "../../utils/createUrqlClient";
 import Error from "components/Error";
+import Jumbotron from "components/Jumbotron";
 
 interface EmployeesProps {}
 
@@ -29,18 +30,10 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
   let count = 0;
 
   return (
-    <>
-      <div className="text-center p-6x">
-        <h1
-          className={classNames(
-            "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
-            "font-extrabold uppercase text-transparent mb-6",
-            "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
-          )}
-        >
-          SystemSoft AS
-        </h1>
-      </div>
+    <div>
+        <Jumbotron title="Employees" />
+ 
+
       {employees.map((employee) => (
         <Employee
           employee={employee}
@@ -48,7 +41,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
           key={employee.id}
         />
       ))}
-    </>
+    </div>
   );
 };
 

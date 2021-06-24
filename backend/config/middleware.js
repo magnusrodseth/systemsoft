@@ -1,5 +1,3 @@
-// const { LOCALHOST_PORT_3000 } = require("../constants");
-
 module.exports = {
   settings: {
     cors: {
