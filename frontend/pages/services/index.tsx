@@ -5,6 +5,8 @@ import Jumbotron from "components/Jumbotron";
 import { useServicesQuery, Services as IServices } from "generated/graphql";
 import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
+import Loading from "components/Loading";
+import Error from "components/Error";
 
 interface ServicesProps {}
 
@@ -13,7 +15,9 @@ const Services: React.FC<ServicesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
+  if (fetching) return <Loading />;
+
+  if (error) return <Error />;
 
   const services = data?.services as IServices[];
 

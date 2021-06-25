@@ -3,7 +3,9 @@ import { LOCAL_BACKEND_URL } from "../../constants";
 import React from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
+import Link from "next/link";
 import Markdown from "components/Markdown";
+
 
 interface ClientArticleProps {
   client: IClients;
@@ -41,15 +43,17 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
           {client.description}
         </Markdown>
 
-        <button
-          className={classNames(
-            "border-gray-500 focus:outline-none border-2 hover:bg-gray-500 hover:text-white",
-            "transition transform ease-in-out duration-500",
-            "tracking-wide font-mono text-gray-600 py-2 px-4 rounded uppercase"
-          )}
-        >
-          Read more
-        </button>
+        <Link href={`clients/${client.slug}`}>
+          <button
+            className={classNames(
+              "border-gray-500 focus:outline-none border-2 hover:bg-gray-500 hover:text-white",
+              "transition transform ease-in-out duration-500",
+              "tracking-wide font-mono text-gray-600 py-2 px-4 rounded uppercase"
+            )}
+          >
+            Read more
+          </button>
+        </Link>
       </div>
     </div>
   );

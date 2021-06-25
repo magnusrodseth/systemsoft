@@ -106,4 +106,6 @@ dist
 
 # Custom ignores
 .DS_Store
+.env.*
+
 db

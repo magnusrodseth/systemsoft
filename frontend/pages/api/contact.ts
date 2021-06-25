@@ -48,7 +48,7 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
     subject: "New message - SystemSoft Contact Form",
     text: message,
     html: htmlBody,
-  }, () => {
+  }, ()=>{
     console.log("📨 Sent mail!")
   });
 

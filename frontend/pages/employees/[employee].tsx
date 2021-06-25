@@ -8,6 +8,8 @@ import createUrqlClient from "utils/createUrqlClient";
 import { withUrqlClient, WithUrqlProps } from "next-urql";
 import Resume from "components/resume/Resume";
 import classNames from "utils/classNames";
+import Loading from "components/Loading";
+import Error from "components/Error";
 
 const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
   const [result, _] = useGetEmployeeResumeQuery({
@@ -20,8 +22,10 @@ const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
 
   const resumes = data?.resumes as IResume[];
 
-  if (fetching) return <>Loading...</>;
-  if (error) return <>Error...</>;
+  if (fetching) {
+    return <Loading />;
+  }
+  if (error) return <Error />;
 
   const gotNoResumes = resumes.length === 0;
   const gotSeveralResumes = resumes.length > 1;

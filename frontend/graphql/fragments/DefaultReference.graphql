@@ -3,6 +3,11 @@ fragment DefaultReference on References {
   slug
   title
   description
+  completed
+  images {
+    caption
+    url
+  }
   client {
     ...DefaultClient
   }

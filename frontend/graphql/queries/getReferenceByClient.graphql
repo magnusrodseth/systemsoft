@@ -1,0 +1,5 @@
+query GetReferenceByClient($referenceSlug: String!, $clientSlug: String!) {
+  references(where: { slug: $referenceSlug, client: { slug: $clientSlug } }) {
+    ...DefaultReference
+  }
+}
