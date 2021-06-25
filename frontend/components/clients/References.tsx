@@ -5,8 +5,6 @@ import {
 } from "generated/graphql";
 import React from "react";
 import classNames from "utils/classNames";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
 import Loading from "components/Loading";
 import Link from "next/link";
 import Error from "components/Error";
