@@ -14,6 +14,8 @@ const ResumePage: React.FC<WithUrqlProps> = ({ name }) => {
     variables: { employeeSlug: name },
   });
 
+  console.log(result);
+
   const { data, fetching, error } = result;
 
   const resumes = data?.resumes as IResume[];

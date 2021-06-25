@@ -1,7 +1,5 @@
 fragment DefaultReference on References {
   id
-  createdAt
-  updatedAt
   slug
   title
   description

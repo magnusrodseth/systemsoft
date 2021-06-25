@@ -1,7 +1,5 @@
 fragment DefaultService on Services {
   id
-  createdAt
-  updatedAt
   slug
   name
   description

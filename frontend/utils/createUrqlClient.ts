@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { dedupExchange, fetchExchange } from 'urql';
 
 /**
@@ -7,7 +9,7 @@ import { dedupExchange, fetchExchange } from 'urql';
  * @returns the URQL client with configuration options.
  */
 const createUrqlClient = (ssrExchange: any) => ({
-    url: process.env.NEXT_PUBLIC_API_URL as string,
+    url: process.env.NEXT_PUBLIC_BACKEND_URL as string,
     fetchOptions: {
         // Including credentials requires us to handle potential CORS errors.
         credentials: "include" as const,

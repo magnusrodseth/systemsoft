@@ -13,6 +13,8 @@ interface ClientsProps {}
 const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
   const [result, _] = useClientsQuery();
 
+  console.log(result);
+
   const { data, fetching, error } = result;
 
   if (fetching) return <h1>fetching</h1>;

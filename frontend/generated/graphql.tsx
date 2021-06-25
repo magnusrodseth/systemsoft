@@ -2254,7 +2254,7 @@ export type UpdateUserPayload = {
 
 export type DefaultClientFragment = (
   { __typename?: 'Clients' }
-  & Pick<Clients, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & Pick<Clients, 'id' | 'slug' | 'name' | 'description'>
   & { logo?: Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
@@ -2273,7 +2273,7 @@ export type DefaultEmployeeFragment = (
 
 export type DefaultReferenceFragment = (
   { __typename?: 'References' }
-  & Pick<References, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'title' | 'description'>
+  & Pick<References, 'id' | 'slug' | 'title' | 'description'>
   & { client?: Maybe<(
     { __typename?: 'Clients' }
     & DefaultClientFragment
@@ -2282,7 +2282,7 @@ export type DefaultReferenceFragment = (
 
 export type DefaultServiceFragment = (
   { __typename?: 'Services' }
-  & Pick<Services, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & Pick<Services, 'id' | 'slug' | 'name' | 'description'>
   & { image?: Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
@@ -2522,8 +2522,6 @@ export const DefaultEmployeeFragmentDoc = gql`
 export const DefaultClientFragmentDoc = gql`
     fragment DefaultClient on Clients {
   id
-  createdAt
-  updatedAt
   slug
   name
   description
@@ -2535,8 +2533,6 @@ export const DefaultClientFragmentDoc = gql`
 export const DefaultReferenceFragmentDoc = gql`
     fragment DefaultReference on References {
   id
-  createdAt
-  updatedAt
   slug
   title
   description
@@ -2548,8 +2544,6 @@ export const DefaultReferenceFragmentDoc = gql`
 export const DefaultServiceFragmentDoc = gql`
     fragment DefaultService on Services {
   id
-  createdAt
-  updatedAt
   slug
   name
   description
