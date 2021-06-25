@@ -1,8 +1,12 @@
 import Employee from "components/Employee";
+import Loading from "components/Loading";
 import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
+
 import createUrqlClient from "../../utils/createUrqlClient";
+import Error from "components/Error";
+import Jumbotron from "components/Jumbotron";
 
 interface EmployeesProps {}
 
@@ -13,22 +17,17 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  if (fetching) return <>Loading...</>;
-  if (error) return <>Error...</>;
+  if (fetching) return <Loading />;
+  if (error) return <Error />;
 
   const employees = data?.employees as IEmployees[];
 
   let count = 0;
 
   return (
-    <>
-      <div className="text-center p-5">
-        <h2 className="text-blue-600 font-bold uppercase text-1xl">
-          Introducing
-        </h2>
-        <h1 className="text-5xl font-bold text-gray-800">Our Employees</h1>
-      </div>
-      <div className="bg-blue-600 h-1 w-10 ml-auto mr-auto mb-6"></div>
+    <div>
+      <Jumbotron title="Employees" />
+
       {employees.map((employee) => (
         <Employee
           employee={employee}
@@ -36,7 +35,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
           key={employee.id}
         />
       ))}
-    </>
+    </div>
   );
 };
 

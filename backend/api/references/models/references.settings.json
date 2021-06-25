@@ -35,6 +35,9 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "completed": {
+      "type": "date"
     }
   }
 }

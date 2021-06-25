@@ -1,3 +1,4 @@
+import Jumbotron from "components/Jumbotron";
 import { withUrqlClient } from "next-urql";
 import Link from "next/link";
 import React from "react";
@@ -7,15 +8,7 @@ import createUrqlClient from "utils/createUrqlClient";
 const Index = () => {
   return (
     <div className="flex m-3 justify-center flex-col">
-      <h1
-        className={classNames(
-          "lg:text-8xl md:text-4xl sm:text-2xl mt-6 tracking-widest",
-          "font-extrabold uppercase text-transparent",
-          "bg-clip-text bg-gradient-to-r from-blue-600 to-purple-900 text-center"
-        )}
-      >
-        SystemSoft AS
-      </h1>
+      <Jumbotron title="SystemSoft AS" />
       <div
         className={classNames(
           "my-32 flex flex-col w-screen space-y-10 justify-center",

@@ -21,6 +21,7 @@ const Markdown: React.FC<MarkdownProps> = ({
       return !inline && match ? (
         <SyntaxHighlighter
           style={atomDark}
+          customStyle={{ overflow: "hidden" }}
           language={match[1]}
           PreTag="div"
           children={String(children).replace(/\n$/, "")}
