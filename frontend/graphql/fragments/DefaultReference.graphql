@@ -1,10 +1,13 @@
 fragment DefaultReference on References {
   id
-  createdAt
-  updatedAt
   slug
   title
   description
+  completed
+  images {
+    caption
+    url
+  }
   client {
     ...DefaultClient
   }

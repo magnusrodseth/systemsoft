@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  backend:
+    container_name: systemsoft-backend
+    env_file:
+      - ./backend/.env
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 1337:1337
+    volumes:
+      - ./backend/app:/srv/app
+
+  frontend:
+    container_name: systemsoft-frontend
+    ports:
+      - 3000:3000
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    env_file:
+      - ./frontend/.env.local
