@@ -1,5 +1,3 @@
-import { Popover } from "@headlessui/react";
-import { LOCAL_BACKEND_URL } from "../constants";
 import React from "react";
 import classNames from "utils/classNames";
 
