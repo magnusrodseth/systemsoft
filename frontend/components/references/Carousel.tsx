@@ -15,6 +15,9 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const sliderLength = images.length;
+  const sliderMap = Array(sliderLength).fill(0);
+
   // const images = reference.images;
   const decrementIndex = () => {
     const nextIndex =
@@ -27,7 +30,10 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
     setCurrentIndex(nextIndex);
   };
 
-  // TODO: Arrow component
+  const handleCounter = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div
       className="flex flex-col items-center justify-center relative h-96 bg-cover bg-center"
@@ -35,7 +41,13 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
         backgroundImage: `url(${LOCAL_BACKEND_URL}${images[currentIndex]?.url})`,
       }}
     >
-      <div>
+      <div
+        className={classNames(
+          "transition duration-500 ease-in-out transform",
+          "hover:-translate-y-1",
+          "bg-gray-800 backdrop-filter backdrop-blur-[2px] hover:backdrop-blur-sm	px-24 py-5 bg-opacity-60 rounded-lg shadow-md hover:shadow-lg"
+        )}
+      >
         <h1
           className={classNames(
             "text-center text-5xl font-bold text-white bg-black-100"
@@ -43,6 +55,13 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
         >
           {titles && titles[currentIndex] ? titles[currentIndex] : ""}
         </h1>
+        {images[currentIndex]?.caption ? (
+          <p className="text-white m-1">
+            {images[currentIndex]?.caption || ""}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
       <ArrowCircleLeftIcon
         className="absolute w-10 h-10 text-white  left-5 hover:cursor-pointer"
@@ -56,7 +75,9 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
         )}
         onClick={incrementIndex}
       />
-      {images[currentIndex]?.caption ? (
+
+      {/* Counter */}
+      <div className="flex flex-row justify-center items-center space-x-6">
         <div
           className={classNames(
             "absolute w-screen h-20 bottom-0 text-center",
@@ -64,13 +85,28 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
             "flex justify-center"
           )}
         >
-          <p className="text-white m-1 absolute bottom-1">
-            {images[currentIndex]?.caption || ""}
-          </p>
+          <div className="flex absolute bottom-2 gap-3">
+            {sliderMap.map((slide, index) => {
+              const borderColor =
+                index == currentIndex ? "border-white" : "border-gray-400";
+
+              return (
+                <div
+                  className={classNames(
+                    "rounded-full h-5 w-5 bg-opacity-0 border-2",
+                    "hover:cursor-pointer",
+                    borderColor
+                  )}
+                  onClick={() => {
+                    handleCounter(index);
+                  }}
+                  key={slide.id}
+                />
+              );
+            })}
+          </div>
         </div>
-      ) : (
-        ""
-      )}
+      </div>
     </div>
   );
 };

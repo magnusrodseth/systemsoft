@@ -3,7 +3,7 @@ import Loading from "components/Loading";
 import { useEmployeesQuery, Employees as IEmployees } from "generated/graphql";
 import { withUrqlClient } from "next-urql";
 import React from "react";
-import classNames from "utils/classNames";
+
 import createUrqlClient from "../../utils/createUrqlClient";
 import Error from "components/Error";
 import Jumbotron from "components/Jumbotron";
@@ -31,8 +31,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   return (
     <div>
-        <Jumbotron title="Employees" />
- 
+      <Jumbotron title="Employees" />
 
       {employees.map((employee) => (
         <Employee

@@ -2434,6 +2434,19 @@ export type GetClientReferencesQuery = (
   )>>> }
 );
 
+export type EmployeeBySlugQueryVariables = Exact<{
+  employeeSlug: Scalars['String'];
+}>;
+
+
+export type EmployeeBySlugQuery = (
+  { __typename?: 'Query' }
+  & { employees?: Maybe<Array<Maybe<(
+    { __typename?: 'Employees' }
+    & DefaultEmployeeFragment
+  )>>> }
+);
+
 export type GetEmployeeResumeQueryVariables = Exact<{
   employeeSlug: Scalars['String'];
 }>;
@@ -2776,6 +2789,17 @@ export const GetClientReferencesDocument = gql`
 
 export function useGetClientReferencesQuery(options: Omit<Urql.UseQueryArgs<GetClientReferencesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetClientReferencesQuery>({ query: GetClientReferencesDocument, ...options });
+};
+export const EmployeeBySlugDocument = gql`
+    query EmployeeBySlug($employeeSlug: String!) {
+  employees(where: {slug: $employeeSlug}) {
+    ...DefaultEmployee
+  }
+}
+    ${DefaultEmployeeFragmentDoc}`;
+
+export function useEmployeeBySlugQuery(options: Omit<Urql.UseQueryArgs<EmployeeBySlugQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<EmployeeBySlugQuery>({ query: EmployeeBySlugDocument, ...options });
 };
 export const GetEmployeeResumeDocument = gql`
     query GetEmployeeResume($employeeSlug: String!) {

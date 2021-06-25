@@ -1,0 +1,5 @@
+query EmployeeBySlug($employeeSlug: String!) {
+  employees(where: { slug: $employeeSlug }) {
+    ...DefaultEmployee
+  }
+}

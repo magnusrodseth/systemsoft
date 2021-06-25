@@ -7,6 +7,7 @@ import Wrapper from "components/Wrapper";
 import classNames from "utils/classNames";
 import Loading from "components/Loading";
 import Error from "components/Error";
+import Markdown from "components/Markdown";
 
 interface ServicesProps {}
 
@@ -40,10 +41,10 @@ const Services: React.FC<ServicesProps> = ({}) => {
               <div className="flex justify-center items-center">
                 <img src={service.image?.url} alt={service.name} />
               </div>
-              <p className="w-3/4">{`${service.description.substring(
+              <Markdown className="w-3/4">{`${service.description.substring(
                 0,
                 125
-              )}...`}</p>
+              )}...`}</Markdown>
             </div>
           </Wrapper>
         ))}
