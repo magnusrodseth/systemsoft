@@ -18,16 +18,9 @@ const Reference: React.FC<WithUrqlProps> = ({ clientSlug, referenceSlug }) => {
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   const references = data?.references as IReferences[];
 
-  if (fetching)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (fetching) return <Loading />;
   if (error) return <Error />;
 
   if (references.length == 0) {

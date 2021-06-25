@@ -14,9 +14,7 @@ const ReferenceArticle: React.FC<ReferenceArticleProps> = ({ reference }) => {
     <div className="">
       {reference.images ? (
         <Carousel images={reference.images} titles={["Hei", "Hallo"]} />
-      ) : (
-        ""
-      )}
+      ) : null}
 
       <div className={classNames("flex flex-col items-center m-5")}>
         <h1

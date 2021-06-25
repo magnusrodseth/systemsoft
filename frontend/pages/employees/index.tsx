@@ -17,12 +17,7 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const { data, fetching, error } = result;
 
-  if (fetching)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (fetching) return <Loading />;
   if (error) return <Error />;
 
   const employees = data?.employees as IEmployees[];

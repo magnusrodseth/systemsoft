@@ -16,12 +16,7 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
 
   const clients = data?.clients as IClients[];
 
-  if (fetching)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (fetching) return <Loading />;
   if (error) return <Error />;
 
   // Clean up input and use const client for the unique client fetched

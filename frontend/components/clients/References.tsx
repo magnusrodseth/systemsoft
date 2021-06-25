@@ -11,6 +11,7 @@ import Loading from "components/Loading";
 import Link from "next/link";
 import Error from "components/Error";
 import { LOCAL_BACKEND_URL } from "../../constants";
+import Markdown from "components/Markdown";
 
 interface ReferencesProps {
   clientSlug: string;
@@ -25,16 +26,9 @@ const References: React.FC<ReferencesProps> = ({
 
   const { data, fetching, error } = result;
 
-  console.log(fetching, error);
-
   const references = data?.references as IReferences[];
 
-  if (fetching)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (fetching) return <Loading />;
   if (error) return <Error />;
 
   return (
@@ -53,9 +47,7 @@ const References: React.FC<ReferencesProps> = ({
                           className="w-full"
                           src={`${LOCAL_BACKEND_URL}${image}`}
                         />
-                      ) : (
-                        ""
-                      )}
+                      ) : null}
                       <h1
                         className={classNames(
                           "text-center text-3xl font-semibold m-2"
@@ -64,11 +56,9 @@ const References: React.FC<ReferencesProps> = ({
                         {reference.title}
                       </h1>
 
-                      <ReactMarkdown
-                        remarkPlugins={[gfm]}
-                        className="text-left"
-                        children={reference.description}
-                      />
+                      <Markdown className="text-left">
+                        {reference.description}
+                      </Markdown>
                     </div>
                   </Wrapper>
                 </a>

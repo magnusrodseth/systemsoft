@@ -59,9 +59,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
           <p className="text-white m-1">
             {images[currentIndex]?.caption || ""}
           </p>
-        ) : (
-          ""
-        )}
+        ) : null}
       </div>
       <ArrowCircleLeftIcon
         className="absolute w-10 h-10 text-white  left-5 hover:cursor-pointer"
@@ -81,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
         <div
           className={classNames(
             "absolute w-screen h-20 bottom-0 text-center",
-            "bg-gradient-to-t from-black to-transparent bg-opacity-50",
+            "bg-gradient-to-t from-gray-800 to-transparent bg-opacity-50",
             "flex justify-center"
           )}
         >
