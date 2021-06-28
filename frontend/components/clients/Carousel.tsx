@@ -1,3 +1,8 @@
+import {
+  ArrowCircleLeftIcon,
+  ArrowCircleRightIcon,
+} from "@heroicons/react/outline";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import classNames from "utils/classNames";
 import { Clients as IClients } from "../../generated/graphql";
@@ -32,14 +37,18 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
   // TODO: Arrow component
   return (
     <div className="flex flex-row items-center justify-center relative h-full">
-      <div
-        className="absolute w-10 h-10 bg-green-200 left-5 hover:cursor-pointer"
-        onClick={decrementIndex}
-      />
+      <button className="focus:outline-none">
+        <ArrowCircleLeftIcon
+          className=" w-10 h-10 text-white  left-5 hover:cursor-pointer"
+          onClick={decrementIndex}
+        />
+      </button>
 
       {currentClient ? (
         <div
-          className={classNames("flex flex-col justify-center items-center")}
+          className={classNames(
+            "flex flex-col justify-center items-center flex-auto"
+          )}
         >
           <div
             key={currentClient.id}
@@ -58,50 +67,55 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
               )}
             >{`${currentClient.description.substring(0, 200)}...`}</p>
 
-            <button
-              className={classNames(
-                "border-blue-500 focus:outline-none border-2 hover:bg-blue-500 hover:text-white",
-                "transition transform ease-in-out duration-500",
-                "tracking-wide font-mono text-blue-600 py-2 px-4 rounded uppercase"
-              )}
-            >
-              Read more
-            </button>
-
-            {/* Counter */}
-            <div className="flex flex-row justify-center items-center space-x-6">
-              {clients.map((client, index) => {
-                const borderColor =
-                  index == currentIndex ? "border-gray-800" : "border-gray-400";
-
-                return (
-                  <div
-                    className={classNames(
-                      "rounded-full h-5 w-5 bg-opacity-0 border-2",
-                      "hover:cursor-pointer",
-                      borderColor
-                    )}
-                    onClick={() => {
-                      handleCounter(index);
-                    }}
-                    key={client.id}
-                  />
-                );
-              })}
-            </div>
+            <Link href={`/clients/${currentClient.slug}`}>
+              <button
+                className={classNames(
+                  "border-blue-500 focus:outline-none border-2 hover:bg-blue-500 hover:text-white",
+                  "transition transform ease-in-out duration-500",
+                  "tracking-wide font-mono text-blue-600 py-2 px-4 rounded uppercase"
+                )}
+              >
+                Read more
+              </button>
+            </Link>
           </div>
         </div>
       ) : (
         <div>Fitting error message when client is undefined</div>
       )}
 
-      <div
-        className={classNames(
-          "absolute w-10 h-10 bg-green-200 right-5",
-          "hover:cursor-pointer"
-        )}
-        onClick={incrementIndex}
-      />
+      <button className="focus:outline-none">
+        <ArrowCircleRightIcon
+          className={classNames(
+            " w-10 h-10 text-white  right-5",
+            "hover:cursor-pointer"
+          )}
+          onClick={incrementIndex}
+        />
+      </button>
+      <div className="absolute bottom-3">
+        {/* Counter */}
+        <div className="flex flex-row justify-center items-center space-x-6">
+          {clients.map((client, index) => {
+            const borderColor =
+              index == currentIndex ? "border-gray-800" : "border-gray-400";
+
+            return (
+              <div
+                className={classNames(
+                  "rounded-full h-5 w-5 bg-opacity-0 border-2",
+                  "hover:cursor-pointer",
+                  borderColor
+                )}
+                onClick={() => {
+                  handleCounter(index);
+                }}
+                key={client.id}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
