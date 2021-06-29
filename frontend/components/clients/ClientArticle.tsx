@@ -6,7 +6,6 @@ import { Clients as IClients } from "../../generated/graphql";
 import Link from "next/link";
 import Markdown from "components/Markdown";
 
-
 interface ClientArticleProps {
   client: IClients;
 }
@@ -18,11 +17,10 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
     <div
       key={client.id}
       className={classNames(
-        "flex justify-center items-center flex-row space-y-5",
-        "w-7/12"
+        "sm:block w-7/12 md:w-7/12 lg:flex space-y-5 m-auto my-5 pt-10"
       )}
     >
-      <Wrapper className="bg-gray-100 mr-8">
+      <Wrapper className="bg-gray-100 mr-0 lg:mr-8 min-h-[200px] md:flex-none lg:w-5/12 m-0">
         {client.logo?.url ? (
           <img
             src={`${LOCAL_BACKEND_URL}${client.logo?.url}`}
@@ -32,13 +30,14 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         ) : null}
       </Wrapper>
 
-      <div className="flex flex-col justify-center items-center space-y-6">
+      <div className="flex flex-col justify-center items-center space-y-6 md:flex-1">
         <h1 className={classNames("text-center text-3xl font-bold")}>
           {client.name}
         </h1>
 
         <Markdown
           className={classNames("text-left lg:text-md md:text-sm sm:text-sm")}
+          strip={true}
         >
           {client.description}
         </Markdown>

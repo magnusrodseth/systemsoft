@@ -28,7 +28,12 @@ const Clients: React.FC<ClientsProps> = ({}: ClientsProps) => {
       <Wrapper className={classNames("bg-gray-300 w-screen h-96 m-0")}>
         <Carousel clients={clients} />
       </Wrapper>
-      <div className={classNames("flex flex-col justify-center items-center")}>
+
+      <div
+        className={classNames(
+          "flex flex-col justify-center items-center divide-y"
+        )}
+      >
         {clients.map((client) => (
           <ClientArticle client={client} key={client.id} />
         ))}
