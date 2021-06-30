@@ -40,7 +40,7 @@ const Index = () => {
             <a>
               <div
                 className={classNames(
-                  "flex bg-blue-600 text-white py-3 px-8 hover:border-transparent rounded",
+                  "flex bg-[#3C84E7] text-white py-3 px-8 hover:border-transparent rounded",
                   "hover:-translate-y-1 hover:scale-101",
                   "shadow-md hover:shadow-lg",
                   "transition transform duration-500 ease-in-out uppercase"
@@ -55,7 +55,7 @@ const Index = () => {
             <a>
               <div
                 className={classNames(
-                  "flex text-blue-600 py-3 px-8 hover:border-transparent rounded",
+                  "flex text-[#3C84E7] py-3 px-8 hover:border-transparent rounded",
                   "hover:-translate-y-1 hover:scale-101",
                   "shadow-md hover:shadow-lg",
                   "transition transform duration-500 ease-in-out uppercase"

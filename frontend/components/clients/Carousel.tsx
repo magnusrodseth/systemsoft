@@ -2,6 +2,7 @@ import {
   ArrowCircleLeftIcon,
   ArrowCircleRightIcon,
 } from "@heroicons/react/outline";
+import Markdown from "components/Markdown";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import classNames from "utils/classNames";
@@ -34,12 +35,11 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
     setCurrentClient(clients[currentIndex]);
   });
 
-  // TODO: Arrow component
   return (
     <div className="flex flex-row items-center justify-center relative h-full">
       <button className="focus:outline-none">
         <ArrowCircleLeftIcon
-          className=" w-10 h-10 text-white  left-5 hover:cursor-pointer"
+          className="w-10 h-10 text-white hover:-translate-y-1 transform transition duration-500 ease-in-out left-5 hover:cursor-pointer"
           onClick={decrementIndex}
         />
       </button>
@@ -61,11 +61,12 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
               {currentClient.name}
             </h1>
 
-            <p
+            <Markdown
+              strip
               className={classNames(
                 "text-center lg:text-md md:text-sm sm:text-sm"
               )}
-            >{`${currentClient.description.substring(0, 200)}...`}</p>
+            >{`${currentClient.description.substring(0, 200)}...`}</Markdown>
 
             <Link href={`/clients/${currentClient.slug}`}>
               <button
@@ -87,8 +88,9 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
       <button className="focus:outline-none">
         <ArrowCircleRightIcon
           className={classNames(
-            " w-10 h-10 text-white  right-5",
-            "hover:cursor-pointer"
+            "w-10 h-10 text-white  right-5",
+            "hover:cursor-pointer",
+            "hover:-translate-y-1 transform transition duration-500 ease-in-out"
           )}
           onClick={incrementIndex}
         />

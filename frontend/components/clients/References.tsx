@@ -41,10 +41,12 @@ const References: React.FC<ReferencesProps> = ({
                   <Wrapper className="bg-blue-100 w-3/4 p-5 ml-auto mr-auto mb-5 mt-5">
                     <div>
                       {image ? (
-                        <img
-                          className="w-full"
-                          src={`${LOCAL_BACKEND_URL}${image}`}
-                        />
+                        <Wrapper className="bg-gray-100 m-auto min-h-[200px] min-w-[300px] md:flex-none lg:w-5/12">
+                          <img
+                            className="w-full"
+                            src={`${LOCAL_BACKEND_URL}${image}`}
+                          />
+                        </Wrapper>
                       ) : null}
                       <h1
                         className={classNames(

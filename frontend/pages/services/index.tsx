@@ -41,10 +41,10 @@ const Services: React.FC<ServicesProps> = ({}) => {
               <div className="flex justify-center items-center">
                 <img src={service.image?.url} alt={service.name} />
               </div>
-              <Markdown className="w-3/4">{`${service.description.substring(
-                0,
-                125
-              )}...`}</Markdown>
+              <Markdown
+                className="w-3/4"
+                strip
+              >{`${service.description.substring(0, 125)}...`}</Markdown>
             </div>
           </Wrapper>
         ))}
