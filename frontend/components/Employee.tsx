@@ -15,7 +15,7 @@ const Employee: React.FC<EmployeeProps> = ({ employee }) => {
     <Wrapper
       className={classNames(
         "flex md:odd:flex-row-reverse md:even:flex-row bg-gray-200",
-        "h-full md:justify-between my-8 max-w-7xl mx-auto",
+        "h-full md:justify-between my-8 mx-5 max-w-7xl md:mx-auto",
         "flex-col justify-center items-center"
       )}
     >
@@ -44,7 +44,7 @@ const Employee: React.FC<EmployeeProps> = ({ employee }) => {
       </Wrapper>
       <Wrapper
         className={classNames(
-          "bg-white md:w-1/2 h-10/12 w-full flex flex-col justify-center items-center"
+          "bg-white md:w-1/2 h-full w-full flex flex-col justify-center items-center p-10"
         )}
       >
         <table className="table-auto w-full text-left divide-y">
