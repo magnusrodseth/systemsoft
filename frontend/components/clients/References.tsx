@@ -56,7 +56,7 @@ const References: React.FC<ReferencesProps> = ({
                         {reference.title}
                       </h1>
 
-                      <Markdown className="text-left" strip={true}>
+                      <Markdown className="text-left" strip>
                         {`${reference.description.substr(0, 200)}...`}
                       </Markdown>
                     </div>

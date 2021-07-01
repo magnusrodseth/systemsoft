@@ -37,7 +37,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
             <h1 className="text-3xl font-mono text-center m-2">
               {service.name}
             </h1>
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 m-2 gap-2">
               <div className="flex justify-center items-center">
                 <img src={service.image?.url} alt={service.name} />
               </div>
