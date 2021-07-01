@@ -98,7 +98,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
                   onClick={() => {
                     handleCounter(index);
                   }}
-                  key={slide.id}
+                  key={index}
                 />
               );
             })}

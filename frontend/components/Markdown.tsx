@@ -3,17 +3,29 @@ import ReactMarkdown from "react-markdown";
 import classNames from "utils/classNames";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import remark from "remark";
+import { default as stripMarkdown } from "strip-markdown";
 
 interface MarkdownProps {
   className?: string;
   children: any;
+  strip?: boolean;
 }
 
 const Markdown: React.FC<MarkdownProps> = ({
   className,
   children,
+  strip,
 }: MarkdownProps) => {
   const styles = className ? className : "";
+
+  if (strip) {
+    let result;
+    remark()
+      .use(stripMarkdown)
+      .process(children, (_, file) => (result = file.contents));
+    return <p>{result}</p>;
+  }
 
   const components = {
     code({ node, inline, className, children, ...props }: any) {

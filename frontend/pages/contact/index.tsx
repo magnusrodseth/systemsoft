@@ -45,7 +45,7 @@ const Contact: React.FC<ContactProps> = ({}) => {
           }}
         >
           {({ errors, isSubmitting }) => (
-            <Form className="grid gap-3">
+            <Form className="grid gap-3 p-4">
               {status ? (
                 <div className="form-group">
                   <div
@@ -62,9 +62,7 @@ const Contact: React.FC<ContactProps> = ({}) => {
                     <span className="ml-3">{status.description}</span>
                   </div>
                 </div>
-              ) : (
-                ""
-              )}
+              ) : null}
               <div className="form-group">
                 <label
                   htmlFor="fullName"

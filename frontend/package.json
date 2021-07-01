@@ -23,7 +23,9 @@
     "react-icons": "^4.2.0",
     "react-markdown": "^6.0.2",
     "react-syntax-highlighter": "^15.4.3",
+    "remark": "^13.0.0",
     "remark-gfm": "^1.0.0",
+    "strip-markdown": "^4.0.0",
     "urql": "^2.0.3",
     "yup": "^0.32.9"
   },

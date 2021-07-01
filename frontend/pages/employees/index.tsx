@@ -22,18 +22,12 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
 
   const employees = data?.employees as IEmployees[];
 
-  let count = 0;
-
   return (
     <div>
       <Jumbotron title="Employees" />
 
       {employees.map((employee) => (
-        <Employee
-          employee={employee}
-          odd={++count % 2 == 0}
-          key={employee.id}
-        />
+        <Employee employee={employee} key={employee.id} />
       ))}
     </div>
   );
