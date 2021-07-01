@@ -10,6 +10,7 @@ import Link from "next/link";
 import Error from "components/Error";
 import { LOCAL_BACKEND_URL } from "../../constants";
 import Markdown from "components/Markdown";
+import ReturnButton from "components/ReturnButton";
 
 interface ReferencesProps {
   clientSlug: string;
@@ -32,6 +33,12 @@ const References: React.FC<ReferencesProps> = ({
   return (
     <div className="flex justify-center">
       <div className="w-screen grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 space-6">
+        {references.length === 0 ? (
+          <div className="flex flex-col w-screen text-center items-center justify-center mt-40 font-mono text-xl font-bold m-auto">
+            <h1>Nothing to see here yet...</h1>
+            <ReturnButton name="clients" link="clients" />
+          </div>
+        ) : null}
         {references.map((reference) => {
           const image = reference.images ? reference.images[0]?.url : false;
           return (

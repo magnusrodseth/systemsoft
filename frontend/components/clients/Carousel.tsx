@@ -82,7 +82,9 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
           </div>
         </div>
       ) : (
-        <div>Fitting error message when client is undefined</div>
+        <div className="flex flex-row items-center justify-center relative h-full w-full">
+          <div className="text-xl font-mono">Nothing to show here</div>
+        </div>
       )}
 
       <button className="focus:outline-none">

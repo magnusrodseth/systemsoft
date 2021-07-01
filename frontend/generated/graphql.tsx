@@ -47,14 +47,12 @@ export type ClientInput = {
 export type Clients = {
   __typename?: 'Clients';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   slug: Scalars['String'];
   name: Scalars['String'];
   description: Scalars['String'];
   logo?: Maybe<UploadFile>;
-  published_at?: Maybe<Scalars['DateTime']>;
 };
 
 export type ClientsAggregator = {
@@ -70,8 +68,8 @@ export type ClientsConnection = {
   aggregate?: Maybe<ClientsAggregator>;
 };
 
-export type ClientsConnectionCreatedAt = {
-  __typename?: 'ClientsConnectionCreatedAt';
+export type ClientsConnectionCreated_At = {
+  __typename?: 'ClientsConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<ClientsConnection>;
 };
@@ -100,47 +98,32 @@ export type ClientsConnectionName = {
   connection?: Maybe<ClientsConnection>;
 };
 
-export type ClientsConnectionPublished_At = {
-  __typename?: 'ClientsConnectionPublished_at';
-  key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ClientsConnection>;
-};
-
 export type ClientsConnectionSlug = {
   __typename?: 'ClientsConnectionSlug';
   key?: Maybe<Scalars['String']>;
   connection?: Maybe<ClientsConnection>;
 };
 
-export type ClientsConnectionUpdatedAt = {
-  __typename?: 'ClientsConnectionUpdatedAt';
+export type ClientsConnectionUpdated_At = {
+  __typename?: 'ClientsConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ClientsConnection>;
-};
-
-export type ClientsConnection_Id = {
-  __typename?: 'ClientsConnection_id';
-  key?: Maybe<Scalars['ID']>;
   connection?: Maybe<ClientsConnection>;
 };
 
 export type ClientsGroupBy = {
   __typename?: 'ClientsGroupBy';
   id?: Maybe<Array<Maybe<ClientsConnectionId>>>;
-  _id?: Maybe<Array<Maybe<ClientsConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<ClientsConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<ClientsConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<ClientsConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<ClientsConnectionUpdated_At>>>;
   slug?: Maybe<Array<Maybe<ClientsConnectionSlug>>>;
   name?: Maybe<Array<Maybe<ClientsConnectionName>>>;
   description?: Maybe<Array<Maybe<ClientsConnectionDescription>>>;
   logo?: Maybe<Array<Maybe<ClientsConnectionLogo>>>;
-  published_at?: Maybe<Array<Maybe<ClientsConnectionPublished_At>>>;
 };
 
 export type ComponentResumeAward = {
   __typename?: 'ComponentResumeAward';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   issuer: Scalars['String'];
   date?: Maybe<Scalars['Date']>;
@@ -157,7 +140,6 @@ export type ComponentResumeAwardInput = {
 export type ComponentResumeCertificate = {
   __typename?: 'ComponentResumeCertificate';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   description?: Maybe<Scalars['String']>;
 };
@@ -170,7 +152,6 @@ export type ComponentResumeCertificateInput = {
 export type ComponentResumeCourse = {
   __typename?: 'ComponentResumeCourse';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   title: Scalars['String'];
   institution?: Maybe<Scalars['String']>;
   location?: Maybe<Scalars['String']>;
@@ -191,7 +172,6 @@ export type ComponentResumeCourseInput = {
 export type ComponentResumeEducationComponent = {
   __typename?: 'ComponentResumeEducationComponent';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   start: Scalars['Date'];
   end?: Maybe<Scalars['Date']>;
   name: Scalars['String'];
@@ -212,7 +192,6 @@ export type ComponentResumeEducationComponentInput = {
 export type ComponentResumeHobby = {
   __typename?: 'ComponentResumeHobby';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   description?: Maybe<Scalars['String']>;
 };
@@ -225,7 +204,6 @@ export type ComponentResumeHobbyInput = {
 export type ComponentResumeLanguage = {
   __typename?: 'ComponentResumeLanguage';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   language: Scalars['String'];
   languageLevel?: Maybe<Enum_Componentresumelanguage_Languagelevel>;
 };
@@ -238,7 +216,6 @@ export type ComponentResumeLanguageInput = {
 export type ComponentResumeOrganisation = {
   __typename?: 'ComponentResumeOrganisation';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   position?: Maybe<Scalars['String']>;
   location?: Maybe<Scalars['String']>;
@@ -259,7 +236,6 @@ export type ComponentResumeOrganisationInput = {
 export type ComponentResumePersonalInformation = {
   __typename?: 'ComponentResumePersonalInformation';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   fullName: Scalars['String'];
   profilePicture?: Maybe<UploadFile>;
   email: Scalars['String'];
@@ -288,7 +264,6 @@ export type ComponentResumePersonalInformationInput = {
 export type ComponentResumePersonalProject = {
   __typename?: 'ComponentResumePersonalProject';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   title: Scalars['String'];
   start?: Maybe<Scalars['Date']>;
   end?: Maybe<Scalars['Date']>;
@@ -309,7 +284,6 @@ export type ComponentResumePersonalProjectInput = {
 export type ComponentResumeProfessionalExperience = {
   __typename?: 'ComponentResumeProfessionalExperience';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   title: Scalars['String'];
   employer: Scalars['String'];
   location?: Maybe<Scalars['String']>;
@@ -330,7 +304,6 @@ export type ComponentResumeProfessionalExperienceInput = {
 export type ComponentResumePublication = {
   __typename?: 'ComponentResumePublication';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   publisher?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
@@ -349,7 +322,6 @@ export type ComponentResumePublicationInput = {
 export type ComponentResumeResumeReference = {
   __typename?: 'ComponentResumeResumeReference';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   title: Scalars['String'];
   organisation?: Maybe<Scalars['String']>;
@@ -368,7 +340,6 @@ export type ComponentResumeResumeReferenceInput = {
 export type ComponentResumeSkill = {
   __typename?: 'ComponentResumeSkill';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   description?: Maybe<Scalars['String']>;
   skillLevel?: Maybe<Enum_Componentresumeskill_Skilllevel>;
@@ -383,9 +354,8 @@ export type ComponentResumeSkillInput = {
 export type ContactInformation = {
   __typename?: 'ContactInformation';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   email: Scalars['String'];
   phoneNumber: Scalars['String'];
   address?: Maybe<Scalars['String']>;
@@ -393,7 +363,6 @@ export type ContactInformation = {
   city?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
   linkedin?: Maybe<Scalars['String']>;
-  published_at?: Maybe<Scalars['DateTime']>;
 };
 
 export type ContactInformationInput = {
@@ -439,15 +408,13 @@ export type EmployeeInput = {
 export type Employees = {
   __typename?: 'Employees';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   slug: Scalars['String'];
   name: Scalars['String'];
   title?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
   resume?: Maybe<Resume>;
-  published_at?: Maybe<Scalars['DateTime']>;
 };
 
 export type EmployeesAggregator = {
@@ -463,8 +430,8 @@ export type EmployeesConnection = {
   aggregate?: Maybe<EmployeesAggregator>;
 };
 
-export type EmployeesConnectionCreatedAt = {
-  __typename?: 'EmployeesConnectionCreatedAt';
+export type EmployeesConnectionCreated_At = {
+  __typename?: 'EmployeesConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<EmployeesConnection>;
 };
@@ -487,12 +454,6 @@ export type EmployeesConnectionName = {
   connection?: Maybe<EmployeesConnection>;
 };
 
-export type EmployeesConnectionPublished_At = {
-  __typename?: 'EmployeesConnectionPublished_at';
-  key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<EmployeesConnection>;
-};
-
 export type EmployeesConnectionResume = {
   __typename?: 'EmployeesConnectionResume';
   key?: Maybe<Scalars['ID']>;
@@ -511,30 +472,22 @@ export type EmployeesConnectionTitle = {
   connection?: Maybe<EmployeesConnection>;
 };
 
-export type EmployeesConnectionUpdatedAt = {
-  __typename?: 'EmployeesConnectionUpdatedAt';
+export type EmployeesConnectionUpdated_At = {
+  __typename?: 'EmployeesConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<EmployeesConnection>;
-};
-
-export type EmployeesConnection_Id = {
-  __typename?: 'EmployeesConnection_id';
-  key?: Maybe<Scalars['ID']>;
   connection?: Maybe<EmployeesConnection>;
 };
 
 export type EmployeesGroupBy = {
   __typename?: 'EmployeesGroupBy';
   id?: Maybe<Array<Maybe<EmployeesConnectionId>>>;
-  _id?: Maybe<Array<Maybe<EmployeesConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<EmployeesConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<EmployeesConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<EmployeesConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<EmployeesConnectionUpdated_At>>>;
   slug?: Maybe<Array<Maybe<EmployeesConnectionSlug>>>;
   name?: Maybe<Array<Maybe<EmployeesConnectionName>>>;
   title?: Maybe<Array<Maybe<EmployeesConnectionTitle>>>;
   email?: Maybe<Array<Maybe<EmployeesConnectionEmail>>>;
   resume?: Maybe<Array<Maybe<EmployeesConnectionResume>>>;
-  published_at?: Maybe<Array<Maybe<EmployeesConnectionPublished_At>>>;
 };
 
 export type FileInfoInput = {
@@ -569,7 +522,7 @@ export type InputId = {
 
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnection_Id | ClientsConnectionCreatedAt | ClientsConnectionUpdatedAt | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | ClientsConnectionPublished_At | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnection_Id | EmployeesConnectionCreatedAt | EmployeesConnectionUpdatedAt | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionResume | EmployeesConnectionPublished_At | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnection_Id | ReferencesConnectionCreatedAt | ReferencesConnectionUpdatedAt | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionCompleted | ReferencesConnectionPublished_At | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Resume | ResumeConnection | ResumeAggregator | ResumeGroupBy | ResumeConnectionId | ResumeConnection_Id | ResumeConnectionCreatedAt | ResumeConnectionUpdatedAt | ResumeConnectionPersonalInformation | ResumeConnectionName | ResumeConnectionEmployee | ResumeConnectionPublished_At | CreateResumePayload | UpdateResumePayload | DeleteResumePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnection_Id | ServicesConnectionCreatedAt | ServicesConnectionUpdatedAt | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | ServicesConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentResumeAward | ComponentResumeCertificate | ComponentResumeCourse | ComponentResumeEducationComponent | ComponentResumeHobby | ComponentResumeLanguage | ComponentResumeOrganisation | ComponentResumePersonalInformation | ComponentResumePersonalProject | ComponentResumeProfessionalExperience | ComponentResumePublication | ComponentResumeResumeReference | ComponentResumeSkill;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Clients | ClientsConnection | ClientsAggregator | ClientsGroupBy | ClientsConnectionId | ClientsConnectionCreated_At | ClientsConnectionUpdated_At | ClientsConnectionSlug | ClientsConnectionName | ClientsConnectionDescription | ClientsConnectionLogo | CreateClientPayload | UpdateClientPayload | DeleteClientPayload | ContactInformation | UpdateContactInformationPayload | DeleteContactInformationPayload | Employees | EmployeesConnection | EmployeesAggregator | EmployeesGroupBy | EmployeesConnectionId | EmployeesConnectionCreated_At | EmployeesConnectionUpdated_At | EmployeesConnectionSlug | EmployeesConnectionName | EmployeesConnectionTitle | EmployeesConnectionEmail | EmployeesConnectionResume | CreateEmployeePayload | UpdateEmployeePayload | DeleteEmployeePayload | References | ReferencesConnection | ReferencesAggregator | ReferencesGroupBy | ReferencesConnectionId | ReferencesConnectionCreated_At | ReferencesConnectionUpdated_At | ReferencesConnectionSlug | ReferencesConnectionTitle | ReferencesConnectionDescription | ReferencesConnectionClient | ReferencesConnectionCompleted | CreateReferencePayload | UpdateReferencePayload | DeleteReferencePayload | Resume | ResumeConnection | ResumeAggregator | ResumeGroupBy | ResumeConnectionId | ResumeConnectionCreated_At | ResumeConnectionUpdated_At | ResumeConnectionPersonalInformation | ResumeConnectionName | ResumeConnectionEmployee | CreateResumePayload | UpdateResumePayload | DeleteResumePayload | Services | ServicesConnection | ServicesAggregator | ServicesGroupBy | ServicesConnectionId | ServicesConnectionCreated_At | ServicesConnectionUpdated_At | ServicesConnectionSlug | ServicesConnectionName | ServicesConnectionDescription | ServicesConnectionImage | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentResumeAward | ComponentResumeCertificate | ComponentResumeCourse | ComponentResumeEducationComponent | ComponentResumeHobby | ComponentResumeLanguage | ComponentResumeOrganisation | ComponentResumePersonalInformation | ComponentResumePersonalProject | ComponentResumeProfessionalExperience | ComponentResumePublication | ComponentResumeResumeReference | ComponentResumeSkill;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -1014,15 +967,13 @@ export type ReferenceInput = {
 export type References = {
   __typename?: 'References';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   slug: Scalars['String'];
   title: Scalars['String'];
   description: Scalars['String'];
   client?: Maybe<Clients>;
   completed?: Maybe<Scalars['Date']>;
-  published_at?: Maybe<Scalars['DateTime']>;
   images?: Maybe<Array<Maybe<UploadFile>>>;
 };
 
@@ -1059,8 +1010,8 @@ export type ReferencesConnectionCompleted = {
   connection?: Maybe<ReferencesConnection>;
 };
 
-export type ReferencesConnectionCreatedAt = {
-  __typename?: 'ReferencesConnectionCreatedAt';
+export type ReferencesConnectionCreated_At = {
+  __typename?: 'ReferencesConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<ReferencesConnection>;
 };
@@ -1077,12 +1028,6 @@ export type ReferencesConnectionId = {
   connection?: Maybe<ReferencesConnection>;
 };
 
-export type ReferencesConnectionPublished_At = {
-  __typename?: 'ReferencesConnectionPublished_at';
-  key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ReferencesConnection>;
-};
-
 export type ReferencesConnectionSlug = {
   __typename?: 'ReferencesConnectionSlug';
   key?: Maybe<Scalars['String']>;
@@ -1095,38 +1040,29 @@ export type ReferencesConnectionTitle = {
   connection?: Maybe<ReferencesConnection>;
 };
 
-export type ReferencesConnectionUpdatedAt = {
-  __typename?: 'ReferencesConnectionUpdatedAt';
+export type ReferencesConnectionUpdated_At = {
+  __typename?: 'ReferencesConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ReferencesConnection>;
-};
-
-export type ReferencesConnection_Id = {
-  __typename?: 'ReferencesConnection_id';
-  key?: Maybe<Scalars['ID']>;
   connection?: Maybe<ReferencesConnection>;
 };
 
 export type ReferencesGroupBy = {
   __typename?: 'ReferencesGroupBy';
   id?: Maybe<Array<Maybe<ReferencesConnectionId>>>;
-  _id?: Maybe<Array<Maybe<ReferencesConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<ReferencesConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<ReferencesConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<ReferencesConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<ReferencesConnectionUpdated_At>>>;
   slug?: Maybe<Array<Maybe<ReferencesConnectionSlug>>>;
   title?: Maybe<Array<Maybe<ReferencesConnectionTitle>>>;
   description?: Maybe<Array<Maybe<ReferencesConnectionDescription>>>;
   client?: Maybe<Array<Maybe<ReferencesConnectionClient>>>;
   completed?: Maybe<Array<Maybe<ReferencesConnectionCompleted>>>;
-  published_at?: Maybe<Array<Maybe<ReferencesConnectionPublished_At>>>;
 };
 
 export type Resume = {
   __typename?: 'Resume';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   PersonalInformation?: Maybe<ComponentResumePersonalInformation>;
   Education?: Maybe<Array<Maybe<ComponentResumeEducationComponent>>>;
   ProfessionalExperience?: Maybe<Array<Maybe<ComponentResumeProfessionalExperience>>>;
@@ -1142,7 +1078,6 @@ export type Resume = {
   ResumeReference?: Maybe<Array<Maybe<ComponentResumeResumeReference>>>;
   name: Scalars['String'];
   employee?: Maybe<Employees>;
-  published_at?: Maybe<Scalars['DateTime']>;
 };
 
 export type ResumeAggregator = {
@@ -1158,8 +1093,8 @@ export type ResumeConnection = {
   aggregate?: Maybe<ResumeAggregator>;
 };
 
-export type ResumeConnectionCreatedAt = {
-  __typename?: 'ResumeConnectionCreatedAt';
+export type ResumeConnectionCreated_At = {
+  __typename?: 'ResumeConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<ResumeConnection>;
 };
@@ -1188,34 +1123,20 @@ export type ResumeConnectionPersonalInformation = {
   connection?: Maybe<ResumeConnection>;
 };
 
-export type ResumeConnectionPublished_At = {
-  __typename?: 'ResumeConnectionPublished_at';
+export type ResumeConnectionUpdated_At = {
+  __typename?: 'ResumeConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ResumeConnection>;
-};
-
-export type ResumeConnectionUpdatedAt = {
-  __typename?: 'ResumeConnectionUpdatedAt';
-  key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ResumeConnection>;
-};
-
-export type ResumeConnection_Id = {
-  __typename?: 'ResumeConnection_id';
-  key?: Maybe<Scalars['ID']>;
   connection?: Maybe<ResumeConnection>;
 };
 
 export type ResumeGroupBy = {
   __typename?: 'ResumeGroupBy';
   id?: Maybe<Array<Maybe<ResumeConnectionId>>>;
-  _id?: Maybe<Array<Maybe<ResumeConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<ResumeConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<ResumeConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<ResumeConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<ResumeConnectionUpdated_At>>>;
   PersonalInformation?: Maybe<Array<Maybe<ResumeConnectionPersonalInformation>>>;
   name?: Maybe<Array<Maybe<ResumeConnectionName>>>;
   employee?: Maybe<Array<Maybe<ResumeConnectionEmployee>>>;
-  published_at?: Maybe<Array<Maybe<ResumeConnectionPublished_At>>>;
 };
 
 export type ResumeInput = {
@@ -1262,14 +1183,12 @@ export type ServiceInput = {
 export type Services = {
   __typename?: 'Services';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   slug: Scalars['String'];
   name: Scalars['String'];
   description: Scalars['String'];
   image?: Maybe<UploadFile>;
-  published_at?: Maybe<Scalars['DateTime']>;
 };
 
 export type ServicesAggregator = {
@@ -1285,8 +1204,8 @@ export type ServicesConnection = {
   aggregate?: Maybe<ServicesAggregator>;
 };
 
-export type ServicesConnectionCreatedAt = {
-  __typename?: 'ServicesConnectionCreatedAt';
+export type ServicesConnectionCreated_At = {
+  __typename?: 'ServicesConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<ServicesConnection>;
 };
@@ -1315,41 +1234,27 @@ export type ServicesConnectionName = {
   connection?: Maybe<ServicesConnection>;
 };
 
-export type ServicesConnectionPublished_At = {
-  __typename?: 'ServicesConnectionPublished_at';
-  key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ServicesConnection>;
-};
-
 export type ServicesConnectionSlug = {
   __typename?: 'ServicesConnectionSlug';
   key?: Maybe<Scalars['String']>;
   connection?: Maybe<ServicesConnection>;
 };
 
-export type ServicesConnectionUpdatedAt = {
-  __typename?: 'ServicesConnectionUpdatedAt';
+export type ServicesConnectionUpdated_At = {
+  __typename?: 'ServicesConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<ServicesConnection>;
-};
-
-export type ServicesConnection_Id = {
-  __typename?: 'ServicesConnection_id';
-  key?: Maybe<Scalars['ID']>;
   connection?: Maybe<ServicesConnection>;
 };
 
 export type ServicesGroupBy = {
   __typename?: 'ServicesGroupBy';
   id?: Maybe<Array<Maybe<ServicesConnectionId>>>;
-  _id?: Maybe<Array<Maybe<ServicesConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<ServicesConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<ServicesConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<ServicesConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<ServicesConnectionUpdated_At>>>;
   slug?: Maybe<Array<Maybe<ServicesConnectionSlug>>>;
   name?: Maybe<Array<Maybe<ServicesConnectionName>>>;
   description?: Maybe<Array<Maybe<ServicesConnectionDescription>>>;
   image?: Maybe<Array<Maybe<ServicesConnectionImage>>>;
-  published_at?: Maybe<Array<Maybe<ServicesConnectionPublished_At>>>;
 };
 
 
@@ -1357,9 +1262,8 @@ export type ServicesGroupBy = {
 export type UploadFile = {
   __typename?: 'UploadFile';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   name: Scalars['String'];
   alternativeText?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;
@@ -1442,8 +1346,8 @@ export type UploadFileConnectionCaption = {
   connection?: Maybe<UploadFileConnection>;
 };
 
-export type UploadFileConnectionCreatedAt = {
-  __typename?: 'UploadFileConnectionCreatedAt';
+export type UploadFileConnectionCreated_At = {
+  __typename?: 'UploadFileConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<UploadFileConnection>;
 };
@@ -1514,8 +1418,8 @@ export type UploadFileConnectionSize = {
   connection?: Maybe<UploadFileConnection>;
 };
 
-export type UploadFileConnectionUpdatedAt = {
-  __typename?: 'UploadFileConnectionUpdatedAt';
+export type UploadFileConnectionUpdated_At = {
+  __typename?: 'UploadFileConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<UploadFileConnection>;
 };
@@ -1532,18 +1436,11 @@ export type UploadFileConnectionWidth = {
   connection?: Maybe<UploadFileConnection>;
 };
 
-export type UploadFileConnection_Id = {
-  __typename?: 'UploadFileConnection_id';
-  key?: Maybe<Scalars['ID']>;
-  connection?: Maybe<UploadFileConnection>;
-};
-
 export type UploadFileGroupBy = {
   __typename?: 'UploadFileGroupBy';
   id?: Maybe<Array<Maybe<UploadFileConnectionId>>>;
-  _id?: Maybe<Array<Maybe<UploadFileConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<UploadFileConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<UploadFileConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<UploadFileConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<UploadFileConnectionUpdated_At>>>;
   name?: Maybe<Array<Maybe<UploadFileConnectionName>>>;
   alternativeText?: Maybe<Array<Maybe<UploadFileConnectionAlternativeText>>>;
   caption?: Maybe<Array<Maybe<UploadFileConnectionCaption>>>;
@@ -1612,7 +1509,6 @@ export type UsersPermissionsMeRole = {
 export type UsersPermissionsPermission = {
   __typename?: 'UsersPermissionsPermission';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   type: Scalars['String'];
   controller: Scalars['String'];
   action: Scalars['String'];
@@ -1630,7 +1526,6 @@ export type UsersPermissionsRegisterInput = {
 export type UsersPermissionsRole = {
   __typename?: 'UsersPermissionsRole';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
   name: Scalars['String'];
   description?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
@@ -1691,16 +1586,9 @@ export type UsersPermissionsRoleConnectionType = {
   connection?: Maybe<UsersPermissionsRoleConnection>;
 };
 
-export type UsersPermissionsRoleConnection_Id = {
-  __typename?: 'UsersPermissionsRoleConnection_id';
-  key?: Maybe<Scalars['ID']>;
-  connection?: Maybe<UsersPermissionsRoleConnection>;
-};
-
 export type UsersPermissionsRoleGroupBy = {
   __typename?: 'UsersPermissionsRoleGroupBy';
   id?: Maybe<Array<Maybe<UsersPermissionsRoleConnectionId>>>;
-  _id?: Maybe<Array<Maybe<UsersPermissionsRoleConnection_Id>>>;
   name?: Maybe<Array<Maybe<UsersPermissionsRoleConnectionName>>>;
   description?: Maybe<Array<Maybe<UsersPermissionsRoleConnectionDescription>>>;
   type?: Maybe<Array<Maybe<UsersPermissionsRoleConnectionType>>>;
@@ -1709,9 +1597,8 @@ export type UsersPermissionsRoleGroupBy = {
 export type UsersPermissionsUser = {
   __typename?: 'UsersPermissionsUser';
   id: Scalars['ID'];
-  _id: Scalars['ID'];
-  createdAt: Scalars['DateTime'];
-  updatedAt: Scalars['DateTime'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
   username: Scalars['String'];
   email: Scalars['String'];
   provider?: Maybe<Scalars['String']>;
@@ -1745,8 +1632,8 @@ export type UsersPermissionsUserConnectionConfirmed = {
   connection?: Maybe<UsersPermissionsUserConnection>;
 };
 
-export type UsersPermissionsUserConnectionCreatedAt = {
-  __typename?: 'UsersPermissionsUserConnectionCreatedAt';
+export type UsersPermissionsUserConnectionCreated_At = {
+  __typename?: 'UsersPermissionsUserConnectionCreated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<UsersPermissionsUserConnection>;
 };
@@ -1775,8 +1662,8 @@ export type UsersPermissionsUserConnectionRole = {
   connection?: Maybe<UsersPermissionsUserConnection>;
 };
 
-export type UsersPermissionsUserConnectionUpdatedAt = {
-  __typename?: 'UsersPermissionsUserConnectionUpdatedAt';
+export type UsersPermissionsUserConnectionUpdated_At = {
+  __typename?: 'UsersPermissionsUserConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
   connection?: Maybe<UsersPermissionsUserConnection>;
 };
@@ -1787,18 +1674,11 @@ export type UsersPermissionsUserConnectionUsername = {
   connection?: Maybe<UsersPermissionsUserConnection>;
 };
 
-export type UsersPermissionsUserConnection_Id = {
-  __typename?: 'UsersPermissionsUserConnection_id';
-  key?: Maybe<Scalars['ID']>;
-  connection?: Maybe<UsersPermissionsUserConnection>;
-};
-
 export type UsersPermissionsUserGroupBy = {
   __typename?: 'UsersPermissionsUserGroupBy';
   id?: Maybe<Array<Maybe<UsersPermissionsUserConnectionId>>>;
-  _id?: Maybe<Array<Maybe<UsersPermissionsUserConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<UsersPermissionsUserConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<UsersPermissionsUserConnectionUpdatedAt>>>;
+  created_at?: Maybe<Array<Maybe<UsersPermissionsUserConnectionCreated_At>>>;
+  updated_at?: Maybe<Array<Maybe<UsersPermissionsUserConnectionUpdated_At>>>;
   username?: Maybe<Array<Maybe<UsersPermissionsUserConnectionUsername>>>;
   email?: Maybe<Array<Maybe<UsersPermissionsUserConnectionEmail>>>;
   provider?: Maybe<Array<Maybe<UsersPermissionsUserConnectionProvider>>>;
@@ -2264,7 +2144,7 @@ export type UpdateUserPayload = {
 
 export type DefaultClientFragment = (
   { __typename?: 'Clients' }
-  & Pick<Clients, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & Pick<Clients, 'id' | 'created_at' | 'updated_at' | 'slug' | 'name' | 'description'>
   & { logo?: Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
@@ -2283,7 +2163,7 @@ export type DefaultEmployeeFragment = (
 
 export type DefaultReferenceFragment = (
   { __typename?: 'References' }
-  & Pick<References, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'title' | 'description' | 'completed'>
+  & Pick<References, 'id' | 'created_at' | 'updated_at' | 'slug' | 'title' | 'description' | 'completed'>
   & { images?: Maybe<Array<Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'caption' | 'url'>
@@ -2295,7 +2175,7 @@ export type DefaultReferenceFragment = (
 
 export type DefaultServiceFragment = (
   { __typename?: 'Services' }
-  & Pick<Services, 'id' | 'createdAt' | 'updatedAt' | 'slug' | 'name' | 'description'>
+  & Pick<Services, 'id' | 'created_at' | 'updated_at' | 'slug' | 'name' | 'description'>
   & { image?: Maybe<(
     { __typename?: 'UploadFile' }
     & Pick<UploadFile, 'url'>
@@ -2562,8 +2442,8 @@ export const DefaultEmployeeFragmentDoc = gql`
 export const DefaultClientFragmentDoc = gql`
     fragment DefaultClient on Clients {
   id
-  createdAt
-  updatedAt
+  created_at
+  updated_at
   slug
   name
   description
@@ -2575,8 +2455,8 @@ export const DefaultClientFragmentDoc = gql`
 export const DefaultReferenceFragmentDoc = gql`
     fragment DefaultReference on References {
   id
-  createdAt
-  updatedAt
+  created_at
+  updated_at
   slug
   title
   description
@@ -2593,8 +2473,8 @@ export const DefaultReferenceFragmentDoc = gql`
 export const DefaultServiceFragmentDoc = gql`
     fragment DefaultService on Services {
   id
-  createdAt
-  updatedAt
+  created_at
+  updated_at
   slug
   name
   description

@@ -7,6 +7,7 @@ import React from "react";
 import createUrqlClient from "../../utils/createUrqlClient";
 import Error from "components/Error";
 import Jumbotron from "components/Jumbotron";
+import ReturnButton from "components/ReturnButton";
 
 interface EmployeesProps {}
 
@@ -25,6 +26,13 @@ const Employees: React.FC<EmployeesProps> = ({}) => {
   return (
     <div>
       <Jumbotron title="Employees" />
+
+      {employees.length === 0 ? (
+        <div className="flex flex-col w-screen text-center items-center justify-center mt-40 font-mono text-xl font-bold m-auto">
+          <h1>Nothing to see here yet...</h1>
+          <ReturnButton name="homepage" link="" />
+        </div>
+      ) : null}
 
       {employees.map((employee) => (
         <Employee employee={employee} key={employee.id} />

@@ -1,7 +1,7 @@
 fragment DefaultClient on Clients {
   id
-  createdAt
-  updatedAt
+  created_at
+  updated_at
   slug
   name
   description
