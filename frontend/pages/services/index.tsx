@@ -8,6 +8,7 @@ import classNames from "utils/classNames";
 import Loading from "components/Loading";
 import Error from "components/Error";
 import Markdown from "components/Markdown";
+import ReturnButton from "components/ReturnButton";
 
 interface ServicesProps {}
 
@@ -32,6 +33,12 @@ const Services: React.FC<ServicesProps> = ({}) => {
           "md:grid-cols-1 sm:grid-cols-1"
         )}
       >
+        {services.length === 0 ? (
+          <div className="flex flex-col w-screen text-center items-center justify-center mt-40 -ml-10 font-mono text-xl font-bold m-auto">
+            <h1>Nothing to see here yet...</h1>
+            <ReturnButton name="homepage" link="" />
+          </div>
+        ) : null}
         {services.map((service) => (
           <Wrapper className="bg-gray-200 w-100 m-5" key={service.id}>
             <h1 className="text-3xl font-mono text-center m-2">
