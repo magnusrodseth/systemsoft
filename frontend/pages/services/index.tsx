@@ -19,7 +19,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
 
   if (fetching) return <Loading />;
 
-  if (error) return <Error />;
+  if (error) return <Error error={error} />;
 
   const services = data?.services as IServices[];
 

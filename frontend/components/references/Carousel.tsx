@@ -41,6 +41,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
         backgroundImage: `url(${LOCAL_BACKEND_URL}${images[currentIndex]?.url})`,
       }}
     >
+    { images[currentIndex]?.name || images[currentIndex]?.caption ?
       <div
         className={classNames(
           "transition duration-500 ease-in-out transform",
@@ -53,14 +54,15 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
             "text-center text-5xl font-bold text-white bg-black-100"
           )}
         >
-          {titles && titles[currentIndex] ? titles[currentIndex] : ""}
+        {images[currentIndex]?.name ? images[currentIndex]?.name : ""}
         </h1>
         {images[currentIndex]?.caption ? (
-          <p className="text-white m-1">
+          <p className="text-white text-center m-1">
             {images[currentIndex]?.caption || ""}
           </p>
         ) : null}
       </div>
+: <></>}
       <ArrowCircleLeftIcon
         className="absolute w-10 h-10 text-white  left-5 hover:cursor-pointer"
         onClick={decrementIndex}

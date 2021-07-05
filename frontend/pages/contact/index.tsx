@@ -27,7 +27,7 @@ const Contact: React.FC<ContactProps> = ({}) => {
           initialValues={{ fullName: "", email: "", phone: "", message: "" }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
-              const response = await fetch("/api/contact", {
+              const response = await fetch("/frontend-api/contact", {
                 method: "POST",
                 headers: {
                   Accept: "application/json, text/plain, */*",

@@ -13,7 +13,7 @@ const ReferenceArticle: React.FC<ReferenceArticleProps> = ({ reference }) => {
   return (
     <div className="">
       {reference.images ? (
-        <Carousel images={reference.images} titles={["Hei", "Hallo"]} />
+        <Carousel images={reference.images} />
       ) : null}
 
       <div className={classNames("flex flex-col items-center m-5")}>
