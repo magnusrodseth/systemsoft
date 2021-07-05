@@ -53,7 +53,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, titles }) => {
             "text-center text-5xl font-bold text-white bg-black-100"
           )}
         >
-          {titles && titles[currentIndex] ? titles[currentIndex] : ""}
+          {images[currentIndex]?.name ? images[currentIndex]?.name : ""}
         </h1>
         {images[currentIndex]?.caption ? (
           <p className="text-white m-1">

@@ -7,6 +7,7 @@ fragment DefaultReference on References {
   description
   completed
   images {
+    name
     caption
     url
   }

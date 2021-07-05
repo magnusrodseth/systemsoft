@@ -42,15 +42,19 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
                   <p><strong>Message:</strong> <br> ${message}</p>
                 `;
 
-  let info = await transporter.sendMail({
-    from: `"${fullName}" <${email}>`,
-    to: "noreply@systemsoft.no",
-    subject: "New message - SystemSoft Contact Form",
-    text: message,
-    html: htmlBody,
-  }, ()=>{
-    console.log("📨 Sent mail!")
-  });
+  let info = await transporter.sendMail(
+    {
+      from: `"${fullName}" <${email}>`,
+      to: "noreply@systemsoft.no",
+      subject: "New message - SystemSoft Contact Form",
+      text: message,
+      html: htmlBody,
+    },
+    () => {
+      console.log("📨 Sent mail!");
+      console.log(nodemailer.getTestMessageUrl(info));
+    }
+  );
 
   if (info.response.includes("250")) {
     res.status(200).json({
