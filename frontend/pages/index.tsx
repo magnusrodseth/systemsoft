@@ -31,7 +31,12 @@ const Index = () => {
           </p>
 
           <p className="mt-6 text-sm">
-            <i>Engineered for excellence</i>. Hello, world! Hello, again!
+            <i>Engineered for excellence</i>.
+            <div>
+              <p>Hello, world!</p>
+              <p>Hello, again!</p>
+              <p>Hello thrice!</p>
+            </div>
           </p>
         </div>
 
