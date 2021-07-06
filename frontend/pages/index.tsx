@@ -35,8 +35,7 @@ const Index = () => {
             <div>
               <p>Hello, world!</p>
               <p>Hello, again!</p>
-              <p>Hello thrice!</p>
-              <p>Here is yet another one</p>
+              <p>Test description</p>
             </div>
           </p>
         </div>
