@@ -36,6 +36,7 @@ const Index = () => {
               <p>Hello, world!</p>
               <p>Hello, again!</p>
               <p>Hello thrice!</p>
+              <p>The curtlery is to be placed thusly!</p>
             </div>
           </p>
         </div>
