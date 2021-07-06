@@ -2166,7 +2166,7 @@ export type DefaultReferenceFragment = (
   & Pick<References, 'id' | 'created_at' | 'updated_at' | 'slug' | 'title' | 'description' | 'completed'>
   & { images?: Maybe<Array<Maybe<(
     { __typename?: 'UploadFile' }
-    & Pick<UploadFile, 'caption' | 'url'>
+    & Pick<UploadFile, 'name' | 'caption' | 'url'>
   )>>>, client?: Maybe<(
     { __typename?: 'Clients' }
     & DefaultClientFragment
@@ -2462,6 +2462,7 @@ export const DefaultReferenceFragmentDoc = gql`
   description
   completed
   images {
+    name
     caption
     url
   }

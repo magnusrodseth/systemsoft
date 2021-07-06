@@ -11,6 +11,7 @@ module.exports = {
         "http://frontend:3000",
         "http://backend:1337",
         "http://backend:1337/graphql",
+	"http://46.101.126.212",
         //    More URLs can be added here later
       ],
     },

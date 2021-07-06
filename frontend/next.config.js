@@ -9,4 +9,7 @@ module.exports = {
 
     return config;
   },
+  async rewrites() {
+    return [{ source: "/frontend-api/:path*", destination: "/api/:path*" }];
+  }
 };

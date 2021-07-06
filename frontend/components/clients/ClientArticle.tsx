@@ -20,7 +20,7 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         "sm:block w-7/12 md:w-7/12 lg:flex space-y-5 m-auto my-5 pt-10"
       )}
     >
-      <Wrapper className="bg-gray-100 mr-0 lg:mr-8 min-h-[200px] md:flex-none lg:w-5/12 m-0">
+      <Wrapper className="bg-gray-100 mr-0 min-h-[200px] md:flex-none lg:w-5/12 m-0 rounded-lg shadow-md hover:shadow-lg flex justify-center items-center">
         {client.logo?.url ? (
           <img
             src={`${LOCAL_BACKEND_URL}${client.logo?.url}`}
