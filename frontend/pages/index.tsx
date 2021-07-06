@@ -61,7 +61,7 @@ const Index = () => {
                   "transition transform duration-500 ease-in-out uppercase"
                 )}
               >
-                <MailIcon className="w-6 mr-2" />
+                <MailIcon className="w-6 h-5 mr-2" />
                 <p>Contact us</p>
               </div>
             </a>
