@@ -53,7 +53,7 @@ const Footer: React.FC<WithUrqlProps> = () => {
               >
                 <Link href={`tel:${phoneNumber as string}`}>
                   <a className="flex">
-                    <PhoneIcon className="w-5 mr-2" />
+                    <PhoneIcon className="w-5 h-5 mr-2" />
                     {phoneNumber}
                   </a>
                 </Link>
@@ -67,7 +67,7 @@ const Footer: React.FC<WithUrqlProps> = () => {
               >
                 <Link href={`mailto:${email as string}`}>
                   <a className="flex">
-                    <MailIcon className="w-5 mr-2" />
+                    <MailIcon className="w-5 h-5 mr-2" />
                     {email}
                   </a>
                 </Link>

@@ -10,4 +10,17 @@
  * See more details here: https://strapi.io/documentation/developer-docs/latest/concepts/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+/*const enforceHttps = require('koa-sslify');*/
+
+
+module.exports = () => {
+
+/*
+  // Force HTTPS on all page 
+  strapi.app.use(enforceHttps({
+    trustProtoHeader: true
+  }));
+  
+  cb();
+*/
+};

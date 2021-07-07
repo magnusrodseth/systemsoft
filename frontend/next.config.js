@@ -11,5 +11,9 @@ module.exports = {
   },
   async rewrites() {
     return [{ source: "/frontend-api/:path*", destination: "/api/:path*" }];
+  },
+  i18n: {
+	locales: ['en'], 
+ 	defaultLocale: 'en',
   }
 };

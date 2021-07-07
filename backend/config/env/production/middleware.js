@@ -12,6 +12,8 @@ module.exports = {
         "http://backend:1337",
         "http://backend:1337/graphql",
 	"http://46.101.126.212",
+	"https://systemsoft.no",
+	"https://www.systemsoft.no",
         //    More URLs can be added here later
       ],
     },

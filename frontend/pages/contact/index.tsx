@@ -51,15 +51,15 @@ const Contact: React.FC<ContactProps> = ({}) => {
                   <div
                     className={classNames(
                       status?.success ? "bg-green-600" : "bg-red-600",
-                      "rounded p-4 text-white flex"
+                      "rounded p-4 text-white flex items-center"
                     )}
                   >
                     {status?.success ? (
-                      <CheckCircleIcon className="w-5" />
+                      <CheckCircleIcon className="w-5 h-5" />
                     ) : (
-                      <ExclamationCircleIcon className="w-5" />
+                      <ExclamationCircleIcon className="w-5 h-5" />
                     )}{" "}
-                    <span className="ml-3">{status.description}</span>
+                    <span className="ml-3 flex-1">{status.description}</span>
                   </div>
                 </div>
               ) : null}

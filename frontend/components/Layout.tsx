@@ -15,6 +15,12 @@ const Layout: React.FC<LayoutProps> = ({ children, title }: LayoutProps) => {
         <title>{title} - SystemSoft AS</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+<meta
+          name="description"
+          content="The official homepage for SystemSoft AS, a software engineering consulting company based in Asker, Norway."
+        />
+        <meta name="keywords" content="Software, Engineering, Norway, Embedded, Linux, C, C++, Kongsberg, Thales, Consulting" />
+        
         <link rel="icon" href="/favicon.png" />
       </Head>
 

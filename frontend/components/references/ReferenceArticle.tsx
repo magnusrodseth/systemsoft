@@ -29,12 +29,12 @@ const ReferenceArticle: React.FC<ReferenceArticleProps> = ({ reference }) => {
         <div className="max-w-2xl w-full divide-y">
           <div className="flex justify-center pb-5">
             <div className="flex">
-              <UserIcon className="w-5 mr-2" />
+              <UserIcon className="w-5 h-5 mr-2" />
               Client: {reference.client?.name}
             </div>
             {reference.completed ? (
               <div className="flex ml-5">
-                <CalendarIcon className="w-5 mr-2" /> Completed:{" "}
+                <CalendarIcon className="w-5 h-5 mr-2" /> Completed:{" "}
                 {reference.completed}
               </div>
             ) : (

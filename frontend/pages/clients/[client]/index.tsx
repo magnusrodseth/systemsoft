@@ -33,7 +33,7 @@ const Client: React.FC<WithUrqlProps> = ({ name }) => {
   return (
     <div>
       <div className="flex flex-col justify-center">
-        <h1 className="text-center text-7xl font-mono font-bold p-6">
+        <h1 className="text-center text-4xl md:text-7xl font-mono font-bold p-6">
           {client.name}
         </h1>
 

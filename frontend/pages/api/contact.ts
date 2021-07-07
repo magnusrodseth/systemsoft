@@ -50,13 +50,13 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(200).json({
           success: true,
           description:
-            "Your enquiry was sent successfully! We will get back to you as soon as possible",
+            "Your enquiry was sent successfully! We will get back to you as soon as possible.",
           messageId: email,
         });
       } else {
         res.status(400).json({
           success: false,
-          description: "An error occurred. Please try again later",
+          description: "An error occurred. Please try again later!",
           messageId: "",
         });
       }
@@ -65,7 +65,7 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
     .catch((error) => {
       res.status(400).json({
         success: false,
-        description: "An error occurred. Please try again later",
+        description: "An error occurred. Please try again later!",
         messageId: "",
       });
 

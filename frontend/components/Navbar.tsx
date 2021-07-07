@@ -42,24 +42,10 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <div className="flex-1 flex items-center justify-center sm:items-stretch">
                 <div className="flex-shrink-0 flex items-center">
                   <Link href="/">
-                    <a>
+                    <a aria-label="Home">
                       <img
                         className={classNames(
-                          "block lg:hidden h-8 w-auto",
-                          "transition duration-500 ease-in-out transform",
-                          "hover:-translate-y-1 hover:scale-101"
-                        )}
-                        src="/favicon.png"
-                        alt="SystemSoft AS Logo"
-                      />
-                    </a>
-                  </Link>
-
-                  <Link href="/">
-                    <a>
-                      <img
-                        className={classNames(
-                          "hidden lg:block h-8 w-auto",
+                          "lg:block h-8 w-8",
                           "transition duration-500 ease-in-out transform",
                           "hover:-translate-y-1 hover:scale-101"
                         )}

@@ -1,2 +1,2 @@
-export const LOCAL_GRAPHQL_URL = "http://46.101.126.212/api/graphql";
-export const LOCAL_BACKEND_URL = "http://46.101.126.212/api";
+export const LOCAL_GRAPHQL_URL = "https://systemsoft.no/api/graphql";
+export const LOCAL_BACKEND_URL = "https://systemsoft.no/api";
