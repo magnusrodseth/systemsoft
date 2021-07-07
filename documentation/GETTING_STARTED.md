@@ -4,9 +4,9 @@
 
 You can find the documentation for signing up and logging in to Strapi backend [here](./LOGIN.md).
 
-## Contact Information Documentation 📄
+## Using Strapi 📄
 
-You can find the documentation for updating SystemSoft AS contact information [here](./CONTACT_INFORMATION.md).
+You can find the documentation for using Strapi backend [here](./USING_STRAPI.md).
 
 ## Resume Documentation 📄
 

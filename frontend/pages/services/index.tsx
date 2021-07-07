@@ -9,6 +9,7 @@ import Loading from "components/Loading";
 import Error from "components/Error";
 import Markdown from "components/Markdown";
 import ReturnButton from "components/ReturnButton";
+import { LOCAL_BACKEND_URL } from "../../constants";
 
 interface ServicesProps {}
 
@@ -46,12 +47,14 @@ const Services: React.FC<ServicesProps> = ({}) => {
             </h1>
             <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 m-2 gap-2">
               <div className="flex justify-center items-center">
-                <img src={service.image?.url} alt={service.name} />
+                <img
+                  src={`${LOCAL_BACKEND_URL}${service.image?.url}`}
+                  alt={service.name}
+                />
               </div>
-              <Markdown
-                className="w-3/4"
-                strip
-              >{`${service.description.substring(0, 125)}...`}</Markdown>
+              <Markdown className="flex text-center items-center" strip>
+                {service.description}
+              </Markdown>
             </div>
           </Wrapper>
         ))}
