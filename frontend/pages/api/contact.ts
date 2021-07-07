@@ -35,7 +35,6 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
   `;
 
   const msg = {
-    // TODO
     to: "magnus.rodseth@gmail.com", // Change to your recipient
     from: `noreply@systemsoft.no`, // Change to your verified sender
     subject: "New message - SystemSoft Contact Form",
@@ -68,7 +67,6 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
         description: "An error occurred. Please try again later!",
         messageId: "",
       });
-
     });
 };
 
