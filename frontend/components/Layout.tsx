@@ -31,6 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title }: LayoutProps) => {
       <main className="mt-16 min-h-container">{children}</main>
 
       <Footer pageProps="" />
+
     </div>
   );
 };
