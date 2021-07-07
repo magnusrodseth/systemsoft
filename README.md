@@ -1,5 +1,9 @@
 # SystemSoft AS
 
+## Google Lighthouse Rating
+
+![Google Lighthouse Rating](./documentation/static/lighthouse-rating/lighthouse-rating.png)
+
 ## Description ✏️
 
 The official SystemSoft AS website. The website allows employees of SystemSoft AS to easily, independently, and continuously update the company's portfolio.
