@@ -1,6 +1,6 @@
 # SystemSoft AS
 
-## Google Lighthouse Rating
+## Google Lighthouse Rating ✅
 
 ![Google Lighthouse Rating](./documentation/static/lighthouse-rating/lighthouse-rating.png)
 
