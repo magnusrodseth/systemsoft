@@ -33,6 +33,7 @@ const Index = () => {
           <p className="mt-6 text-sm">
             <i>Engineered for excellence</i>.
           </p>
+	<p>Test to rerun CI</p>
         </div>
 
         <div className="flex gap-5 flex-wrap justify-center">
