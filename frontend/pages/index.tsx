@@ -33,15 +33,6 @@ const Index = () => {
           <p className="mt-6 text-sm">
             <i>Engineered for excellence</i>.
           </p>
-
-          <button
-            type="button"
-            onClick={() => {
-              throw new Error("Sentry Frontend Error");
-            }}
-          >
-            Throw error
-          </button>
         </div>
 
         <div className="flex gap-5 flex-wrap justify-center">

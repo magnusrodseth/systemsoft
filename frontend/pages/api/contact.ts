@@ -35,7 +35,7 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
   `;
 
   const msg = {
-    to: "magnus.rodseth@gmail.com", // Change to your recipient
+    to: "er@systemsoft.no", // Change to your recipient
     from: `noreply@systemsoft.no`, // Change to your verified sender
     subject: "New message - SystemSoft Contact Form",
     text: message,
