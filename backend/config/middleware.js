@@ -1,4 +1,10 @@
 module.exports = {
+  // To ensure that your middleware catches all errors including those in other middleware,
+  // it needs to be added at the beginning of the stack but after the boom middleware.
+  load: {
+    before: ["boom", "sentry"],
+  },
+
   settings: {
     cors: {
       origin: [
@@ -6,6 +12,10 @@ module.exports = {
         "http://localhost:1337",
         //    More URLs can be added here later
       ],
+    },
+    // enable the middleware.
+    sentry: {
+      enabled: true,
     },
   },
 };

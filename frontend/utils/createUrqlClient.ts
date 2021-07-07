@@ -1,4 +1,4 @@
-import { dedupExchange, fetchExchange } from 'urql';
+import { dedupExchange, errorExchange, fetchExchange } from 'urql';
 import { LOCAL_GRAPHQL_URL } from "../constants"
 
 /**
@@ -16,6 +16,12 @@ const createUrqlClient = (ssrExchange: any) => ({
     exchanges: [
         dedupExchange,
         ssrExchange,
+        errorExchange({
+            onError(error) {
+                // This will be logged to Sentry
+                throw new Error(JSON.stringify(error));
+            }
+        }),
         fetchExchange]
 });
 
