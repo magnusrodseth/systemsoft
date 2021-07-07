@@ -20,6 +20,7 @@ Developed by Magnus Rødseth and Julian Grande, summer 2021.
 - [MongoDB](https://www.mongodb.com/cloud/atlas)
 - [DigitalOcean managed PostgreSQL database](https://www.digitalocean.com/products/managed-databases/)
 - [Sentry (Error Handling / Tracking)](https://sentry.io/welcome/)
+- [SendGrid (automated mail dispatching)](https://sendgrid.com/)
 
 ## Frontend Documentation 📄
 
