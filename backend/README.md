@@ -1,23 +1,5 @@
 # Backend Documentation
 
-## Production 🌐
-
-### Logging in as a SystemSoft AS employee ⏩
-
-You can find the documentation for logging into Strapi backend [here](./docs/LOGIN.md).
-
-### Collection Types Documentation ✏️
-
-You can find the documentation for managing collection types [here](./docs/COLLECTION_TYPES.md).
-
-### Contact Information Documentation 📄
-
-You can find the documentation for updating SystemSoft AS contact information [here](./docs/CONTACT_INFORMATION.md).
-
-### Resume Documentation 📄
-
-You can find the documentation for creating a resume [here](./docs/RESUME.md).
-
 ## Development 💻
 
 ### Setting up Strapi ⚙️
@@ -32,3 +14,11 @@ Currently, the backend is set up using Strapi and MongoDB as the database provid
 2. Go into the folder `backend` and run the command `yarn dev`.
 3. Go to `http://localhost:1337/admin` and follow the steps to create a user.
 4. Once inside, you can now manipulate the data entries found under **Collection types** on the right-hand side menu.
+
+## Production 🌐
+
+The Strapi backend is connected to a [DigitalOcean managed PostgreSQL database](https://www.digitalocean.com/products/managed-databases/).
+
+Strapi allows for different configurations based on the environment the backend runs in. Read through [this documentation](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html) for more information.
+
+Even when running locally in `NODE_ENV=production`, you will connect to the free MongoDB Atlas database.
