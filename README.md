@@ -1,21 +1,30 @@
 # SystemSoft AS
 
+## Google Lighthouse Rating ✅
+
+![Google Lighthouse Rating](./documentation/static/lighthouse-rating/lighthouse-rating.png)
+
 ## Description ✏️
 
-The official SystemSoft AS website. Currently a work in progress, as of summer 2021.
+The official SystemSoft AS website. The website allows employees of SystemSoft AS to easily, independently, and continuously update the company's portfolio.
 
 ## Developer Information 🙋🏼‍♂️
 
 Developed by Magnus Rødseth and Julian Grande, summer 2021.
 
-## Tech Stack 🛠
+## Stack 🛠
 
-- Next.js
-- Strapi
-- Tailwind CSS
-- MongoDB
-- GraphQL
-- URQL (GraphQL client)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [URQL (GraphQL client)](https://formidable.com/open-source/urql/)
+- [GraphQL](https://graphql.org/)
+- [Strapi](https://strapi.io/)
+- [MongoDB](https://www.mongodb.com/cloud/atlas)
+- [DigitalOcean managed PostgreSQL database](https://www.digitalocean.com/products/managed-databases/)
+- [Sentry (Error Handling / Tracking)](https://sentry.io/welcome/)
+- [SendGrid (automated mail dispatching)](https://sendgrid.com/)
 
 ## Frontend Documentation 📄
 
