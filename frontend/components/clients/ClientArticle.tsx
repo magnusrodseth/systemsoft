@@ -36,7 +36,7 @@ const ClientArticle: React.FC<ClientArticleProps> = ({
         </h1>
 
         <Markdown
-          className={classNames("text-left lg:text-md md:text-sm sm:text-sm")}
+          className={classNames("text-left w-full p-5 ml-5 lg:text-md md:text-sm sm:text-sm")}
           strip
         >
           {client.description}

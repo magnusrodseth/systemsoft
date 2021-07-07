@@ -50,11 +50,11 @@ const Resume: React.FC<ResumeProps> = ({ resume }) => {
         <PersonalInformation personalInformation={resume.PersonalInformation} />
       ) : null}
 
-      {resume.Education ? (
+      {resume.Education.length > 0 ? (
         <Education education={resume.Education as IEducation[]} />
       ) : null}
 
-      {resume.ProfessionalExperience ? (
+      {resume.ProfessionalExperience.length > 0 ? (
         <ProfessionalExperience
           experience={
             resume.ProfessionalExperience as IProfessionalExperience[]
@@ -62,35 +62,35 @@ const Resume: React.FC<ResumeProps> = ({ resume }) => {
         />
       ) : null}
 
-      {resume.PersonalProject ? (
+      {resume.PersonalProject.length > 0 ? (
         <PersonalProject projects={resume.PersonalProject as IProject[]} />
       ) : null}
 
-      {resume.Skill ? <Skill skills={resume.Skill as ISkill[]} /> : null}
+      {resume.Skill.length > 0 ? <Skill skills={resume.Skill as ISkill[]} /> : null}
 
-      {resume.Language ? (
+      {resume.Language.length > 0 ? (
         <Language languages={resume.Language as ILanguage[]} />
       ) : null}
 
-      {resume.Certificate ? (
+      {resume.Certificate.length > 0 ? (
         <Certificate certificates={resume.Certificate as ICertificate[]} />
       ) : null}
 
-      {resume.Award ? <Award awards={resume.Award as IAward[]} /> : null}
+      {resume.Award.length > 0 ? <Award awards={resume.Award as IAward[]} /> : null}
 
-      {resume.Course ? <Course courses={resume.Course as ICourse[]} /> : null}
+      {resume.Course.length > 0 ? <Course courses={resume.Course as ICourse[]} /> : null}
 
-      {resume.Hobby ? <Hobby hobbies={resume.Hobby as IHobby[]} /> : null}
+      {resume.Hobby.length > 0 ? <Hobby hobbies={resume.Hobby as IHobby[]} /> : null}
 
-      {resume.Organisation ? (
+      {resume.Organisation.length > 0 ? (
         <Organization organizations={resume.Organisation as IOrganization[]} />
       ) : null}
 
-      {resume.Publication ? (
+      {resume.Publication.length > 0 ? (
         <Publication publications={resume.Publication as IPublication[]} />
       ) : null}
 
-      {resume.ResumeReference ? (
+      {resume.ResumeReference.length > 0 ? (
         <ResumeReference references={resume.ResumeReference as IReference[]} />
       ) : null}
     </div>

@@ -64,7 +64,7 @@ const Carousel: React.FC<CarouselProps> = ({ clients }: CarouselProps) => {
             <Markdown
               strip
               className={classNames(
-                "text-center lg:text-md md:text-sm sm:text-sm"
+                "text-center text-sm md:text-md"
               )}
             >{`${currentClient.description.substring(0, 200)}...`}</Markdown>
 

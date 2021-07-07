@@ -34,7 +34,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
               src={`${LOCAL_BACKEND_URL}${data.profilePicture.url}`}
               alt="Profile picture"
               className={classNames(
-                "rounded-lg shadow-md hover:shadow-lg",
+                "mx-6 rounded-lg shadow-md hover:shadow-lg",
                 "transition duration-500 ease-in-out transform",
                 "hover:-translate-y-1 hover:scale-101 p-2 bg-white"
               )}

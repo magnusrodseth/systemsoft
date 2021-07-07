@@ -24,7 +24,7 @@ const Markdown: React.FC<MarkdownProps> = ({
     remark()
       .use(stripMarkdown)
       .process(children, (_, file) => (result = file.contents));
-    return <p>{result}</p>;
+    return <p className={className}>{result}</p>;
   }
 
   const components = {
