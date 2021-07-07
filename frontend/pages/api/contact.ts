@@ -1,4 +1,3 @@
-
 import { NextApiRequest, NextApiResponse } from "next";
 import { validateContactForm } from "../../utils/validateContactForm";
 const sgMail = require("@sendgrid/mail");
@@ -73,4 +72,3 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 export default sendEmail;
-
