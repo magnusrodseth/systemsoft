@@ -1,10 +1,12 @@
-import { Button } from "ui";
+import Button from "ui/components/Button";
 
-export default function Web() {
+const IndexPage = () => {
   return (
     <div>
       <h1>Web</h1>
-      <Button />
+      <Button>This is my text</Button>
     </div>
   );
-}
+};
+
+export default IndexPage;

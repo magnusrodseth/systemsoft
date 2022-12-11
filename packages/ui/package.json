@@ -15,5 +15,9 @@
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@stitches/core": "^1.2.8",
+    "@stitches/react": "^1.2.8"
   }
 }
