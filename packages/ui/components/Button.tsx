@@ -1,13 +1,15 @@
 import { styled } from "../stitches.config";
 
 const Button = styled("button", {
-  backgroundColor: "ActiveText",
+  backgroundColor: "$gray300",
   borderRadius: "9999px",
-  fontSize: "1rem",
-  padding: "0.5rem 1rem",
+  fontSize: "$1",
+  px: 1,
+  py: 2,
   "&:hover": {
     backgroundColor: "$gray500",
   },
+  smooth: "all 0.2s ease",
 });
 
 export default Button;
