@@ -1,5 +1,25 @@
 import { createStitches } from "@stitches/react";
-import { gray, grayDark } from "@radix-ui/colors";
+import {
+  amber,
+  amberDark,
+  blue,
+  blueDark,
+  grass,
+  grassDark,
+  gray,
+  grayDark,
+  greenDark,
+  indigo,
+  indigoDark,
+  mauve,
+  mauveDark,
+  red,
+  redDark,
+  slate,
+  slateDark,
+  violet,
+  violetDark,
+} from "@radix-ui/colors";
 
 export const {
   styled,
@@ -13,7 +33,13 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      ...gray,
+      ...mauve,
+      ...violet,
+      ...indigo,
+      ...red,
+      ...grass,
+      ...amber,
+      ...blue,
     },
     fontSizes: {
       xs: "0.75rem",
@@ -77,6 +103,7 @@ export const {
     pl: (value: number) => ({ paddingLeft: value }),
     px: (value: number) => ({ paddingLeft: value, paddingRight: value }),
     py: (value: number) => ({ paddingTop: value, paddingBottom: value }),
+    bg: (value: string) => ({ backgroundColor: value }),
 
     size: (value: number) => ({
       width: value,
@@ -99,6 +126,26 @@ export const {
 
 export const darkTheme = createTheme("dark-theme", {
   colors: {
-    ...grayDark,
+    ...mauveDark,
+    ...violetDark,
+    ...indigoDark,
+    ...redDark,
+    ...grassDark,
+    ...amberDark,
+    ...blueDark,
+  },
+});
+
+export const globalStyles = globalCss({
+  body: {
+    m: 0,
+    fontFamily: "$sans",
+    fontSize: "$md",
+    lineHeight: 1.5,
+    height: "100%",
+  },
+  html: {
+    m: 0,
+    height: "100%",
   },
 });

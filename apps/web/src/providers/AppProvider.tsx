@@ -1,5 +1,7 @@
 import Layout from "@/components/common/Layout";
 import { FC, ReactNode } from "react";
+import { darkTheme } from "ui";
+import Box from "ui/atoms/Box";
 import ApolloProvider from "./ApolloProvider";
 
 type AppProviderProps = {
@@ -8,11 +10,11 @@ type AppProviderProps = {
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   return (
-    <>
+    <Box className={darkTheme}>
       <ApolloProvider>
         <Layout>{children}</Layout>
       </ApolloProvider>
-    </>
+    </Box>
   );
 };
 

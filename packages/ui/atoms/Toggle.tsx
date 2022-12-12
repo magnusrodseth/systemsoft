@@ -23,8 +23,8 @@ const Toggle: FC<ToggleProps> = ({
 
 const ToggleRoot = styled(RadixToggle.Root, {
   all: "unset",
-  backgroundColor: "$gray5",
-  color: "$gray11",
+  backgroundColor: "$slate9",
+  color: "$slate1",
   height: 35,
   width: 35,
   borderRadius: 4,
@@ -33,10 +33,10 @@ const ToggleRoot = styled(RadixToggle.Root, {
   lineHeight: 1,
   alignItems: "center",
   justifyContent: "center",
-  "&:hover": { backgroundColor: "$gray7" },
+  "&:hover": { backgroundColor: "$slate10" },
   "&[data-state=on]": {
-    backgroundColor: "$gray12",
-    color: "$gray1",
+    backgroundColor: "$slate11",
+    color: "$slate1",
   },
   "&:focus": { boxShadow: `0 0 0 1px ${blackA.blackA10}` },
 });

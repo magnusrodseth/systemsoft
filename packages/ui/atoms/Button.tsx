@@ -1,15 +1,14 @@
 import { styled } from "../stitches.config";
 
 const Button = styled("button", {
-  backgroundColor: "$gray300",
-  borderRadius: "9999px",
-  fontSize: "$1",
-  px: 1,
-  py: 2,
+  outline: "none",
+  backgroundColor: "$violet4",
+  color: "$violet11",
+  borderColor: "$violet7",
   "&:hover": {
-    backgroundColor: "$gray500",
+    backgroundColor: "$violet5",
+    borderColor: "$violet8",
   },
-  smooth: "all 0.2s ease",
 });
 
 export default Button;
