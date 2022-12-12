@@ -24,8 +24,8 @@ const client: SchemaTypeDefinition<'document'> = {
     {
       name: 'tags',
       title: 'Tags',
-      type: 'reference',
-      to: [{type: 'tag'}],
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'tag'}]}],
     },
     {
       name: 'image',
@@ -36,8 +36,24 @@ const client: SchemaTypeDefinition<'document'> = {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
     },
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+    },
+    prepare: ({title, media}) => {
+      return {
+        title,
+        media,
+      }
+    },
+  },
 }
 
 export default client

@@ -58,6 +58,13 @@ const contactInformation: SchemaTypeDefinition<'document'> = {
       fieldset: 'address',
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Contact Information',
+      }
+    },
+  },
 }
 
 export default contactInformation

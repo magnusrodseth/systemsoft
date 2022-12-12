@@ -11,6 +11,16 @@ const tag: SchemaTypeDefinition<'document'> = {
       type: 'string',
     },
   ],
+  preview: {
+    select: {
+      title: 'name',
+    },
+    prepare: ({title}) => {
+      return {
+        title,
+      }
+    },
+  },
 }
 
 export default tag

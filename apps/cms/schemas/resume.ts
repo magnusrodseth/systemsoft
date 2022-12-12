@@ -29,11 +29,35 @@ const resume: SchemaTypeDefinition<'document'> = {
       of: [{type: 'professionalExperience'}],
     },
     {
+      name: 'skill',
+      title: 'Skills',
+      type: 'array',
+      of: [{type: 'skill'}],
+    },
+    {
+      name: 'language',
+      title: 'Languages',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'language'}]}],
+    },
+    {
+      name: 'certification',
+      title: 'Certifications',
+      type: 'array',
+      of: [{type: 'certification'}],
+    },
+    {
+      name: 'publication',
+      title: 'Publications',
+      type: 'array',
+      of: [{type: 'publication'}],
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'name',
+        source: 'employee.name',
         maxLength: 96,
       },
     },
