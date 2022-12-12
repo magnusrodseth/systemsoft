@@ -4,8 +4,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../../packages/ui/organisms/Navbar.tsx",
-    "../../packages/ui/organisms/Navbar.tsx"
+    "../../packages/ui/organisms/NavigationMenu.tsx",
+    "../../packages/ui/organisms/NavigationMenu.tsx"
   ],
   "exclude": ["node_modules"],
   "compilerOptions": {
