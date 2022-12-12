@@ -1,4 +1,5 @@
 import { createStitches } from "@stitches/react";
+import { gray, grayDark } from "@radix-ui/colors";
 
 export const {
   styled,
@@ -12,40 +13,24 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      // Gray
-      gray50: "#f9fafb",
-      gray100: "#f7fafc",
-      gray200: "#edf2f7",
-      gray300: "#e2e8f0",
-      gray400: "#cbd5e0",
-      gray500: "#a0aec0",
-      gray600: "#718096",
-      gray700: "#4a5568",
-      gray800: "#1f2937",
-      gray900: "#1a202c",
-
-      // White
-      white: "#ffffff",
-
-      // Black
-      black: "#000000",
-    },
-    space: {
-      0: "0px",
-      1: "0.25rem",
-      2: "0.5rem",
-      3: "0.75rem",
-      4: "1rem",
-      5: "1.25rem",
+      ...gray,
     },
     fontSizes: {
-      1: "0.75rem",
-      2: "0.875rem",
-      3: "1rem",
-      4: "1.125rem",
-      5: "1.25rem",
-      6: "1.5rem",
-      7: "1.875rem",
+      xs: "0.75rem",
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+    },
+    fontWeights: {
+      bold: 700,
+      semibold: 600,
+      medium: 500,
+      normal: 400,
+    },
+    fonts: {
+      sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
     },
     shadows: {
       sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
@@ -98,25 +83,22 @@ export const {
       height: value,
     }),
 
-    linearGradient: (value: string) => ({
-      backgroundImage: `linear-gradient(${value})`,
+    linearGradient: ({
+      from,
+      to,
+      degrees,
+    }: {
+      from: string;
+      to: string;
+      degrees: number;
+    }) => ({
+      backgroundImage: `linear-gradient(${degrees}deg, ${from}, ${to})`,
     }),
   },
 });
 
 export const darkTheme = createTheme("dark-theme", {
   colors: {
-    gray50: "#1a202c",
-    gray100: "#1f2937",
-    gray200: "#4a5568",
-    gray300: "#718096",
-    gray400: "#a0aec0",
-    gray500: "#cbd5e0",
-    gray600: "#e2e8f0",
-    gray700: "#edf2f7",
-    gray800: "#f7fafc",
-    gray900: "#f9fafb",
-    white: "#ffffff",
-    black: "#000000",
+    ...grayDark,
   },
 });

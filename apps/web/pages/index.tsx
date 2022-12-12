@@ -1,10 +1,9 @@
-import Button from "ui/components/Button";
+import Heading from "ui/atoms/Heading";
 
 const IndexPage = () => {
   return (
     <div>
-      <h1>Web</h1>
-      <Button>This is my text</Button>
+      <Heading>index</Heading>
     </div>
   );
 };

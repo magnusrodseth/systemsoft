@@ -1,11 +1,11 @@
-import ApolloProvider from "@/providers/ApolloProvider";
+import AppProvider from "@/providers/AppProvider";
 import { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ApolloProvider>
+    <AppProvider>
       <Component {...pageProps} />
-    </ApolloProvider>
+    </AppProvider>
   );
 };
 
