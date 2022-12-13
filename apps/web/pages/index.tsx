@@ -27,7 +27,7 @@ const IndexPage = () => {
         >
           <Typewriter
             options={{
-              strings: ["kvalitet.", "[noe annet].", "ingeniørkunst."],
+              strings: ["kvalitet.", "teknologisk trygghet.", "ingeniørkunst."],
               autoStart: true,
               loop: true,
               delay: 60,

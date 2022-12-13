@@ -1,9 +1,9 @@
 import {SchemaTypeDefinition} from 'sanity'
 
-const skill: SchemaTypeDefinition<'object'> = {
+const skill: SchemaTypeDefinition<'document'> = {
   name: 'skill',
   title: 'Skill',
-  type: 'object',
+  type: 'document',
   fields: [
     {
       name: 'name',
@@ -19,10 +19,12 @@ const skill: SchemaTypeDefinition<'object'> = {
   preview: {
     select: {
       title: 'name',
+      subtitle: 'shortDescription',
     },
-    prepare: ({title}) => {
+    prepare: ({title, subtitle}) => {
       return {
         title,
+        subtitle,
       }
     },
   },

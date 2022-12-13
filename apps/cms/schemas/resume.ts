@@ -32,7 +32,7 @@ const resume: SchemaTypeDefinition<'document'> = {
       name: 'skill',
       title: 'Skills',
       type: 'array',
-      of: [{type: 'skill'}],
+      of: [{type: 'reference', to: [{type: 'skill'}]}],
     },
     {
       name: 'language',

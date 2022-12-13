@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "graphql-codegen",
-    "prestart": "pnpm generate",
-    "vercel:deploy": "vercel --prod"
+    "prestart": "pnpm generate"
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",

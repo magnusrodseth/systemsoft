@@ -21,7 +21,7 @@ const documents = {
     "\n  fragment DefaultSkill on Skill {\n    name\n    shortDescription\n  }\n": types.DefaultSkillFragmentDoc,
     "\n  query ContactInformation {\n    allContactInformation {\n      email\n      phone\n      linkedInLink\n      address\n      postalCode\n      city\n      country\n    }\n  }\n": types.ContactInformationDocument,
     "\n  query Employee($id: ID!) {\n    Employee(id: $id) {\n      _id\n      name\n      email\n      title\n    }\n    allResume(where: { employee: { _id: { eq: $id } } }) {\n      personalInformation {\n        ...DefaultPersonalInformation\n      }\n      education {\n        ...DefaultEducation\n      }\n      professionalExperience {\n        ...DefaultProfessionalExperience\n      }\n      skill {\n        ...DefaultSkill\n      }\n      language {\n        name\n      }\n      certification {\n        ...DefaultCertification\n      }\n      publication {\n        ...DefaultPublication\n      }\n    }\n  }\n": types.EmployeeDocument,
-    "\n  query Employees {\n    allEmployee {\n      _id\n      name\n      email\n      title\n    }\n  }\n": types.EmployeesDocument,
+    "\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n": types.EmployeesDocument,
     "\n  query Expertises {\n    allExpertise {\n      name\n      shortDescription\n      tags {\n        name\n      }\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.ExpertisesDocument,
 };
 
@@ -60,7 +60,7 @@ export function graphql(source: "\n  query Employee($id: ID!) {\n    Employee(id
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query Employees {\n    allEmployee {\n      _id\n      name\n      email\n      title\n    }\n  }\n"): (typeof documents)["\n  query Employees {\n    allEmployee {\n      _id\n      name\n      email\n      title\n    }\n  }\n"];
+export function graphql(source: "\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"): (typeof documents)["\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

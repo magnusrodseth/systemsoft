@@ -5,8 +5,10 @@ const EmployeesQuery = graphql(`
     allEmployee {
       _id
       name
-      email
-      title
+    }
+    allSkill {
+      _id
+      name
     }
   }
 `);

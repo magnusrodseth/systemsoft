@@ -66,10 +66,10 @@ export const {
     },
   },
   media: {
-    bp1: "(min-width: 480px)",
-    bp2: "(min-width: 768px)",
-    bp3: "(min-width: 1024px)",
-    bp4: "(min-width: 1280px)",
+    sm: "(min-width: 640px)",
+    md: "(min-width: 768px)",
+    lg: "(min-width: 1024px)",
+    xl: "(min-width: 1280px)",
   },
   utils: {
     animateNone: () => ({ animation: "none" }),
