@@ -3,8 +3,8 @@ import { styled } from "../../stitches.config";
 const Pill = styled("div", {
   backgroundColor: "$violet3",
   borderRadius: 9999,
-  px: 12,
-  py: 6,
+  px: 8,
+  py: 4,
   color: "$violet12",
   borderStyle: "solid",
   borderWidth: 2,

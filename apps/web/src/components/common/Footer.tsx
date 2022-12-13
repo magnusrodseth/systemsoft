@@ -1,20 +1,11 @@
 import { animateSpin, styled } from "ui";
-import Box from "ui/src/atoms/Box";
+import Box from "@ui/atoms/Box";
 import { LinkedInLogoIcon, Component1Icon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
-import Link from "./Link";
+import Icon from "@ui/atoms/Icon";
+import Link from "ui/src/atoms/Link";
 import { useQuery } from "@apollo/client";
 import ContactInformationQuery from "@/graphql/queries/ContactInformation";
-
-const Icon = styled("div", {
-  width: 56,
-  height: 56,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "$mauve12",
-  fontSize: "$5xl",
-});
 
 const Footer = () => {
   const { data, loading, error } = useQuery(ContactInformationQuery);

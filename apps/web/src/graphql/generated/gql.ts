@@ -13,18 +13,23 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
+    "\n  fragment DefaultEmployee on Employee {\n    _id\n    name\n    email\n    title\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultEmployeeFragmentDoc,
     "\n  fragment DefaultCertification on Certification {\n    title\n    shortDescription\n    link\n  }\n": types.DefaultCertificationFragmentDoc,
     "\n  fragment DefaultEducation on Education {\n    school\n    degree\n    fieldOfStudy\n    start\n    end\n  }\n": types.DefaultEducationFragmentDoc,
-    "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    profilePicture {\n      asset {\n        url\n      }\n    }\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n": types.DefaultPersonalInformationFragmentDoc,
+    "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n": types.DefaultPersonalInformationFragmentDoc,
     "\n  fragment DefaultProfessionalExperience on ProfessionalExperience {\n    employer\n    location\n    start\n    end\n    descriptionRaw\n  }\n": types.DefaultProfessionalExperienceFragmentDoc,
     "\n  fragment DefaultPublication on Publication {\n    title\n    link\n    descriptionRaw\n  }\n": types.DefaultPublicationFragmentDoc,
     "\n  fragment DefaultSkill on Skill {\n    name\n    shortDescription\n  }\n": types.DefaultSkillFragmentDoc,
     "\n  query ContactInformation {\n    allContactInformation {\n      email\n      phone\n      linkedInLink\n      address\n      postalCode\n      city\n      country\n    }\n  }\n": types.ContactInformationDocument,
     "\n  query Employee($id: ID!) {\n    Employee(id: $id) {\n      _id\n      name\n      email\n      title\n    }\n    allResume(where: { employee: { _id: { eq: $id } } }) {\n      personalInformation {\n        ...DefaultPersonalInformation\n      }\n      education {\n        ...DefaultEducation\n      }\n      professionalExperience {\n        ...DefaultProfessionalExperience\n      }\n      skill {\n        ...DefaultSkill\n      }\n      language {\n        name\n      }\n      certification {\n        ...DefaultCertification\n      }\n      publication {\n        ...DefaultPublication\n      }\n    }\n  }\n": types.EmployeeDocument,
-    "\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n": types.EmployeesDocument,
+    "\n  query EmployeesAndSkills {\n    allEmployee {\n      ...DefaultEmployee\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n": types.EmployeesAndSkillsDocument,
     "\n  query Expertises {\n    allExpertise {\n      name\n      shortDescription\n      tags {\n        name\n      }\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.ExpertisesDocument,
 };
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  fragment DefaultEmployee on Employee {\n    _id\n    name\n    email\n    title\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment DefaultEmployee on Employee {\n    _id\n    name\n    email\n    title\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -36,7 +41,7 @@ export function graphql(source: "\n  fragment DefaultEducation on Education {\n 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    profilePicture {\n      asset {\n        url\n      }\n    }\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"): (typeof documents)["\n  fragment DefaultPersonalInformation on PersonalInformation {\n    profilePicture {\n      asset {\n        url\n      }\n    }\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"];
+export function graphql(source: "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"): (typeof documents)["\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -60,7 +65,7 @@ export function graphql(source: "\n  query Employee($id: ID!) {\n    Employee(id
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"): (typeof documents)["\n  query Employees {\n    allEmployee {\n      _id\n      name\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"];
+export function graphql(source: "\n  query EmployeesAndSkills {\n    allEmployee {\n      ...DefaultEmployee\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"): (typeof documents)["\n  query EmployeesAndSkills {\n    allEmployee {\n      ...DefaultEmployee\n    }\n    allSkill {\n      _id\n      name\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

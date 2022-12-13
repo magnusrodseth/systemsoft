@@ -3,7 +3,8 @@ import { styled } from "../../stitches.config";
 const Heading = styled("h1", {
   fontFamily: "$sans",
   fontWeight: "$bold",
-  fontSize: "$5",
+  fontSize: "$md",
+  m: 1,
 
   variants: {
     size: {

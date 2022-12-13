@@ -71,24 +71,9 @@ export const {
     lg: "(min-width: 1024px)",
     xl: "(min-width: 1280px)",
   },
+
   utils: {
-    animateNone: () => ({ animation: "none" }),
-    animateSpin: (active: boolean) =>
-      active && { animation: "$spin 1s linear infinite" },
-    animatePing: () => ({
-      animation: "$ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
-    }),
-    animatePulse: () => ({
-      animation: "$pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-    }),
-    animateBounce: () => ({ animation: "$bounce 1s infinite" }),
-    smooth: (animation: string) => ({
-      transitionProperty:
-        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-      transitionDuration: "150ms",
-      animation,
-    }),
+    // Margin and padding
     m: (value: number) => ({ margin: value }),
     mt: (value: number) => ({ marginTop: value }),
     mr: (value: number) => ({ marginRight: value }),
@@ -110,6 +95,7 @@ export const {
       height: value,
     }),
 
+    // Gradient
     linearGradientBg: ({
       from,
       to,
@@ -134,6 +120,39 @@ export const {
       background: `linear-gradient(${degrees}deg, ${from}, ${to})`,
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
+    }),
+
+    // Grid
+    gridCols: (
+      value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none"
+    ) =>
+      value === "none"
+        ? {
+            gridTemplateColumns: "none",
+          }
+        : {
+            gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`,
+          },
+    gridRows: (value: 1 | 2 | 3 | 4 | 5 | 6 | "none") =>
+      value === "none"
+        ? {
+            gridTemplateRows: "none",
+          }
+        : {
+            gridTemplateRows: `repeat(${value}, minmax(0, 1fr))`,
+          },
+
+    // Shadow
+    shadow: (value: "sm" | "md" | "lg" | "xl" | "2xl") => ({
+      boxShadow: `$${value}`,
+    }),
+
+    // Animation
+    smooth: (animation: string) => ({
+      transitionProperty: "all",
+      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+      transitionDuration: "150ms",
+      animation,
     }),
   },
 });

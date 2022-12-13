@@ -5,7 +5,9 @@
     "**/*.ts",
     "**/*.tsx",
     "../../packages/ui/src/organisms/NavigationMenu.tsx",
-    "../../packages/ui/src/organisms/NavigationMenu.tsx"
+    "../../packages/ui/src/organisms/NavigationMenu.tsx",
+    "../../packages/ui/src/atoms/Link.tsx",
+    "../../packages/ui/src/atoms/Link.tsx"
   ],
   "exclude": ["node_modules"],
   "compilerOptions": {

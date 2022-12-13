@@ -6,11 +6,6 @@ const personalInformation: SchemaTypeDefinition<'object'> = {
   type: 'object',
   fields: [
     {
-      name: 'profilePicture',
-      title: 'Profile Picture',
-      type: 'image',
-    },
-    {
       name: 'address',
       title: 'Address',
       type: 'string',

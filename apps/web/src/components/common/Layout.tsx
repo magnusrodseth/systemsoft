@@ -21,7 +21,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       className={isDark ? darkTheme : theme}
       css={{
         width: "100%",
-        height: "100vh",
+        height: "100%",
         backgroundColor: "$mauve1",
         color: "$mauve12",
         fontFamily: "$sans",
@@ -39,7 +39,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <Navbar />
 
         <main>
-          <Box>{children}</Box>
+          <Box css={{ mb: 32 }}>{children}</Box>
         </main>
 
         <Footer />

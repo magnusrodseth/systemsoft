@@ -33,6 +33,19 @@ const expertise: SchemaTypeDefinition<'document'> = {
       type: 'image',
     },
   ],
+
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+    },
+    prepare: ({title, media}) => {
+      return {
+        title,
+        media,
+      }
+    },
+  },
 }
 
 export default expertise

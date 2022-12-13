@@ -270,6 +270,7 @@ export type Employee = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
+  image?: Maybe<Image>;
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
 };
@@ -284,6 +285,7 @@ export type EmployeeFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   email?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   name?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
@@ -296,6 +298,7 @@ export type EmployeeSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   email?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
   name?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
@@ -503,7 +506,6 @@ export type PersonalInformation = {
   githubLink?: Maybe<Scalars['String']>;
   linkedinLink?: Maybe<Scalars['String']>;
   postalCode?: Maybe<Scalars['String']>;
-  profilePicture?: Maybe<Image>;
   status?: Maybe<Scalars['String']>;
 };
 
@@ -516,7 +518,6 @@ export type PersonalInformationFilter = {
   githubLink?: InputMaybe<StringFilter>;
   linkedinLink?: InputMaybe<StringFilter>;
   postalCode?: InputMaybe<StringFilter>;
-  profilePicture?: InputMaybe<ImageFilter>;
   status?: InputMaybe<StringFilter>;
 };
 
@@ -529,7 +530,6 @@ export type PersonalInformationSorting = {
   githubLink?: InputMaybe<SortOrder>;
   linkedinLink?: InputMaybe<SortOrder>;
   postalCode?: InputMaybe<SortOrder>;
-  profilePicture?: InputMaybe<ImageSorting>;
   status?: InputMaybe<SortOrder>;
 };
 
@@ -1302,11 +1302,13 @@ export type TagSorting = {
   name?: InputMaybe<SortOrder>;
 };
 
+export type DefaultEmployeeFragment = { __typename?: 'Employee', _id?: string | null, name?: string | null, email?: string | null, title?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } & { ' $fragmentName'?: 'DefaultEmployeeFragment' };
+
 export type DefaultCertificationFragment = { __typename?: 'Certification', title?: string | null, shortDescription?: string | null, link?: string | null } & { ' $fragmentName'?: 'DefaultCertificationFragment' };
 
 export type DefaultEducationFragment = { __typename?: 'Education', school?: string | null, degree?: string | null, fieldOfStudy?: string | null, start?: any | null, end?: any | null } & { ' $fragmentName'?: 'DefaultEducationFragment' };
 
-export type DefaultPersonalInformationFragment = { __typename?: 'PersonalInformation', address?: string | null, postalCode?: string | null, city?: string | null, age?: number | null, githubLink?: string | null, linkedinLink?: string | null, status?: string | null, aboutRaw?: any | null, profilePicture?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } & { ' $fragmentName'?: 'DefaultPersonalInformationFragment' };
+export type DefaultPersonalInformationFragment = { __typename?: 'PersonalInformation', address?: string | null, postalCode?: string | null, city?: string | null, age?: number | null, githubLink?: string | null, linkedinLink?: string | null, status?: string | null, aboutRaw?: any | null } & { ' $fragmentName'?: 'DefaultPersonalInformationFragment' };
 
 export type DefaultProfessionalExperienceFragment = { __typename?: 'ProfessionalExperience', employer?: string | null, location?: string | null, start?: any | null, end?: any | null, descriptionRaw?: any | null } & { ' $fragmentName'?: 'DefaultProfessionalExperienceFragment' };
 
@@ -1344,23 +1346,27 @@ export type EmployeeQuery = { __typename?: 'RootQuery', Employee?: { __typename?
       & { ' $fragmentRefs'?: { 'DefaultPublicationFragment': DefaultPublicationFragment } }
     ) | null> | null }> };
 
-export type EmployeesQueryVariables = Exact<{ [key: string]: never; }>;
+export type EmployeesAndSkillsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EmployeesQuery = { __typename?: 'RootQuery', allEmployee: Array<{ __typename?: 'Employee', _id?: string | null, name?: string | null }>, allSkill: Array<{ __typename?: 'Skill', _id?: string | null, name?: string | null }> };
+export type EmployeesAndSkillsQuery = { __typename?: 'RootQuery', allEmployee: Array<(
+    { __typename?: 'Employee' }
+    & { ' $fragmentRefs'?: { 'DefaultEmployeeFragment': DefaultEmployeeFragment } }
+  )>, allSkill: Array<{ __typename?: 'Skill', _id?: string | null, name?: string | null }> };
 
 export type ExpertisesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ExpertisesQuery = { __typename?: 'RootQuery', allExpertise: Array<{ __typename?: 'Expertise', name?: string | null, shortDescription?: string | null, tags?: Array<{ __typename?: 'Tag', name?: string | null } | null> | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
+export const DefaultEmployeeFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultEmployee"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Employee"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<DefaultEmployeeFragment, unknown>;
 export const DefaultCertificationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultCertification"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Certification"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]} as unknown as DocumentNode<DefaultCertificationFragment, unknown>;
 export const DefaultEducationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultEducation"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Education"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"school"}},{"kind":"Field","name":{"kind":"Name","value":"degree"}},{"kind":"Field","name":{"kind":"Name","value":"fieldOfStudy"}},{"kind":"Field","name":{"kind":"Name","value":"start"}},{"kind":"Field","name":{"kind":"Name","value":"end"}}]}}]} as unknown as DocumentNode<DefaultEducationFragment, unknown>;
-export const DefaultPersonalInformationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultPersonalInformation"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PersonalInformation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"profilePicture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"age"}},{"kind":"Field","name":{"kind":"Name","value":"githubLink"}},{"kind":"Field","name":{"kind":"Name","value":"linkedinLink"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"aboutRaw"}}]}}]} as unknown as DocumentNode<DefaultPersonalInformationFragment, unknown>;
+export const DefaultPersonalInformationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultPersonalInformation"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PersonalInformation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"age"}},{"kind":"Field","name":{"kind":"Name","value":"githubLink"}},{"kind":"Field","name":{"kind":"Name","value":"linkedinLink"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"aboutRaw"}}]}}]} as unknown as DocumentNode<DefaultPersonalInformationFragment, unknown>;
 export const DefaultProfessionalExperienceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultProfessionalExperience"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ProfessionalExperience"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"employer"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"start"}},{"kind":"Field","name":{"kind":"Name","value":"end"}},{"kind":"Field","name":{"kind":"Name","value":"descriptionRaw"}}]}}]} as unknown as DocumentNode<DefaultProfessionalExperienceFragment, unknown>;
 export const DefaultPublicationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultPublication"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Publication"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"descriptionRaw"}}]}}]} as unknown as DocumentNode<DefaultPublicationFragment, unknown>;
 export const DefaultSkillFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultSkill"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Skill"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}}]}}]} as unknown as DocumentNode<DefaultSkillFragment, unknown>;
 export const ContactInformationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ContactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allContactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"linkedInLink"}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"country"}}]}}]}}]} as unknown as DocumentNode<ContactInformationQuery, ContactInformationQueryVariables>;
 export const EmployeeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Employee"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Employee"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allResume"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"employee"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"_id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personalInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultPersonalInformation"}}]}},{"kind":"Field","name":{"kind":"Name","value":"education"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultEducation"}}]}},{"kind":"Field","name":{"kind":"Name","value":"professionalExperience"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultProfessionalExperience"}}]}},{"kind":"Field","name":{"kind":"Name","value":"skill"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultSkill"}}]}},{"kind":"Field","name":{"kind":"Name","value":"language"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"certification"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultCertification"}}]}},{"kind":"Field","name":{"kind":"Name","value":"publication"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultPublication"}}]}}]}}]}},...DefaultPersonalInformationFragmentDoc.definitions,...DefaultEducationFragmentDoc.definitions,...DefaultProfessionalExperienceFragmentDoc.definitions,...DefaultSkillFragmentDoc.definitions,...DefaultCertificationFragmentDoc.definitions,...DefaultPublicationFragmentDoc.definitions]} as unknown as DocumentNode<EmployeeQuery, EmployeeQueryVariables>;
-export const EmployeesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Employees"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allEmployee"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allSkill"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<EmployeesQuery, EmployeesQueryVariables>;
+export const EmployeesAndSkillsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"EmployeesAndSkills"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allEmployee"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultEmployee"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allSkill"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},...DefaultEmployeeFragmentDoc.definitions]} as unknown as DocumentNode<EmployeesAndSkillsQuery, EmployeesAndSkillsQueryVariables>;
 export const ExpertisesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Expertises"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allExpertise"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ExpertisesQuery, ExpertisesQueryVariables>;

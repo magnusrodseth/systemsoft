@@ -1,10 +1,12 @@
-import EmployeesQuery from "@/graphql/queries/Employees";
+import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
+import Grid from "@ui/molecules/Grid";
 import Heading from "@ui/atoms/Heading";
 import { InferGetStaticPropsType } from "next";
 import { FC } from "react";
 import Pill from "@ui/atoms/Pill";
+import EmployeeCard from "@/components/EmployeeCard";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -43,16 +45,36 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
         }}
       >
         {skills.map((skill) => (
-          <Pill>{skill.name}</Pill>
+          <Pill key={skill._id}>{skill.name}</Pill>
         ))}
       </Box>
+
+      <Grid
+        css={{
+          mt: 16,
+          gap: 16,
+          "@sm": {
+            gridCols: 1,
+          },
+          "@md": {
+            gridCols: 2,
+          },
+          "@xl": {
+            gridCols: 3,
+          },
+        }}
+      >
+        {employees.map((employee, i) => (
+          <EmployeeCard employee={employee} key={i} />
+        ))}
+      </Grid>
     </Box>
   );
 };
 
 export const getStaticProps = async () => {
   const { data, loading, error } = await client.query({
-    query: EmployeesQuery,
+    query: EmployeesAndSkillsQuery,
   });
 
   const employees = data.allEmployee;

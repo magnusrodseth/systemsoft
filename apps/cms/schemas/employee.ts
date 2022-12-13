@@ -20,16 +20,23 @@ const employee: SchemaTypeDefinition<'document'> = {
       title: 'Title',
       type: 'string',
     },
+    {
+      name: 'image',
+      title: 'Portrait',
+      type: 'image',
+    },
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'title',
+      media: 'image',
     },
-    prepare({title, subtitle}) {
+    prepare({title, subtitle, media}) {
       return {
         title,
         subtitle,
+        media,
       }
     },
   },

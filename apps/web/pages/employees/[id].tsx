@@ -1,5 +1,5 @@
 import EmployeeQuery from "@/graphql/queries/Employee";
-import EmployeesQuery from "@/graphql/queries/Employees";
+import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import ExpertisesQuery from "@/graphql/queries/Expertises";
 import client from "@/lib/apollo";
 import {
@@ -19,7 +19,7 @@ const Employee: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
-    query: EmployeesQuery,
+    query: EmployeesAndSkillsQuery,
   });
 
   const paths = data.allEmployee.map((employee) => ({
