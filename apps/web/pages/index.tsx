@@ -1,4 +1,4 @@
-import Heading from "ui/atoms/Heading";
+import Heading from "ui/src/atoms/Heading";
 
 const IndexPage = () => {
   return (

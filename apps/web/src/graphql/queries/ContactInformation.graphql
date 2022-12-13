@@ -1,0 +1,11 @@
+query ContactInformation {
+  allContactInformation {
+    email
+    phone
+    linkedInLink
+    address
+    postalCode
+    city
+    country
+  }
+}

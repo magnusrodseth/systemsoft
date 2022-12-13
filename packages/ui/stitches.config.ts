@@ -6,17 +6,12 @@ import {
   blueDark,
   grass,
   grassDark,
-  gray,
-  grayDark,
-  greenDark,
   indigo,
   indigoDark,
   mauve,
   mauveDark,
   red,
   redDark,
-  slate,
-  slateDark,
   violet,
   violetDark,
 } from "@radix-ui/colors";
@@ -60,6 +55,7 @@ export const {
     },
     shadows: {
       sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      md: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
       lg: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
       xl: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
       "2xl":
@@ -74,7 +70,8 @@ export const {
   },
   utils: {
     animateNone: () => ({ animation: "none" }),
-    animateSpin: () => ({ animation: "$spin 1s linear infinite" }),
+    animateSpin: (active: boolean) =>
+      active && { animation: "$spin 1s linear infinite" },
     animatePing: () => ({
       animation: "$ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
     }),
@@ -148,4 +145,9 @@ export const globalStyles = globalCss({
     m: 0,
     height: "100%",
   },
+});
+
+export const animateSpin = keyframes({
+  from: { transform: "rotate(0deg)" },
+  to: { transform: "rotate(360deg)" },
 });

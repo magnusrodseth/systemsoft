@@ -4,14 +4,15 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../../packages/ui/organisms/NavigationMenu.tsx",
-    "../../packages/ui/organisms/NavigationMenu.tsx"
+    "../../packages/ui/src/organisms/NavigationMenu.tsx",
+    "../../packages/ui/src/organisms/NavigationMenu.tsx"
   ],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@ui/*": ["../../packages/ui/src/*"]
     }
   }
 }

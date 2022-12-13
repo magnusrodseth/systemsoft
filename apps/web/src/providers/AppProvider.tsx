@@ -1,7 +1,7 @@
 import Layout from "@/components/common/Layout";
 import { FC, ReactNode } from "react";
 import { darkTheme } from "ui";
-import Box from "ui/atoms/Box";
+import Box from "ui/src/atoms/Box";
 import ApolloProvider from "./ApolloProvider";
 
 type AppProviderProps = {

@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { styled } from "../stitches.config";
+import { styled } from "../../stitches.config";
 import * as RadixToggle from "@radix-ui/react-toggle";
-import { blackA } from "@radix-ui/colors";
 
 type ToggleProps = {
   active: boolean;
+  toggle: () => void;
   inactiveIcon: React.ReactNode;
   activeIcon: React.ReactNode;
   label?: string;
@@ -12,33 +12,36 @@ type ToggleProps = {
 
 const Toggle: FC<ToggleProps> = ({
   active,
+  toggle,
   inactiveIcon,
   activeIcon,
   label,
 }) => (
-  <ToggleRoot aria-label={label || "Toggle"}>
+  <ToggleRoot aria-label={label || "Toggle"} onClick={toggle}>
     {active ? activeIcon : inactiveIcon}
   </ToggleRoot>
 );
 
 const ToggleRoot = styled(RadixToggle.Root, {
   all: "unset",
-  backgroundColor: "$slate9",
-  color: "$slate1",
+  backgroundColor: "$mauve5",
+  borderColor: "$mauve6",
+  borderStyle: "solid",
+  borderWidth: 2,
+  color: "$mauve12",
   height: 35,
   width: 35,
   borderRadius: 4,
   display: "flex",
-  fontSize: "$3",
+  fontSize: "$xl",
   lineHeight: 1,
   alignItems: "center",
   justifyContent: "center",
-  "&:hover": { backgroundColor: "$slate10" },
+  "&:hover": { backgroundColor: "$mauve7", borderColor: "$mauve8" },
   "&[data-state=on]": {
     backgroundColor: "$slate11",
     color: "$slate1",
   },
-  "&:focus": { boxShadow: `0 0 0 1px ${blackA.blackA10}` },
 });
 
 export default Toggle;

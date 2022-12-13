@@ -17,7 +17,8 @@
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "zustand": "^4.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

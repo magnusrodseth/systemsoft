@@ -1,12 +1,12 @@
 import { NavigationMenuProps as RadixNavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { FC, ReactNode } from "react";
-import Box from "../atoms/Box";
-import { styled } from "../stitches.config";
 import Link, { LinkProps } from "next/link";
+import Box from "../atoms/Box";
+import { styled } from "../../stitches.config";
 
 interface NavigationMenuProps extends RadixNavigationMenuProps {}
 
-const NavigationMenu: FC<NavigationMenuProps> = ({ ...props }) => {
+const NavigationMenu: FC<NavigationMenuProps> = ({ children, ...props }) => {
   return (
     <Box
       {...props}
@@ -16,7 +16,8 @@ const NavigationMenu: FC<NavigationMenuProps> = ({ ...props }) => {
         alignItems: "center",
         justifyContent: "end",
         gap: 8,
-        p: 8,
+        p: 16,
+        backgroundColor: "$mauve2",
       }}
     >
       <NavigationLink href="/">Hjem</NavigationLink>
@@ -24,6 +25,8 @@ const NavigationMenu: FC<NavigationMenuProps> = ({ ...props }) => {
       <NavigationLink href="/clients">Våre klienter</NavigationLink>
       <NavigationLink href="/about">Om oss</NavigationLink>
       <NavigationLink href="/employees">Våre ansatte</NavigationLink>
+
+      {children}
     </Box>
   );
 };
