@@ -2,26 +2,22 @@ import { animateSpin, styled } from "ui";
 import Box from "ui/src/atoms/Box";
 import { LinkedInLogoIcon, Component1Icon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
-import { useContactInformationQuery } from "@/graphql/generated/generated";
 import Link from "./Link";
+import { useQuery } from "@apollo/client";
+import ContactInformationQuery from "@/graphql/queries/ContactInformation";
 
 const Icon = styled("div", {
   width: 56,
   height: 56,
-  borderRadius: "9999px",
-  borderWidth: 1,
-  borderStyle: "solid",
-  borderColor: "$violet8",
-  backgroundColor: "$violet5",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   color: "$mauve12",
-  fontSize: "$md",
+  fontSize: "$5xl",
 });
 
 const Footer = () => {
-  const { data, loading, error } = useContactInformationQuery();
+  const { data, loading, error } = useQuery(ContactInformationQuery);
 
   if (error) {
     return null;
@@ -98,11 +94,11 @@ const Footer = () => {
               }}
             >
               {contactInformation.linkedInLink && (
-                <Icon>
-                  <Link href={contactInformation.linkedInLink} target="_blank">
+                <Link href={contactInformation.linkedInLink} target="_blank">
+                  <Icon>
                     <LinkedInLogoIcon />
-                  </Link>
-                </Icon>
+                  </Icon>
+                </Link>
               )}
             </Box>
           </>

@@ -52,15 +52,6 @@ const resume: SchemaTypeDefinition<'document'> = {
       type: 'array',
       of: [{type: 'publication'}],
     },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'employee.name',
-        maxLength: 96,
-      },
-    },
   ],
   preview: {
     select: {

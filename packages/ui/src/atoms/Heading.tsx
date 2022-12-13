@@ -22,6 +22,15 @@ const Heading = styled("h1", {
       "2xl": {
         fontSize: "$2xl",
       },
+      "3xl": {
+        fontSize: "$3xl",
+      },
+      "4xl": {
+        fontSize: "$4xl",
+      },
+      "5xl": {
+        fontSize: "$5xl",
+      },
     },
     uppercase: {
       true: {
@@ -56,6 +65,46 @@ const Heading = styled("h1", {
       uppercase: true,
       css: {
         fontSize: "$lg",
+        textTransform: "uppercase",
+      },
+    },
+    {
+      size: "xl",
+      uppercase: true,
+      css: {
+        fontSize: "$xl",
+        textTransform: "uppercase",
+      },
+    },
+    {
+      size: "2xl",
+      uppercase: true,
+      css: {
+        fontSize: "$2xl",
+        textTransform: "uppercase",
+      },
+    },
+    {
+      size: "3xl",
+      uppercase: true,
+      css: {
+        fontSize: "$3xl",
+        textTransform: "uppercase",
+      },
+    },
+    {
+      size: "4xl",
+      uppercase: true,
+      css: {
+        fontSize: "$4xl",
+        textTransform: "uppercase",
+      },
+    },
+    {
+      size: "5xl",
+      uppercase: true,
+      css: {
+        fontSize: "$5xl",
         textTransform: "uppercase",
       },
     },

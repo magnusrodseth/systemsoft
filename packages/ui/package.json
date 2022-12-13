@@ -14,7 +14,8 @@
     "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-toggle": "^1.0.1",
     "@stitches/core": "^1.2.8",
-    "@stitches/react": "^1.2.8"
+    "@stitches/react": "^1.2.8",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@storybook/react": "^6.5.14",

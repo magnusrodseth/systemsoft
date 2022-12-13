@@ -1,11 +1,10 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+/* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -13,8 +12,11 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
+  /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
 
@@ -39,24 +41,24 @@ export type Certification = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
   shortDescription?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type CertificationFilter = {
   _key?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   link?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
   shortDescription?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
 export type CertificationSorting = {
   _key?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   link?: InputMaybe<SortOrder>;
-  name?: InputMaybe<SortOrder>;
   shortDescription?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
 };
 
 export type Client = Document & {
@@ -76,7 +78,6 @@ export type Client = Document & {
   image?: Maybe<Image>;
   name?: Maybe<Scalars['String']>;
   shortDescription?: Maybe<Scalars['String']>;
-  slug?: Maybe<Slug>;
   tags?: Maybe<Array<Maybe<Tag>>>;
 };
 
@@ -92,7 +93,6 @@ export type ClientFilter = {
   image?: InputMaybe<ImageFilter>;
   name?: InputMaybe<StringFilter>;
   shortDescription?: InputMaybe<StringFilter>;
-  slug?: InputMaybe<SlugFilter>;
 };
 
 export type ClientSorting = {
@@ -105,7 +105,6 @@ export type ClientSorting = {
   image?: InputMaybe<ImageSorting>;
   name?: InputMaybe<SortOrder>;
   shortDescription?: InputMaybe<SortOrder>;
-  slug?: InputMaybe<SlugSorting>;
 };
 
 export type ContactInformation = Document & {
@@ -272,7 +271,6 @@ export type Employee = Document & {
   _updatedAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  slug?: Maybe<Slug>;
   title?: Maybe<Scalars['String']>;
 };
 
@@ -287,7 +285,6 @@ export type EmployeeFilter = {
   _updatedAt?: InputMaybe<DatetimeFilter>;
   email?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
-  slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -300,7 +297,6 @@ export type EmployeeSorting = {
   _updatedAt?: InputMaybe<SortOrder>;
   email?: InputMaybe<SortOrder>;
   name?: InputMaybe<SortOrder>;
-  slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -321,7 +317,6 @@ export type Expertise = Document & {
   image?: Maybe<Image>;
   name?: Maybe<Scalars['String']>;
   shortDescription?: Maybe<Scalars['String']>;
-  slug?: Maybe<Slug>;
   tags?: Maybe<Array<Maybe<Tag>>>;
 };
 
@@ -337,7 +332,6 @@ export type ExpertiseFilter = {
   image?: InputMaybe<ImageFilter>;
   name?: InputMaybe<StringFilter>;
   shortDescription?: InputMaybe<StringFilter>;
-  slug?: InputMaybe<SlugFilter>;
 };
 
 export type ExpertiseSorting = {
@@ -350,7 +344,6 @@ export type ExpertiseSorting = {
   image?: InputMaybe<ImageSorting>;
   name?: InputMaybe<SortOrder>;
   shortDescription?: InputMaybe<SortOrder>;
-  slug?: InputMaybe<SlugSorting>;
 };
 
 export type File = {
@@ -577,22 +570,22 @@ export type Publication = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   descriptionRaw?: Maybe<Scalars['JSON']>;
+  link?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
 };
 
 export type PublicationFilter = {
   _key?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
-  url?: InputMaybe<StringFilter>;
 };
 
 export type PublicationSorting = {
   _key?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
+  link?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
-  url?: InputMaybe<SortOrder>;
 };
 
 export type Resume = Document & {
@@ -616,7 +609,6 @@ export type Resume = Document & {
   professionalExperience?: Maybe<Array<Maybe<ProfessionalExperience>>>;
   publication?: Maybe<Array<Maybe<Publication>>>;
   skill?: Maybe<Array<Maybe<Skill>>>;
-  slug?: Maybe<Slug>;
 };
 
 export type ResumeFilter = {
@@ -630,7 +622,6 @@ export type ResumeFilter = {
   _updatedAt?: InputMaybe<DatetimeFilter>;
   employee?: InputMaybe<EmployeeFilter>;
   personalInformation?: InputMaybe<PersonalInformationFilter>;
-  slug?: InputMaybe<SlugFilter>;
 };
 
 export type ResumeSorting = {
@@ -641,7 +632,6 @@ export type ResumeSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   personalInformation?: InputMaybe<PersonalInformationSorting>;
-  slug?: InputMaybe<SlugSorting>;
 };
 
 export type RootQuery = {
@@ -1278,88 +1268,65 @@ export type TagSorting = {
   name?: InputMaybe<SortOrder>;
 };
 
+export type DefaultCertificationFragment = { __typename?: 'Certification', title?: string | null, shortDescription?: string | null, link?: string | null } & { ' $fragmentName'?: 'DefaultCertificationFragment' };
+
+export type DefaultEducationFragment = { __typename?: 'Education', school?: string | null, degree?: string | null, fieldOfStudy?: string | null, start?: any | null, end?: any | null } & { ' $fragmentName'?: 'DefaultEducationFragment' };
+
+export type DefaultPersonalInformationFragment = { __typename?: 'PersonalInformation', address?: string | null, postalCode?: string | null, city?: string | null, age?: number | null, githubLink?: string | null, linkedinLink?: string | null, status?: string | null, aboutRaw?: any | null, profilePicture?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } & { ' $fragmentName'?: 'DefaultPersonalInformationFragment' };
+
+export type DefaultProfessionalExperienceFragment = { __typename?: 'ProfessionalExperience', employer?: string | null, location?: string | null, start?: any | null, end?: any | null, descriptionRaw?: any | null } & { ' $fragmentName'?: 'DefaultProfessionalExperienceFragment' };
+
+export type DefaultPublicationFragment = { __typename?: 'Publication', title?: string | null, link?: string | null, descriptionRaw?: any | null } & { ' $fragmentName'?: 'DefaultPublicationFragment' };
+
+export type DefaultSkillFragment = { __typename?: 'Skill', name?: string | null, shortDescription?: string | null } & { ' $fragmentName'?: 'DefaultSkillFragment' };
+
 export type ContactInformationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ContactInformationQuery = { __typename?: 'RootQuery', allContactInformation: Array<{ __typename?: 'ContactInformation', email?: string | null, phone?: string | null, linkedInLink?: string | null, address?: string | null, postalCode?: string | null, city?: string | null, country?: string | null }> };
 
+export type EmployeeQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type EmployeeQuery = { __typename?: 'RootQuery', Employee?: { __typename?: 'Employee', _id?: string | null, name?: string | null, email?: string | null, title?: string | null } | null, allResume: Array<{ __typename?: 'Resume', personalInformation?: (
+      { __typename?: 'PersonalInformation' }
+      & { ' $fragmentRefs'?: { 'DefaultPersonalInformationFragment': DefaultPersonalInformationFragment } }
+    ) | null, education?: Array<(
+      { __typename?: 'Education' }
+      & { ' $fragmentRefs'?: { 'DefaultEducationFragment': DefaultEducationFragment } }
+    ) | null> | null, professionalExperience?: Array<(
+      { __typename?: 'ProfessionalExperience' }
+      & { ' $fragmentRefs'?: { 'DefaultProfessionalExperienceFragment': DefaultProfessionalExperienceFragment } }
+    ) | null> | null, skill?: Array<(
+      { __typename?: 'Skill' }
+      & { ' $fragmentRefs'?: { 'DefaultSkillFragment': DefaultSkillFragment } }
+    ) | null> | null, language?: Array<{ __typename?: 'Language', name?: string | null } | null> | null, certification?: Array<(
+      { __typename?: 'Certification' }
+      & { ' $fragmentRefs'?: { 'DefaultCertificationFragment': DefaultCertificationFragment } }
+    ) | null> | null, publication?: Array<(
+      { __typename?: 'Publication' }
+      & { ' $fragmentRefs'?: { 'DefaultPublicationFragment': DefaultPublicationFragment } }
+    ) | null> | null }> };
+
 export type EmployeesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EmployeesQuery = { __typename?: 'RootQuery', allEmployee: Array<{ __typename?: 'Employee', name?: string | null }> };
+export type EmployeesQuery = { __typename?: 'RootQuery', allEmployee: Array<{ __typename?: 'Employee', _id?: string | null, name?: string | null, email?: string | null, title?: string | null }> };
+
+export type ExpertisesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export const ContactInformationDocument = gql`
-    query ContactInformation {
-  allContactInformation {
-    email
-    phone
-    linkedInLink
-    address
-    postalCode
-    city
-    country
-  }
-}
-    `;
+export type ExpertisesQuery = { __typename?: 'RootQuery', allExpertise: Array<{ __typename?: 'Expertise', name?: string | null, shortDescription?: string | null, tags?: Array<{ __typename?: 'Tag', name?: string | null } | null> | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
-/**
- * __useContactInformationQuery__
- *
- * To run a query within a React component, call `useContactInformationQuery` and pass it any options that fit your needs.
- * When your component renders, `useContactInformationQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useContactInformationQuery({
- *   variables: {
- *   },
- * });
- */
-export function useContactInformationQuery(baseOptions?: Apollo.QueryHookOptions<ContactInformationQuery, ContactInformationQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ContactInformationQuery, ContactInformationQueryVariables>(ContactInformationDocument, options);
-      }
-export function useContactInformationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ContactInformationQuery, ContactInformationQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ContactInformationQuery, ContactInformationQueryVariables>(ContactInformationDocument, options);
-        }
-export type ContactInformationQueryHookResult = ReturnType<typeof useContactInformationQuery>;
-export type ContactInformationLazyQueryHookResult = ReturnType<typeof useContactInformationLazyQuery>;
-export type ContactInformationQueryResult = Apollo.QueryResult<ContactInformationQuery, ContactInformationQueryVariables>;
-export const EmployeesDocument = gql`
-    query Employees {
-  allEmployee {
-    name
-  }
-}
-    `;
-
-/**
- * __useEmployeesQuery__
- *
- * To run a query within a React component, call `useEmployeesQuery` and pass it any options that fit your needs.
- * When your component renders, `useEmployeesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useEmployeesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useEmployeesQuery(baseOptions?: Apollo.QueryHookOptions<EmployeesQuery, EmployeesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<EmployeesQuery, EmployeesQueryVariables>(EmployeesDocument, options);
-      }
-export function useEmployeesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EmployeesQuery, EmployeesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<EmployeesQuery, EmployeesQueryVariables>(EmployeesDocument, options);
-        }
-export type EmployeesQueryHookResult = ReturnType<typeof useEmployeesQuery>;
-export type EmployeesLazyQueryHookResult = ReturnType<typeof useEmployeesLazyQuery>;
-export type EmployeesQueryResult = Apollo.QueryResult<EmployeesQuery, EmployeesQueryVariables>;
+export const DefaultCertificationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultCertification"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Certification"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]} as unknown as DocumentNode<DefaultCertificationFragment, unknown>;
+export const DefaultEducationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultEducation"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Education"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"school"}},{"kind":"Field","name":{"kind":"Name","value":"degree"}},{"kind":"Field","name":{"kind":"Name","value":"fieldOfStudy"}},{"kind":"Field","name":{"kind":"Name","value":"start"}},{"kind":"Field","name":{"kind":"Name","value":"end"}}]}}]} as unknown as DocumentNode<DefaultEducationFragment, unknown>;
+export const DefaultPersonalInformationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultPersonalInformation"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PersonalInformation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"profilePicture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"age"}},{"kind":"Field","name":{"kind":"Name","value":"githubLink"}},{"kind":"Field","name":{"kind":"Name","value":"linkedinLink"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"aboutRaw"}}]}}]} as unknown as DocumentNode<DefaultPersonalInformationFragment, unknown>;
+export const DefaultProfessionalExperienceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultProfessionalExperience"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ProfessionalExperience"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"employer"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"start"}},{"kind":"Field","name":{"kind":"Name","value":"end"}},{"kind":"Field","name":{"kind":"Name","value":"descriptionRaw"}}]}}]} as unknown as DocumentNode<DefaultProfessionalExperienceFragment, unknown>;
+export const DefaultPublicationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultPublication"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Publication"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"descriptionRaw"}}]}}]} as unknown as DocumentNode<DefaultPublicationFragment, unknown>;
+export const DefaultSkillFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DefaultSkill"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Skill"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}}]}}]} as unknown as DocumentNode<DefaultSkillFragment, unknown>;
+export const ContactInformationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ContactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allContactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"linkedInLink"}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"country"}}]}}]}}]} as unknown as DocumentNode<ContactInformationQuery, ContactInformationQueryVariables>;
+export const EmployeeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Employee"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Employee"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allResume"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"employee"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"_id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personalInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultPersonalInformation"}}]}},{"kind":"Field","name":{"kind":"Name","value":"education"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultEducation"}}]}},{"kind":"Field","name":{"kind":"Name","value":"professionalExperience"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultProfessionalExperience"}}]}},{"kind":"Field","name":{"kind":"Name","value":"skill"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultSkill"}}]}},{"kind":"Field","name":{"kind":"Name","value":"language"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"certification"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultCertification"}}]}},{"kind":"Field","name":{"kind":"Name","value":"publication"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DefaultPublication"}}]}}]}}]}},...DefaultPersonalInformationFragmentDoc.definitions,...DefaultEducationFragmentDoc.definitions,...DefaultProfessionalExperienceFragmentDoc.definitions,...DefaultSkillFragmentDoc.definitions,...DefaultCertificationFragmentDoc.definitions,...DefaultPublicationFragmentDoc.definitions]} as unknown as DocumentNode<EmployeeQuery, EmployeeQueryVariables>;
+export const EmployeesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Employees"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allEmployee"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<EmployeesQuery, EmployeesQueryVariables>;
+export const ExpertisesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Expertises"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allExpertise"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ExpertisesQuery, ExpertisesQueryVariables>;

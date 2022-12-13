@@ -6,8 +6,8 @@ const certification: SchemaTypeDefinition<'object'> = {
   type: 'object',
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {

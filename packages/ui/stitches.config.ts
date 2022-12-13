@@ -39,10 +39,13 @@ export const {
     fontSizes: {
       xs: "0.75rem",
       sm: "0.875rem",
-      md: "1rem",
+      base: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
       "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
     },
     fontWeights: {
       bold: 700,
@@ -107,7 +110,7 @@ export const {
       height: value,
     }),
 
-    linearGradient: ({
+    linearGradientBg: ({
       from,
       to,
       degrees,
@@ -116,7 +119,21 @@ export const {
       to: string;
       degrees: number;
     }) => ({
-      backgroundImage: `linear-gradient(${degrees}deg, ${from}, ${to})`,
+      background: `linear-gradient(${degrees}deg, ${from}, ${to})`,
+    }),
+
+    linearGradientText: ({
+      from,
+      to,
+      degrees,
+    }: {
+      from: string;
+      to: string;
+      degrees: number;
+    }) => ({
+      background: `linear-gradient(${degrees}deg, ${from}, ${to})`,
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
     }),
   },
 });
@@ -137,7 +154,7 @@ export const globalStyles = globalCss({
   body: {
     m: 0,
     fontFamily: "$sans",
-    fontSize: "$md",
+    fontSize: "16px",
     lineHeight: 1.5,
     height: "100%",
   },

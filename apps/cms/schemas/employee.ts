@@ -20,20 +20,11 @@ const employee: SchemaTypeDefinition<'document'> = {
       title: 'Title',
       type: 'string',
     },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
-    },
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'email',
+      subtitle: 'title',
     },
     prepare({title, subtitle}) {
       return {
