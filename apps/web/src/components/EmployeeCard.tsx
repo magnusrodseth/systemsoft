@@ -4,7 +4,7 @@ import { FC } from "react";
 import Card from "@ui/molecules/Card";
 import Icon from "@ui/atoms/Icon";
 import Text from "@ui/atoms/Text";
-import { AvatarIcon, DotFilledIcon } from "@radix-ui/react-icons";
+import { PersonIcon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
 import Box from "@ui/atoms/Box";
 import Link from "@ui/atoms/Link";
@@ -18,23 +18,48 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
   const imageUrl = employee.image?.asset?.url;
 
   return (
-    <Card css={{ position: "relative", smooth: "all 0.3s ease-in-out" }}>
-      {imageUrl ? (
-        <Image
-          src={imageUrl}
-          alt={employee.name || "A profile picture of an employee"}
-          width={400}
-          height={400}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
-        />
-      ) : (
-        <Icon>
-          <AvatarIcon />
-        </Icon>
-      )}
+    <Card
+      css={{
+        // position: "relative",
+        smooth: "all 0.3s ease-in-out",
+        // overflow: "hidden",
+      }}
+    >
+      <Box
+        css={{
+          position: "relative",
+          overflow: "hidden",
+          height: "17rem",
+          pb: 8,
+        }}
+      >
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={employee.name || "A profile picture of an employee"}
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <Icon
+            css={{
+              backgroundColor: "$violet4",
+              height: "100%",
+              color: "$violet11",
+            }}
+          >
+            <PersonIcon
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </Icon>
+        )}
+      </Box>
 
       <Box
         css={{
