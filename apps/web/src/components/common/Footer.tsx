@@ -22,14 +22,15 @@ const Footer = () => {
     <Box
       css={{
         marginTop: "auto",
+        position: "relative",
         backgroundColor: "$violet3",
         width: "100%",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "start",
         alignItems: "center",
+        flexDirection: "column",
         py: 8,
-        minHeight: 256,
+        minHeight: "12rem",
       }}
     >
       {loading ? (
@@ -53,6 +54,7 @@ const Footer = () => {
                 justifyContent: "center",
                 alignItems: "start",
                 gap: 36,
+                pt: 16,
               }}
             >
               <Box>
@@ -101,9 +103,10 @@ const Footer = () => {
               css={{
                 display: "flex",
                 flexDirection: "row",
+                flexWrap: "wrap",
                 justifyContent: "center",
                 alignItems: "center",
-                pt: 24,
+                gap: 8,
               }}
             >
               {contactInformation.linkedInLink && (
@@ -122,9 +125,6 @@ const Footer = () => {
         css={{
           position: "absolute",
           bottom: 0,
-          left: 0,
-          right: 0,
-          textAlign: "center",
           fontSize: "$xs",
           pb: 12,
         }}

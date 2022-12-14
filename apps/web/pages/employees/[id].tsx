@@ -20,13 +20,10 @@ import {
   PersonIcon,
 } from "@radix-ui/react-icons";
 import Link from "@ui/atoms/Link";
-import Text from "@ui/atoms/Text";
 import PersonalInformationItem from "@/components/resume/PersonalInformationItem";
 import useResume from "@/hooks/useResume";
 import { ONE_WEEK_IN_SECONDS } from "@/constants";
-import Button from "@ui/atoms/Button";
-import Icon from "@ui/atoms/Icon";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import NoInformation from "@/components/resume/NoInformation";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -36,51 +33,9 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
   if (!resumeData) {
     return (
-      <Box
-        css={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 32,
-        }}
-      >
-        <Heading
-          pageTitle
-          css={{
-            linearGradientUnderline: {
-              from: violet.violet10,
-              to: indigo.indigo10,
-            },
-          }}
-        >
-          Oisann!
-        </Heading>
-        <Heading>
-          Det ser ut som det ikke finnes mer informasjon om {employee?.name}.
-        </Heading>
-
-        <Button color="violet">
-          <Link
-            href="/employees"
-            css={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 8,
-              textDecoration: "none",
-              "&:hover": {
-                textDecoration: "none",
-              },
-            }}
-          >
-            <Icon>
-              <ArrowLeftIcon />
-            </Icon>
-            <Text>Våre ansatte</Text>
-          </Link>
-        </Button>
-      </Box>
+      <NoInformation
+        description={`Det ser ut som det ikke finnes mer informasjon om ${employee?.name}.`}
+      />
     );
   }
 
@@ -226,7 +181,7 @@ export const getStaticProps = async ({
     },
   });
 
-  if (!employeeData) {
+  if (!employeeData.Employee) {
     return {
       redirect: {
         destination: "/404",
