@@ -18,7 +18,7 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
   const imageUrl = employee.image?.asset?.url;
 
   return (
-    <Card css={{ position: "relative" }}>
+    <Card css={{ position: "relative", smooth: "all 0.3s ease-in-out" }}>
       {imageUrl ? (
         <Image
           src={imageUrl}

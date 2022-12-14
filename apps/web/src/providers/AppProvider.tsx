@@ -1,6 +1,6 @@
 import Layout from "@/components/common/Layout";
 import { FC, ReactNode } from "react";
-import { darkTheme } from "ui";
+import { darkTheme, globalStyles } from "ui";
 import Box from "ui/src/atoms/Box";
 import ApolloProvider from "./ApolloProvider";
 
@@ -9,6 +9,9 @@ type AppProviderProps = {
 };
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
+  // Apply global styles
+  globalStyles();
+
   return (
     <Box className={darkTheme}>
       <ApolloProvider>

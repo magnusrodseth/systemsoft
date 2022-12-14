@@ -59,7 +59,7 @@ export const {
     fonts: {
       sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
       serif: "Garamond, 'serif'",
-      lato: "Lato, 'sans-serif'",
+      montserrat: "Montserrat, sans-serif",
       mono: "menlo, monospace",
     },
     shadows: {
@@ -202,11 +202,10 @@ export const globalStyles = globalCss({
       src: "local(./fonts/Garamond-Italic.ttf)",
       fontStyle: "italic",
     },
+    // TODO: Add Lato font for the logo
     {
-      fontFamily: "Lato",
-      src: "local(./fonts/Lato-Regular.ttf)",
-      fontWeight: "normal",
-      fontStyle: "normal",
+      fontFamily: "Montserrat",
+      src: "local(./fonts/Montserrat.ttf)",
     },
   ],
 });

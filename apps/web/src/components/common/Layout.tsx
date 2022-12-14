@@ -11,9 +11,6 @@ type LayoutProps = {
 };
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  // Apply global styles
-  globalStyles();
-
   const { isDark } = useIsDarkStore();
 
   return (
