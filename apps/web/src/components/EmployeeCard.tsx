@@ -1,8 +1,9 @@
 import { Employee } from "@/graphql/generated/graphql";
 import Image from "ui/src/atoms/Image";
 import { FC } from "react";
-import Card from "ui/src/molecules/Card";
+import Card from "@ui/molecules/Card";
 import Icon from "@ui/atoms/Icon";
+import Text from "@ui/atoms/Text";
 import { AvatarIcon, DotFilledIcon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
 import Box from "@ui/atoms/Box";
@@ -52,16 +53,31 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
             px: 16,
           }}
         >
-          <Heading size="lg">{employee.name}</Heading>
-          <Heading size="md" css={{ fontWeight: "$normal" }}>
-            {employee.title}
+          <Heading
+            css={{
+              "@sm": {
+                fontSize: "$sm",
+              },
+              "@md": {
+                fontSize: "md",
+              },
+              "@lg": {
+                fontSize: "$lg",
+              },
+            }}
+            bold
+          >
+            {employee.name}
           </Heading>
+          <Text>{employee.title}</Text>
           <Link href={`mailto:${employee.email}`}>{employee.email}</Link>
         </Box>
 
-        <Button css={{ mx: 8 }} color="indigo">
-          Mer informasjon
-        </Button>
+        <Link href={`/employees/${employee._id}`}>
+          <Button css={{ mx: 8 }} color="indigo">
+            Mer informasjon
+          </Button>
+        </Link>
       </Box>
     </Card>
   );

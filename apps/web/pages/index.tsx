@@ -1,6 +1,6 @@
 import Box from "@ui/atoms/Box";
 import Button from "@ui/atoms/Button";
-import Heading from "ui/src/atoms/Heading";
+import Heading from "@ui/atoms/Heading";
 import Typewriter from "ui/src/molecules/Typewriter";
 import { violet, indigo } from "@radix-ui/colors";
 
@@ -14,7 +14,23 @@ const IndexPage = () => {
         alignItems: "center",
       }}
     >
-      <Heading size="5xl" css={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Heading
+        css={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          "@sm": {
+            fontSize: "$sm",
+          },
+          "@md": {
+            fontSize: "$3xl",
+          },
+          "@lg": {
+            fontSize: "$5xl",
+          },
+        }}
+        pageTitle
+      >
         <Box>Ditt stopp for </Box>
         <Box
           css={{

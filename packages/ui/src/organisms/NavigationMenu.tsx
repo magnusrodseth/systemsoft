@@ -25,7 +25,7 @@ const NavigationMenu: FC<NavigationMenuProps> = ({ children, ...props }) => {
         <Button color="violet">Hjem</Button>
       </Link>
 
-      <Link href="/expertise">
+      <Link href="/expertises">
         <Button color="violet">Vår ekspertise</Button>
       </Link>
 

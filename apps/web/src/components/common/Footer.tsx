@@ -1,4 +1,4 @@
-import { animateSpin, styled } from "ui";
+import { animateSpin } from "ui";
 import Box from "@ui/atoms/Box";
 import { LinkedInLogoIcon, Component1Icon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
@@ -6,6 +6,7 @@ import Icon from "@ui/atoms/Icon";
 import Link from "ui/src/atoms/Link";
 import { useQuery } from "@apollo/client";
 import ContactInformationQuery from "@/graphql/queries/ContactInformation";
+import { indigo, violet } from "@radix-ui/colors";
 
 const Footer = () => {
   const { data, loading, error } = useQuery(ContactInformationQuery);
@@ -54,7 +55,17 @@ const Footer = () => {
               }}
             >
               <Box>
-                <Heading uppercase size="lg">
+                <Heading
+                  size="lg"
+                  uppercase
+                  bold
+                  css={{
+                    linearGradientUnderline: {
+                      from: indigo.indigo10,
+                      to: violet.violet10,
+                    },
+                  }}
+                >
                   Besøksadresse
                 </Heading>
                 <Box>{contactInformation.address}</Box>
@@ -63,7 +74,17 @@ const Footer = () => {
               </Box>
 
               <Box>
-                <Heading uppercase size="lg">
+                <Heading
+                  size="lg"
+                  uppercase
+                  bold
+                  css={{
+                    linearGradientUnderline: {
+                      from: indigo.indigo10,
+                      to: violet.violet10,
+                    },
+                  }}
+                >
                   Kontakt oss
                 </Heading>
                 <Box>

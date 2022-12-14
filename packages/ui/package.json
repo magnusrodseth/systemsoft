@@ -5,8 +5,7 @@
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint *.ts*",
-    "storybook": "storybook"
+    "lint": "eslint *.ts*"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",

@@ -8,6 +8,9 @@ const Button = styled("button", {
   px: 12,
   py: 8,
   color: "$mauve12",
+  "&:hover": {
+    cursor: "pointer",
+  },
 
   variants: {
     color: {

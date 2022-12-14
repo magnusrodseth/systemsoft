@@ -1,12 +1,16 @@
 import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
+import Text from "@ui/atoms/Text";
 import Grid from "@ui/molecules/Grid";
 import Heading from "@ui/atoms/Heading";
 import { InferGetStaticPropsType } from "next";
-import { FC } from "react";
+import { FC, useState } from "react";
 import Pill from "@ui/atoms/Pill";
 import EmployeeCard from "@/components/EmployeeCard";
+import Icon from "@ui/atoms/Icon";
+import { Cross2Icon } from "@radix-ui/react-icons";
+import { violet, indigo } from "@radix-ui/colors";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -16,6 +20,20 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
   loading,
   error,
 }) => {
+  const [filteredSkills, setFilteredSkills] = useState<string[]>([]);
+
+  const handleToggleFilter = (skillId: string) => {
+    if (filteredSkills.includes(skillId)) {
+      setFilteredSkills((prev) => prev.filter((skill) => skill !== skillId));
+    } else {
+      setFilteredSkills((prev) => [...prev, skillId]);
+    }
+  };
+
+  const handleClearFilter = () => {
+    setFilteredSkills([]);
+  };
+
   return (
     <Box
       css={{
@@ -25,15 +43,50 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
         alignItems: "center",
       }}
     >
-      <Heading size="5xl" css={{ display: "flex", gap: 8 }}>
+      <Heading
+        css={{
+          display: "flex",
+          "@sm": {
+            fontSize: "$md",
+          },
+          "@md": {
+            fontSize: "$3xl",
+          },
+          "@lg": {
+            fontSize: "$5xl",
+          },
+          linearGradientUnderline: {
+            from: indigo.indigo10,
+            to: violet.violet10,
+          },
+        }}
+        pageTitle
+      >
         Våre ansatte
       </Heading>
 
+      <Heading
+        css={{
+          my: 4,
+          "@sm": {
+            fontSize: "$sm",
+          },
+          "@md": {
+            fontSize: "$xl",
+          },
+          "@lg": {
+            fontSize: "$3xl",
+          },
+        }}
+      >
+        Filtrér ferdigheter
+      </Heading>
       <Box
         css={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
+          alignItems: "center",
           flexWrap: "wrap",
           gap: 6,
           "@sm": {
@@ -45,8 +98,37 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
         }}
       >
         {skills.map((skill) => (
-          <Pill key={skill._id}>{skill.name}</Pill>
+          <Pill
+            key={skill._id}
+            color={
+              filteredSkills.includes(skill._id as string)
+                ? "violet"
+                : "neutral"
+            }
+            onClick={() => handleToggleFilter(skill._id as string)}
+          >
+            {skill.name}
+          </Pill>
         ))}
+
+        {filteredSkills.length > 0 && (
+          <Pill
+            color="red"
+            css={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 8,
+            }}
+            onClick={handleClearFilter}
+          >
+            <Icon>
+              <Cross2Icon />
+            </Icon>
+
+            <Text css={{ margin: 0 }}>Fjern filter</Text>
+          </Pill>
+        )}
       </Box>
 
       <Grid

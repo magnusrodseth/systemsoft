@@ -39,13 +39,16 @@ export const {
     fontSizes: {
       xs: "0.75rem",
       sm: "0.875rem",
-      base: "1rem",
+      md: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
       "2xl": "1.5rem",
       "3xl": "1.875rem",
       "4xl": "2.25rem",
       "5xl": "3rem",
+      "6xl": "3.75rem",
+      "7xl": "4.5rem",
+      "8xl": "8rem",
     },
     fontWeights: {
       bold: 700,
@@ -55,6 +58,7 @@ export const {
     },
     fonts: {
       sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+      serif: "Garamond",
     },
     shadows: {
       sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
@@ -90,11 +94,6 @@ export const {
     py: (value: number) => ({ paddingTop: value, paddingBottom: value }),
     bg: (value: string) => ({ backgroundColor: value }),
 
-    size: (value: number) => ({
-      width: value,
-      height: value,
-    }),
-
     // Gradient
     linearGradientBg: ({
       from,
@@ -120,6 +119,14 @@ export const {
       background: `linear-gradient(${degrees}deg, ${from}, ${to})`,
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
+    }),
+
+    linearGradientUnderline: ({ from, to }: { from: string; to: string }) => ({
+      backgroundImage: `linear-gradient(to right, ${from}, ${to})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 0.1em",
+      backgroundPosition: "0 88%",
+      transition: "background-size 0.25s ease-in",
     }),
 
     // Grid
@@ -173,13 +180,17 @@ export const globalStyles = globalCss({
   body: {
     m: 0,
     fontFamily: "$sans",
-    fontSize: "16px",
+    fontSize: 16,
     lineHeight: 1.5,
     height: "100%",
   },
   html: {
     m: 0,
     height: "100%",
+  },
+  "@font-face": {
+    fontFamily: "Garamond",
+    src: "local(./fonts/Garamond.ttf)",
   },
 });
 

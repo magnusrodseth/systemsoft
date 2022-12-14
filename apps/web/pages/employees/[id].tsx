@@ -1,20 +1,51 @@
+import DefaultEmployeeFragment from "@/graphql/fragments/Employee";
+import { useFragment } from "@/graphql/generated";
+import { DefaultEmployeeFragmentDoc } from "@/graphql/generated/graphql";
 import EmployeeQuery from "@/graphql/queries/Employee";
 import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
-import ExpertisesQuery from "@/graphql/queries/Expertises";
 import client from "@/lib/apollo";
-import {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-} from "next";
+import Box from "@ui/atoms/Box";
+import Heading from "@ui/atoms/Heading";
+import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { FC } from "react";
+import { indigo, violet } from "@radix-ui/colors";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Employee: FC<EmployeePageProps> = ({ data, loading, error }) => {
-  console.log({ data, loading, error });
+const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
+  const { employee, resume } = data;
 
-  return null;
+  return (
+    <Box
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "center",
+      }}
+    >
+      <Heading
+        css={{
+          "@sm": {
+            fontSize: "$md",
+          },
+          "@md": {
+            fontSize: "$3xl",
+          },
+          "@lg": {
+            fontSize: "$5xl",
+          },
+          linearGradientUnderline: {
+            from: indigo.indigo10,
+            to: violet.violet10,
+          },
+        }}
+        pageTitle
+      >
+        {employee?.name}
+      </Heading>
+    </Box>
+  );
 };
 
 export const getStaticPaths = async () => {
@@ -22,7 +53,11 @@ export const getStaticPaths = async () => {
     query: EmployeesAndSkillsQuery,
   });
 
-  const paths = data.allEmployee.map((employee) => ({
+  const employees = data.allEmployee.map((employee) =>
+    useFragment(DefaultEmployeeFragment, employee)
+  );
+
+  const paths = employees.map((employee) => ({
     params: { id: employee._id },
   }));
 
@@ -48,9 +83,18 @@ export const getStaticProps = async ({
     },
   });
 
+  if (!employeeData) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+  }
+
   const data = {
-    employee: employeeData.Employee,
-    resume: employeeData.allResume[0],
+    employee: employeeData.Employee || null,
+    resume: employeeData.allResume[0] || null,
   };
 
   return {
@@ -62,4 +106,4 @@ export const getStaticProps = async ({
   };
 };
 
-export default Employee;
+export default EmployeePage;
