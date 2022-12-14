@@ -3,6 +3,7 @@ import Box from "@ui/atoms/Box";
 import { LinkedInLogoIcon, Component1Icon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
 import Icon from "@ui/atoms/Icon";
+import Text from "@ui/atoms/Text";
 import Link from "ui/src/atoms/Link";
 import { useQuery } from "@apollo/client";
 import ContactInformationQuery from "@/graphql/queries/ContactInformation";
@@ -116,6 +117,26 @@ const Footer = () => {
           </>
         )
       )}
+
+      <Box
+        css={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          textAlign: "center",
+          fontSize: "$xs",
+          pb: 12,
+        }}
+      >
+        <Text>
+          Developed ️by{" "}
+          <Link href="https://github.com/magnusrodseth" target="_blank">
+            Magnus Rødseth
+          </Link>{" "}
+          © 2022 - present.
+        </Text>
+      </Box>
     </Box>
   );
 };

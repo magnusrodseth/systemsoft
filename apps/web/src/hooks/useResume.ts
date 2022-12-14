@@ -20,35 +20,41 @@ import { DefaultResumeFragment } from "@/graphql/generated/graphql";
  * @returns the cleaned up resume data.
  */
 const useResume = (resume: DefaultResumeFragment) => {
-  const personalInformation = useFragment(
-    DefaultPersonalInformationFragment,
-    resume.personalInformation
-  );
-  const education = resume.education?.map((education) =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFragment(DefaultEducationFragment, education)
-  );
-  const professionalExperience = resume.professionalExperience?.map(
-    (experience) =>
+  const personalInformation =
+    useFragment(
+      DefaultPersonalInformationFragment,
+      resume.personalInformation
+    ) || null;
+  const education =
+    resume.education?.map((education) =>
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useFragment(DefaultEducationFragment, education)
+    ) || null;
+  const professionalExperience =
+    resume.professionalExperience?.map((experience) =>
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useFragment(DefaultProfessionalExperienceFragment, experience)
-  );
-  const skills = resume.skill?.map((skill) =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFragment(DefaultSkillFragment, skill)
-  );
-  const languages = resume.language?.map((language) =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFragment(DefaultLanguageFragment, language)
-  );
-  const certifications = resume.certification?.map((certification) =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFragment(DefaultCertificationFragment, certification)
-  );
-  const publications = resume.publication?.map((publication) =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useFragment(DefaultPublicationFragment, publication)
-  );
+    ) || null;
+  const skills =
+    resume.skill?.map((skill) =>
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useFragment(DefaultSkillFragment, skill)
+    ) || null;
+  const languages =
+    resume.language?.map((language) =>
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useFragment(DefaultLanguageFragment, language)
+    ) || null;
+  const certifications =
+    resume.certification?.map((certification) =>
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useFragment(DefaultCertificationFragment, certification)
+    ) || null;
+  const publications =
+    resume.publication?.map((publication) =>
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useFragment(DefaultPublicationFragment, publication)
+    ) || null;
 
   return {
     personalInformation,
