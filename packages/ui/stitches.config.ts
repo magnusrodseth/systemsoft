@@ -58,7 +58,9 @@ export const {
     },
     fonts: {
       sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-      serif: "Garamond",
+      serif: "Garamond, 'serif'",
+      lato: "Lato, 'sans-serif'",
+      mono: "menlo, monospace",
     },
     shadows: {
       sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
@@ -155,11 +157,13 @@ export const {
     }),
 
     // Animation
-    smooth: (animation: string) => ({
-      transitionProperty: "all",
-      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-      transitionDuration: "150ms",
-      animation,
+    smooth: (transform: string) => ({
+      // Add smooth transition both on hover and on leave
+      transition: "all 0.3s ease-in-out",
+      "&:hover": {
+        transition: "all 0.3s ease-in-out",
+        transform,
+      },
     }),
   },
 });
@@ -188,10 +192,23 @@ export const globalStyles = globalCss({
     m: 0,
     height: "100%",
   },
-  "@font-face": {
-    fontFamily: "Garamond",
-    src: "local(./fonts/Garamond.ttf)",
-  },
+  "@font-face": [
+    {
+      fontFamily: "Garamond",
+      src: "local(./fonts/Garamond.ttf)",
+    },
+    {
+      fontFamily: "Garamond",
+      src: "local(./fonts/Garamond-Italic.ttf)",
+      fontStyle: "italic",
+    },
+    {
+      fontFamily: "Lato",
+      src: "local(./fonts/Lato-Regular.ttf)",
+      fontWeight: "normal",
+      fontStyle: "normal",
+    },
+  ],
 });
 
 export const animateSpin = keyframes({

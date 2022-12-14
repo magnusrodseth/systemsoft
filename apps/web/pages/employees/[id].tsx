@@ -22,6 +22,7 @@ import {
 import Link from "@ui/atoms/Link";
 import PersonalInformationItem from "@/components/resume/PersonalInformationItem";
 import useResume from "@/hooks/useResume";
+import { ONE_WEEK_IN_SECONDS } from "@/constants";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -149,9 +150,12 @@ export const getStaticPaths = async () => {
     params: { id: employee._id },
   }));
 
+  // We'll pre-render only these paths at build time.
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
@@ -191,6 +195,7 @@ export const getStaticProps = async ({
       loading,
       error: !!error,
     },
+    revalidate: ONE_WEEK_IN_SECONDS,
   };
 };
 
