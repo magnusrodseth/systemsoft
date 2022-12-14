@@ -21,11 +21,6 @@ const personalInformation: SchemaTypeDefinition<'object'> = {
       type: 'string',
     },
     {
-      name: 'age',
-      title: 'Age',
-      type: 'number',
-    },
-    {
       name: 'githubLink',
       title: 'GitHub Link',
       type: 'url',

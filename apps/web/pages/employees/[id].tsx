@@ -4,6 +4,7 @@ import EmployeeQuery from "@/graphql/queries/Employee";
 import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
+import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { FC } from "react";
@@ -20,10 +21,15 @@ import {
   PersonIcon,
 } from "@radix-ui/react-icons";
 import Link from "@ui/atoms/Link";
-import PersonalInformationItem from "@/components/resume/PersonalInformationItem";
+import ShortResumeItem from "@/components/resume/PersonalInformationItem";
 import useResume from "@/hooks/useResume";
 import { ONE_WEEK_IN_SECONDS } from "@/constants";
 import NoInformation from "@/components/resume/NoInformation";
+import PortableText from "@/components/PortableText";
+import ResumeCard from "@/components/resume/ResumeCard";
+import Icon from "@ui/atoms/Icon";
+import { DrawingPinFilledIcon, CalendarIcon } from "@radix-ui/react-icons";
+import formatDate from "@/utils/formatDate";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -52,93 +58,147 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "center",
+        gap: 16,
       }}
     >
-      <Box>
-        <Heading
-          css={{
-            "@sm": {
-              fontSize: "$md",
-            },
-            "@md": {
-              fontSize: "$3xl",
-            },
-            "@lg": {
-              fontSize: "$5xl",
-            },
-            linearGradientUnderline: {
-              from: indigo.indigo10,
-              to: violet.violet10,
-            },
-          }}
-          pageTitle
-        >
-          {employee?.name}
-        </Heading>
-        {imageUrl && (
-          <Box css={{ position: "relative" }}>
-            <Image
-              src={imageUrl}
-              alt={employee?.name || "A profile picture of an employee"}
-              width={400}
-              height={400}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </Box>
-        )}
+      <Heading
+        css={{
+          "@sm": {
+            fontSize: "$md",
+          },
+          "@md": {
+            fontSize: "$3xl",
+          },
+          "@lg": {
+            fontSize: "$5xl",
+          },
+          linearGradientUnderline: {
+            from: indigo.indigo10,
+            to: violet.violet10,
+          },
+        }}
+        pageTitle
+      >
+        {employee?.name}
+      </Heading>
+      {imageUrl && (
+        <Box css={{ position: "relative" }}>
+          <Image
+            src={imageUrl}
+            alt={employee?.name || "A profile picture of an employee"}
+            width={400}
+            height={400}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
+        </Box>
+      )}
 
-        {/* Personal information */}
-        <Card css={{ p: 8 }}>
-          <PersonalInformationItem
-            icon={<EnvelopeClosedIcon />}
+      {/* Personal information */}
+      <ResumeCard>
+        <Heading size="xl" bold>
+          Utdanning
+        </Heading>
+        <ShortResumeItem
+          icon={<EnvelopeClosedIcon />}
+          body={
+            <Link href={`mailto:${employee?.email}`}>{employee?.email}</Link>
+          }
+        />
+        <ShortResumeItem icon={<PersonIcon />} body={employee?.title} />
+
+        {resume.personalInformation?.address &&
+          resume.personalInformation.postalCode &&
+          resume.personalInformation.city && (
+            <ShortResumeItem icon={<HomeIcon />} body={location} />
+          )}
+
+        {resume.personalInformation?.githubLink && (
+          <ShortResumeItem
+            icon={<GitHubLogoIcon />}
             body={
-              <Link href={`mailto:${employee?.email}`}>{employee?.email}</Link>
+              <Link href={resume.personalInformation?.githubLink}>GitHub</Link>
             }
           />
-          <PersonalInformationItem
-            icon={<PersonIcon />}
-            body={employee?.title}
+        )}
+
+        {resume.personalInformation?.linkedinLink && (
+          <ShortResumeItem
+            icon={<LinkedInLogoIcon />}
+            body={
+              <Link href={resume.personalInformation?.linkedinLink}>
+                LinkedIn
+              </Link>
+            }
           />
+        )}
 
-          {resume.personalInformation?.address &&
-            resume.personalInformation.postalCode &&
-            resume.personalInformation.city && (
-              <PersonalInformationItem icon={<HomeIcon />} body={location} />
-            )}
+        {resume.personalInformation?.status && (
+          <ShortResumeItem
+            icon={<ChatBubbleIcon />}
+            body={resume.personalInformation?.status}
+          />
+        )}
 
-          {resume.personalInformation?.githubLink && (
-            <PersonalInformationItem
-              icon={<GitHubLogoIcon />}
-              body={
-                <Link href={resume.personalInformation?.githubLink}>
-                  GitHub
-                </Link>
-              }
-            />
-          )}
+        {resume.personalInformation?.aboutRaw && (
+          <PortableText value={resume.personalInformation?.aboutRaw} />
+        )}
+      </ResumeCard>
 
-          {resume.personalInformation?.linkedinLink && (
-            <PersonalInformationItem
-              icon={<LinkedInLogoIcon />}
-              body={
-                <Link href={resume.personalInformation?.linkedinLink}>
-                  LinkedIn
-                </Link>
-              }
-            />
-          )}
+      {resume.education && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Utdanning
+          </Heading>
 
-          {resume.personalInformation?.status && (
-            <PersonalInformationItem
-              icon={<ChatBubbleIcon />}
-              body={resume.personalInformation?.status}
-            />
-          )}
-        </Card>
-      </Box>
+          {resume.education.map((education, i) => (
+            <Box key={i}>
+              <Heading size="lg">{`${education?.degree}, ${education?.fieldOfStudy}`}</Heading>
+              <ShortResumeItem
+                icon={<CalendarIcon />}
+                body={
+                  <Text>{`${education?.start} - ${
+                    formatDate(education?.end) || "nå"
+                  }`}</Text>
+                }
+              />
+              <ShortResumeItem
+                icon={<DrawingPinFilledIcon />}
+                body={education?.school}
+              />
+            </Box>
+          ))}
+        </ResumeCard>
+      )}
+
+      {resume.professionalExperience && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Jobberfaring
+          </Heading>
+
+          {resume.professionalExperience.map((experience, i) => (
+            <Box key={i}>
+              <Heading size="lg">{experience?.employer}</Heading>
+              <ShortResumeItem
+                icon={<CalendarIcon />}
+                body={
+                  <Text>{`${formatDate(experience?.start)} - ${
+                    formatDate(experience?.end) || "nå"
+                  }`}</Text>
+                }
+              />
+              <ShortResumeItem
+                icon={<DrawingPinFilledIcon />}
+                body={experience?.location}
+              />
+              <PortableText value={experience?.descriptionRaw} />
+            </Box>
+          ))}
+        </ResumeCard>
+      )}
     </Box>
   );
 };

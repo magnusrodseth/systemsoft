@@ -2,15 +2,12 @@ import Box from "@ui/atoms/Box";
 import Icon from "@ui/atoms/Icon";
 import { ComponentProps, FC, ReactNode } from "react";
 
-interface PersonalInformationItemProps extends ComponentProps<typeof Box> {
+interface ShortResumeItemProps extends ComponentProps<typeof Box> {
   icon: ReactNode;
   body: ReactNode;
 }
 
-const PersonalInformationItem: FC<PersonalInformationItemProps> = ({
-  icon,
-  body,
-}) => {
+const ShortResumeItem: FC<ShortResumeItemProps> = ({ icon, body }) => {
   return (
     <Box
       css={{
@@ -26,4 +23,4 @@ const PersonalInformationItem: FC<PersonalInformationItemProps> = ({
   );
 };
 
-export default PersonalInformationItem;
+export default ShortResumeItem;

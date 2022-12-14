@@ -202,7 +202,6 @@ export const globalStyles = globalCss({
       src: "local(./fonts/Garamond-Italic.ttf)",
       fontStyle: "italic",
     },
-    // TODO: Add Lato font for the logo
     {
       fontFamily: "Montserrat",
       src: "local(./fonts/Montserrat.ttf)",
