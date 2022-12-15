@@ -1,14 +1,14 @@
-import { FC } from "react";
+import { ComponentProps, FC } from "react";
 import { styled } from "../../stitches.config";
 import * as RadixToggle from "@radix-ui/react-toggle";
 
-type ToggleProps = {
+interface ToggleProps extends ComponentProps<typeof ToggleRoot> {
   active: boolean;
   toggle: () => void;
   inactiveIcon: React.ReactNode;
   activeIcon: React.ReactNode;
   label?: string;
-};
+}
 
 const Toggle: FC<ToggleProps> = ({
   active,
@@ -16,8 +16,9 @@ const Toggle: FC<ToggleProps> = ({
   inactiveIcon,
   activeIcon,
   label,
+  ...props
 }) => (
-  <ToggleRoot aria-label={label || "Toggle"} onClick={toggle}>
+  <ToggleRoot aria-label={label || "Toggle"} onClick={toggle} {...props}>
     {active ? activeIcon : inactiveIcon}
   </ToggleRoot>
 );
@@ -27,7 +28,7 @@ const ToggleRoot = styled(RadixToggle.Root, {
   backgroundColor: "$mauve5",
   borderColor: "$mauve6",
   borderStyle: "solid",
-  borderWidth: 2,
+  borderWidth: 1,
   color: "$mauve12",
   p: 8,
   borderRadius: 4,

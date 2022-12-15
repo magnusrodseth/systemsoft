@@ -3,6 +3,7 @@ import Button from "@ui/atoms/Button";
 import Heading from "@ui/atoms/Heading";
 import Typewriter from "ui/src/molecules/Typewriter";
 import { violet, indigo } from "@radix-ui/colors";
+import Text from "@ui/atoms/Text";
 
 const IndexPage = () => {
   return (

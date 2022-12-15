@@ -12,11 +12,12 @@ import {
   slideUpAndFade,
 } from "@ui/utils/stitches.keyframes";
 import navigation from "@/lib/navigation";
+import ToggleDarkMode from "../common/ToggleDarkMode";
+import NavLink from "./NavLink";
 
 const MobileNavigation = () => {
   return (
     <MobileMenuRoot>
-      {/* Logo */}
       <Box
         css={{
           display: "flex",
@@ -32,8 +33,10 @@ const MobileNavigation = () => {
           display: "flex",
           justifyContent: "end",
           alignItems: "center",
+          gap: 8,
         }}
       >
+        <ToggleDarkMode />
         <RadixDropDownMenu.Root>
           <RadixDropDownMenu.Trigger asChild>
             <Button
@@ -59,7 +62,9 @@ const MobileNavigation = () => {
 
           <DropdownContent>
             {navigation.map(({ label, href }, i) => (
-              <DropdownItem key={i}>{label}</DropdownItem>
+              <DropdownItem key={i}>
+                <NavLink href={href}>{label}</NavLink>
+              </DropdownItem>
             ))}
           </DropdownContent>
         </RadixDropDownMenu.Root>

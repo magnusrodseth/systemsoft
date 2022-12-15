@@ -8,6 +8,21 @@ const Link = styled(NextLink, {
     textDecoration: "underline",
     color: "$violet10",
   },
+
+  variants: {
+    active: {
+      true: {
+        linearGradientUnderline: {
+          from: "$indigo10",
+          to: "$violet10",
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    active: false,
+  },
 });
 
 export default Link;

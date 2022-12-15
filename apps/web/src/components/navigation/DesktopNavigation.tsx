@@ -1,18 +1,15 @@
 import navigation from "@/lib/navigation";
 import * as RadixNavigationMenu from "@radix-ui/react-navigation-menu";
-import useIsDarkStore from "@/store/isDark";
 import Box from "@ui/atoms/Box";
-import Button from "@ui/atoms/Button";
-import Toggle from "@ui/atoms/Toggle";
 import Logo from "../common/Logo";
 import { styled } from "ui/stitches.config";
 import { scaleIn, scaleOut } from "@ui/utils/stitches.keyframes";
-
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import ToggleDarkMode from "../common/ToggleDarkMode";
+import Link from "@ui/atoms/Link";
+import NavLink from "./NavLink";
+import Button from "@ui/atoms/Button";
 
 const DesktopNavigation = () => {
-  const { isDark, toggleDark } = useIsDarkStore();
-
   return (
     <DesktopMenuRoot>
       <Box
@@ -29,20 +26,17 @@ const DesktopNavigation = () => {
         <NavigationMenuList
           css={{
             display: "flex",
-            columnGap: 8,
+            justifyContent: "end",
+            alignItems: "center",
+            columnGap: 16,
           }}
         >
           {navigation.map(({ label, href }, i) => (
-            <RadixNavigationMenu.Link href={href} key={i}>
-              <Button color="violet">{label}</Button>
-            </RadixNavigationMenu.Link>
+            <NavLink href={href} key={i}>
+              {label}
+            </NavLink>
           ))}
-          <Toggle
-            active={isDark}
-            toggle={toggleDark}
-            activeIcon={<MoonIcon />}
-            inactiveIcon={<SunIcon />}
-          />
+          <ToggleDarkMode />
         </NavigationMenuList>
       </NavigationMenuItem>
 
