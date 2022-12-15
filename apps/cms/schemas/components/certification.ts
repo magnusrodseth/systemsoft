@@ -23,7 +23,7 @@ const certification: SchemaTypeDefinition<'object'> = {
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'title',
     },
     prepare: ({title}) => {
       return {

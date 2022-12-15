@@ -1,8 +1,6 @@
 import React, { ComponentProps, FC, ReactNode } from "react";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
 import { styled, keyframes } from "../../stitches.config";
-import { violet, blackA } from "@radix-ui/colors";
-import { PlusIcon } from "@radix-ui/react-icons";
 
 interface TooltipProps extends RadixTooltip.TooltipProviderProps {
   trigger: ReactNode;
@@ -10,7 +8,7 @@ interface TooltipProps extends RadixTooltip.TooltipProviderProps {
 
 const Tooltip: FC<TooltipProps> = ({ trigger, children, ...props }) => {
   return (
-    <RadixTooltip.Provider {...props}>
+    <RadixTooltip.Provider {...props} delayDuration={100}>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>{trigger}</RadixTooltip.Trigger>
         <RadixTooltip.Portal>
@@ -68,22 +66,6 @@ const TooltipContent = styled(RadixTooltip.Content, {
 
 const TooltipArrow = styled(RadixTooltip.Arrow, {
   fill: "$mauve2",
-});
-
-const IconButton = styled("button", {
-  all: "unset",
-  fontFamily: "inherit",
-  borderRadius: "100%",
-  height: 35,
-  width: 35,
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: violet.violet11,
-  backgroundColor: "white",
-  boxShadow: `0 2px 10px ${blackA.blackA7}`,
-  "&:hover": { backgroundColor: violet.violet3 },
-  "&:focus": { boxShadow: `0 0 0 2px black` },
 });
 
 export default Tooltip;

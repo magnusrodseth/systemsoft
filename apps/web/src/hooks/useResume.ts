@@ -26,20 +26,26 @@ const useResume = (resume: DefaultResumeFragment) => {
       resume.personalInformation
     ) || null;
   const education =
-    resume.education?.map((education) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultEducationFragment, education)
-    ) || null;
+    resume.education
+      ?.map((education) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultEducationFragment, education)
+      )
+      .filter((education) => education) || null;
   const professionalExperience =
-    resume.professionalExperience?.map((experience) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultProfessionalExperienceFragment, experience)
-    ) || null;
+    resume.professionalExperience
+      ?.map((experience) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultProfessionalExperienceFragment, experience)
+      )
+      .filter((experience) => experience) || null;
   const skills =
-    resume.skill?.map((skill) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultSkillFragment, skill)
-    ) || null;
+    resume.skill
+      ?.map((skill) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultSkillFragment, skill)
+      )
+      .filter((skill) => skill) || null;
   const languages =
     resume.language
       ?.map((language) =>
@@ -48,15 +54,19 @@ const useResume = (resume: DefaultResumeFragment) => {
       )
       .filter((language) => language) || null;
   const certifications =
-    resume.certification?.map((certification) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultCertificationFragment, certification)
-    ) || null;
+    resume.certification
+      ?.map((certification) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultCertificationFragment, certification)
+      )
+      .filter((certification) => certification) || null;
   const publications =
-    resume.publication?.map((publication) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultPublicationFragment, publication)
-    ) || null;
+    resume.publication
+      ?.map((publication) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultPublicationFragment, publication)
+      )
+      .filter((publication) => publication) || null;
 
   return {
     personalInformation,

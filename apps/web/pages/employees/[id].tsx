@@ -20,6 +20,7 @@ import {
   ChatBubbleIcon,
   PersonIcon,
   DotFilledIcon,
+  ExternalLinkIcon,
 } from "@radix-ui/react-icons";
 import Link from "@ui/atoms/Link";
 import ShortResumeItem from "@/components/resume/PersonalInformationItem";
@@ -53,8 +54,6 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
   const location = `${resume.personalInformation?.address}, ${resume.personalInformation?.postalCode} ${resume.personalInformation?.city}`;
   const imageUrl = employee?.image?.asset?.url;
-
-  console.log(resume.languages);
 
   return (
     <Box
@@ -238,16 +237,17 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
               return (
                 language && (
                   <Box
-                    key={i}
                     css={{
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
-                    <Text>{language?.name}</Text>
+                    <Box key={i}>
+                      <Text>{language?.name}</Text>
+                    </Box>
+
                     {!isLast && (
-                      // TODO: Align this icon in order to center it
                       <Icon>
                         <DotFilledIcon />
                       </Icon>
@@ -257,6 +257,58 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
               );
             })}
           </Box>
+        </ResumeCard>
+      )}
+
+      {resume.certifications && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Sertifikater og diplomer
+          </Heading>
+
+          {resume.certifications.map((certification, i) => (
+            <Box key={i}>
+              <Heading size="lg">{certification?.title}</Heading>
+              {certification?.link && (
+                <ShortResumeItem
+                  icon={<ExternalLinkIcon />}
+                  body={
+                    <Link href={certification?.link} target="_blank">
+                      Les mer.
+                    </Link>
+                  }
+                />
+              )}
+
+              <Text>{certification?.shortDescription}</Text>
+            </Box>
+          ))}
+        </ResumeCard>
+      )}
+
+      {resume.publications && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Publikasjoner
+          </Heading>
+
+          {resume.publications.map((publication, i) => (
+            <Box key={i}>
+              <Heading size="lg">{publication?.title}</Heading>
+              {publication?.link && (
+                <ShortResumeItem
+                  icon={<ExternalLinkIcon />}
+                  body={
+                    <Link href={publication?.link} target="_blank">
+                      Les mer.
+                    </Link>
+                  }
+                />
+              )}
+
+              <PortableText value={publication?.descriptionRaw} />
+            </Box>
+          ))}
         </ResumeCard>
       )}
     </Box>
