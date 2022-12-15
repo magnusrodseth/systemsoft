@@ -202,10 +202,6 @@ export const globalStyles = globalCss({
       src: "local(./fonts/Garamond-Italic.ttf)",
       fontStyle: "italic",
     },
-    {
-      fontFamily: "Montserrat",
-      src: "local(./fonts/Montserrat.ttf)",
-    },
   ],
 });
 

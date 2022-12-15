@@ -4,6 +4,7 @@ import EmployeeQuery from "@/graphql/queries/Employee";
 import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
+import Tooltip from "@ui/molecules/Tooltip";
 import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
@@ -11,7 +12,6 @@ import { FC } from "react";
 import { indigo, violet } from "@radix-ui/colors";
 import Image from "@ui/atoms/Image";
 import DefaultResumeFragment from "@/graphql/fragments/resume/Resume";
-import Card from "@ui/molecules/Card";
 import {
   EnvelopeClosedIcon,
   HomeIcon,
@@ -19,6 +19,7 @@ import {
   LinkedInLogoIcon,
   ChatBubbleIcon,
   PersonIcon,
+  DotFilledIcon,
 } from "@radix-ui/react-icons";
 import Link from "@ui/atoms/Link";
 import ShortResumeItem from "@/components/resume/PersonalInformationItem";
@@ -27,9 +28,11 @@ import { ONE_WEEK_IN_SECONDS } from "@/constants";
 import NoInformation from "@/components/resume/NoInformation";
 import PortableText from "@/components/PortableText";
 import ResumeCard from "@/components/resume/ResumeCard";
-import Icon from "@ui/atoms/Icon";
 import { DrawingPinFilledIcon, CalendarIcon } from "@radix-ui/react-icons";
 import formatDate from "@/utils/formatDate";
+import Pill from "@ui/atoms/Pill";
+import Button from "@ui/atoms/Button";
+import Icon from "@ui/atoms/Icon";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -50,6 +53,8 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
   const location = `${resume.personalInformation?.address}, ${resume.personalInformation?.postalCode} ${resume.personalInformation?.city}`;
   const imageUrl = employee?.image?.asset?.url;
+
+  console.log(resume.languages);
 
   return (
     <Box
@@ -197,6 +202,61 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
               <PortableText value={experience?.descriptionRaw} />
             </Box>
           ))}
+        </ResumeCard>
+      )}
+
+      {resume.skills && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Fagområder og ferdigheter
+          </Heading>
+          {resume.skills.map(
+            (skill, i) =>
+              skill && (
+                <Tooltip trigger={<Button>{skill?.name}</Button>} key={i}>
+                  {skill?.shortDescription}
+                </Tooltip>
+              )
+          )}
+        </ResumeCard>
+      )}
+
+      {resume.languages && (
+        <ResumeCard>
+          <Heading size="xl" bold>
+            Språk
+          </Heading>
+          <Box
+            css={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 4,
+            }}
+          >
+            {resume.languages.map((language, i) => {
+              const isLast = i === resume.languages!!.length - 1;
+              return (
+                language && (
+                  <Box
+                    key={i}
+                    css={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text>{language?.name}</Text>
+                    {!isLast && (
+                      // TODO: Align this icon in order to center it
+                      <Icon>
+                        <DotFilledIcon />
+                      </Icon>
+                    )}
+                  </Box>
+                )
+              );
+            })}
+          </Box>
         </ResumeCard>
       )}
     </Box>

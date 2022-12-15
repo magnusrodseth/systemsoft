@@ -27,7 +27,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <Head>
         <title>SystemSoft</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/icon.svg" />
       </Head>
 
       <Box

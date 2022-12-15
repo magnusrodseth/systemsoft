@@ -3,14 +3,13 @@ import { styled } from "../../stitches.config";
 
 interface PillProps extends ComponentProps<typeof _Pill> {
   children: ReactNode;
-  onClick?: () => void;
 }
 
 const Pill: FC<PillProps> = ({ children, ...props }) => {
   return <_Pill {...props}>{children}</_Pill>;
 };
 
-const _Pill = styled("div", {
+const _Pill = styled("button", {
   borderRadius: 9999,
   px: 8,
   py: 4,

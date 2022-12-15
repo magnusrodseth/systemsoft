@@ -1,16 +1,18 @@
 import Link from "@ui/atoms/Link";
 import Image from "@ui/atoms/Image";
-import Text from "@ui/atoms/Text";
-import Box from "@ui/atoms/Box";
+import useIsDarkStore from "@/store/isDark";
+import logoLight from "public/logo-light.svg";
+import logoDark from "public/logo-dark.svg";
 
 const Logo = () => {
-  // TODO: Add Lato font for the logo
+  const isDark = useIsDarkStore((state) => state.isDark);
+
   return (
     <Link
       href="/"
       css={{
         display: "flex",
-        fontFamily: "$montserrat",
+        fontFamily: "$lato",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
@@ -20,16 +22,12 @@ const Logo = () => {
         },
       }}
     >
-      <Image src="/logo.svg" alt="Logo" width={25} height={25} />
-      <Text
-        css={{
-          fontFamily: "$montserrat",
-          color: "$mauve12",
-          fontSize: "$lg",
-        }}
-      >
-        SystemSoft
-      </Text>
+      <Image
+        src={isDark ? logoDark : logoLight}
+        alt="Logo"
+        width={95.25}
+        height={52.05}
+      />
     </Link>
   );
 };

@@ -41,10 +41,12 @@ const useResume = (resume: DefaultResumeFragment) => {
       useFragment(DefaultSkillFragment, skill)
     ) || null;
   const languages =
-    resume.language?.map((language) =>
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useFragment(DefaultLanguageFragment, language)
-    ) || null;
+    resume.language
+      ?.map((language) =>
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useFragment(DefaultLanguageFragment, language)
+      )
+      .filter((language) => language) || null;
   const certifications =
     resume.certification?.map((certification) =>
       // eslint-disable-next-line react-hooks/rules-of-hooks
