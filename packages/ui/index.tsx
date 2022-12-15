@@ -6,5 +6,3 @@ export * from "./src/atoms/Box";
 export * from "./src/atoms/Button";
 export * from "./src/atoms/Heading";
 export * from "./src/atoms/Toggle";
-
-export * from "./src/organisms/NavigationMenu";

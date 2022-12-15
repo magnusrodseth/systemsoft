@@ -13,7 +13,7 @@ type SkillsProps = {
 const Skills: FC<SkillsProps> = ({ skills }) => {
   return (
     <ResumeCard>
-      <Heading subtitle>Fagområder og ferdigheter</Heading>
+      <Heading subtitle>Fagområder</Heading>
       <Box
         css={{
           display: "flex",

@@ -65,10 +65,11 @@ const PersonalInformation: FC<PersonalInformationProps> = ({
         />
       )}
 
-      <HorizontalDivider />
-
       {personalInformation?.aboutRaw && (
-        <PortableText value={personalInformation?.aboutRaw} />
+        <>
+          <HorizontalDivider />
+          <PortableText value={personalInformation?.aboutRaw} />
+        </>
       )}
     </ResumeCard>
   );

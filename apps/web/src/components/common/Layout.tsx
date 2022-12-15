@@ -1,10 +1,10 @@
 import { FC, ReactNode } from "react";
 import Footer from "./Footer";
 import Head from "next/head";
-import { darkTheme, globalStyles, theme } from "ui";
+import { darkTheme, theme } from "ui";
 import Box from "ui/src/atoms/Box";
-import Navbar from "./Navbar";
 import useIsDarkStore from "@/store/isDark";
+import NavigationMenu from "../navigation/NavigationMenu";
 
 type LayoutProps = {
   children: ReactNode;
@@ -33,7 +33,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <Box
         css={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
-        <Navbar />
+        <NavigationMenu />
 
         <main>
           <Box css={{ mb: 32 }}>{children}</Box>

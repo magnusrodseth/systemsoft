@@ -15,6 +15,7 @@ const ShortResumeItem: FC<ShortResumeItemProps> = ({ icon, body }) => {
         justifyContent: "start",
         alignItems: "center",
         gap: 8,
+        my: 8,
       }}
     >
       <Icon>{icon}</Icon>
