@@ -34,6 +34,7 @@ import formatDate from "@/utils/formatDate";
 import Pill from "@ui/atoms/Pill";
 import Button from "@ui/atoms/Button";
 import Icon from "@ui/atoms/Icon";
+import Card from "@ui/molecules/Card";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -63,19 +64,11 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         justifyContent: "start",
         alignItems: "center",
         gap: 16,
+        mx: 32,
       }}
     >
       <Heading
         css={{
-          "@sm": {
-            fontSize: "$md",
-          },
-          "@md": {
-            fontSize: "$3xl",
-          },
-          "@lg": {
-            fontSize: "$5xl",
-          },
           linearGradientUnderline: {
             from: indigo.indigo10,
             to: violet.violet10,
@@ -85,20 +78,51 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
       >
         {employee?.name}
       </Heading>
-      {imageUrl && (
-        <Box css={{ position: "relative" }}>
+
+      <Box
+        css={{
+          position: "relative",
+          overflow: "hidden",
+          height: "20rem",
+          width: "20rem",
+          borderRadius: 8,
+          pb: 8,
+          shadow: "xl",
+          smooth: "all 0.3s ease-in-out",
+          "&:hover": {
+            shadow: "2xl",
+          },
+        }}
+      >
+        {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={employee?.name || "A profile picture of an employee"}
-            width={400}
-            height={400}
+            alt={employee.name || "A profile picture of an employee"}
+            fill
             style={{
-              maxWidth: "100%",
-              height: "auto",
+              objectFit: "cover",
             }}
+            // width={500}
+            // height={500}
           />
-        </Box>
-      )}
+        ) : (
+          <Icon
+            css={{
+              backgroundColor: "$mauve4",
+              height: "100%",
+              color: "$mauve11",
+            }}
+          >
+            <PersonIcon
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </Icon>
+        )}
+      </Box>
 
       {/* Personal information */}
       <ResumeCard>

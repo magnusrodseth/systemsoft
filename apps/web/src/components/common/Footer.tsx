@@ -26,7 +26,7 @@ const Footer = () => {
         backgroundColor: "$violet3",
         width: "100%",
         display: "flex",
-        justifyContent: "start",
+        justifyContent: loading ? "center" : "start",
         alignItems: "center",
         flexDirection: "column",
         py: 8,
@@ -59,7 +59,7 @@ const Footer = () => {
             >
               <Box>
                 <Heading
-                  size="lg"
+                  size="md"
                   uppercase
                   bold
                   css={{
@@ -78,7 +78,7 @@ const Footer = () => {
 
               <Box>
                 <Heading
-                  size="lg"
+                  size="md"
                   uppercase
                   bold
                   css={{
