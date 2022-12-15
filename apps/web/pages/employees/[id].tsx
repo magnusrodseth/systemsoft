@@ -4,6 +4,7 @@ import EmployeeQuery from "@/graphql/queries/Employee";
 import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
+import HorizontalDivider from "@ui/atoms/HorizontalDivider";
 import Tooltip from "@ui/molecules/Tooltip";
 import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
@@ -35,6 +36,10 @@ import Pill from "@ui/atoms/Pill";
 import Button from "@ui/atoms/Button";
 import Icon from "@ui/atoms/Icon";
 import Card from "@ui/molecules/Card";
+import PersonalInformation from "@/components/resume/PersonalInformation";
+import ProfilePicture from "@/components/ProfilePicture";
+import Grid from "@ui/molecules/Grid";
+import Education from "@/components/resume/Education";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -53,7 +58,6 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const resume = useResume(useFragment(DefaultResumeFragment, resumeData));
 
-  const location = `${resume.personalInformation?.address}, ${resume.personalInformation?.postalCode} ${resume.personalInformation?.city}`;
   const imageUrl = employee?.image?.asset?.url;
 
   return (
@@ -64,7 +68,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         justifyContent: "start",
         alignItems: "center",
         gap: 16,
-        mx: 32,
+        mx: 8,
       }}
     >
       <Heading
@@ -83,27 +87,20 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         css={{
           position: "relative",
           overflow: "hidden",
-          height: "20rem",
-          width: "20rem",
+          height: "18rem",
+          width: "18rem",
           borderRadius: 8,
           pb: 8,
-          shadow: "xl",
-          smooth: "all 0.3s ease-in-out",
-          "&:hover": {
-            shadow: "2xl",
-          },
         }}
       >
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={employee.name || "A profile picture of an employee"}
+            alt={employee.name || "Profilbilde av en ansatt"}
             fill
             style={{
               objectFit: "cover",
             }}
-            // width={500}
-            // height={500}
           />
         ) : (
           <Icon
@@ -124,217 +121,155 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         )}
       </Box>
 
-      {/* Personal information */}
-      <ResumeCard>
-        <Heading size="xl" bold>
-          Utdanning
-        </Heading>
-        <ShortResumeItem
-          icon={<EnvelopeClosedIcon />}
-          body={
-            <Link href={`mailto:${employee?.email}`}>{employee?.email}</Link>
-          }
+      <Grid
+        css={{
+          gridCols: 1,
+          gap: 16,
+        }}
+      >
+        <PersonalInformation
+          employee={employee}
+          personalInformation={resume.personalInformation}
         />
-        <ShortResumeItem icon={<PersonIcon />} body={employee?.title} />
 
-        {resume.personalInformation?.address &&
-          resume.personalInformation.postalCode &&
-          resume.personalInformation.city && (
-            <ShortResumeItem icon={<HomeIcon />} body={location} />
-          )}
+        {resume.education && <Education education={resume.education} />}
 
-        {resume.personalInformation?.githubLink && (
-          <ShortResumeItem
-            icon={<GitHubLogoIcon />}
-            body={
-              <Link href={resume.personalInformation?.githubLink}>GitHub</Link>
-            }
-          />
+        {resume.professionalExperience && (
+          <ResumeCard>
+            <Heading size="xl" bold>
+              Jobberfaring
+            </Heading>
+
+            {resume.professionalExperience.map((experience, i) => (
+              <Box key={i}>
+                <Heading size="lg">{experience?.employer}</Heading>
+                <ShortResumeItem
+                  icon={<CalendarIcon />}
+                  body={
+                    <Text>{`${formatDate(experience?.start)} - ${
+                      formatDate(experience?.end) || "nå"
+                    }`}</Text>
+                  }
+                />
+                <ShortResumeItem
+                  icon={<DrawingPinFilledIcon />}
+                  body={experience?.location}
+                />
+                <PortableText value={experience?.descriptionRaw} />
+              </Box>
+            ))}
+          </ResumeCard>
         )}
 
-        {resume.personalInformation?.linkedinLink && (
-          <ShortResumeItem
-            icon={<LinkedInLogoIcon />}
-            body={
-              <Link href={resume.personalInformation?.linkedinLink}>
-                LinkedIn
-              </Link>
-            }
-          />
-        )}
-
-        {resume.personalInformation?.status && (
-          <ShortResumeItem
-            icon={<ChatBubbleIcon />}
-            body={resume.personalInformation?.status}
-          />
-        )}
-
-        {resume.personalInformation?.aboutRaw && (
-          <PortableText value={resume.personalInformation?.aboutRaw} />
-        )}
-      </ResumeCard>
-
-      {resume.education && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Utdanning
-          </Heading>
-
-          {resume.education.map((education, i) => (
-            <Box key={i}>
-              <Heading size="lg">{`${education?.degree}, ${education?.fieldOfStudy}`}</Heading>
-              <ShortResumeItem
-                icon={<CalendarIcon />}
-                body={
-                  <Text>{`${education?.start} - ${
-                    formatDate(education?.end) || "nå"
-                  }`}</Text>
-                }
-              />
-              <ShortResumeItem
-                icon={<DrawingPinFilledIcon />}
-                body={education?.school}
-              />
-            </Box>
-          ))}
-        </ResumeCard>
-      )}
-
-      {resume.professionalExperience && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Jobberfaring
-          </Heading>
-
-          {resume.professionalExperience.map((experience, i) => (
-            <Box key={i}>
-              <Heading size="lg">{experience?.employer}</Heading>
-              <ShortResumeItem
-                icon={<CalendarIcon />}
-                body={
-                  <Text>{`${formatDate(experience?.start)} - ${
-                    formatDate(experience?.end) || "nå"
-                  }`}</Text>
-                }
-              />
-              <ShortResumeItem
-                icon={<DrawingPinFilledIcon />}
-                body={experience?.location}
-              />
-              <PortableText value={experience?.descriptionRaw} />
-            </Box>
-          ))}
-        </ResumeCard>
-      )}
-
-      {resume.skills && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Fagområder og ferdigheter
-          </Heading>
-          {resume.skills.map(
-            (skill, i) =>
-              skill && (
-                <Tooltip trigger={<Button>{skill?.name}</Button>} key={i}>
-                  {skill?.shortDescription}
-                </Tooltip>
-              )
-          )}
-        </ResumeCard>
-      )}
-
-      {resume.languages && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Språk
-          </Heading>
-          <Box
-            css={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 4,
-            }}
-          >
-            {resume.languages.map((language, i) => {
-              const isLast = i === resume.languages!!.length - 1;
-              return (
-                language && (
-                  <Box
-                    css={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box key={i}>
-                      <Text>{language?.name}</Text>
-                    </Box>
-
-                    {!isLast && (
-                      <Icon>
-                        <DotFilledIcon />
-                      </Icon>
-                    )}
-                  </Box>
+        {resume.skills && (
+          <ResumeCard>
+            <Heading size="xl" bold>
+              Fagområder og ferdigheter
+            </Heading>
+            {resume.skills.map(
+              (skill, i) =>
+                skill && (
+                  <Tooltip trigger={<Button>{skill?.name}</Button>} key={i}>
+                    {skill?.shortDescription}
+                  </Tooltip>
                 )
-              );
-            })}
-          </Box>
-        </ResumeCard>
-      )}
+            )}
+          </ResumeCard>
+        )}
 
-      {resume.certifications && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Sertifikater og diplomer
-          </Heading>
+        {resume.languages && (
+          <ResumeCard>
+            <Heading size="xl" bold>
+              Språk
+            </Heading>
+            <Box
+              css={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 4,
+              }}
+            >
+              {resume.languages.map((language, i) => {
+                const isLast = i === resume.languages!!.length - 1;
+                return (
+                  language && (
+                    <Box
+                      css={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      key={i}
+                    >
+                      <Box>
+                        <Text>{language?.name}</Text>
+                      </Box>
 
-          {resume.certifications.map((certification, i) => (
-            <Box key={i}>
-              <Heading size="lg">{certification?.title}</Heading>
-              {certification?.link && (
-                <ShortResumeItem
-                  icon={<ExternalLinkIcon />}
-                  body={
-                    <Link href={certification?.link} target="_blank">
-                      Les mer.
-                    </Link>
-                  }
-                />
-              )}
-
-              <Text>{certification?.shortDescription}</Text>
+                      {!isLast && (
+                        <Icon>
+                          <DotFilledIcon />
+                        </Icon>
+                      )}
+                    </Box>
+                  )
+                );
+              })}
             </Box>
-          ))}
-        </ResumeCard>
-      )}
+          </ResumeCard>
+        )}
 
-      {resume.publications && (
-        <ResumeCard>
-          <Heading size="xl" bold>
-            Publikasjoner
-          </Heading>
+        {resume.certifications && (
+          <ResumeCard>
+            <Heading size="xl" bold>
+              Sertifikater og diplomer
+            </Heading>
 
-          {resume.publications.map((publication, i) => (
-            <Box key={i}>
-              <Heading size="lg">{publication?.title}</Heading>
-              {publication?.link && (
-                <ShortResumeItem
-                  icon={<ExternalLinkIcon />}
-                  body={
-                    <Link href={publication?.link} target="_blank">
-                      Les mer.
-                    </Link>
-                  }
-                />
-              )}
+            {resume.certifications.map((certification, i) => (
+              <Box key={i}>
+                <Heading size="lg">{certification?.title}</Heading>
+                {certification?.link && (
+                  <ShortResumeItem
+                    icon={<ExternalLinkIcon />}
+                    body={
+                      <Link href={certification?.link} target="_blank">
+                        Les mer.
+                      </Link>
+                    }
+                  />
+                )}
 
-              <PortableText value={publication?.descriptionRaw} />
-            </Box>
-          ))}
-        </ResumeCard>
-      )}
+                <Text>{certification?.shortDescription}</Text>
+              </Box>
+            ))}
+          </ResumeCard>
+        )}
+
+        {resume.publications && (
+          <ResumeCard>
+            <Heading size="xl" bold>
+              Publikasjoner
+            </Heading>
+
+            {resume.publications.map((publication, i) => (
+              <Box key={i}>
+                <Heading size="lg">{publication?.title}</Heading>
+                {publication?.link && (
+                  <ShortResumeItem
+                    icon={<ExternalLinkIcon />}
+                    body={
+                      <Link href={publication?.link} target="_blank">
+                        Les mer.
+                      </Link>
+                    }
+                  />
+                )}
+
+                <PortableText value={publication?.descriptionRaw} />
+              </Box>
+            ))}
+          </ResumeCard>
+        )}
+      </Grid>
     </Box>
   );
 };

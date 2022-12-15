@@ -46,15 +46,6 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
       <Heading
         css={{
           display: "flex",
-          // "@sm": {
-          //   fontSize: "$md",
-          // },
-          // "@md": {
-          //   fontSize: "$3xl",
-          // },
-          // "@lg": {
-          //   fontSize: "$5xl",
-          // },
           linearGradientUnderline: {
             from: indigo.indigo10,
             to: violet.violet10,

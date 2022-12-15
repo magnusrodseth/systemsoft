@@ -57,11 +57,13 @@ const resume: SchemaTypeDefinition<'document'> = {
     select: {
       title: 'employee.name',
       subtitle: 'employee.title',
+      image: 'employee.image',
     },
-    prepare({title, subtitle}) {
+    prepare({title, subtitle, image}) {
       return {
         title,
         subtitle,
+        media: image,
       }
     },
   },

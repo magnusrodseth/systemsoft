@@ -1,14 +1,12 @@
 import { Employee } from "@/graphql/generated/graphql";
-import Image from "ui/src/atoms/Image";
 import { FC } from "react";
 import Card from "@ui/molecules/Card";
-import Icon from "@ui/atoms/Icon";
 import Text from "@ui/atoms/Text";
-import { PersonIcon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
 import Box from "@ui/atoms/Box";
 import Link from "@ui/atoms/Link";
 import Button from "@ui/atoms/Button";
+import ProfilePicture from "./ProfilePicture";
 
 type EmployeeCardProps = {
   employee: Employee;
@@ -19,41 +17,7 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
 
   return (
     <Card>
-      <Box
-        css={{
-          position: "relative",
-          overflow: "hidden",
-          height: "17rem",
-          pb: 8,
-        }}
-      >
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={employee.name || "A profile picture of an employee"}
-            fill
-            style={{
-              objectFit: "cover",
-            }}
-          />
-        ) : (
-          <Icon
-            css={{
-              backgroundColor: "$mauve4",
-              height: "100%",
-              color: "$mauve11",
-            }}
-          >
-            <PersonIcon
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </Icon>
-        )}
-      </Box>
+      <ProfilePicture src={imageUrl} alt={employee.name} />
 
       <Box
         css={{

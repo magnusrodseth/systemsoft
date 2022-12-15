@@ -1,6 +1,7 @@
 import { styled } from "../../stitches.config";
 
 const Heading = styled("h1", {
+  display: "inline-block",
   fontFamily: "$sans",
   boxSizing: "border-box",
   m: 1,
@@ -72,6 +73,22 @@ const Heading = styled("h1", {
         },
         fontWeight: "$bold",
         fontFamily: "$serif",
+      },
+    },
+
+    subtitle: {
+      true: {
+        "@sm": {
+          fontSize: "$md",
+        },
+        "@md": {
+          fontSize: "$xl",
+        },
+        "@lg": {
+          fontSize: "$2xl",
+        },
+        fontWeight: "$bold",
+        textTransform: "uppercase",
       },
     },
   },
