@@ -12,6 +12,8 @@ import {
   mauveDark,
   red,
   redDark,
+  sky,
+  skyDark,
   violet,
   violetDark,
 } from "@radix-ui/colors";
@@ -35,6 +37,7 @@ export const {
       ...grass,
       ...amber,
       ...blue,
+      ...sky,
     },
     fontSizes: {
       xs: "0.75rem",
@@ -104,9 +107,9 @@ export const {
     }: {
       from: string;
       to: string;
-      degrees: number;
+      degrees?: number;
     }) => ({
-      background: `linear-gradient(${degrees}deg, ${from}, ${to})`,
+      background: `linear-gradient(${degrees || 90}deg, ${from}, ${to})`,
     }),
 
     linearGradientText: ({
@@ -177,6 +180,7 @@ export const darkTheme = createTheme("dark-theme", {
     ...grassDark,
     ...amberDark,
     ...blueDark,
+    ...skyDark,
   },
 });
 

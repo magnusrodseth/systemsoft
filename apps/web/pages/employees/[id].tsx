@@ -24,7 +24,7 @@ import {
   ExternalLinkIcon,
 } from "@radix-ui/react-icons";
 import Link from "@ui/atoms/Link";
-import ShortResumeItem from "@/components/resume/PersonalInformationItem";
+import ShortResumeItem from "@/components/resume/ShortResumeItem";
 import useResume from "@/hooks/useResume";
 import { ONE_WEEK_IN_SECONDS } from "@/constants";
 import NoInformation from "@/components/resume/NoInformation";
@@ -112,17 +112,43 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
           personalInformation={resume.personalInformation}
         />
 
-        {resume.education && <Education education={resume.education} />}
+        <Grid
+          css={{
+            "@sm": {
+              gridCols: 1,
+            },
+            "@md": {
+              gridCols: 2,
+            },
+            columnGap: 16,
+            rowGap: 32,
+          }}
+        >
+          {resume.education && <Education education={resume.education} />}
 
-        {resume.professionalExperience && (
-          <ProfessionalExperience
-            professionalExperience={resume.professionalExperience}
-          />
-        )}
+          {resume.professionalExperience && (
+            <ProfessionalExperience
+              professionalExperience={resume.professionalExperience}
+            />
+          )}
+        </Grid>
 
-        {resume.skills && <Skills skills={resume.skills} />}
+        <Grid
+          css={{
+            "@sm": {
+              gridCols: 1,
+            },
+            "@md": {
+              gridCols: 2,
+            },
+            columnGap: 16,
+            rowGap: 32,
+          }}
+        >
+          {resume.skills && <Skills skills={resume.skills} />}
 
-        {resume.languages && <Languages languages={resume.languages} />}
+          {resume.languages && <Languages languages={resume.languages} />}
+        </Grid>
 
         {resume.certifications && (
           <Certifications certifications={resume.certifications} />

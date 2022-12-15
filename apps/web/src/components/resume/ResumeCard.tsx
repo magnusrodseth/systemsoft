@@ -10,7 +10,7 @@ const ResumeCard: FC<ResumeCardProps> = ({ children, ...props }) => {
     <Card
       css={{
         p: 8,
-        backgroundColor: "$violet2",
+        backgroundColor: "$mauve2",
       }}
       {...props}
     >

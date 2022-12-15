@@ -10,13 +10,13 @@ import {
   DefaultEmployeeFragment,
   DefaultPersonalInformationFragment,
 } from "@/graphql/generated/graphql";
-import { PortableText } from "@portabletext/react";
 import Heading from "@ui/atoms/Heading";
 import HorizontalDivider from "@ui/atoms/HorizontalDivider";
 import Link from "@ui/atoms/Link";
 import { FC } from "react";
-import ShortResumeItem from "./PersonalInformationItem";
+import ShortResumeItem from "./ShortResumeItem";
 import ResumeCard from "./ResumeCard";
+import PortableText from "../PortableText";
 
 interface PersonalInformationProps {
   employee: DefaultEmployeeFragment;

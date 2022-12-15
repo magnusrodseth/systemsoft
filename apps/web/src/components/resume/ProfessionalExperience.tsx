@@ -5,7 +5,7 @@ import Box from "@ui/atoms/Box";
 import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
 import { FC } from "react";
-import ShortResumeItem from "./PersonalInformationItem";
+import ShortResumeItem from "./ShortResumeItem";
 import ResumeCard from "./ResumeCard";
 import { CalendarIcon, DrawingPinFilledIcon } from "@radix-ui/react-icons";
 import HorizontalDivider from "@ui/atoms/HorizontalDivider";

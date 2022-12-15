@@ -3,9 +3,9 @@ import { PortableText } from "@portabletext/react";
 import Box from "@ui/atoms/Box";
 import Heading from "@ui/atoms/Heading";
 import HorizontalDivider from "@ui/atoms/HorizontalDivider";
-import Link from "next/link";
+import Link from "@ui/atoms/Link";
 import { FC } from "react";
-import ShortResumeItem from "./PersonalInformationItem";
+import ShortResumeItem from "./ShortResumeItem";
 import ResumeCard from "./ResumeCard";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 

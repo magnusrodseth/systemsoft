@@ -79,10 +79,10 @@ const Heading = styled("h1", {
     subtitle: {
       true: {
         "@sm": {
-          fontSize: "$md",
+          fontSize: "$lg",
         },
         "@md": {
-          fontSize: "$xl",
+          fontSize: "$2xl",
         },
         "@lg": {
           fontSize: "$2xl",
