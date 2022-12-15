@@ -89,6 +89,10 @@ const Heading = styled("h1", {
         },
         fontWeight: "$bold",
         textTransform: "uppercase",
+        linearGradientUnderline: {
+          from: "$indigo10",
+          to: "$violet10",
+        },
       },
     },
   },

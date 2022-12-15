@@ -40,6 +40,7 @@ import PersonalInformation from "@/components/resume/PersonalInformation";
 import ProfilePicture from "@/components/ProfilePicture";
 import Grid from "@ui/molecules/Grid";
 import Education from "@/components/resume/Education";
+import ProfessionalExperience from "@/components/resume/ProfessionalExperience";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -124,7 +125,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
       <Grid
         css={{
           gridCols: 1,
-          gap: 16,
+          gap: 32,
         }}
       >
         <PersonalInformation
@@ -135,30 +136,9 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         {resume.education && <Education education={resume.education} />}
 
         {resume.professionalExperience && (
-          <ResumeCard>
-            <Heading size="xl" bold>
-              Jobberfaring
-            </Heading>
-
-            {resume.professionalExperience.map((experience, i) => (
-              <Box key={i}>
-                <Heading size="lg">{experience?.employer}</Heading>
-                <ShortResumeItem
-                  icon={<CalendarIcon />}
-                  body={
-                    <Text>{`${formatDate(experience?.start)} - ${
-                      formatDate(experience?.end) || "nå"
-                    }`}</Text>
-                  }
-                />
-                <ShortResumeItem
-                  icon={<DrawingPinFilledIcon />}
-                  body={experience?.location}
-                />
-                <PortableText value={experience?.descriptionRaw} />
-              </Box>
-            ))}
-          </ResumeCard>
+          <ProfessionalExperience
+            professionalExperience={resume.professionalExperience}
+          />
         )}
 
         {resume.skills && (

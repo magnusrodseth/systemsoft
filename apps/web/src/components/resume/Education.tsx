@@ -22,7 +22,7 @@ const Education: FC<EducationProps> = ({ education }) => {
         const isLast = i === education!!.length - 1;
         return (
           <Box key={i}>
-            <Heading size="lg">{`${entry?.degree}, ${entry?.fieldOfStudy}`}</Heading>
+            <Heading bold>{`${entry?.degree}, ${entry?.fieldOfStudy}`}</Heading>
             <ShortResumeItem
               icon={<CalendarIcon />}
               body={
