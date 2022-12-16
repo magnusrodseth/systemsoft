@@ -73,8 +73,10 @@ const IndexPage = () => {
               display: "flex",
               alignItems: "center",
               gap: 8,
-              textDecoration: "none",
               justifyContent: "center",
+              "&:hover": {
+                textDecoration: "none",
+              },
             }}
           >
             <Icon>
@@ -92,6 +94,9 @@ const IndexPage = () => {
               alignItems: "center",
               justifyContent: "center",
               gap: 8,
+              "&:hover": {
+                textDecoration: "none",
+              },
             }}
           >
             <Icon>

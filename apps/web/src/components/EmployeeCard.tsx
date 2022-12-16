@@ -1,4 +1,4 @@
-import { Employee } from "@/graphql/generated/graphql";
+import { DefaultEmployeeFragment, Employee } from "@/graphql/generated/graphql";
 import { FC } from "react";
 import Card from "@ui/molecules/Card";
 import Text from "@ui/atoms/Text";
@@ -9,15 +9,15 @@ import Button from "@ui/atoms/Button";
 import ProfilePicture from "./ProfilePicture";
 
 type EmployeeCardProps = {
-  employee: Employee;
+  employee?: DefaultEmployeeFragment | null;
 };
 
 const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
-  const imageUrl = employee.image?.asset?.url;
+  const imageUrl = employee?.image?.asset?.url;
 
   return (
     <Card>
-      <ProfilePicture src={imageUrl} alt={employee.name} />
+      <ProfilePicture src={imageUrl} alt={employee?.name} />
 
       <Box
         css={{
@@ -50,13 +50,13 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
             }}
             bold
           >
-            {employee.name}
+            {employee?.name}
           </Heading>
-          <Text>{employee.title}</Text>
-          <Link href={`mailto:${employee.email}`}>{employee.email}</Link>
+          <Text>{employee?.title}</Text>
+          <Link href={`mailto:${employee?.email}`}>{employee?.email}</Link>
         </Box>
 
-        <Link href={`/employees/${employee._id}`}>
+        <Link href={`/employees/${employee?._id}`}>
           <Button css={{ mx: 8 }} color="indigo">
             Mer informasjon
           </Button>

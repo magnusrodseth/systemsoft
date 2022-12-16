@@ -1,7 +1,7 @@
 import DefaultEmployeeFragment from "@/graphql/fragments/Employee";
 import { useFragment } from "@/graphql/generated";
 import EmployeeQuery from "@/graphql/queries/Employee";
-import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
+import EmployeesWithSkillsQuery from "@/graphql/queries/EmployeesWithSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
 import HorizontalDivider from "@ui/atoms/HorizontalDivider";
@@ -164,7 +164,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
-    query: EmployeesAndSkillsQuery,
+    query: EmployeesWithSkillsQuery,
   });
 
   const employees = data.allEmployee.map((employee) =>

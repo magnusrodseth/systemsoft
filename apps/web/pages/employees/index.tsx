@@ -1,11 +1,11 @@
-import EmployeesAndSkillsQuery from "@/graphql/queries/EmployeesAndSkills";
+import EmployeesWithSkillsQuery from "@/graphql/queries/EmployeesWithSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
 import Text from "@ui/atoms/Text";
 import Grid from "@ui/molecules/Grid";
 import Heading from "@ui/atoms/Heading";
 import { InferGetStaticPropsType } from "next";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Pill from "@ui/atoms/Pill";
 import EmployeeCard from "@/components/EmployeeCard";
 import Icon from "@ui/atoms/Icon";
@@ -13,28 +13,56 @@ import { Cross2Icon, Component1Icon } from "@radix-ui/react-icons";
 import { violet, indigo } from "@radix-ui/colors";
 import Spinner from "@ui/molecules/Spinner";
 import Error from "@/components/common/Error";
+import { useQuery } from "@apollo/client";
+import { useFragment } from "@/graphql/generated";
+import DefaultEmployeeFragment from "@/graphql/fragments/Employee";
+import type { DefaultEmployeeFragment as DefaultEmployeeFragmentType } from "@/graphql/generated/graphql";
+import AllEmployeesQuery from "@/graphql/queries/AllEmployees";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const EmployeesPage: FC<EmployeesPageProps> = ({
-  employees,
+  allEmployees,
+  employeesWithSkills,
   skills,
   loading,
   error,
 }) => {
-  const [filteredSkills, setFilteredSkills] = useState<string[]>([]);
+  const [filteredSkillIds, setFilteredSkillIds] = useState<string[]>([]);
+  const [employees, setEmployees] =
+    useState<(DefaultEmployeeFragmentType | null | undefined)[]>(allEmployees);
 
   const handleToggleFilter = (skillId: string) => {
-    if (filteredSkills.includes(skillId)) {
-      setFilteredSkills((prev) => prev.filter((skill) => skill !== skillId));
+    if (filteredSkillIds.includes(skillId)) {
+      setFilteredSkillIds((prev) => prev.filter((skill) => skill !== skillId));
     } else {
-      setFilteredSkills((prev) => [...prev, skillId]);
+      setFilteredSkillIds((prev) => [...prev, skillId]);
     }
   };
 
   const handleClearFilter = () => {
-    setFilteredSkills([]);
+    setFilteredSkillIds([]);
   };
+
+  useEffect(() => {
+    // Filter employees based on filteredSkillIds
+    if (filteredSkillIds.length === 0) {
+      setEmployees(allEmployees);
+    } else {
+      const filteredEmployees = employeesWithSkills.filter((employee) => {
+        const employeeSkills = employee.skills?.map((skill) => skill?._id);
+        return filteredSkillIds.every((skillId) =>
+          employeeSkills?.includes(skillId)
+        );
+      });
+
+      const employees = filteredEmployees
+        .filter((entry) => entry.employee)
+        .map((entry) => entry.employee);
+
+      setEmployees(employees);
+    }
+  }, [filteredSkillIds, allEmployees, employeesWithSkills]);
 
   if (loading) {
     return (
@@ -106,7 +134,7 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
               <Pill
                 key={skill._id}
                 color={
-                  filteredSkills.includes(skill._id as string)
+                  filteredSkillIds.includes(skill._id as string)
                     ? "violet"
                     : "neutral"
                 }
@@ -116,7 +144,7 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
               </Pill>
             ))}
 
-            {filteredSkills.length > 0 && (
+            {filteredSkillIds.length > 0 && (
               <Pill
                 color="red"
                 css={{
@@ -162,19 +190,43 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
 };
 
 export const getStaticProps = async () => {
-  const { data, loading, error } = await client.query({
-    query: EmployeesAndSkillsQuery,
+  const {
+    data: employeesWithSkillsData,
+    loading: employeesWithSkillsLoading,
+    error: employeesWithSkillsError,
+  } = await client.query({
+    query: EmployeesWithSkillsQuery,
   });
 
-  const employees = data.allEmployee;
-  const skills = data.allSkill;
+  const employeesWithSkills = employeesWithSkillsData.allResume.map(
+    (resume) => ({
+      employee: resume.employee,
+      skills: resume.skill,
+    })
+  );
+
+  const skills = employeesWithSkillsData.allSkill;
+
+  const {
+    data: allEmployeesData,
+    loading: allEmployeesLoading,
+    error: allEmployeesError,
+  } = await client.query({
+    query: AllEmployeesQuery,
+  });
+
+  const allEmployees = allEmployeesData.allEmployee;
+
+  const loading = employeesWithSkillsLoading || allEmployeesLoading;
+  const error = !!(employeesWithSkillsError || allEmployeesError);
 
   return {
     props: {
-      employees,
+      allEmployees,
+      employeesWithSkills,
       skills,
       loading,
-      error: !!error,
+      error,
     },
   };
 };

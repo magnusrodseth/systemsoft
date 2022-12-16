@@ -51,7 +51,7 @@ const Button = styled("button", {
     callToAction: {
       true: {
         color: "$purple12",
-        backgroundColor: "$purple2",
+        backgroundColor: "$purple3",
         borderStyle: "solid",
         borderWidth: 2,
         fontSize: "$lg",
