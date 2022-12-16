@@ -5,16 +5,16 @@ import Text from "@ui/atoms/Text";
 import Grid from "@ui/molecules/Grid";
 import Heading from "@ui/atoms/Heading";
 import { InferGetStaticPropsType } from "next";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Pill from "@ui/atoms/Pill";
 import EmployeeCard from "@/components/EmployeeCard";
 import Icon from "@ui/atoms/Icon";
 import { Cross2Icon, Component1Icon } from "@radix-ui/react-icons";
 import { violet, indigo } from "@radix-ui/colors";
-import Spinner from "@ui/molecules/Spinner";
 import Error from "@/components/common/Error";
 import AllEmployeesQuery from "@/graphql/queries/AllEmployees";
 import useFilteredEmployeesQuery from "@/hooks/useFilteredEmployeesQuery";
+import Loading from "@/components/common/Loading";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -29,15 +29,10 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
     useFilteredEmployeesQuery({
       allEmployees,
       employeesWithSkills,
-      skills,
     });
 
   if (loading) {
-    return (
-      <Box css={{ my: 32 }}>
-        <Spinner icon={<Component1Icon />} />
-      </Box>
-    );
+    return <Loading />;
   }
 
   return (

@@ -1,4 +1,5 @@
 import Box from "@ui/atoms/Box";
+import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
 
 const AboutPage = () => {
@@ -32,6 +33,14 @@ const AboutPage = () => {
       >
         Om oss
       </Heading>
+
+      <Text
+        css={{
+          my: 16,
+        }}
+      >
+        🚧 Under konstruksjon. Vennligst kom tilbake senere. 🚧
+      </Text>
     </Box>
   );
 };

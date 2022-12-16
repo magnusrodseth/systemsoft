@@ -10,7 +10,6 @@ type FilteredEmployeesQueryProps = {
     employee?: DefaultEmployeeFragment | null;
     skills?: (DefaultSkillFragment | null)[] | null;
   }[];
-  skills: DefaultSkillFragment[];
 };
 
 /**
