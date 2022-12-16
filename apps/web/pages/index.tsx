@@ -56,39 +56,41 @@ const IndexPage = () => {
 
       <Box
         css={{
-          display: "flex",
-          flexDirection: "column",
+          display: "grid",
+          gridCols: 1,
           gap: 16,
           justifyContent: "center",
           alignItems: "center",
           "@md": {
-            flexDirection: "row",
+            gridCols: 2,
           },
         }}
       >
-        <Link href="/clients">
-          <Button
-            callToAction
+        <Button callToAction>
+          <Link
+            href="/clients"
             css={{
               display: "flex",
               alignItems: "center",
               gap: 8,
               textDecoration: "none",
+              justifyContent: "center",
             }}
           >
             <Icon>
               <ArrowRightIcon />
             </Icon>
             <Text>Kundeopplevelser</Text>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
 
-        <Link href="/expertises">
-          <Button
-            callToAction
+        <Button callToAction>
+          <Link
+            href="/expertises"
             css={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "center",
               gap: 8,
             }}
           >
@@ -96,8 +98,8 @@ const IndexPage = () => {
               <ArrowRightIcon />
             </Icon>
             <Text>Vårt håndverk</Text>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </Box>
     </Box>
   );
