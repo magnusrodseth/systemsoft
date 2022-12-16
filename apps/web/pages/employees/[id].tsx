@@ -45,6 +45,7 @@ import Skills from "@/components/resume/Skills";
 import Languages from "@/components/resume/Languages";
 import Certifications from "@/components/resume/Certifications";
 import Publications from "@/components/resume/Publications";
+import AllEmployeesQuery from "@/graphql/queries/AllEmployees";
 
 type EmployeePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -104,7 +105,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
       <Grid
         css={{
           gridCols: 1,
-          gap: 32,
+          gap: 24,
         }}
       >
         <PersonalInformation
@@ -118,7 +119,8 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
               gridCols: 1,
             },
             "@md": {
-              gridCols: 2,
+              gridCols:
+                resume.education && resume.professionalExperience ? 2 : 1,
             },
             columnGap: 16,
             rowGap: 32,
@@ -139,7 +141,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
               gridCols: 1,
             },
             "@md": {
-              gridCols: 2,
+              gridCols: resume.skills && resume.languages ? 2 : 1,
             },
             columnGap: 16,
             rowGap: 32,
@@ -164,7 +166,7 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
-    query: EmployeesWithSkillsQuery,
+    query: AllEmployeesQuery,
   });
 
   const employees = data.allEmployee.map((employee) =>
