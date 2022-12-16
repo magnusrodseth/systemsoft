@@ -1,5 +1,5 @@
-import { animateSpin } from "ui";
 import Box from "@ui/atoms/Box";
+import Spinner from "@ui/molecules/Spinner";
 import { LinkedInLogoIcon, Component1Icon } from "@radix-ui/react-icons";
 import Heading from "@ui/atoms/Heading";
 import Icon from "@ui/atoms/Icon";
@@ -34,16 +34,7 @@ const Footer = () => {
       }}
     >
       {loading ? (
-        <Box
-          css={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            animation: `${animateSpin} 2s infinite`,
-          }}
-        >
-          <Component1Icon />
-        </Box>
+        <Spinner icon={<Component1Icon />} />
       ) : (
         contactInformation && (
           <>
@@ -107,12 +98,29 @@ const Footer = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 8,
+                mt: 8,
               }}
             >
               {contactInformation.linkedInLink && (
-                <Link href={contactInformation.linkedInLink} target="_blank">
-                  <Icon>
-                    <LinkedInLogoIcon />
+                <Link
+                  href={contactInformation.linkedInLink}
+                  target="_blank"
+                  css={{
+                    width: "1.25rem",
+                  }}
+                >
+                  <Icon
+                    css={{
+                      height: "100%",
+                    }}
+                  >
+                    <LinkedInLogoIcon
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
                   </Icon>
                 </Link>
               )}

@@ -35,9 +35,18 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       >
         <NavigationMenu />
 
-        <main>
-          <Box css={{ mb: 32 }}>{children}</Box>
-        </main>
+        <Box
+          css={{
+            mb: 32,
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gridTemplateRows: "auto",
+            gridTemplateAreas: "'content'",
+            minHeight: "calc(100vh - 12rem - 5rem)",
+          }}
+        >
+          {children}
+        </Box>
 
         <Footer />
       </Box>

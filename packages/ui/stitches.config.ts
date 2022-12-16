@@ -10,10 +10,10 @@ import {
   indigoDark,
   mauve,
   mauveDark,
+  purple,
+  purpleDark,
   red,
   redDark,
-  sky,
-  skyDark,
   violet,
   violetDark,
 } from "@radix-ui/colors";
@@ -37,7 +37,7 @@ export const {
       ...grass,
       ...amber,
       ...blue,
-      ...sky,
+      ...purple,
     },
     fontSizes: {
       xs: "0.75rem",
@@ -184,7 +184,7 @@ export const darkTheme = createTheme("dark-theme", {
     ...grassDark,
     ...amberDark,
     ...blueDark,
-    ...skyDark,
+    ...purpleDark,
   },
 });
 
@@ -211,9 +211,4 @@ export const globalStyles = globalCss({
       fontStyle: "italic",
     },
   ],
-});
-
-export const animateSpin = keyframes({
-  from: { transform: "rotate(0deg)" },
-  to: { transform: "rotate(360deg)" },
 });

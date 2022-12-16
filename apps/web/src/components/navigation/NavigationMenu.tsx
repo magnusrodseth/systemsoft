@@ -4,7 +4,11 @@ import MobileNavigation from "./MobileNavigation";
 
 const NavigationMenu = () => {
   return (
-    <Box>
+    <Box
+      css={{
+        minHeight: "5rem",
+      }}
+    >
       <DesktopNavigation />
       <MobileNavigation />
     </Box>

@@ -48,6 +48,27 @@ const Button = styled("button", {
         },
       },
     },
+    callToAction: {
+      true: {
+        color: "$purple12",
+        backgroundColor: "$purple2",
+        borderStyle: "solid",
+        borderWidth: 2,
+        fontSize: "$lg",
+        px: 16,
+        py: 12,
+        fontFamily: "$lato",
+        borderColor: "$purple6",
+        "&:hover": {
+          backgroundColor: "$purple5",
+          borderColor: "$purple8",
+        },
+        "&:active": {
+          backgroundColor: "$purple6",
+          borderColor: "$purple7",
+        },
+      },
+    },
   },
 
   defaultVariants: {

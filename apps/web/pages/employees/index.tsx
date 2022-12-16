@@ -9,8 +9,10 @@ import { FC, useState } from "react";
 import Pill from "@ui/atoms/Pill";
 import EmployeeCard from "@/components/EmployeeCard";
 import Icon from "@ui/atoms/Icon";
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { Cross2Icon, Component1Icon } from "@radix-ui/react-icons";
 import { violet, indigo } from "@radix-ui/colors";
+import Spinner from "@ui/molecules/Spinner";
+import Error from "@/components/common/Error";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -34,6 +36,14 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
     setFilteredSkills([]);
   };
 
+  if (loading) {
+    return (
+      <Box css={{ my: 32 }}>
+        <Spinner icon={<Component1Icon />} />
+      </Box>
+    );
+  }
+
   return (
     <Box
       css={{
@@ -43,104 +53,110 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
         alignItems: "center",
       }}
     >
-      <Heading
-        css={{
-          display: "flex",
-          linearGradientUnderline: {
-            from: indigo.indigo10,
-            to: violet.violet10,
-          },
-        }}
-        pageTitle
-      >
-        Våre ansatte
-      </Heading>
-
-      <Heading
-        css={{
-          my: 4,
-          "@sm": {
-            fontSize: "$sm",
-          },
-          "@md": {
-            fontSize: "$xl",
-          },
-          "@lg": {
-            fontSize: "$3xl",
-          },
-        }}
-      >
-        Filtrér ferdigheter
-      </Heading>
-      <Box
-        css={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 6,
-          "@sm": {
-            width: "80%",
-          },
-          "@md": {
-            width: "60%",
-          },
-        }}
-      >
-        {skills.map((skill) => (
-          <Pill
-            key={skill._id}
-            color={
-              filteredSkills.includes(skill._id as string)
-                ? "violet"
-                : "neutral"
-            }
-            onClick={() => handleToggleFilter(skill._id as string)}
-          >
-            {skill.name}
-          </Pill>
-        ))}
-
-        {filteredSkills.length > 0 && (
-          <Pill
-            color="red"
+      {error ? (
+        <Error />
+      ) : (
+        <>
+          <Heading
             css={{
               display: "flex",
+              linearGradientUnderline: {
+                from: indigo.indigo10,
+                to: violet.violet10,
+              },
+            }}
+            pageTitle
+          >
+            Våre ansatte
+          </Heading>
+
+          <Heading
+            css={{
+              my: 4,
+              "@sm": {
+                fontSize: "$sm",
+              },
+              "@md": {
+                fontSize: "$xl",
+              },
+              "@lg": {
+                fontSize: "$3xl",
+              },
+            }}
+          >
+            Filtrér fagområder
+          </Heading>
+          <Box
+            css={{
+              display: "flex",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              gap: 8,
+              flexWrap: "wrap",
+              gap: 6,
+              "@sm": {
+                width: "80%",
+              },
+              "@md": {
+                width: "60%",
+              },
             }}
-            onClick={handleClearFilter}
           >
-            <Icon>
-              <Cross2Icon />
-            </Icon>
+            {skills.map((skill) => (
+              <Pill
+                key={skill._id}
+                color={
+                  filteredSkills.includes(skill._id as string)
+                    ? "violet"
+                    : "neutral"
+                }
+                onClick={() => handleToggleFilter(skill._id as string)}
+              >
+                {skill.name}
+              </Pill>
+            ))}
 
-            <Text css={{ margin: 0 }}>Fjern filter</Text>
-          </Pill>
-        )}
-      </Box>
+            {filteredSkills.length > 0 && (
+              <Pill
+                color="red"
+                css={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+                onClick={handleClearFilter}
+              >
+                <Icon>
+                  <Cross2Icon />
+                </Icon>
 
-      <Grid
-        css={{
-          mt: 16,
-          gap: 16,
-          "@sm": {
-            gridCols: 1,
-          },
-          "@md": {
-            gridCols: 2,
-          },
-          "@xl": {
-            gridCols: 3,
-          },
-        }}
-      >
-        {employees.map((employee, i) => (
-          <EmployeeCard employee={employee} key={i} />
-        ))}
-      </Grid>
+                <Text css={{ margin: 0 }}>Fjern filter</Text>
+              </Pill>
+            )}
+          </Box>
+
+          <Grid
+            css={{
+              mt: 16,
+              gap: 16,
+              "@sm": {
+                gridCols: 1,
+              },
+              "@md": {
+                gridCols: 2,
+              },
+              "@xl": {
+                gridCols: 3,
+              },
+            }}
+          >
+            {employees.map((employee, i) => (
+              <EmployeeCard employee={employee} key={i} />
+            ))}
+          </Grid>
+        </>
+      )}
     </Box>
   );
 };

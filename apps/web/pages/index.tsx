@@ -4,6 +4,9 @@ import Heading from "@ui/atoms/Heading";
 import Typewriter from "ui/src/molecules/Typewriter";
 import { violet, indigo } from "@radix-ui/colors";
 import Text from "@ui/atoms/Text";
+import Link from "@ui/atoms/Link";
+import Icon from "@ui/atoms/Icon";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 const IndexPage = () => {
   return (
@@ -11,23 +14,20 @@ const IndexPage = () => {
       css={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "start",
+        justifyContent: "center",
         alignItems: "center",
+        mt: 32,
       }}
     >
       <Heading
         css={{
           display: "flex",
-          flexWrap: "wrap",
+          flexDirection: "column",
+          textAlign: "center",
           gap: 8,
-          "@sm": {
-            fontSize: "$sm",
-          },
+          mb: 16,
           "@md": {
-            fontSize: "$3xl",
-          },
-          "@lg": {
-            fontSize: "$5xl",
+            flexDirection: "row",
           },
         }}
         pageTitle
@@ -54,7 +54,50 @@ const IndexPage = () => {
         </Box>
       </Heading>
 
-      <Button>call to action</Button>
+      <Box
+        css={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
+          justifyContent: "center",
+          alignItems: "center",
+          "@md": {
+            flexDirection: "row",
+          },
+        }}
+      >
+        <Link href="/clients">
+          <Button
+            callToAction
+            css={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+            }}
+          >
+            <Icon>
+              <ArrowRightIcon />
+            </Icon>
+            <Text>Kundeopplevelser</Text>
+          </Button>
+        </Link>
+
+        <Link href="/expertises">
+          <Button
+            callToAction
+            css={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+            }}
+          >
+            <Icon>
+              <ArrowRightIcon />
+            </Icon>
+            <Text>Vårt håndverk</Text>
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 };
