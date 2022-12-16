@@ -73,6 +73,7 @@ const IndexPage = () => {
               display: "flex",
               alignItems: "center",
               gap: 8,
+              textDecoration: "none",
             }}
           >
             <Icon>

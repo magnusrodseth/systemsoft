@@ -138,7 +138,7 @@ const Footer = () => {
         }}
       >
         <Text>
-          Developed ️by{" "}
+          Developed by{" "}
           <Link href="https://github.com/magnusrodseth" target="_blank">
             Magnus Rødseth
           </Link>{" "}
