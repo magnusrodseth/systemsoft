@@ -63,7 +63,7 @@ const Heading = styled("h1", {
     pageTitle: {
       true: {
         "@sm": {
-          fontSize: "$5xl",
+          fontSize: "$md",
         },
         "@md": {
           fontSize: "$4xl",

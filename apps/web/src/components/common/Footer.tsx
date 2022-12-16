@@ -107,7 +107,12 @@ const Footer = () => {
                   target="_blank"
                   css={{
                     width: "1.25rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
+                  aria-label="LinkedIn"
                 >
                   <Icon
                     css={{
@@ -122,6 +127,13 @@ const Footer = () => {
                       }}
                     />
                   </Icon>
+                  <Text
+                    css={{
+                      fontSize: "$xs",
+                    }}
+                  >
+                    LinkedIn
+                  </Text>
                 </Link>
               )}
             </Box>

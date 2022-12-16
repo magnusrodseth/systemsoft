@@ -9,7 +9,7 @@ import { getCssText } from "ui";
 
 const Document = () => {
   return (
-    <Html>
+    <Html lang="no">
       <Head>
         <style
           id="stitches"

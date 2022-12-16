@@ -2,7 +2,7 @@ import { graphql } from "../generated";
 
 const AllEmployeesQuery = graphql(`
   query AllEmployees {
-    allEmployee {
+    allEmployee(sort: { _createdAt: ASC }) {
       ...DefaultEmployee
     }
   }

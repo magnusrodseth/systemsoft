@@ -26,7 +26,7 @@ const documents = {
     "\n  fragment DefaultResume on Resume {\n    personalInformation {\n      ...DefaultPersonalInformation\n    }\n    education {\n      ...DefaultEducation\n    }\n    professionalExperience {\n      ...DefaultProfessionalExperience\n    }\n    skill {\n      ...DefaultSkill\n    }\n    language {\n      ...DefaultLanguage\n    }\n    certification {\n      ...DefaultCertification\n    }\n    publication {\n      ...DefaultPublication\n    }\n  }\n": types.DefaultResumeFragmentDoc,
     "\n  fragment DefaultSkill on Skill {\n    _id\n    name\n    shortDescription\n  }\n": types.DefaultSkillFragmentDoc,
     "\n  query AllClients {\n    allClient {\n      ...DefaultClient\n    }\n  }\n": types.AllClientsDocument,
-    "\n  query AllEmployees {\n    allEmployee {\n      ...DefaultEmployee\n    }\n  }\n": types.AllEmployeesDocument,
+    "\n  query AllEmployees {\n    allEmployee(sort: { _createdAt: ASC }) {\n      ...DefaultEmployee\n    }\n  }\n": types.AllEmployeesDocument,
     "\n  query ClientsWithTags {\n    allClient {\n      ...DefaultClient\n    }\n  }\n": types.ClientsWithTagsDocument,
     "\n  query ContactInformation {\n    allContactInformation {\n      email\n      phone\n      linkedInLink\n      address\n      postalCode\n      city\n      country\n    }\n  }\n": types.ContactInformationDocument,
     "\n  query Employee($id: ID!) {\n    Employee(id: $id) {\n      ...DefaultEmployee\n    }\n    allResume(where: { employee: { _id: { eq: $id } } }) {\n      ...DefaultResume\n    }\n  }\n": types.EmployeeDocument,
@@ -89,7 +89,7 @@ export function graphql(source: "\n  query AllClients {\n    allClient {\n      
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query AllEmployees {\n    allEmployee {\n      ...DefaultEmployee\n    }\n  }\n"): (typeof documents)["\n  query AllEmployees {\n    allEmployee {\n      ...DefaultEmployee\n    }\n  }\n"];
+export function graphql(source: "\n  query AllEmployees {\n    allEmployee(sort: { _createdAt: ASC }) {\n      ...DefaultEmployee\n    }\n  }\n"): (typeof documents)["\n  query AllEmployees {\n    allEmployee(sort: { _createdAt: ASC }) {\n      ...DefaultEmployee\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

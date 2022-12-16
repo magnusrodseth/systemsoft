@@ -61,74 +61,78 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
             Våre ansatte
           </Heading>
 
-          <Heading
-            css={{
-              my: 4,
-              "@sm": {
-                fontSize: "$sm",
-              },
-              "@md": {
-                fontSize: "$xl",
-              },
-              "@lg": {
-                fontSize: "$3xl",
-              },
-            }}
-          >
-            Filtrér fagområder
-          </Heading>
-          <Box
-            css={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: 6,
-              "@sm": {
-                width: "80%",
-              },
-              "@md": {
-                width: "60%",
-              },
-            }}
-          >
-            {skills.map(
-              (skill) =>
-                skill && (
-                  <Pill
-                    key={skill._id}
-                    color={
-                      filteredSkillIds.includes(skill?._id as string)
-                        ? "violet"
-                        : "neutral"
-                    }
-                    onClick={() => handleToggleFilter(skill._id as string)}
-                  >
-                    {skill.name}
-                  </Pill>
-                )
-            )}
-
-            {filteredSkillIds.length > 0 && (
-              <Pill
-                color="red"
+          {skills.length > 0 && (
+            <>
+              <Heading
+                css={{
+                  my: 4,
+                  "@sm": {
+                    fontSize: "$sm",
+                  },
+                  "@md": {
+                    fontSize: "$xl",
+                  },
+                  "@lg": {
+                    fontSize: "$3xl",
+                  },
+                }}
+              >
+                Filtrér fagområder
+              </Heading>
+              <Box
                 css={{
                   display: "flex",
+                  flexDirection: "row",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: 8,
+                  flexWrap: "wrap",
+                  gap: 6,
+                  "@sm": {
+                    width: "80%",
+                  },
+                  "@md": {
+                    width: "60%",
+                  },
                 }}
-                onClick={handleClearFilter}
               >
-                <Icon>
-                  <Cross2Icon />
-                </Icon>
+                {skills.map(
+                  (skill) =>
+                    skill && (
+                      <Pill
+                        key={skill._id}
+                        color={
+                          filteredSkillIds.includes(skill?._id as string)
+                            ? "violet"
+                            : "neutral"
+                        }
+                        onClick={() => handleToggleFilter(skill._id as string)}
+                      >
+                        {skill.name}
+                      </Pill>
+                    )
+                )}
 
-                <Text css={{ margin: 0 }}>Fjern filter</Text>
-              </Pill>
-            )}
-          </Box>
+                {filteredSkillIds.length > 0 && (
+                  <Pill
+                    color="red"
+                    css={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: 8,
+                    }}
+                    onClick={handleClearFilter}
+                  >
+                    <Icon>
+                      <Cross2Icon />
+                    </Icon>
+
+                    <Text css={{ margin: 0 }}>Fjern filter</Text>
+                  </Pill>
+                )}
+              </Box>
+            </>
+          )}
 
           <Grid
             css={{
