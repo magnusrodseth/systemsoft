@@ -13,11 +13,8 @@ import { Cross2Icon, Component1Icon } from "@radix-ui/react-icons";
 import { violet, indigo } from "@radix-ui/colors";
 import Spinner from "@ui/molecules/Spinner";
 import Error from "@/components/common/Error";
-import { useQuery } from "@apollo/client";
-import { useFragment } from "@/graphql/generated";
-import DefaultEmployeeFragment from "@/graphql/fragments/Employee";
-import type { DefaultEmployeeFragment as DefaultEmployeeFragmentType } from "@/graphql/generated/graphql";
 import AllEmployeesQuery from "@/graphql/queries/AllEmployees";
+import useFilteredEmployeesQuery from "@/hooks/useFilteredEmployeesQuery";
 
 type EmployeesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -28,41 +25,12 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
   loading,
   error,
 }) => {
-  const [filteredSkillIds, setFilteredSkillIds] = useState<string[]>([]);
-  const [employees, setEmployees] =
-    useState<(DefaultEmployeeFragmentType | null | undefined)[]>(allEmployees);
-
-  const handleToggleFilter = (skillId: string) => {
-    if (filteredSkillIds.includes(skillId)) {
-      setFilteredSkillIds((prev) => prev.filter((skill) => skill !== skillId));
-    } else {
-      setFilteredSkillIds((prev) => [...prev, skillId]);
-    }
-  };
-
-  const handleClearFilter = () => {
-    setFilteredSkillIds([]);
-  };
-
-  useEffect(() => {
-    // Filter employees based on filteredSkillIds
-    if (filteredSkillIds.length === 0) {
-      setEmployees(allEmployees);
-    } else {
-      const filteredEmployees = employeesWithSkills.filter((employee) => {
-        const employeeSkills = employee.skills?.map((skill) => skill?._id);
-        return filteredSkillIds.every((skillId) =>
-          employeeSkills?.includes(skillId)
-        );
-      });
-
-      const employees = filteredEmployees
-        .filter((entry) => entry.employee)
-        .map((entry) => entry.employee);
-
-      setEmployees(employees);
-    }
-  }, [filteredSkillIds, allEmployees, employeesWithSkills]);
+  const { employees, filteredSkillIds, handleToggleFilter, handleClearFilter } =
+    useFilteredEmployeesQuery({
+      allEmployees,
+      employeesWithSkills,
+      skills,
+    });
 
   if (loading) {
     return (
@@ -130,19 +98,22 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
               },
             }}
           >
-            {skills.map((skill) => (
-              <Pill
-                key={skill._id}
-                color={
-                  filteredSkillIds.includes(skill._id as string)
-                    ? "violet"
-                    : "neutral"
-                }
-                onClick={() => handleToggleFilter(skill._id as string)}
-              >
-                {skill.name}
-              </Pill>
-            ))}
+            {skills.map(
+              (skill) =>
+                skill && (
+                  <Pill
+                    key={skill._id}
+                    color={
+                      filteredSkillIds.includes(skill?._id as string)
+                        ? "violet"
+                        : "neutral"
+                    }
+                    onClick={() => handleToggleFilter(skill._id as string)}
+                  >
+                    {skill.name}
+                  </Pill>
+                )
+            )}
 
             {filteredSkillIds.length > 0 && (
               <Pill
