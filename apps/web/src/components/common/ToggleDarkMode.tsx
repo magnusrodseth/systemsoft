@@ -17,6 +17,7 @@ const ToggleDarkMode: FC<ToggleDarkModeProps> = ({ css }) => {
       activeIcon={<MoonIcon />}
       inactiveIcon={<SunIcon />}
       css={css}
+      label="Toggle dark mode"
     />
   );
 };
