@@ -30,6 +30,9 @@ const SEO = () => {
       dma, direct memory access, dma controller
       `}
       />
+      <meta name="author" content="SystemSoft" />
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
     </>
   );
 };
