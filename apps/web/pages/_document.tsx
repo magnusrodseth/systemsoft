@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import NextDocument, {
   Html,
   Head,
@@ -15,6 +16,7 @@ const Document = () => {
           id="stitches"
           dangerouslySetInnerHTML={{ __html: getCssText() }}
         />
+        <SEO />
       </Head>
       <body>
         <Main />

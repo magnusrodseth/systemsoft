@@ -22,8 +22,15 @@ const DesktopNavigation = () => {
         <Logo />
       </Box>
 
-      <NavigationMenuItem>
-        <NavigationMenuList
+      <NavigationMenuList
+        css={{
+          display: "flex",
+          flex: 1,
+          justifyContent: "end",
+          alignItems: "center",
+        }}
+      >
+        <Box
           css={{
             display: "flex",
             justifyContent: "end",
@@ -32,13 +39,13 @@ const DesktopNavigation = () => {
           }}
         >
           {navigation.map(({ label, href }, i) => (
-            <NavLink href={href} key={i}>
-              {label}
-            </NavLink>
+            <NavigationMenuItem key={i}>
+              <NavLink href={href}>{label}</NavLink>
+            </NavigationMenuItem>
           ))}
           <ToggleDarkMode />
-        </NavigationMenuList>
-      </NavigationMenuItem>
+        </Box>
+      </NavigationMenuList>
 
       <DesktopViewport />
     </DesktopMenuRoot>
@@ -51,6 +58,7 @@ const DesktopMenuRoot = styled(RadixNavigationMenu.Root, {
   },
   "@md": {
     display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
     gap: 8,
     p: 16,
@@ -65,10 +73,6 @@ const NavigationMenuList = styled(RadixNavigationMenu.List, {
 
 const NavigationMenuItem = styled(RadixNavigationMenu.Item, {
   listStyle: "none",
-  display: "flex",
-  flex: 1,
-  justifyContent: "end",
-  alignItems: "center",
 });
 
 const DesktopViewport = () => {
