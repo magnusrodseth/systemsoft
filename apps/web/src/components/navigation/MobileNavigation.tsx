@@ -56,7 +56,7 @@ const MobileNavigation = () => {
                 },
               }}
             >
-              <HamburgerMenuIcon />
+              <HamburgerMenuIcon aria-label="Open navigation menu" />
             </Button>
           </RadixDropDownMenu.Trigger>
 

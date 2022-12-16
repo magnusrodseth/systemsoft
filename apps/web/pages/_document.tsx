@@ -1,4 +1,5 @@
 import SEO from "@/components/SEO";
+import { API_ENDPOINT } from "@/constants";
 import NextDocument, {
   Html,
   Head,
@@ -17,6 +18,7 @@ const Document = () => {
           dangerouslySetInnerHTML={{ __html: getCssText() }}
         />
         <SEO />
+        <link rel="preconnect" href={API_ENDPOINT} />
       </Head>
       <body>
         <Main />
