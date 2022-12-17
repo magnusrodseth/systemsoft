@@ -10,6 +10,7 @@ const AboutPage = () => {
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "center",
+        textAlign: "center",
       }}
     >
       <Heading

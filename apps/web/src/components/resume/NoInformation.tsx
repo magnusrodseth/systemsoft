@@ -21,6 +21,7 @@ const NoInformation: FC<NoInformationProps> = ({ description }) => {
         justifyContent: "center",
         alignItems: "center",
         gap: 32,
+        textAlign: "center",
       }}
     >
       <Heading
@@ -34,7 +35,13 @@ const NoInformation: FC<NoInformationProps> = ({ description }) => {
       >
         Oisann!
       </Heading>
-      <Heading>{description}</Heading>
+      <Heading
+        css={{
+          fontSize: "$lg",
+        }}
+      >
+        {description}
+      </Heading>
 
       <Button color="violet">
         <Link

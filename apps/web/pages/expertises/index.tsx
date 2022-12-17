@@ -28,6 +28,7 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "center",
+        textAlign: "center",
       }}
     >
       {error ? (
@@ -44,7 +45,7 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
             }}
             pageTitle
           >
-            Våre klienter
+            Vår ekspertise
           </Heading>
 
           <Text

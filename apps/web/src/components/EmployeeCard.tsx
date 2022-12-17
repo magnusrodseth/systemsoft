@@ -38,17 +38,9 @@ const EmployeeCard: FC<EmployeeCardProps> = ({ employee }) => {
         >
           <Heading
             css={{
-              "@sm": {
-                fontSize: "$sm",
-              },
-              "@md": {
-                fontSize: "md",
-              },
-              "@lg": {
-                fontSize: "$lg",
-              },
+              fontSize: "$lg",
+              fontWeight: "$bold",
             }}
-            bold
           >
             {employee?.name}
           </Heading>

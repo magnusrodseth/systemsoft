@@ -30,6 +30,7 @@ const ClientsPage: FC<ClientsPageProps> = ({ clients, loading, error }) => {
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "center",
+        textAlign: "center",
       }}
     >
       {error ? (
