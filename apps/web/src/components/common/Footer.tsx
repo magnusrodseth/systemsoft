@@ -41,7 +41,12 @@ const Footer = () => {
             <Box
               css={{
                 display: "flex",
-                flexDirection: "row",
+                "@sm": {
+                  flexDirection: "column",
+                },
+                "@md": {
+                  flexDirection: "row",
+                },
                 justifyContent: "center",
                 alignItems: "start",
                 gap: 36,
