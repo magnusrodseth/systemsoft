@@ -82,7 +82,7 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
                       alignItems: "start",
                       textAlign: "left",
                       p: 32,
-                      backgroundColor: even ? "$violet4" : "$indigo4",
+                      backgroundColor: even ? "$violet5" : "$indigo5",
                       zIndex: 2,
                       borderRadius: 8,
                     }}
