@@ -84,6 +84,7 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
                       p: 32,
                       backgroundColor: even ? "$violet4" : "$indigo4",
                       zIndex: 2,
+                      borderRadius: 8,
                     }}
                   >
                     <Heading subtitle>{expertise.name}</Heading>
@@ -105,22 +106,22 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
                     <PortableText value={expertise.descriptionRaw} />
                   </Box>
 
-                  {expertise.image?.asset?.url && (
-                    <Box
-                      css={{
-                        position: "relative",
-                        zIndex: 1,
-                        overflow: "hidden",
-                        width: "100%",
-                        height: "20rem",
-                        my: 16,
-                        "@md": {
-                          height: "25rem",
-                          left: even ? "-5%" : "5%",
-                        },
-                        opacity: 0.6,
-                      }}
-                    >
+                  <Box
+                    css={{
+                      position: "relative",
+                      zIndex: 1,
+                      overflow: "hidden",
+                      width: "100%",
+                      height: expertise.image?.asset?.url ? "20rem" : "0",
+                      my: 16,
+                      "@md": {
+                        height: "25rem",
+                        left: even ? "-5%" : "5%",
+                      },
+                      opacity: 0.6,
+                    }}
+                  >
+                    {expertise.image?.asset?.url && (
                       <Image
                         src={expertise.image?.asset?.url}
                         alt={
@@ -132,8 +133,8 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
                           objectFit: "cover",
                         }}
                       />
-                    </Box>
-                  )}
+                    )}
+                  </Box>
                 </Box>
               );
             })}
