@@ -137,6 +137,7 @@ const EmployeesPage: FC<EmployeesPageProps> = ({
           <Grid
             css={{
               mt: 16,
+              mx: 16,
               gap: 16,
               "@sm": {
                 gridCols: 1,

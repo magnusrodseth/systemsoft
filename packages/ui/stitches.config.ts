@@ -156,6 +156,17 @@ export const {
         : {
             gridTemplateRows: `repeat(${value}, minmax(0, 1fr))`,
           },
+    colSpan: (
+      value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none"
+    ) => ({
+      gridColumn: value === "none" ? "none" : `span ${value} / span ${value}`,
+    }),
+    colStart: (value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12) => ({
+      gridColumnStart: value,
+    }),
+    colEnd: (value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12) => ({
+      gridColumnEnd: value,
+    }),
 
     // Shadow
     shadow: (value: "sm" | "md" | "lg" | "xl" | "2xl") => ({
