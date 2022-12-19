@@ -106,10 +106,10 @@ const AboutPage = () => {
                     colSpan: 2,
                     colStart: even ? 1 : 2,
                   },
-                  borderTop: even ? "5px solid $violet9" : "none",
-                  borderLeft: even ? "5px solid $violet9" : "none",
-                  borderRight: !even ? "5px solid $indigo9" : "none",
-                  borderBottom: !even ? "5px solid $indigo9" : "none",
+                  borderTop: even ? "3px solid $violet9" : "none",
+                  borderLeft: even ? "3px solid $violet9" : "none",
+                  borderRight: !even ? "3px solid $indigo9" : "none",
+                  borderBottom: !even ? "3px solid $indigo9" : "none",
                   p: 16,
                 }}
               >

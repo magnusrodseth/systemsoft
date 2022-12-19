@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultClientFragmentDoc,
     "\n  fragment DefaultEmployee on Employee {\n    _id\n    name\n    email\n    title\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultEmployeeFragmentDoc,
-    "\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultExpertiseFragmentDoc,
+    "\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultExpertiseFragmentDoc,
     "\n  fragment DefaultTag on Tag {\n    _id\n    name\n  }\n": types.DefaultTagFragmentDoc,
     "\n  fragment DefaultCertification on Certification {\n    title\n    shortDescription\n    link\n  }\n": types.DefaultCertificationFragmentDoc,
     "\n  fragment DefaultEducation on Education {\n    school\n    degree\n    fieldOfStudy\n    start\n    end\n  }\n": types.DefaultEducationFragmentDoc,
@@ -45,7 +45,7 @@ export function graphql(source: "\n  fragment DefaultEmployee on Employee {\n   
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

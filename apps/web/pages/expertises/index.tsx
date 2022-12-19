@@ -9,6 +9,10 @@ import { InferGetStaticPropsType } from "next";
 import { FC } from "react";
 import Loading from "@/components/common/Loading";
 import Error from "@/components/common/Error";
+import Image from "@ui/atoms/Image";
+import PortableText from "@/components/PortableText";
+import Icon from "@ui/atoms/Icon";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 type ExperisesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -29,6 +33,7 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
         justifyContent: "start",
         alignItems: "center",
         textAlign: "center",
+        mx: 16,
       }}
     >
       {error ? (
@@ -48,13 +53,91 @@ const ExpertisesPage: FC<ExperisesPageProps> = ({
             Vår ekspertise
           </Heading>
 
-          <Text
+          <Box
             css={{
-              my: 16,
+              mt: 32,
             }}
           >
-            🚧 Under konstruksjon. Vennligst kom tilbake senere. 🚧
-          </Text>
+            {expertises.map((expertise, i) => {
+              const even = i % 2 === 0;
+              return (
+                <Box
+                  key={i}
+                  css={{
+                    display: "flex",
+                    flexDirection: "column",
+                    "@md": {
+                      flexDirection: even ? "row" : "row-reverse",
+                    },
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                    my: 32,
+                  }}
+                >
+                  <Box
+                    css={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "start",
+                      textAlign: "left",
+                      p: 32,
+                      backgroundColor: even ? "$violet4" : "$indigo4",
+                      zIndex: 2,
+                    }}
+                  >
+                    <Heading subtitle>{expertise.name}</Heading>
+                    <Text
+                      css={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "start",
+                        gap: 8,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      <Icon>
+                        <CheckIcon />
+                      </Icon>
+                      {expertise.shortDescription}
+                    </Text>
+
+                    <PortableText value={expertise.descriptionRaw} />
+                  </Box>
+
+                  {expertise.image?.asset?.url && (
+                    <Box
+                      css={{
+                        position: "relative",
+                        zIndex: 1,
+                        overflow: "hidden",
+                        width: "100%",
+                        height: "20rem",
+                        my: 16,
+                        "@md": {
+                          height: "25rem",
+                          left: even ? "-5%" : "5%",
+                        },
+                        opacity: 0.6,
+                      }}
+                    >
+                      <Image
+                        src={expertise.image?.asset?.url}
+                        alt={
+                          expertise.shortDescription ||
+                          "An image of an expertise"
+                        }
+                        fill
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              );
+            })}
+          </Box>
         </>
       )}
     </Box>

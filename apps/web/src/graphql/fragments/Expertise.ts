@@ -4,6 +4,7 @@ const DefaultExpertiseFragment = graphql(`
   fragment DefaultExpertise on Expertise {
     name
     shortDescription
+    descriptionRaw
     tags {
       name
     }
