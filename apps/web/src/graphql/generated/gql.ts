@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultClientFragmentDoc,
+    "\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultClientFragmentDoc,
     "\n  fragment DefaultEmployee on Employee {\n    _id\n    name\n    email\n    title\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultEmployeeFragmentDoc,
     "\n  fragment DefaultExpertise on Expertise {\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      name\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n": types.DefaultExpertiseFragmentDoc,
     "\n  fragment DefaultTag on Tag {\n    _id\n    name\n  }\n": types.DefaultTagFragmentDoc,
@@ -37,7 +37,7 @@ const documents = {
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment DefaultClient on Client {\n    _id\n    name\n    shortDescription\n    descriptionRaw\n    tags {\n      ...DefaultTag\n    }\n    image {\n      asset {\n        url\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

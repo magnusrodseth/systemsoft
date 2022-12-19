@@ -5,6 +5,7 @@ const DefaultClientFragment = graphql(`
     _id
     name
     shortDescription
+    descriptionRaw
     tags {
       ...DefaultTag
     }
