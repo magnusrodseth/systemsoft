@@ -20,7 +20,7 @@ const documents = {
     "\n  fragment DefaultCertification on Certification {\n    title\n    shortDescription\n    link\n  }\n": types.DefaultCertificationFragmentDoc,
     "\n  fragment DefaultEducation on Education {\n    school\n    degree\n    fieldOfStudy\n    start\n    end\n  }\n": types.DefaultEducationFragmentDoc,
     "\n  fragment DefaultLanguage on Language {\n    name\n  }\n": types.DefaultLanguageFragmentDoc,
-    "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n": types.DefaultPersonalInformationFragmentDoc,
+    "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n": types.DefaultPersonalInformationFragmentDoc,
     "\n  fragment DefaultProfessionalExperience on ProfessionalExperience {\n    employer\n    location\n    start\n    end\n    descriptionRaw\n  }\n": types.DefaultProfessionalExperienceFragmentDoc,
     "\n  fragment DefaultPublication on Publication {\n    title\n    link\n    descriptionRaw\n  }\n": types.DefaultPublicationFragmentDoc,
     "\n  fragment DefaultResume on Resume {\n    personalInformation {\n      ...DefaultPersonalInformation\n    }\n    education {\n      ...DefaultEducation\n    }\n    professionalExperience {\n      ...DefaultProfessionalExperience\n    }\n    skill {\n      ...DefaultSkill\n    }\n    language {\n      ...DefaultLanguage\n    }\n    certification {\n      ...DefaultCertification\n    }\n    publication {\n      ...DefaultPublication\n    }\n  }\n": types.DefaultResumeFragmentDoc,
@@ -65,7 +65,7 @@ export function graphql(source: "\n  fragment DefaultLanguage on Language {\n   
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"): (typeof documents)["\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    age\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"];
+export function graphql(source: "\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"): (typeof documents)["\n  fragment DefaultPersonalInformation on PersonalInformation {\n    address\n    postalCode\n    city\n    githubLink\n    linkedinLink\n    status\n    aboutRaw\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

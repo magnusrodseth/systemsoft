@@ -106,6 +106,12 @@ const EmployeePage: FC<EmployeePageProps> = ({ data, loading, error }) => {
         css={{
           gridCols: 1,
           gap: 24,
+          "@sm": {
+            width: "90%",
+          },
+          "@md": {
+            width: "60%",
+          },
         }}
       >
         <PersonalInformation

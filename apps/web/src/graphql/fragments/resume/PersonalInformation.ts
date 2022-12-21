@@ -5,7 +5,6 @@ const DefaultPersonalInformationFragment = graphql(`
     address
     postalCode
     city
-    age
     githubLink
     linkedinLink
     status
