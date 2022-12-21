@@ -9,7 +9,7 @@ import { FC } from "react";
 import { indigo, violet } from "@radix-ui/colors";
 import DefaultResumeFragment from "@/graphql/fragments/resume/Resume";
 import useResume from "@/hooks/useResume";
-import { ONE_DAY_IN_SECONDS } from "@/constants";
+import { ONE_MINUTE_IN_SECONDS } from "@/constants";
 import NoInformation from "@/components/resume/NoInformation";
 import PersonalInformation from "@/components/resume/PersonalInformation";
 import ProfilePicture from "@/components/ProfilePicture";
@@ -203,7 +203,7 @@ export const getStaticProps = async ({
       loading,
       error: !!error,
     },
-    revalidate: ONE_DAY_IN_SECONDS,
+    revalidate: ONE_MINUTE_IN_SECONDS,
   };
 };
 
