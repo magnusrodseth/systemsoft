@@ -73,6 +73,7 @@ const Heading = styled("h1", {
       },
     },
 
+
     subtitle: {
       true: {
         "@maxSm": {
