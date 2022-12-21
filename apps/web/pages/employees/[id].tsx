@@ -1,41 +1,16 @@
 import DefaultEmployeeFragment from "@/graphql/fragments/Employee";
 import { useFragment } from "@/graphql/generated";
 import EmployeeQuery from "@/graphql/queries/Employee";
-import EmployeesWithSkillsQuery from "@/graphql/queries/EmployeesWithSkills";
 import client from "@/lib/apollo";
 import Box from "@ui/atoms/Box";
-import HorizontalDivider from "@ui/atoms/HorizontalDivider";
-import Tooltip from "@ui/molecules/Tooltip";
-import Text from "@ui/atoms/Text";
 import Heading from "@ui/atoms/Heading";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { FC } from "react";
 import { indigo, violet } from "@radix-ui/colors";
-import Image from "@ui/atoms/Image";
 import DefaultResumeFragment from "@/graphql/fragments/resume/Resume";
-import {
-  EnvelopeClosedIcon,
-  HomeIcon,
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-  ChatBubbleIcon,
-  PersonIcon,
-  DotFilledIcon,
-  ExternalLinkIcon,
-} from "@radix-ui/react-icons";
-import Link from "@ui/atoms/Link";
-import ShortResumeItem from "@/components/resume/ShortResumeItem";
 import useResume from "@/hooks/useResume";
-import { ONE_WEEK_IN_SECONDS } from "@/constants";
+import { ONE_DAY_IN_SECONDS } from "@/constants";
 import NoInformation from "@/components/resume/NoInformation";
-import PortableText from "@/components/PortableText";
-import ResumeCard from "@/components/resume/ResumeCard";
-import { DrawingPinFilledIcon, CalendarIcon } from "@radix-ui/react-icons";
-import formatDate from "@/utils/formatDate";
-import Pill from "@ui/atoms/Pill";
-import Button from "@ui/atoms/Button";
-import Icon from "@ui/atoms/Icon";
-import Card from "@ui/molecules/Card";
 import PersonalInformation from "@/components/resume/PersonalInformation";
 import ProfilePicture from "@/components/ProfilePicture";
 import Grid from "@ui/molecules/Grid";
@@ -228,7 +203,7 @@ export const getStaticProps = async ({
       loading,
       error: !!error,
     },
-    revalidate: ONE_WEEK_IN_SECONDS,
+    revalidate: ONE_DAY_IN_SECONDS,
   };
 };
 
