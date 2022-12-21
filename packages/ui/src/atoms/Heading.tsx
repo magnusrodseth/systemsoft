@@ -75,6 +75,9 @@ const Heading = styled("h1", {
 
     subtitle: {
       true: {
+        "@maxSm": {
+          fontSize: "$md",
+        },
         "@sm": {
           fontSize: "$lg",
         },
