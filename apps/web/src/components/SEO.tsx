@@ -33,6 +33,9 @@ const SEO = () => {
       <meta name="author" content="SystemSoft" />
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
+      <meta property="og:image" content="/logo.svg" />
+      <meta property="og:image:alt" content="SystemSoft" />
+      <meta property="og:image:type" content="image/svg+xml" />
     </>
   );
 };
