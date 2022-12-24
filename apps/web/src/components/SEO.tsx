@@ -36,6 +36,7 @@ const SEO = () => {
       <meta property="og:image" content="/logo.svg" />
       <meta property="og:image:alt" content="SystemSoft" />
       <meta property="og:image:type" content="image/svg+xml" />
+      <meta name="google-site-verification" content="SgHd8Ku2Z1XJWpTWK6S9kIZjiGeoz1dEW62uk_S2a2s" />
     </>
   );
 };
