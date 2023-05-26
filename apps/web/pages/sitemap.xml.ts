@@ -33,6 +33,10 @@ const generateSiteMap = ({ employeeIds }: GenerateSiteMapProps) => {
           `;
       })
       .join("")}
+
+      <url>
+        <loc>https://www.sobekkseter.systemsoft.no</loc>
+      </url>  
   </urlset>
           `;
 
