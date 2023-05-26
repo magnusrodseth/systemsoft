@@ -4,6 +4,7 @@ import { darkTheme, globalStyles } from "ui";
 import Box from "ui/src/atoms/Box";
 import ApolloProvider from "./ApolloProvider";
 import { EB_Garamond, Lato } from "@next/font/google";
+import Script from "next/script";
 
 type AppProviderProps = {
   children: ReactNode;
@@ -29,6 +30,14 @@ const AppProvider: FC<AppProviderProps> = ({ children }) => {
       <ApolloProvider>
         <Layout>{children}</Layout>
       </ApolloProvider>
+
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3731844450515812"
+        crossOrigin="anonymous"
+      ></Script>
     </Box>
   );
 };
