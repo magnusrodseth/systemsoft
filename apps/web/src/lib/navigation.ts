@@ -8,10 +8,11 @@ const navigation: Navigation[] = [
     label: "Vår ekspertise",
     href: "/expertises",
   },
-  {
-    label: "Våre klienter",
-    href: "/clients",
-  },
+  // TODO: Add clients back later
+  // {
+  //   label: "Våre klienter",
+  //   href: "/clients",
+  // },
   {
     label: "Om oss",
     href: "/about",
