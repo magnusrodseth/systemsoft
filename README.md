@@ -1,73 +1,60 @@
-# Turborepo starter
+# SystemSoft
 
-This is an official pnpm starter turborepo.
+Monorepo for the SystemSoft website, its Sanity content studio, and shared UI components.
+The website presents the company, employees, expertise, and employee CVs.
 
-## What's inside?
+## Workspaces
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+| Path | Purpose |
+|---|---|
+| [apps/web/](apps/web/) | Next.js Pages Router website with Apollo Client and GraphQL queries |
+| [apps/cms/](apps/cms/) | Sanity Studio with employee, expertise, contact, and CV schemas |
+| [packages/ui/](packages/ui/) | Shared React components, fonts, and Stitches theme |
+| [packages/tsconfig/](packages/tsconfig/) | Shared TypeScript configurations |
+| [packages/eslint-config-custom/](packages/eslint-config-custom/) | Shared ESLint configuration |
 
-### Apps and Packages
+## Development
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+The root [package.json](package.json) pins pnpm 7.18.1 and declares Node.js 14 or later.
+This is the repository's historical toolchain declaration; check workspace dependencies before changing Node or package-manager versions.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run build
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-### Develop
+The root development command runs workspace development scripts in parallel.
+To run one app:
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
+```sh
+pnpm --filter web dev
+pnpm --filter cms dev
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Content and GraphQL
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+The web app reads the Sanity GraphQL endpoint configured in
+[apps/web/src/constants/index.ts](apps/web/src/constants/index.ts).
+Sanity's project and dataset are configured in
+[apps/cms/sanity.config.ts](apps/cms/sanity.config.ts) and
+[apps/cms/sanity.cli.ts](apps/cms/sanity.cli.ts).
+Content editing and schema deployment require access to that Sanity project.
 
+After changing GraphQL queries or the published schema, regenerate the client types:
+
+```sh
+pnpm --filter web generate
 ```
-pnpm dlx turbo link
+
+The code-generation inputs and output directory are defined in
+[apps/web/codegen.ts](apps/web/codegen.ts).
+
+## Checks
+
+```sh
+pnpm lint
+pnpm build
 ```
 
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+These commands use the task pipeline in [turbo.json](turbo.json).
+The web app's content queries depend on the configured Sanity service.
